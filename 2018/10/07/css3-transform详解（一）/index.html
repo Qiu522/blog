@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://www.yfvip.top/blog">
   <title>css3-transform详解（一） | 小黑的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="transform：转换  定义以及基本用法  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。  基本语法：transform: none|transform-functions   为什么我们今天要讲css属性呢，因为他实在是太好用了，我们知道js要实现一些动画往往需要大量的代码，但通过使用transform配合transitio">
+  <meta name="description" content="transform（转换）  定义以及基本用法  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。  基本语法：transform: none|transform-functions">
 <meta name="keywords" content="前端,css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css3-transform详解（一）">
 <meta property="og:url" content="https://www.yfvip.top/blog/2018/10/07/css3-transform详解（一）/index.html">
 <meta property="og:site_name" content="小黑的个人博客">
-<meta property="og:description" content="transform：转换  定义以及基本用法  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。  基本语法：transform: none|transform-functions   为什么我们今天要讲css属性呢，因为他实在是太好用了，我们知道js要实现一些动画往往需要大量的代码，但通过使用transform配合transitio">
+<meta property="og:description" content="transform（转换）  定义以及基本用法  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。  基本语法：transform: none|transform-functions">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-07T13:21:40.119Z">
+<meta property="og:updated_time" content="2018-10-07T13:25:38.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3-transform详解（一）">
-<meta name="twitter:description" content="transform：转换  定义以及基本用法  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。  基本语法：transform: none|transform-functions   为什么我们今天要讲css属性呢，因为他实在是太好用了，我们知道js要实现一些动画往往需要大量的代码，但通过使用transform配合transitio">
+<meta name="twitter:description" content="transform（转换）  定义以及基本用法  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。  基本语法：transform: none|transform-functions">
   
     <link rel="alternative" href="/atom.xml" title="小黑的个人博客" type="application/atom+xml">
   
@@ -194,10 +194,9 @@
          <!-- 目录内容 -->
               
       <!-- 目录内容结束 -->
-        <h1 id="transform：转换"><a href="#transform：转换" class="headerlink" title="transform：转换"></a>transform：转换</h1><p>  <strong>定义以及基本用法</strong><br>  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。<br>  基本语法：transform: none|transform-functions</p>
+        <h1 id="transform（转换）"><a href="#transform（转换）" class="headerlink" title="transform（转换）"></a>transform（转换）</h1><p>  <strong>定义以及基本用法</strong><br>  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。<br>  基本语法：transform: none|transform-functions<br><a id="more"></a></p>
 <p>  为什么我们今天要讲css属性呢，因为他实在是太好用了，我们知道js要实现一些动画往往需要大量的代码，但通过使用transform配合transition就可以轻松做出动画效果，通过使用transform可以很方便的使div进行旋转缩放，不需要通过去修改元素大量的css属性。那么我们首先来看看transform可以实现哪些动画。</p>
 <p>  其次要注意的一点就是在写移动端页面的时候我们最好加上webkit前缀，与之相关的属性也最好一起加上，具体可以查看相关文档。</p>
-<a id="more"></a>
 <p>  <strong>旋转</strong><br>  <blockquote><p>rotate：单位deg<br>  2D操作：retate(angle) || ratateX(angle) || ratateY(angle)<br>  3D操作：rotate3d(x, y, z, angle) || ratateZ(angle)</p>
 </blockquote></p>
 <p>  <strong>缩放</strong><br>  <blockquote><p>scale：<br>  2D操作：scale(x,y) || scaleX(x) || scaleY(y)<br>  3D操作：scale3d(x, y, z) || scaleZ(z)</p>
