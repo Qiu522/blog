@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.yfvip.top/blog">
-  <title>Tag: hello | 小黑的个人博客</title>
+  <title>css3-transform详解（一） | 小黑的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="小黑的个人博客">
-<meta property="og:url" content="https://www.yfvip.top/blog/tags/hello/index.html">
+  <meta name="description" content="transform：转换  定义以及基本用法  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。  基本语法：transform: none|transform-functions   为什么我们今天要讲css属性呢，因为他实在是太好用了，我们知道js要实现一些动画往往需要大量的代码，但通过使用transform配合transitio">
+<meta name="keywords" content="前端,css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css3-transform详解（一）">
+<meta property="og:url" content="https://www.yfvip.top/blog/2018/10/07/css3-transform详解（一）/index.html">
 <meta property="og:site_name" content="小黑的个人博客">
+<meta property="og:description" content="transform：转换  定义以及基本用法  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。  基本语法：transform: none|transform-functions   为什么我们今天要讲css属性呢，因为他实在是太好用了，我们知道js要实现一些动画往往需要大量的代码，但通过使用transform配合transitio">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-07T12:55:03.436Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小黑的个人博客">
+<meta name="twitter:title" content="css3-transform详解（一）">
+<meta name="twitter:description" content="transform：转换  定义以及基本用法  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。  基本语法：transform: none|transform-functions   为什么我们今天要讲css属性呢，因为他实在是太好用了，我们知道js要实现一些动画往往需要大量的代码，但通过使用transform配合transitio">
   
     <link rel="alternative" href="/atom.xml" title="小黑的个人博客" type="application/atom+xml">
   
@@ -166,64 +171,221 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-css3-transform详解（一）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2018/10/04/hello-world/" class="archive-article-date">
-  	<time datetime="2018-10-04T15:07:35.101Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2018/10/04/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      css3-transform详解（一）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/blog/2018/10/07/css3-transform详解（一）/" class="archive-article-date">
+  	<time datetime="2018-10-07T11:03:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+         <!-- 目录内容 -->
+              
+      <!-- 目录内容结束 -->
+        <h1 id="transform：转换"><a href="#transform：转换" class="headerlink" title="transform：转换"></a>transform：转换</h1><p>  <strong>定义以及基本用法</strong><br>  定义：transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。<br>  基本语法：transform: none|transform-functions</p>
+<p>  为什么我们今天要讲css属性呢，因为他实在是太好用了，我们知道js要实现一些动画往往需要大量的代码，但通过使用transform配合transition就可以轻松做出动画效果，通过使用transform可以很方便的使div进行旋转缩放，不需要通过去修改元素大量的css属性。那么我们首先来看看transform可以实现哪些动画。</p>
+<p>  其次要注意的一点就是在写移动端页面的时候我们最好加上webkit前缀，与之相关的属性也最好一起加上，具体可以查看相关文档。</p>
+<p>  <strong>旋转</strong><br>  <blockquote><p>rotate：单位deg<br>  2D操作：retate(angle) || ratateX(angle) || ratateY(angle)<br>  3D操作：rotate3d(x, y, z, angle) || ratateZ(angle)</p>
+</blockquote></p>
+<p>  <strong>缩放</strong><br>  <blockquote><p>scale：<br>  2D操作：scale(x,y) || scaleX(x) || scaleY(y)<br>  3D操作：scale3d(x, y, z) || scaleZ(z)</p>
+</blockquote></p>
+<p>  <strong>移动</strong><br>  <blockquote><p>translate：<br>  2D操作：translate(x,y) || translateX(x) || translateY(y)<br>  3D操作：translate3d(x, y, z) || translateZ(z)</p>
+</blockquote></p>
+<p>  <strong>斜切</strong><br>  <blockquote><p>skew：单位deg<br>  2D操作：skew(x-angle,y-angle) || skewX(angle) || skewY(angle) </p>
+</blockquote></p>
+<p>  至于这些参数的基本用法这里就不多说了，这里要使用时要注意的两点一是这些变换默认都是按着元素中心点进行变换：二是如果你给元素同时加了多种变换， 它的执行顺序是先写的后执行，例如如果你写了transform: scale(2) translate(100px),那么元素会先执行移动再进行缩放，如果你将两者颠倒则会产生不同的效果。具体原因我们后面再说，有兴趣的同学也可以自己试试并思考一下为什么会不同。</p>
+<h1 id="transform-origin：转换中心点"><a href="#transform-origin：转换中心点" class="headerlink" title="transform-origin：转换中心点"></a>transform-origin：转换中心点</h1><p>  上一节我们说过，默认情况下元素按照元素的中心点进行变换，如果你想按照你自己希望的点进行变化，你就可以设置元素的变换中心点，注意最好在写样式的时候同时写上带webkit内核的属性。</p>
+<p>  <strong>具体用法</strong><br>  <blockquote><p>默认值<br>  transform-orgin: center center;<br>注意：<br>  如果只写一个参数，另外一个值默认为center，而不是两者相同<br>参数：<br>  关键字：center，left。。。<br>  距离单位：px，em。。。<br>  百分比</p>
+</blockquote></p>
+<h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><p>  如果我们想通过js让一个div运动起来，我们可能会去修改元素的position，可是我们通过transform让元素移动时并没有设置定位，那么我们是如何做到的呢？</p>
+<p>  我们可以先给一个div设置translate(100px),然后我们试着通过js的getComputedStyle去获取并打印出transform,我们会神奇的发现打印出来的是:matrix(1, 0, 0, 1, 100, 0) 。这就是矩阵方程，transform就是通过改变这个方程来实现元素的变换的至于什么是矩阵，那就是数学问题了，这里我就不深入介绍了，有兴趣的同学可以自己去查阅资料，这里我只介绍如何通过矩阵实现变换。所以其实transform还可以接受一个参数就是矩阵方程，那么我们先来看看怎么通过矩阵实现这些变换。</p>
+  <blockquote><p>matrix(a,b,c,d,e,f)<br>初始值：matrix(1,0,0,1,0,0)</p>
+<p>通过矩阵进行位移<br>  x轴位移 = e+x<br>  y轴位移 = f+y</p>
+<p>通过矩阵进行缩放<br>  x轴：<br>    a = a<em>x；<br>    c = c</em>x；<br>    e = e<em>x；<br>  y轴：<br>    b = b</em>x；<br>    d = d<em>x；<br>    f = f</em>x；</p>
+<p>通过矩阵函数进行斜切<br>  x斜切：（deg）<br>    c = Math.tan(deg/180<em>Math.PI)<br>  y斜切：（deg）<br>    b = Math.tan(deg/180</em>Math.PI)</p>
+<p>通过矩阵函数进行旋转<br>  a = Math.cos(deg/180<em>Math.PI)<br>  b = Math.sin(deg/180</em>Math.PI)<br>  c = -Math.sin(deg/180<em>Math.PI)<br>  d = Math.cos(deg/180</em>Math.PI)</p>
+<p>角度转弧度公式 = deg*Math.PI/180</p>
+</blockquote>
+<p>  到这里我们就能明白为什么transform:scale(.5) translate(100px)和transform:translate(100px) scale(.5)最后效果不同了，通过矩阵方程我们发现前者变换后的矩阵方程是：matrix(.5,0,0,.5,50,0)，而后者是：matrix(.5,0,0,.5,100,0)，自然最后得到的变换不尽相同了。</p>
+<p>  最后要提一下得是这只是2d变换的矩阵方程，3d变换的矩阵还要复杂，但基本原理都是一样的，虽然我们可以直接通过封装好的属性来实现变换，但我们最好也能换记住相应的矩阵变换方程。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>  到这transform的基本用法我们就说完了，通过transform我们可以轻松实现一些效果，例如无缝滚动，照片墙摆放效果等，大家可以自己试着去使用transform做一些简单的动画效果。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/blog/img/支付宝.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.yfvip.top/blog/2018/10/07/css3-transform详解（一）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/blog/2018/10/06/Hexo自定义页面做首页/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo自定义页面做首页</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://www.yfvip.top/blog/blog/2018/10/07/css3-transform详解（一）/",
+  owner: '‘Qiu522’',
+  repo: '‘Qiu522.github.io’',
+  oauth: {
+    client_id: '42f587f7292ea4b3545b',
+    client_secret: 'a419c7b5f6f0d10b86b0f78d9697e7b4881bf526',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -253,9 +415,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
