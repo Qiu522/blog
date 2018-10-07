@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://www.yfvip.top/blog/"/>
-  <updated>2018-10-07T12:55:03.436Z</updated>
+  <updated>2018-10-07T12:59:54.402Z</updated>
   <id>https://www.yfvip.top/blog/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>武功山之行</title>
+    <link href="https://www.yfvip.top/blog/2018/10/07/%E6%AD%A6%E5%8A%9F%E5%B1%B1%E4%B9%8B%E8%A1%8C/"/>
+    <id>https://www.yfvip.top/blog/2018/10/07/武功山之行/</id>
+    <published>2018-10-07T12:59:22.000Z</published>
+    <updated>2018-10-07T12:59:54.402Z</updated>
+    
+    <content type="html"><![CDATA[<p>11111</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;11111&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://www.yfvip.top/blog/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>css3-transform详解（一）</title>
