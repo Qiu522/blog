@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://www.yfvip.top/blog">
   <title>css3-transform详解（二） | 小黑的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="transform动画  上一节我们介绍了transform转换的基本用法，我们知道transform实现通过矩阵来完成的，这就造成如果我们给一个元素加了多个转换样式，例如同时添加了缩放位移，我们很难用js去获取到底元素做了哪些变换，那么如果我要实现点击一下让元素旋转30deg，要实现这个首先我得知道我点击之前元素已经旋转了多少，那么这要获取起来也是十分麻烦。   封装transform函数  如">
+  <meta name="description" content="transform动画  上一节我们介绍了transform转换的基本用法，我们知道transform实现通过矩阵来完成的，这就造成如果我们给一个元素加了多个转换样式，例如同时添加了缩放位移，我们很难用js去获取到底元素做了哪些变换，那么如果我要实现点击一下让元素旋转30deg，要实现这个首先我得知道我点击之前元素已经旋转了多少，那么这要获取起来也是十分麻烦。">
 <meta name="keywords" content="前端,css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css3-transform详解（二）">
 <meta property="og:url" content="https://www.yfvip.top/blog/2018/10/09/css3-transform详解（二）/index.html">
 <meta property="og:site_name" content="小黑的个人博客">
-<meta property="og:description" content="transform动画  上一节我们介绍了transform转换的基本用法，我们知道transform实现通过矩阵来完成的，这就造成如果我们给一个元素加了多个转换样式，例如同时添加了缩放位移，我们很难用js去获取到底元素做了哪些变换，那么如果我要实现点击一下让元素旋转30deg，要实现这个首先我得知道我点击之前元素已经旋转了多少，那么这要获取起来也是十分麻烦。   封装transform函数  如">
+<meta property="og:description" content="transform动画  上一节我们介绍了transform转换的基本用法，我们知道transform实现通过矩阵来完成的，这就造成如果我们给一个元素加了多个转换样式，例如同时添加了缩放位移，我们很难用js去获取到底元素做了哪些变换，那么如果我要实现点击一下让元素旋转30deg，要实现这个首先我得知道我点击之前元素已经旋转了多少，那么这要获取起来也是十分麻烦。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-09T07:16:54.826Z">
+<meta property="og:updated_time" content="2018-10-09T07:19:37.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3-transform详解（二）">
-<meta name="twitter:description" content="transform动画  上一节我们介绍了transform转换的基本用法，我们知道transform实现通过矩阵来完成的，这就造成如果我们给一个元素加了多个转换样式，例如同时添加了缩放位移，我们很难用js去获取到底元素做了哪些变换，那么如果我要实现点击一下让元素旋转30deg，要实现这个首先我得知道我点击之前元素已经旋转了多少，那么这要获取起来也是十分麻烦。   封装transform函数  如">
+<meta name="twitter:description" content="transform动画  上一节我们介绍了transform转换的基本用法，我们知道transform实现通过矩阵来完成的，这就造成如果我们给一个元素加了多个转换样式，例如同时添加了缩放位移，我们很难用js去获取到底元素做了哪些变换，那么如果我要实现点击一下让元素旋转30deg，要实现这个首先我得知道我点击之前元素已经旋转了多少，那么这要获取起来也是十分麻烦。">
   
     <link rel="alternative" href="/atom.xml" title="小黑的个人博客" type="application/atom+xml">
   
@@ -194,7 +194,7 @@
          <!-- 目录内容 -->
               
       <!-- 目录内容结束 -->
-        <h1 id="transform动画"><a href="#transform动画" class="headerlink" title="transform动画"></a>transform动画</h1><p>  上一节我们介绍了transform转换的基本用法，我们知道transform实现通过矩阵来完成的，这就造成如果我们给一个元素加了多个转换样式，例如同时添加了缩放位移，我们很难用js去获取到底元素做了哪些变换，那么如果我要实现点击一下让元素旋转30deg，要实现这个首先我得知道我点击之前元素已经旋转了多少，那么这要获取起来也是十分麻烦。</p>
+        <h1 id="transform动画"><a href="#transform动画" class="headerlink" title="transform动画"></a>transform动画</h1><p>  上一节我们介绍了transform转换的基本用法，我们知道transform实现通过矩阵来完成的，这就造成如果我们给一个元素加了多个转换样式，例如同时添加了缩放位移，我们很难用js去获取到底元素做了哪些变换，那么如果我要实现点击一下让元素旋转30deg，要实现这个首先我得知道我点击之前元素已经旋转了多少，那么这要获取起来也是十分麻烦。<br>  <a id="more"></a></p>
 <p>  <strong>封装transform函数</strong><br>  如果我们用一个函数去设置transform去设置元素transform并且能记录下元素得变换，那么元素得transform变换就变得可控了：<br>  那么我们在封装函数cssTransform(element, attr, val)之前首先的先确定该方法的用法<br>  <blockquote><p>首先如果只传入两个参数，那就是用来获取样式；<br>如果传入三个参数，那就是用来设置样式。</p>
 <p>我们通过给element元素设置自定义属性来保存元素的transform样式变换：<br>  element.transform{<br>    rotate:,<br>    scale:100, //注意我们通过将放大100倍来处理保存元素的放大倍数，这样可以尽量避免浮点数保存的一个误差<br>    skew:,<br>    transform<br>  }</p>
 <p>  最后我们要明确的是，如果想用该方法去获取元素身上的transform样式，那么我们就必须通过该方法去设置他，不然是获取不到的。</p>
