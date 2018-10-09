@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://www.yfvip.top/blog/"/>
-  <updated>2018-10-07T15:21:14.949Z</updated>
+  <updated>2018-10-09T07:16:54.826Z</updated>
   <id>https://www.yfvip.top/blog/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css3-transform详解（二）</title>
+    <link href="https://www.yfvip.top/blog/2018/10/09/css3-transform%E8%AF%A6%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>https://www.yfvip.top/blog/2018/10/09/css3-transform详解（二）/</id>
+    <published>2018-10-09T06:44:35.000Z</published>
+    <updated>2018-10-09T07:16:54.826Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="transform动画"><a href="#transform动画" class="headerlink" title="transform动画"></a>transform动画</h1><p>  上一节我们介绍了transform转换的基本用法，我们知道transform实现通过矩阵来完成的，这就造成如果我们给一个元素加了多个转换样式，例如同时添加了缩放位移，我们很难用js去获取到底元素做了哪些变换，那么如果我要实现点击一下让元素旋转30deg，要实现这个首先我得知道我点击之前元素已经旋转了多少，那么这要获取起来也是十分麻烦。</p><p>  <strong>封装transform函数</strong><br>  如果我们用一个函数去设置transform去设置元素transform并且能记录下元素得变换，那么元素得transform变换就变得可控了：<br>  那么我们在封装函数cssTransform(element, attr, val)之前首先的先确定该方法的用法<br>  <blockquote><p>首先如果只传入两个参数，那就是用来获取样式；<br>如果传入三个参数，那就是用来设置样式。</p><p>我们通过给element元素设置自定义属性来保存元素的transform样式变换：<br>  element.transform{<br>    rotate:,<br>    scale:100, //注意我们通过将放大100倍来处理保存元素的放大倍数，这样可以尽量避免浮点数保存的一个误差<br>    skew:,<br>    transform<br>  }</p><p>  最后我们要明确的是，如果想用该方法去获取元素身上的transform样式，那么我们就必须通过该方法去设置他，不然是获取不到的。</p></blockquote></p><p>  封装好后的函数如下<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">function cssTransform(element, attr, val)&#123;</span><br><span class="line">  if(!element.transform)&#123;</span><br><span class="line">    element.transform = &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  if (typeof val === &quot;undefined&quot;) &#123;</span><br><span class="line">    if(!element.transform[attr])&#123;</span><br><span class="line">      //如果没有通过该方法设置transform,那我们就返回默认值</span><br><span class="line">      switch(attr)&#123;</span><br><span class="line">        case &quot;scale&quot;:</span><br><span class="line">        case &quot;scaleX&quot;:</span><br><span class="line">        case &quot;scaleY&quot;:</span><br><span class="line">        case &quot;scaleZ&quot;:</span><br><span class="line">          element.transform[attr] = 100;</span><br><span class="line">          break;</span><br><span class="line">        default:</span><br><span class="line">        element.transform[attr] = 0;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return element.transform[attr];</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    let transformVal = &quot;&quot;;</span><br><span class="line">    element.transform[attr] = val;</span><br><span class="line"></span><br><span class="line">    for(let s in element.transform)&#123;</span><br><span class="line">        switch(s)&#123;</span><br><span class="line">          case &quot;scale&quot;:</span><br><span class="line">          case &quot;scaleX&quot;:</span><br><span class="line">          case &quot;scaleY&quot;:</span><br><span class="line">          case &quot;scaleZ&quot;:</span><br><span class="line">            transformVal += `$&#123;s&#125;($&#123;element.transform[s]/100&#125;) `;</span><br><span class="line">            break;</span><br><span class="line">          case &quot;rotate&quot;:</span><br><span class="line">          case &quot;rotateX&quot;:</span><br><span class="line">          case &quot;rotateY&quot;:</span><br><span class="line">          case &quot;rotateZ&quot;:</span><br><span class="line">          case &quot;skew&quot;:</span><br><span class="line">          case &quot;skewX&quot;:</span><br><span class="line">          case &quot;skewY&quot;:</span><br><span class="line">            transformVal += `$&#123;s&#125;($&#123;element.transform[s]&#125;deg) `;</span><br><span class="line">            break;</span><br><span class="line">          default:</span><br><span class="line">            transformVal += `$&#123;s&#125;($&#123;element.transform[s]&#125;px) `;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    element.style.WebkitTransform = element.style.transform = transformVal;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>  到这我们就可以使用我们的函数去设置获取transform样式了，但是这样仅仅只能做到一些简单的动画效果，要实现一些特殊的效果像弹簧橡皮经的等效果，还得用上动画，我会将我封装好后的代码放到<a href="https://github.com/Qiu522/javascript" target="_blank" rel="noopener">我的github仓库</a>，有兴趣的可以拿去自己去玩玩。如果有问题欢迎斧正。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;transform动画&quot;&gt;&lt;a href=&quot;#transform动画&quot; class=&quot;headerlink&quot; title=&quot;transform动画&quot;&gt;&lt;/a&gt;transform动画&lt;/h1&gt;&lt;p&gt;  上一节我们介绍了transform转换的基本用法，我们知道tra
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://www.yfvip.top/blog/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="css" scheme="https://www.yfvip.top/blog/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>武功山之行</title>
