@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://www.yfvip.top/blog/"/>
-  <updated>2018-10-09T07:19:37.595Z</updated>
+  <updated>2018-11-19T13:38:32.626Z</updated>
   <id>https://www.yfvip.top/blog/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Monty Hall problem</title>
+    <link href="https://www.yfvip.top/blog/2018/11/19/Monty-Hall-problem/"/>
+    <id>https://www.yfvip.top/blog/2018/11/19/Monty-Hall-problem/</id>
+    <published>2018-11-19T12:37:06.000Z</published>
+    <updated>2018-11-19T13:38:32.626Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>  三门问题（Monty Hall problem）亦称为蒙提霍尔问题、蒙特霍问题或蒙提霍尔悖论，大致出自美国的电视游戏节目Let’s Make a Deal。问题名字来自该节目的主持人蒙提·霍尔（Monty Hall）。参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。主持人其后会问参赛者要不要换另一扇仍然关上的门。问题是：换另一扇门会否增加参赛者赢得汽车的机率？<br>  <a id="more"></a></p><h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>  这个问题亦被叫做蒙提霍尔悖论：虽然该问题的答案在逻辑上并不自相矛盾，但十分违反直觉。我们这里先告诉你，如果严格按照上述的条件，即主持人清楚地知道，自己打开的那扇门后是羊，那么答案是会。不换门的话，赢得汽车的几率是1/3。换门的话，赢得汽车的几率是2/3。有兴趣的同学可以自己试着想想这是为什么？</p><h1 id="使用蒙特卡洛算法求解"><a href="#使用蒙特卡洛算法求解" class="headerlink" title="使用蒙特卡洛算法求解"></a>使用蒙特卡洛算法求解</h1><p>  这里我使用蒙特卡洛算法对这个问题进行模拟，通过计算机对大量样本进行模拟，看看如何使用java设计出一个程序进行求解。</p><p>  <strong>蒙特·卡罗方法</strong><br>  在解决这个问题之前，我们先来了解一下设么是蒙特·卡罗方法.<br>  蒙特·卡罗方法（Monte Carlo method），也称统计模拟方法，是二十世纪四十年代中期由于科学技术的发展和电子计算机的发明，而被提出的一种以概率统计理论为指导的一类非常重要的数值计算方法。是指使用随机数（或更常见的伪随机数）来解决很多计算问题的方法。与它对应的是确定性算法。蒙特·卡罗方法在金融工程学，宏观经济学，计算物理学（如粒子输运计算、量子热力学计算、空气动力学计算）等领域应用广泛。<br>  简单来说，就是通过随机模拟，通过某种“实验”的方法，以这种事件出现的频率估计这一随机事件的概率，或者得到这个随机变量的某些数字特征，并将其作为问题的解。需要注意的是，通过蒙特卡洛算法得到只是一个近似值，但是很多情况下，这么一个近似值就已经足够了。</p><p>  <strong>程序设计</strong><br>  <blockquote><p>  public class ThreeDoorProblem {<br>  private int N;</p><p>  public ThreeDoorProblem(int N) {<br>    this.N  = N;<br>  }</p><p>  public void run(boolean ifChange) { //传入参数表示是否选择换门<br>    int win = 0;<br>    for(int i = 0; i &lt; N; i++) {<br>      if( play(ifChange) )<br>        win++;<br>    }<br>    System.out.println(ifChange? “change door:” : “did not change door:”);<br>    System.out.println((double)win / N);<br>  }</p><p>  //模拟开门<br>  private boolean play(boolean ifChange) {<br>    int winDoor =  (int)( Math.random()<em>3 ); // 随机一扇门为正确的门<br>    int choiseDoor = (int)( Math.random()</em>3 ); // 假设选手随机选择一扇门</p><pre><code>if(winDoor == choiseDoor)  return ifChange? false : true;else  return ifChange? true : false;</code></pre><p>  }</p><p>  public static void main(String[] args) {<br>    int N = 10000000;<br>    ThreeDoorProblem exp= new ThreeDoorProblem(N);<br>    exp.run(true);  //模拟换门，求得获奖概率<br>    System.out.println();<br>    exp.run(false); //模拟不换门<br>  }<br>}</p></blockquote><br>  通过实验我们大致就可以得到这样的运行结果：<br>  <img src="/blog/2018/11/19/Monty-Hall-problem/result.png" alt="运行结果"></p><h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><pre><code>我们可以这样去理解，假设三扇门编号为0,1,2  p(0号门中奖) + p(1号门中奖) + p(2号门中奖) = 1;  p(0号门中奖) = 1/3;  p(1号门中奖) + p(2号门中奖) = 2/3;  那么告诉你p(1号门中奖) = 0; 我们就可以得到 p(2号门中奖) = 2/3;其实之所以会产生这样反直觉的结果的原因就是因为支持人知道哪扇门后面是有羊的，所以他会避开这扇门去选择，所以结果会有所偏差。</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><pre><code>其实这是简单的问题，我希望通过这样一个问题，给大家分解蒙特卡洛方法，学会运用计算机来模拟实验从而得到我们想要的结果。有兴趣的同学可以试着用这个方法来求解另一个简单的问题：假设某个抽奖游戏中奖的概率是20%，那么抽五次是否一定会中奖？当然在概率论中，这其实是一个很简单的计算，我们可以通过蒙特卡洛算法进行模拟实验，相信这会是一个很有意思的过程。而且你会发现结果和我们的直觉并不相同。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;  三门问题（Monty Hall problem）亦称为蒙提霍尔问题、蒙特霍问题或蒙提霍尔悖论，大致出自美国的电视游戏节目Let’s Make a Deal。问题名字来自该节目的主持人蒙提·霍尔（Monty Hall）。参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。主持人其后会问参赛者要不要换另一扇仍然关上的门。问题是：换另一扇门会否增加参赛者赢得汽车的机率？&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="java" scheme="https://www.yfvip.top/blog/tags/java/"/>
+    
+      <category term="算法" scheme="https://www.yfvip.top/blog/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>css3-transform详解（二）</title>
