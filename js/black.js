@@ -5,7 +5,7 @@
  *@param: setUrl 切换插件的链接，一般默认使用断佬插件
  *@warning: 里面代码无需更改，只传递参数调用即可
  */
-var setTabs = function([tabs, vari, setUrl]){
+var setTabs = ([tabs, vari, setUrl])=>{
     d.push({
         title: '‘‘点下面切换线路’’',
         url:setUrl,
@@ -28,7 +28,7 @@ var setTabs = function([tabs, vari, setUrl]){
 var setLists = (dataObj)=>{
     let hUrl = `@lazyRule=.js:let conf = getVar('shsort');if(conf==' - 正序'){putVar({key:'shsort', value:' - 逆序'});}else{putVar({key:'shsort', value:' - 正序'})};refreshPage(false);'toast://切换排序成功'`;
     //var lazy =  `@lazyRule=body&&.player_video&&script&&Html.js:eval(input.replace(/player_.*?={/,'player_aaaa={'));var url=player_aaaa.url;var jx='https://ssl.vip.cqzyw.net:11551/?url='+url;refreshX5WebView(jx);'toast://播放中';`;
-    var {lists, _text , _url , index, _dnPar, lazy} = dataObj;
+    var { lists, _text , _url , index, _dnPar, lazy } = dataObj;
     var _text = _text || 'a&&Text';
     var _url = _url || 'a&&href';
 
@@ -63,7 +63,7 @@ var setLists = (dataObj)=>{
  *@desc: 生成影片信息 
  */
 var setMovieDetail = (dataObj)=>{
-    var {_title, _desc, _img, dataLine} = dataObj;
+    var { _title, _desc, _img, dataLine } = dataObj;
     d.push({
         title: _title,
         desc: _desc.substr(0,20),
@@ -73,19 +73,19 @@ var setMovieDetail = (dataObj)=>{
     });
 
     d.push({
-        title: '‘‘’’<small><font color="#585858">简介：' + _desc.substr(0, 30) + '...</font><small><font color="blue">查看详情</font></small></small>',
+        title: '‘‘’’<small><font color="#585858">简介：' + _desc.substr(0, 30).replace('简介：', '') + '...</font><small><font color="blue">查看详情</font></small></small>',
         url: $('hiker://empty#').rule((data)=>{
             var nRes = {};
             var nd=[];
             var detailList = data[0];
             for(var i = 0; i < detailList.length - 1; i++){
                 nd.push({
-                    title: detailList[i], 
+                    title: parseDomForHtml(detailList[i], 'Text'), 
                     col_type: 'text_1'
                 })
             }
             nd.push({
-                title: "影片简介: "+data[1], 
+                title: "影片简介: " + data[1].replace('简介：', ''), 
                 col_type: 'long_text'
             });
             nRes.data = nd;
