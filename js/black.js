@@ -73,7 +73,7 @@ var setMovieDetail = (dataObj)=>{
     });
 
     d.push({
-        title: '‘‘’’<small><font color="#585858">简介：' + JJ.substr(0, 30) + '...</font><small><font color="blue">查看详情</font></small></small>',
+        title: '‘‘’’<small><font color="#585858">简介：' + _desc.substr(0, 30) + '...</font><small><font color="blue">查看详情</font></small></small>',
         url: $('hiker://empty#').rule((data)=>{
             var nRes = {};
             var nd=[];
