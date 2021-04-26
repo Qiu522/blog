@@ -58,3 +58,39 @@ var setLists = (dataObj)=>{
         }
     }
 }
+
+/**
+ *@desc: 生成影片信息 
+ */
+var setMovieDetail = (dataObj)=>{
+    var {_title, _desc, _img, dataLine} = dataObj;
+    d.push({
+        title: _title,
+        desc: _desc.substr(0,20),
+        img: _img,
+        url: _img + '#.jpg',
+        col_type: 'movie_1_vertical_pic'
+    });
+
+    d.push({
+        title: '‘‘’’<small><font color="#585858">简介：' + JJ.substr(0, 30) + '...</font><small><font color="blue">查看详情</font></small></small>',
+        url: $('hiker://empty#').rule((data)=>{
+            var nRes = {};
+            var nd=[];
+            var detailList = data[0];
+            for(var i = 0; i < detailList.length - 1; i++){
+                nd.push({
+                    title: detailList[i], 
+                    col_type: 'text_1'
+                })
+            }
+            nd.push({
+                title: "影片简介: "+data[1], 
+                col_type: 'long_text'
+            });
+            nRes.data = nd;
+            setHomeResult( nRes )
+         }, [dataLine, _desc]),
+        col_type: 'text_1'
+    });
+}
