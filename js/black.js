@@ -1,4 +1,27 @@
 /**
+ *@desc: 初始化 
+ */
+var init = (iniData)=>{
+    var{ isX5, isDn } = iniData;
+    res = {}; d = [];
+    html = getResCode();
+    if(isDn!=undefined){
+        config = fetch('hiker://files/cache/MyParseSet.json');
+        if(config == '' || !fetch(JSON.parse(config).cj)){
+             jsUrl = 'https://code.aliyun.com/AI957/Hiker/raw/master/v/CloudParse-V2_Dn.js';
+        }else{
+             jsUrl = JSON.parse(config).cj;
+        }  
+    }
+    if(isX5!=undefined){
+        d.push({
+            desc:'240&&float',
+            col_type: 'x5_webview_single'
+        });
+    }
+ }
+
+/**
  *@desc: 设置线路标题
  *@param: tabs 线路标题的数组，如tabs=['线路一','线路二','线路三']
  *@param: vari 自定义的全局变量名称，建议使用MY_URL，避免出现重复变量造成未知bug
