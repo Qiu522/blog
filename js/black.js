@@ -1,3 +1,61 @@
+//收藏 -- start
+//MYSTORE
+var hisData = {
+    'taotao': [{title:'',url:'', img:''}]
+}
+var iniHisData = ()=>{
+    var myStore = fetch("hiker://files/cache/MyStoreData.json",{});
+    hisData = myStore == '' ? {} : JSON.parse(myStore);
+}
+
+var saveHisData = ()=>{
+    writeFile("hiker://files/cache/MyStoreData.json", JSON.stringify(hisData, null, 4));
+}
+
+var topItem = (page_key, val)=>{
+    var item, index;
+    for(var i in hisData[page_key]){
+        if(hisData[page_key][i].title == val){
+            item = hisData[page_key][i];
+            index = i;
+            break;
+        }
+    }
+
+    hisData[page_key].splice(index, 1);
+    hisData[page_key].unshift(item);
+    saveHisData();
+}
+
+
+var addPageItem = (page_key, data)=>{
+    if(hisData[page_key] ==undefined) { 
+        hisData[page_key] = [];
+    }
+    for(var i in hisData[page_key]){
+        if(hisData[page_key][i].title == data.title){
+            return false;
+        } 
+    }
+    hisData[page_key].unshift(data);
+    saveHisData();
+    return true;
+}
+
+var delPageItem = (page_key, val)=>{
+    for(var i in hisData[page_key]){
+        if(hisData[page_key][i].title == val){
+            item = hisData[page_key][i];
+            index = i;
+            break;
+        }
+    }
+    hisData[page_key].splice(index, 1); 
+    saveHisData();
+}
+//MYSTORE
+//收藏 -- end
+
 /**
  *@desc: 初始化 
  */
@@ -30,14 +88,14 @@ var init = (iniData)=>{
  */
 var setTabs = ([tabs, vari, setUrl])=>{
     d.push({
-        title: '‘‘点下面切换线路’’',
-        url:setUrl,
+        title: '‘‘📺点击切换线路’’',
+        url:setUrl!=undefined?setUrl:'toast://阿巴阿巴😮😮😵',
         col_type: 'text_center_1'
     });
     for (var i = 0; i < tabs.length; i++) {
         var url = "hiker://empty@lazyRule=.js:putVar('"+vari+"', '"+i+"');refreshPage();'toast://切换成功！'";
         d.push({
-            title: tabs[i] + (getVar(vari, '0')==i?'❣️':''),
+            title: (getVar(vari, '0')==i?'❣️':'') + tabs[i],
             url: url,
             col_type: tabs.length>2?'text_3':'text_2'
         });
@@ -56,7 +114,7 @@ var setLists = (dataObj)=>{
     var _url = _url || 'a&&href';
 
     d.push({
-        title: '‘‘选集’’',
+        title: '‘‘选〰️集’’',
         url: hUrl,
         col_type: 'text_center_1'
     });
@@ -85,13 +143,25 @@ var setLists = (dataObj)=>{
 /**
  *@desc: 生成影片信息 
  */
+//BLDETAIL
 var setMovieDetail = (dataObj)=>{
-    var { _title, _desc, _img, dataLine } = dataObj;
+    var { _title, _desc, _img, dataLine, hasStore, movieName} = dataObj;
+    var sUrl, data={};
+    if(hasStore!=undefined){
+        data={
+            title: movieName,
+            url: MY_URL,
+            img: _img
+        };
+        putVar('temp_data', JSON.stringify(data))
+        sUrl=`@lazyRule=.js:eval(fetch('hiker://files/rules/zyf/black.js'));iniHisData();var r=addPageItem(getVar('page_key'), JSON.parse(getVar('temp_data')));refreshPage(false);r?'toast://收藏成功😮😮😮' :'toast://已存在😮😮😵'`
+        
+    }
     d.push({
         title: _title,
         desc: _desc.substr(0,20),
         img: _img,
-        url: _img + '#.jpg',
+        url: hasStore!=undefined? sUrl : _img + '#.jpg',
         col_type: 'movie_1_vertical_pic'
     });
 
@@ -116,4 +186,47 @@ var setMovieDetail = (dataObj)=>{
          }, [dataLine, _desc]),
         col_type: 'text_1'
     });
+}
+//BLDETAIL
+/**
+ * 获取Url参数
+*/
+var getParam = function (url, name) {
+    //alert(search);
+    var pattern = new RegExp("[?&]" + name + "\=([^&]+)", "g");
+    var matcher = pattern.exec(url);
+    var items = null;
+    if (null != matcher) {
+        try {
+            items = decodeURIComponent(decodeURIComponent(matcher[1]));
+        } catch (e) {
+            try {
+                items = decodeURIComponent(matcher[1]);
+            } catch (e) {
+                items = matcher[1];
+            }
+        }
+    }
+    return items;
+}
+
+/**
+ *@desc: 设置喜欢
+ */
+var setLikeTabs = (tabs, vari)=>{
+    d.push({
+        title: '‘‘猜你●‿●喜欢’’',
+        url: 'toast://我猜你喜欢小黑',
+        col_type: 'text_center_1'
+    })
+    var title = '';
+    for (var i = 0; i < tabs.length; i++) {
+        var url = "hiker://empty@lazyRule=.js:putVar('"+vari+"', '"+i+"');refreshPage();'toast://切换成功！'";
+        d.push({
+            title: (getVar(vari, '0')==i?'❣️':'') + tabs[i],
+            url: url,
+            col_type: tabs.length>2?'text_3':'text_2'
+        })
+    }
+    d.push({title: '<br>', col_type: 'rich_text'});
 }
