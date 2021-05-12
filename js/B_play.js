@@ -328,10 +328,10 @@ var jx_dgdy = ()=>{
 
     //线路
     var conts = parseDomForArray(html,'body&&.playlist');
-    var linelist = parseDomForArray(html, 'body&&.playlist&&h3');
+    var linelist = parseDomForArray(html, 'body&&.playlist');
     var tabs = [];
     for (var i in linelist) {
-        tabs.push(parseDomForHtml(linelist[i], 'Text').replace(/.*独家专用线路/,''));
+        tabs.push(parseDomForHtml(linelist[i], 'h3&&Text').replace(/.*独家专用线路/,''));
     }
     setTabs([tabs, 'my_line', setUrl]);
 
