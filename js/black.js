@@ -131,7 +131,7 @@ var init = (iniData)=>{
 
     //链接网址，不需要修改
     /*myurl = 'https://zhuiju.xkvideo.club/vodshow/分类-地区-排序-年代-----fypage---/';*/
-    var urll=myurl.replace('分类',getVar('fyClass_jsda', fyclass_jsda[0])).replace('年代',fyyear_se).replace('排序',fysort_se).replace('地区',fyarea_se);
+    var urll=myurl.replace('分类',getVar('fyClass_jsda', fyclass_jsda[0]));
 
     //初始化分类
     if(MY_URL.indexOf(pageType)>-1){ //判断页码是否是第一页
