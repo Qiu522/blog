@@ -81,7 +81,7 @@ var init = (iniData)=>{
 
  var setNav = (navData)=>{
     /*模板参考晓大佬，也可能是另一个大佬，在此致谢*/
-    var {fycalss, fyarea, fyyear, fysort, myurl, pageType} = navData;
+    var {fyclass, fyarea, fyyear, fysort, myurl, pageType} = navData;
     //---------点击折叠位置的名称----------------//
     const fyclass_1 = ["分类"];
     const fyarea_1= ["地区"];
@@ -117,7 +117,7 @@ var init = (iniData)=>{
     
 
     //分类用的
-    const fyclass_conts =fycalss.conts.split('&');
+    const fyclass_conts =fyclass.conts.split('&');
     const fyclass_lists =fyclass.list.split('&');
 
     var fyclass_data =[];
