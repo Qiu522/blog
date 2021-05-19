@@ -94,19 +94,7 @@ var init = (iniData)=>{
     const fyclass_cont='电影&电视剧&动漫&综艺';
     const fyclass_list='1&2&3&4';
     */
-    //-----------------------地区组----------------------//
-    const fyarea_cont='全部&大陆&香港&台湾&美国&法国&英国&日本&韩国&德国&泰国&印度&意大利&西班牙&加拿大&其他';
 
-    const fyarea_list='&大陆&香港&台湾&美国&法国&英国&日本&韩国&德国&泰国&印度&意大利&西班牙&加拿大&其他';
-
-    //---------------------年代组------------------------//
-    const fyyear_cont='全部&剧情&喜剧&爱情&恐怖&动作&科幻&剧情&战争&警匪&犯罪&动画&奇幻&武侠&冒险&枪战&恐怖&悬疑&惊悚&经典&青春&文艺&微电影&古装&历史&运动&农村&儿童&网络电影';
-
-    const fyyear_list='&剧情&喜剧&爱情&恐怖&动作&科幻&剧情&战争&警匪&犯罪&动画&奇幻&武侠&冒险&枪战&恐怖&悬疑&惊悚&经典&青春&文艺&微电影&古装&历史&运动&农村&儿童&网络电影';
-
-    //-----------------------排序组----------------------//
-    const fysort_cont ='最新&人气&推荐';
-    const fysort_list ='time&hits&score'; 
     //-----------------------第一页页码----------------------//
     /****
     *  如不填会不显示页面
@@ -115,7 +103,6 @@ var init = (iniData)=>{
     *     const pageType='-1---/';  
     *     const pageType='page=1';  
     ****/
-    
 
     //分类用的
     const fyclass_conts =fyclass.conts.split('&');
@@ -153,7 +140,18 @@ var init = (iniData)=>{
     for (var i in fysort_lists) {
         fysort_jsda.push(fysort_lists[i]);
     }
+    //年代用的
+    const fyyear_conts =fyyear.conts.split('&');
+    const fyyear_lists =fyyear.lists.split('&');
 
+    var fyyear_data =[];
+    for (var i in fyyear_conts) {
+        fyyear_data.push(fyyear_conts[i]);
+    }
+    var fyyear_jsda =[];
+    for (var i in fyyear_lists) {
+        fyyear_jsda.push(fyyear_lists[i]);
+    }
     //链接网址，不需要修改
     /*myurl = 'https://zhuiju.xkvideo.club/vodshow/分类-地区-排序-年代-----fypage---/';*/
     var urll=MY_URL;
@@ -165,6 +163,9 @@ var init = (iniData)=>{
     }
     if(fysort!=undefined){
         urll=urll.replace('排序',getVar('fySort_jsda', fysort_jsda[0]));
+    }
+    if(fysort!=undefined){
+        urll=urll.replace('年代',getVar('fyYear_jsda', fyyear_jsda[0]));
     }
 
     //初始化分类
@@ -245,6 +246,45 @@ var init = (iniData)=>{
             });
         }
     }
+    //初始化年代
+    if(MY_URL.indexOf(pageType)>-1){ //判断页码是否是第一页
+        if(fyyear!=undefined){
+            var title = '';
+            for (var i = 0; i < fyyear_1.length; i++) {
+                var url = "hiker://empty@lazyRule=.js:putVar('fyYear', getVar('fyYear', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
+                var flag= getVar('fyYear', ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
+                d.push({
+                    title: "““””<b>"+'<span style="color: #48c0a3">'+fyyear_1[i] + flag+'</span></b>',
+                    url: url,
+                    col_type:'flex_button'
+                })
+                if (getVar('fyYear', ' 已折叠') == ' 已展开') {
+                    for (var a = 0; a < fyyear_data.length; a++) {
+                            
+                        var title=fyyear_data[a]==getVar('fyYear_data', fyyear_data[0])?"““””<b>"+'<span style="color: #48c0a3">'+fyyear_data[a]+'</span></b>':fyyear_data[a];
+                            d.push({
+                                title:title,
+                                url: $("#noLoading#").lazyRule((fyyear_data,fyyear_jsda)=>{
+                                    putVar("fyYear_data",fyyear_data);
+                                    putVar("fyYear_jsda",fyyear_jsda);
+                                    refreshPage(false);
+                                    return "hiker://empty"
+                                    }, fyyear_data[a],fyyear_jsda[a]),
+                                col_type:'flex_button'
+                            });
+                    }
+                }else{
+                    d.push({
+                            title: "““””<b>"+'<span style="color: #48c0a3">'+getVar('fyYear_data', fyyear_data[0])+'</span></b>',
+                            col_type:'flex_button'
+                    });
+                }
+            }
+            d.push({
+                col_type:"line"
+            });
+        }
+    }
     //初始化排序
     if(MY_URL.indexOf(pageType)>-1){ //判断页码是否是第一页
         if(fysort!=undefined){
@@ -284,7 +324,6 @@ var init = (iniData)=>{
             });
         }
     }
-
 
     putVar('pageUrl', urll);
 
