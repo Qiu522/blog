@@ -104,67 +104,76 @@ var init = (iniData)=>{
     *     const pageType='page=1';  
     ****/
 
-    //分类用的
-    const fyclass_conts =fyclass.conts.split('&');
-    const fyclass_lists =fyclass.lists.split('&');
-
-    var fyclass_data =[];
-    for (var i in fyclass_conts) {
-        fyclass_data.push(fyclass_conts[i]);
-    }
-    var fyclass_jsda =[];
-    for (var i in fyclass_lists) {
-        fyclass_jsda.push(fyclass_lists[i]);
-    }
-    //地区用的
-    const fyarea_conts =fyarea.conts.split('&');   
-    const fyarea_lists =fyarea.lists.split('&');
-
-    var fyarea_data =[];
-    for (var i in fyarea_conts) {
-        fyarea_data.push(fyarea_conts[i]);
-    }
-    var fyarea_jsda =[];
-    for (var i in fyarea_lists) {
-        fyarea_jsda.push(fyarea_lists[i]);
-    }
-    //排序用的
-    const fysort_conts =fysort.conts.split('&');
-    const fysort_lists =fysort.lists.split('&');
-
-    var fysort_data =[];
-    for (var i in fysort_conts) {
-        fysort_data.push(fysort_conts[i]);
-    }
-    var fysort_jsda =[];
-    for (var i in fysort_lists) {
-        fysort_jsda.push(fysort_lists[i]);
-    }
-    //年代用的
-    const fyyear_conts =fyyear.conts.split('&');
-    const fyyear_lists =fyyear.lists.split('&');
-
-    var fyyear_data =[];
-    for (var i in fyyear_conts) {
-        fyyear_data.push(fyyear_conts[i]);
-    }
-    var fyyear_jsda =[];
-    for (var i in fyyear_lists) {
-        fyyear_jsda.push(fyyear_lists[i]);
-    }
     //链接网址，不需要修改
     /*myurl = 'https://zhuiju.xkvideo.club/vodshow/分类-地区-排序-年代-----fypage---/';*/
     var urll=MY_URL;
+
+    //分类用的
+    var fyclass_conts, fyclass_lists;
+    var fyclass_data =[];
+    var fyclass_jsda =[];
+    
     if(fyclass!=undefined){
+        fyclass_conts =fyclass.conts.split('&');
+        fyclass_lists =fyclass.lists.split('&');
+        for (var i in fyclass_conts) {
+            fyclass_data.push(fyclass_conts[i]);
+        }
+        for (var i in fyclass_lists) {
+            fyclass_jsda.push(fyclass_lists[i]);
+        }
+      
         urll=urll.replace('分类',getVar('fyClass_jsda', fyclass_jsda[0]));
     }
+    //地区用的
+    var fyarea_conts, fyarea_lists;
+    var fyarea_data =[];
+    var fyarea_jsda =[];
+
     if(fyarea!=undefined){
+        fyarea_conts =fyarea.conts.split('&');   
+        fyarea_lists =fyarea.lists.split('&');
+        for (var i in fyarea_conts) {
+            fyarea_data.push(fyarea_conts[i]);
+        }
+        for (var i in fyarea_lists) {
+            fyarea_jsda.push(fyarea_lists[i]);
+        }
+        
         urll=urll.replace('地区',getVar('fyArea_jsda', fyarea_jsda[0]));
     }
+    //排序用的
+    var fysort_conts, fysort_lists;
+    var fysort_data =[];
+    var fysort_jsda =[];
+
     if(fysort!=undefined){
+        fysort_conts =fysort.conts.split('&');
+        fysort_lists =fysort.lists.split('&');
+        for (var i in fysort_conts) {
+            fysort_data.push(fysort_conts[i]);
+        }
+        for (var i in fysort_lists) {
+            fysort_jsda.push(fysort_lists[i]);
+        }
+        
         urll=urll.replace('排序',getVar('fySort_jsda', fysort_jsda[0]));
     }
+    //年代用的
+    var fyyear_conts, fyyear_lists;
+    var fyyear_data =[];
+    var fyyear_jsda =[];
+    
     if(fyyear!=undefined){
+        fyyear_conts =fyyear.conts.split('&');
+        fyyear_lists =fyyear.lists.split('&');
+        for (var i in fyyear_conts) {
+            fyyear_data.push(fyyear_conts[i]);
+        }
+        for (var i in fyyear_lists) {
+            fyyear_jsda.push(fyyear_lists[i]);
+        }
+        
         urll=urll.replace('年代',getVar('fyYear_jsda', fyyear_jsda[0]));
     }
 
