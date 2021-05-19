@@ -118,7 +118,7 @@ var init = (iniData)=>{
 
     //分类用的
     const fyclass_conts =fyclass.conts.split('&');
-    const fyclass_lists =fyclass.list.split('&');
+    const fyclass_lists =fyclass.lists.split('&');
 
     var fyclass_data =[];
     for (var i in fyclass_conts) {
