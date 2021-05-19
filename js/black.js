@@ -201,6 +201,9 @@ var init = (iniData)=>{
                     });
                 }
             }
+            d.push({
+                col_type:"line"
+            });
         }
     }
     //初始化地区
@@ -237,6 +240,9 @@ var init = (iniData)=>{
                     });
                 }
             }
+            d.push({
+                col_type:"line"
+            });
         }
     }
     //初始化排序
@@ -247,14 +253,14 @@ var init = (iniData)=>{
                 var url = "hiker://empty@lazyRule=.js:putVar('fySort', getVar('fySort', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
                 var flag= getVar('fySort', ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
                 d.push({
-                    title: "““””<b>"+'<span style="color: #70f3ff">'+fysort_1[i] + flag+'</span></b>',
+                    title: "““””<b>"+'<span style="color: #177cb0">'+fysort_1[i] + flag+'</span></b>',
                     url: url,
                     col_type:'flex_button'
                 })
                 if (getVar('fySort', ' 已折叠') == ' 已展开') {
                     for (var a = 0; a < fysort_data.length; a++) {
                             
-                        var title=fysort_data[a]==getVar('fySort_data', fysort_data[0])?"““””<b>"+'<span style="color: #70f3ff">'+fysort_data[a]+'</span></b>':fysort_data[a];
+                        var title=fysort_data[a]==getVar('fySort_data', fysort_data[0])?"““””<b>"+'<span style="color: #177cb0">'+fysort_data[a]+'</span></b>':fysort_data[a];
                             d.push({
                                 title:title,
                                 url: $("#noLoading#").lazyRule((fysort_data,fysort_jsda)=>{
@@ -268,11 +274,14 @@ var init = (iniData)=>{
                     }
                 }else{
                     d.push({
-                            title: "““””<b>"+'<span style="color: #70f3ff">'+getVar('fySort_data', fysort_data[0])+'</span></b>',
+                            title: "““””<b>"+'<span style="color: #177cb0">'+getVar('fySort_data', fysort_data[0])+'</span></b>',
                             col_type:'flex_button'
                     });
                 }
             }
+            d.push({
+                col_type:"line"
+            });
         }
     }
 
