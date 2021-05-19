@@ -135,7 +135,7 @@ var init = (iniData)=>{
 
     //初始化分类
     if(MY_URL.indexOf(pageType)>-1){ //判断页码是否是第一页
-        if(fycalss!=undefined){
+        if(fyclass!=undefined){
             var title = '';
             for (var i = 0; i < fyclass_1.length; i++) {
                 var url = "hiker://empty@lazyRule=.js:putVar('fyClass', getVar('fyClass', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
