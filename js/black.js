@@ -164,7 +164,7 @@ var init = (iniData)=>{
     if(fysort!=undefined){
         urll=urll.replace('排序',getVar('fySort_jsda', fysort_jsda[0]));
     }
-    if(fysort!=undefined){
+    if(fyyear!=undefined){
         urll=urll.replace('年代',getVar('fyYear_jsda', fyyear_jsda[0]));
     }
 
