@@ -79,6 +79,7 @@ var init = (iniData)=>{
     }
  }
 
+//MYNAV
  var setNav = (navData)=>{
     /*模板参考晓大佬，也可能是另一个大佬，在此致谢*/
     var {fyclass, fyarea, fyyear, fysort, myurl, pageType} = navData;
@@ -140,6 +141,18 @@ var init = (iniData)=>{
     for (var i in fyarea_lists) {
         fyarea_jsda.push(fyarea_lists[i]);
     }
+    //排序用的
+    const fysort_conts =fysort.conts.split('&');
+    const fysort_lists =fysort.lists.split('&');
+
+    var fysort_data =[];
+    for (var i in fysort_conts) {
+        fysort_data.push(fysort_conts[i]);
+    }
+    var fysort_jsda =[];
+    for (var i in fysort_lists) {
+        fysort_jsda.push(fysort_lists[i]);
+    }
 
     //链接网址，不需要修改
     /*myurl = 'https://zhuiju.xkvideo.club/vodshow/分类-地区-排序-年代-----fypage---/';*/
@@ -149,6 +162,9 @@ var init = (iniData)=>{
     }
     if(fyarea!=undefined){
         urll=urll.replace('地区',getVar('fyArea_jsda', fyarea_jsda[0]));
+    }
+    if(fysort!=undefined){
+        urll=urll.replace('排序',getVar('fySort_jsda', fysort_jsda[0]));
     }
 
     //初始化分类
@@ -195,14 +211,14 @@ var init = (iniData)=>{
                 var url = "hiker://empty@lazyRule=.js:putVar('fyArea', getVar('fyArea', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
                 var flag= getVar('fyArea', ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
                 d.push({
-                    title: "““””<b>"+'<span style="color: #b35c44">'+fyarea_1[i] + flag+'</span></b>',
+                    title: "““””<b>"+'<span style="color: #ffc773">'+fyarea_1[i] + flag+'</span></b>',
                     url: url,
                     col_type:'flex_button'
                 })
                 if (getVar('fyArea', ' 已折叠') == ' 已展开') {
                     for (var a = 0; a < fyarea_data.length; a++) {
                             
-                        var title=fyarea_data[a]==getVar('fyArea_data', fyarea_data[0])?"““””<b>"+'<span style="color: #b35c44">'+fyarea_data[a]+'</span></b>':fyarea_data[a];
+                        var title=fyarea_data[a]==getVar('fyArea_data', fyarea_data[0])?"““””<b>"+'<span style="color: #ffc773">'+fyarea_data[a]+'</span></b>':fyarea_data[a];
                             d.push({
                                 title:title,
                                 url: $("#noLoading#").lazyRule((fyarea_data,fyarea_jsda)=>{
@@ -216,7 +232,43 @@ var init = (iniData)=>{
                     }
                 }else{
                     d.push({
-                            title: "““””<b>"+'<span style="color: #b35c44">'+getVar('fyArea_data', fyarea_data[0])+'</span></b>',
+                            title: "““””<b>"+'<span style="color: #ffc773">'+getVar('fyArea_data', fyarea_data[0])+'</span></b>',
+                            col_type:'flex_button'
+                    });
+                }
+            }
+        }
+    }
+    //初始化排序
+    if(MY_URL.indexOf(pageType)>-1){ //判断页码是否是第一页
+        if(fysort!=undefined){
+            var title = '';
+            for (var i = 0; i < fysort_1.length; i++) {
+                var url = "hiker://empty@lazyRule=.js:putVar('fySort', getVar('fySort', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
+                var flag= getVar('fySort', ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
+                d.push({
+                    title: "““””<b>"+'<span style="color: #70f3ff">'+fysort_1[i] + flag+'</span></b>',
+                    url: url,
+                    col_type:'flex_button'
+                })
+                if (getVar('fySort', ' 已折叠') == ' 已展开') {
+                    for (var a = 0; a < fysort_data.length; a++) {
+                            
+                        var title=fysort_data[a]==getVar('fySort_data', fysort_data[0])?"““””<b>"+'<span style="color: #70f3ff">'+fysort_data[a]+'</span></b>':fysort_data[a];
+                            d.push({
+                                title:title,
+                                url: $("#noLoading#").lazyRule((fysort_data,fysort_jsda)=>{
+                                    putVar("fySort_data",fysort_data);
+                                    putVar("fySort_jsda",fysort_jsda);
+                                    refreshPage(false);
+                                    return "hiker://empty"
+                                    }, fysort_data[a],fysort_jsda[a]),
+                                col_type:'flex_button'
+                            });
+                    }
+                }else{
+                    d.push({
+                            title: "““””<b>"+'<span style="color: #70f3ff">'+getVar('fySort_data', fysort_data[0])+'</span></b>',
                             col_type:'flex_button'
                     });
                 }
@@ -228,6 +280,7 @@ var init = (iniData)=>{
     putVar('pageUrl', urll);
 
 }
+//MYNAV
 
 /**
  *@desc: 设置线路标题
