@@ -140,7 +140,7 @@ var init = (iniData)=>{
             fyarea_jsda.push(fyarea_lists[i]);
         }
         
-        urll=urll.replace('地区',getVar('fyArea_jsda', fyarea_jsda[0]));
+        urll=urll.replace('地区',getVar('fyArea_jsda'+index, fyarea_jsda[0]));
     }
     //排序用的
     var fysort_conts, fysort_lists;
@@ -157,7 +157,7 @@ var init = (iniData)=>{
             fysort_jsda.push(fysort_lists[i]);
         }
         
-        urll=urll.replace('排序',getVar('fySort_jsda', fysort_jsda[0]));
+        urll=urll.replace('排序',getVar('fySort_jsda'+index, fysort_jsda[0]));
     }
     //年代用的
     var fyyear_conts, fyyear_lists;
@@ -174,7 +174,7 @@ var init = (iniData)=>{
             fyyear_jsda.push(fyyear_lists[i]);
         }
         
-        urll=urll.replace('年代',getVar('fyYear_jsda', fyyear_jsda[0]));
+        urll=urll.replace('年代',getVar('fyYear_jsda'+index, fyyear_jsda[0]));
     }
 
     //初始化分类
@@ -221,31 +221,31 @@ var init = (iniData)=>{
         if(fyarea!=undefined){
             var title = '';
             for (var i = 0; i < fyarea_1.length; i++) {
-                var url = "hiker://empty@lazyRule=.js:putVar('fyArea', getVar('fyArea', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
-                var flag= getVar('fyArea', ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
+                var url = "hiker://empty@lazyRule=.js:putVar('fyArea"+index +"', getVar('fyArea"+index +"', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
+                var flag= getVar('fyArea'+index, ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
                 d.push({
                     title: "““””<b>"+'<span style="color: #ffc773">'+fyarea_1[i] + flag+'</span></b>',
                     url: url,
                     col_type:'flex_button'
                 })
-                if (getVar('fyArea', ' 已折叠') == ' 已展开') {
+                if (getVar('fyArea'+index, ' 已折叠') == ' 已展开') {
                     for (var a = 0; a < fyarea_data.length; a++) {
                             
-                        var title=fyarea_data[a]==getVar('fyArea_data', fyarea_data[0])?"““””<b>"+'<span style="color: #ffc773">'+fyarea_data[a]+'</span></b>':fyarea_data[a];
+                        var title=fyarea_data[a]==getVar('fyArea_data'+index, fyarea_data[0])?"““””<b>"+'<span style="color: #ffc773">'+fyarea_data[a]+'</span></b>':fyarea_data[a];
                             d.push({
                                 title:title,
-                                url: $("#noLoading#").lazyRule((fyarea_data,fyarea_jsda)=>{
-                                    putVar("fyArea_data",fyarea_data);
-                                    putVar("fyArea_jsda",fyarea_jsda);
+                                url: $("#noLoading#").lazyRule((fyarea_data,fyarea_jsda,index)=>{
+                                    putVar("fyArea_data"+index,fyarea_data);
+                                    putVar("fyArea_jsda"+index,fyarea_jsda);
                                     refreshPage(false);
                                     return "hiker://empty"
-                                    }, fyarea_data[a],fyarea_jsda[a]),
+                                    }, fyarea_data[a],fyarea_jsda[a],index),
                                 col_type:'flex_button'
                             });
                     }
                 }else{
                     d.push({
-                            title: "““””<b>"+'<span style="color: #ffc773">'+getVar('fyArea_data', fyarea_data[0])+'</span></b>',
+                            title: "““””<b>"+'<span style="color: #ffc773">'+getVar('fyArea_data'+index, fyarea_data[0])+'</span></b>',
                             col_type:'flex_button'
                     });
                 }
@@ -260,31 +260,31 @@ var init = (iniData)=>{
         if(fyyear!=undefined){
             var title = '';
             for (var i = 0; i < fyyear_1.length; i++) {
-                var url = "hiker://empty@lazyRule=.js:putVar('fyYear', getVar('fyYear', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
-                var flag= getVar('fyYear', ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
+                var url = "hiker://empty@lazyRule=.js:putVar('fyYear"+index +"', getVar('fyYear"+index +"', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
+                var flag= getVar('fyYear'+index, ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
                 d.push({
                     title: "““””<b>"+'<span style="color: #48c0a3">'+fyyear_1[i] + flag+'</span></b>',
                     url: url,
                     col_type:'flex_button'
                 })
-                if (getVar('fyYear', ' 已折叠') == ' 已展开') {
+                if (getVar('fyYear'+index, ' 已折叠') == ' 已展开') {
                     for (var a = 0; a < fyyear_data.length; a++) {
                             
-                        var title=fyyear_data[a]==getVar('fyYear_data', fyyear_data[0])?"““””<b>"+'<span style="color: #48c0a3">'+fyyear_data[a]+'</span></b>':fyyear_data[a];
+                        var title=fyyear_data[a]==getVar('fyYear_data'+index, fyyear_data[0])?"““””<b>"+'<span style="color: #48c0a3">'+fyyear_data[a]+'</span></b>':fyyear_data[a];
                             d.push({
                                 title:title,
-                                url: $("#noLoading#").lazyRule((fyyear_data,fyyear_jsda)=>{
-                                    putVar("fyYear_data",fyyear_data);
-                                    putVar("fyYear_jsda",fyyear_jsda);
+                                url: $("#noLoading#").lazyRule((fyyear_data,fyyear_jsda,index)=>{
+                                    putVar("fyYear_data"+index,fyyear_data);
+                                    putVar("fyYear_jsda"+index,fyyear_jsda);
                                     refreshPage(false);
                                     return "hiker://empty"
-                                    }, fyyear_data[a],fyyear_jsda[a]),
+                                    }, fyyear_data[a],fyyear_jsda[a],index),
                                 col_type:'flex_button'
                             });
                     }
                 }else{
                     d.push({
-                            title: "““””<b>"+'<span style="color: #48c0a3">'+getVar('fyYear_data', fyyear_data[0])+'</span></b>',
+                            title: "““””<b>"+'<span style="color: #48c0a3">'+getVar('fyYear_data'+index, fyyear_data[0])+'</span></b>',
                             col_type:'flex_button'
                     });
                 }
@@ -299,31 +299,31 @@ var init = (iniData)=>{
         if(fysort!=undefined){
             var title = '';
             for (var i = 0; i < fysort_1.length; i++) {
-                var url = "hiker://empty@lazyRule=.js:putVar('fySort', getVar('fySort', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
-                var flag= getVar('fySort', ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
+                var url = "hiker://empty@lazyRule=.js:putVar('fySort"+index +"', getVar('fySort"+index +"', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
+                var flag= getVar('fySort'+index, ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
                 d.push({
                     title: "““””<b>"+'<span style="color: #177cb0">'+fysort_1[i] + flag+'</span></b>',
                     url: url,
                     col_type:'flex_button'
                 })
-                if (getVar('fySort', ' 已折叠') == ' 已展开') {
+                if (getVar('fySort'+index, ' 已折叠') == ' 已展开') {
                     for (var a = 0; a < fysort_data.length; a++) {
                             
-                        var title=fysort_data[a]==getVar('fySort_data', fysort_data[0])?"““””<b>"+'<span style="color: #177cb0">'+fysort_data[a]+'</span></b>':fysort_data[a];
+                        var title=fysort_data[a]==getVar('fySort_data'+index, fysort_data[0])?"““””<b>"+'<span style="color: #177cb0">'+fysort_data[a]+'</span></b>':fysort_data[a];
                             d.push({
                                 title:title,
-                                url: $("#noLoading#").lazyRule((fysort_data,fysort_jsda)=>{
-                                    putVar("fySort_data",fysort_data);
-                                    putVar("fySort_jsda",fysort_jsda);
+                                url: $("#noLoading#").lazyRule((fysort_data,fysort_jsda,index)=>{
+                                    putVar("fySort_data"+index,fysort_data);
+                                    putVar("fySort_jsda"+index,fysort_jsda);
                                     refreshPage(false);
                                     return "hiker://empty"
-                                    }, fysort_data[a],fysort_jsda[a]),
+                                    }, fysort_data[a],fysort_jsda[a],index),
                                 col_type:'flex_button'
                             });
                     }
                 }else{
                     d.push({
-                            title: "““””<b>"+'<span style="color: #177cb0">'+getVar('fySort_data', fysort_data[0])+'</span></b>',
+                            title: "““””<b>"+'<span style="color: #177cb0">'+getVar('fySort_data'+index, fysort_data[0])+'</span></b>',
                             col_type:'flex_button'
                     });
                 }
