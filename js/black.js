@@ -82,7 +82,7 @@ var init = (iniData)=>{
 //MYNAV
  var setNav = (navData)=>{
     /*模板参考晓大佬，也可能是另一个大佬，在此致谢*/
-    var {fyclass, fyarea, fyyear, fysort, myurl, pageType} = navData;
+    var {fyclass, fyarea, fyyear, fysort, pageType, index} = navData;
     //---------点击折叠位置的名称----------------//
     const fyclass_1 = ["分类"];
     const fyarea_1= ["地区"];
@@ -123,7 +123,7 @@ var init = (iniData)=>{
             fyclass_jsda.push(fyclass_lists[i]);
         }
       
-        urll=urll.replace('分类',getVar('fyClass_jsda', fyclass_jsda[fyclass.def]));
+        urll=urll.replace('分类',getVar('fyClass_jsda'+index, fyclass_jsda[fyclass.def]));
     }
     //地区用的
     var fyarea_conts, fyarea_lists;
@@ -182,22 +182,22 @@ var init = (iniData)=>{
         if(fyclass!=undefined){
             var title = '';
             for (var i = 0; i < fyclass_1.length; i++) {
-                var url = "hiker://empty@lazyRule=.js:putVar('fyClass', getVar('fyClass', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
-                var flag= getVar('fyClass', ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
+                var url = "hiker://empty@lazyRule=.js:putVar('fyClass"+index +"', getVar('fyClass"+index +"', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
+                var flag= getVar('fyClass'+index, ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
                 d.push({
                     title: "““””<b>"+'<span style="color: #f47983">'+fyclass_1[i] + flag+'</span></b>',
                     url: url,
                     col_type:'flex_button'
                 })
-                if (getVar('fyClass', ' 已折叠') == ' 已展开') {
+                if (getVar('fyClass'+index, ' 已折叠') == ' 已展开') {
                     for (var a = 0; a < fyclass_data.length; a++) {
                             
-                        var title=fyclass_data[a]==getVar('fyClass_data', fyclass_data[0])?"““””<b>"+'<span style="color: #f47983">'+fyclass_data[a]+'</span></b>':fyclass_data[a];
+                        var title=fyclass_data[a]==getVar('fyClass_data'+index, fyclass_data[0])?"““””<b>"+'<span style="color: #f47983">'+fyclass_data[a]+'</span></b>':fyclass_data[a];
                             d.push({
                                 title:title,
                                 url: $("#noLoading#").lazyRule((fyclass_data,fyclass_jsda)=>{
-                                    putVar("fyClass_data",fyclass_data);
-                                    putVar("fyClass_jsda",fyclass_jsda);
+                                    putVar("fyClass_data"+index,fyclass_data);
+                                    putVar("fyClass_jsda"+index,fyclass_jsda);
                                     refreshPage(false);
                                     return "hiker://empty"
                                     }, fyclass_data[a],fyclass_jsda[a]),
@@ -206,7 +206,7 @@ var init = (iniData)=>{
                     }
                 }else{
                     d.push({
-                            title: "““””<b>"+'<span style="color: #f47983">'+getVar('fyClass_data', fyclass_data[0])+'</span></b>',
+                            title: "““””<b>"+'<span style="color: #f47983">'+getVar('fyClass_data'+index, fyclass_data[0])+'</span></b>',
                             col_type:'flex_button'
                     });
                 }
