@@ -64,9 +64,9 @@ var jx_taotao=()=>{
     var _img = parseDomForHtml(html, 'body&&.myui-content__thumb&&.lazyload&&data-original'); //图片
 
     var _title = parseDomForHtml(details[2], 'Text')+ '\n' + parseDomForHtml(details[3], 'Text') + '\n'; //电影信息 导演 + 主演
-    var _desc = parseDomForHtml(html,'#desc&&p,-1&&Text'); //简介
-    //var dataLine =parseDomForArray(details, '');
-    //dataLine.pop();
+    var _desc = parseDomForHtml(details[4], 'Text'); //简介
+    var dataLine = details;
+    dataLine.pop();
     setMovieDetail({
         _title: _title,
         _desc: _desc,
