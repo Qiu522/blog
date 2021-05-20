@@ -195,12 +195,12 @@ var init = (iniData)=>{
                         var title=fyclass_data[a]==getVar('fyClass_data'+index, fyclass_data[0])?"““””<b>"+'<span style="color: #f47983">'+fyclass_data[a]+'</span></b>':fyclass_data[a];
                             d.push({
                                 title:title,
-                                url: $("#noLoading#").lazyRule((fyclass_data,fyclass_jsda)=>{
+                                url: $("#noLoading#").lazyRule((fyclass_data,fyclass_jsda,index)=>{
                                     putVar("fyClass_data"+index,fyclass_data);
                                     putVar("fyClass_jsda"+index,fyclass_jsda);
                                     refreshPage(false);
                                     return "hiker://empty"
-                                    }, fyclass_data[a],fyclass_jsda[a]),
+                                    }, fyclass_data[a],fyclass_jsda[a],index),
                                 col_type:'flex_button'
                             });
                     }
