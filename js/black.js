@@ -488,5 +488,7 @@ var setLikeTabs = (tabs, vari)=>{
             col_type: tabs.length>2?'text_3':'text_2'
         })
     }
-    d.push({title: '<br>', col_type: 'rich_text'});
+    d.push({
+        col_type:"line"
+    });
 }
