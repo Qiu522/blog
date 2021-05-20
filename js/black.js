@@ -123,7 +123,7 @@ var init = (iniData)=>{
             fyclass_jsda.push(fyclass_lists[i]);
         }
       
-        urll=urll.replace('分类',getVar('fyClass_jsda', fyclass_jsda[0]));
+        urll=urll.replace('分类',getVar('fyClass_jsda', fyclass_jsda[fyclass.def]));
     }
     //地区用的
     var fyarea_conts, fyarea_lists;
