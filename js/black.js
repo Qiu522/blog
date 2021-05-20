@@ -206,7 +206,7 @@ var init = (iniData)=>{
                     }
                 }else{
                     d.push({
-                            title: "““””<b>"+'<span style="color: #f47983">'+getVar('fyClass_data'+index, fyclass_data[0])+'</span></b>',
+                            title: "““””<b>"+'<span style="color: #f47983">'+getVar('fyClass_data'+index, fyclass_data[fyclass.def])+'</span></b>',
                             col_type:'flex_button'
                     });
                 }
