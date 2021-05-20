@@ -76,8 +76,8 @@ var jx_taotao=()=>{
 
 
     //线路
-    var conts = parseDomForArray(html,'body&&.myui-panel:contains(排序)');
-    var linelist = parseDomForArray(html, 'body&&.myui-panel:contains(排序)');
+    var conts = parseDomForArray(html,'body&&.myui-content__list');
+    var linelist = parseDomForArray(html, 'body&&.bottom-line:has(.sort-button)');
     var tabs = [];
     for (var i in linelist) {
     tabs.push(parseDomForHtml(linelist[i], 'h3&&Text').replace(/.*独家专用线路/,'') );
