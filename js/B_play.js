@@ -378,7 +378,7 @@ var jx_mjc = ()=>{
     setMovieDetail({
         _title: _title,
         _desc: _desc,
-        _img: _img,
+        _img: _img + '@Referer=',
         dataLine: dataLine
     });
 
