@@ -353,6 +353,9 @@ var setTabs = ([tabs, vari, setUrl])=>{
         col_type: 'text_center_1'
     });
     for (var i = 0; i < tabs.length; i++) {
+        if(getVar(vari)>tabs.length){
+            putVar(vari, '0');
+        }
         var url = "hiker://empty@lazyRule=.js:putVar('"+vari+"', '"+i+"');refreshPage();'toast://切换成功！'";
         d.push({
             title: (getVar(vari, '0')==i?'❣️':'') + tabs[i],
