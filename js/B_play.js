@@ -367,6 +367,21 @@ var jx_mjc = ()=>{
 
     var lazy =  `@lazyRule=.player_video&&script&&Html.js:eval(input);var url=player_data.url;var pn=player_data.from;if(pn=='alizy'){var jurl= fetch('https://foubin.com/jiexi.php?url='+url,{headers:{"User-Agent":MOBILE_UA,"Referer":"https://foubin.com"}}).match(/"url":"(.*?)"/)[1];refreshX5WebView('https://foubin.com/jiexi.php?url='+url);'toast://播放中'}else if(pn == 'xigua'){refreshX5WebView('https://vip.parwix.com:4433/player/?url='+url);'toast://播放中'}else{eval(fetch(getVar('jsUrl')));aytmParse(url);}`;
 
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.player&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.play_infobox&&.play_vlist_thumb,0&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, 'p,2&&Text') + '\n' + parseDomForHtml(details, 'p,3&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, 'p,-1&&Text'); //简介
+    var dataLine = details.match(/<p[\s\S]*?<\/p>/g);
+    dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+
     //线路
     var conts = parseDomForArray(html,'body&&.playlist&&.playlist_full');
     var linelist = parseDomForArray(html, '.play_source_tab&&a');
