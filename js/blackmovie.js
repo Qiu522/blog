@@ -445,7 +445,7 @@ var fiveindex = (d, data)=>{
     var html = request(getVar('pageUrl', data.fivefive.index));
     var conts = parseDomForArray(html, 'body&&.conch-ctwrap&&.container:contains(更多)'); 
 
-    for(var i=1; i<nav.length; i++){
+    for(var i=0; i<nav.length; i++){
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
@@ -454,13 +454,13 @@ var fiveindex = (d, data)=>{
                     
                     
                     var html =request(getVar('pageUrl'));
-                    var list = parseDomForArray(html, '.vodlist_wi&&li');
+                    var list = parseDomForArray(html, '#conch-content&&.hl-row-box,-1&&.hl-vod-list&&li');
                     for (var i in list) {
                         d.push({
-                            title: parseDomForHtml(list[i], '.vodlist_thumb&&title'),
-                            img: parseDom(list[i], '.vodlist_thumb&&data-original')+'@Referer=',
-                            desc: parseDomForHtml(list[i], '.pic_text&&i,1&&Text'),
-                            url: $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjc() }),
+                            title: parseDomForHtml(list[i], '.hl-item-title&&a&&Text'),
+                            img: parseDom(list[i], '.hl-item-thumb&&data-original'),
+                            desc: parseDomForHtml(list[i], '.hl-pic-text&&Text'),
+                            url: $(parseDom(list[i], '.hl-item-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
                             col_type: "movie_3"
                         })
                     }
@@ -474,9 +474,12 @@ var fiveindex = (d, data)=>{
         var list = parseDomForArray(conts[i], 'ul&&li');
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("更多>", "") + " <small><small><font color='#1db69a'>更多></font></small></small>",
-            url: $('https://www.o8tv.com/index.php/vod/show/id/'+router[i]+'/page/fypage.html').rule(() => {
-                var d = [];
-                var list = parseDomForArray(getResCode(), '#conch-content&&.hl-row-box,-1&&.hl-vod-list&&li');
+            url: $(router[i]).rule((type, index) => {
+                var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                setNav(type[index]);
+
+                var html =request(getVar('pageUrl'));
+                var list = parseDomForArray(html, '#conch-content&&.hl-row-box,-1&&.hl-vod-list&&li');
                 for (var i in list) {
                     d.push({
                         title: parseDomForHtml(list[i], '.hl-item-title&&a&&Text'),
