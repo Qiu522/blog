@@ -1,5 +1,5 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
-const movielists = [{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit=',},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'}];
+const movielists = [{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit=',},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vodsearch/关键词----------fypage---/'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -490,7 +490,7 @@ var fiveindex = (d, data)=>{
                     })
                 }
                 setResult(d)
-            }),
+            },type, i),
             col_type: "text_center_1"
         });
         for (var j in list) {
@@ -537,6 +537,17 @@ var searchmovie = (data)=>{
                             content:parseDomForHtml(list[i],'p.hidden-xs&&Text')
                         });
                     }
+                }else if(/o8tv/.test(MY_URL)){
+                    var list = parseDomForArray(html, '.hl-one-list&&li');
+                    for (var j in list) {
+                    d.push({
+                        title: parseDomForHtml(list[j], 'a&&title'),
+                        desc: parseDomForHtml(list[j], '.hl-item-sub&&Text'),
+                        content: parseDomForHtml(list[j], 'p,2&&Text'),
+                        pic_url: parseDom(list[j], 'a&&data-original'),
+                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
+                    });
+                    }
                 }
                 setResult(d)
             }),
@@ -567,6 +578,17 @@ var searchmovie = (data)=>{
                         url:$(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
                         content:parseDomForHtml(list[j],'p.hidden-xs&&Text')
                     });
+                }
+            }else if(/o8tv/.test(movielists[i].search)){
+                var list = parseDomForArray(html, '.hl-one-list&&li');
+                for (var j = 0; j < 6; j++) {
+                d.push({
+                    title: parseDomForHtml(list[j], 'a&&title'),
+                    desc: parseDomForHtml(list[j], '.hl-item-sub&&Text'),
+                    content: parseDomForHtml(list[j], 'p,2&&Text'),
+                    pic_url: parseDom(list[j], 'a&&data-original'),
+                    url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
+                });
                 }
             }
         }
