@@ -311,7 +311,8 @@ var taotaoindex = (d, data)=>{
                 title: parseDomForHtml(list[j], '.title&&Text'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url:  $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
+                url: 
+$(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
                 col_type: "movie_3"
             });
         }
