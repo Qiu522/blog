@@ -252,7 +252,7 @@ const data = {
                 index: 'five_6'
             }
         ],
-        nav:[{title:'蓝光片库', url: 'https://qiu522.github.io/blog/img/dianying_icon.gif'},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying_icon.gif'},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshi_icon.gif'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/zymk.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/movie2.png'},{title:'纪录片', url: 'https://qiu522.github.io/blog/img/zymk.png'}]
+        nav:[{title:'蓝光片库', url: 'https://qiu522.github.io/blog/img/dianying_icon.gif'},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/movie1.png'},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshi_icon.gif'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/zymk.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/movie2.png'},{title:'纪录片', url: 'https://qiu522.github.io/blog/img/movie3.png'}]
     }
 }
 //首页解析
@@ -557,6 +557,7 @@ var searchmovie = (data)=>{
         if(data!=undefined){
             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
             if(/meijuchong/.test(movielists[i].search)){
+                MY_URL = data.mjc.index;
                 var list = parseDom(html, 'body&&.search_box&&.vodlist&&Html').match(/<li[\s\S]*?<\/li/g);
                 for (var j = 0; j < 6; j++) {
                     d.push({
@@ -567,7 +568,8 @@ var searchmovie = (data)=>{
                         url:$(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjc() }),
                     });
                 }
-            }else if(/flvwec/.test(movielists[i].search)){
+            }else if(/flvwec/.test(movielists[i].search)){   
+                MY_URL = data.taotao.index;
                 var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
                 var list = parseDomForArray(content, 'body&&li');
                 for(var j = 0; j < 6; j++){
@@ -580,6 +582,7 @@ var searchmovie = (data)=>{
                     });
                 }
             }else if(/o8tv/.test(movielists[i].search)){
+                MY_URL = data.fivefive.index;
                 var list = parseDomForArray(html, '.hl-one-list&&li');
                 for (var j = 0; j < 6; j++) {
                 d.push({
