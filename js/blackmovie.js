@@ -498,7 +498,7 @@ var fiveindex = (d, data)=>{
                 title: parseDomForHtml(list[j], '.hl-item-title&&a&&Text'),
                 img: parseDom(list[j], '.hl-item-thumb&&data-original'),
                 desc: parseDomForHtml(list[j], '.hl-pic-text&&Text'),
-                url: parseDom(list[j], '.hl-item-thumb&&href'),
+                url: $(parseDom(list[i], '.hl-item-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
                 col_type: "movie_3"
             });
         }
