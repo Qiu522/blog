@@ -167,11 +167,20 @@ var hikerHomePage = ()=>{
             col_type:'flex_button'
         });
     }
-    
-    if( /meijuchong/.test( getVar('pageUrl', data.mjc.index) ) ){
-        mjcindex(d, data);
-    }else if( /flvwec/.test( getVar('pageUrl', data.mjc.index) ) ){
-        taotaoindex(d,data);
+
+    d.push({
+        desc: '60&&float',
+        url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/tc.html',
+        col_type: 'x5_webview_single'
+    })
+    if (getVar('searchKeyword') == "") {
+        if( /meijuchong/.test( getVar('pageUrl', data.mjc.index) ) ){
+            mjcindex(d, data);
+        }else if( /flvwec/.test( getVar('pageUrl', data.mjc.index) ) ){
+            taotaoindex(d,data);
+        }
+    }else{
+        searchmovie(getVar('searchKeyword'));
     }
 
     d.push({ col_type: 'line_blank' });
@@ -321,9 +330,9 @@ $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hike
     }
 }
 
-var searchmovie = ()=>{
+var searchmovie = (data)=>{
     var d = [];
-    var key = MY_URL.split('$$$')[1]
+    var key = data!=undefined? data : MY_URL.split('$$$')[1];
     for(var i in movielists){
         d.push({
             title: movielists[i].title,
