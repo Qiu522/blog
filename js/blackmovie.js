@@ -368,7 +368,7 @@ var searchmovie = (data)=>{
             col_type: "text_1"
         });
 
-        var html = request(movielists[i].search.replace('关键词', key));
+        var html = request(movielists[i].search.replace('关键词', key).replace('fypage',1));
         if(/meijuchong/.test(movielists[i].search)){
             var list = parseDom(html, 'body&&.search_box&&.vodlist&&Html').match(/<li[\s\S]*?<\/li/g);
             for (var j = 0; j < list.length; j++) {
