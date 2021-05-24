@@ -335,7 +335,7 @@ var searchmovie = (data)=>{
     var key = data!=undefined? data : MY_URL.split('$$$')[1];
     for(var i in movielists){
         d.push({
-            title: movielists[i].title,
+            title: movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>",
             url: $(movielists[i].search.replace('关键词', key)).rule(()=>{
                 var d = []
                 var html=getResCode();
