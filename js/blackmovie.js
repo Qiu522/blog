@@ -150,7 +150,7 @@ const data = {
         nav:[{},{},{},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshi_icon.gif'},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying_icon.gif'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/movie2.png'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/zymk.png'}]
     },
     fivefive:{
-        index:'https://www.meijuchong.com',
+        index:'https://www.o8tv.com',
         router:['https://www.o8tv.com/index.php/vod/show/by/排序/年代/id/分类/page/fypage.html','https://www.o8tv.com/index.php/vod/show/by/排序/年代/id/分类/page/fypage.html','https://www.o8tv.com/index.php/vod/show/by/排序/年代/id/分类/page/fypage.html','https://www.o8tv.com/index.php/vod/show/by/排序/年代/id/分类/page/fypage.html','https://www.o8tv.com/index.php/vod/show/by/排序/年代/id/分类/page/fypage.html','https://www.o8tv.com/index.php/vod/show/by/排序/id/分类/page/fypage.html'],
         type:[
             {
