@@ -181,6 +181,7 @@ var hikerHomePage = ()=>{
 //HOMEPAGE
 
 var mjcindex = (d, data)=>{
+    MY_URL = data.mjc.index;
     var router = data.mjc.router;
     var type = data.mjc.type;
     var nav = data.mjc.nav;
@@ -249,6 +250,7 @@ var mjcindex = (d, data)=>{
 }
 
 var taotaoindex = (d, data)=>{
+    MY_URL = data.taotao.index;
     var router = data.taotao.router;
     var type = data.taotao.type;
     var nav = data.taotao.nav;
