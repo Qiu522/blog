@@ -470,7 +470,7 @@ var fiveindex = (d, data)=>{
         });
     }
 
-    for (var i =0; i<conts.length-1; i++) {
+    for (var i =0; i<conts.length; i++) {
         var list = parseDomForArray(conts[i], 'ul&&li');
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("更多>", "") + " <small><small><font color='#1db69a'>更多></font></small></small>",
