@@ -505,9 +505,9 @@ var fiveindex = (d, data)=>{
     }
 }
 
-var searchmovie = (data)=>{
+var searchmovie = (keydata)=>{
     var d = [];
-    var key = data!=undefined? data : MY_URL.split('$$$')[1];
+    var key = keydata!=undefined? keydata : MY_URL.split('$$$')[1];
     for(var i in movielists){
         d.push({
             title:'‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>",
@@ -554,7 +554,7 @@ var searchmovie = (data)=>{
             col_type: "text_1"
         });
 
-        if(data!=undefined){
+        if(keydata!=undefined){
             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
             if(/meijuchong/.test(movielists[i].search)){
                 MY_URL = data.mjc.index;
