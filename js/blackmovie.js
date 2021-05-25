@@ -572,7 +572,8 @@ var searchmovie = (keydata)=>{
             }else if(/flvwec/.test(movielists[i].search)){   
                 MY_URL = data.taotao.index;
                 var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
-                var list = parseDomForArray(content, 'body&&li');
+                var list = parseDomForArray(content, 'body&&li');            
+                var len = list.length>6 ? 6 : list.length;
                 for(var j = 0; j < len; j++){
                     d.push({
                         title:parseDomForHtml(list[j],'a&&title'),
@@ -584,7 +585,8 @@ var searchmovie = (keydata)=>{
                 }
             }else if(/o8tv/.test(movielists[i].search)){
                 MY_URL = data.fivefive.index;
-                var list = parseDomForArray(html, '.hl-one-list&&li');
+                var list = parseDomForArray(html, '.hl-one-list&&li');                
+                var len = list.length>6 ? 6 : list.length;
                 for (var j = 0; j < len; j++) {
                 d.push({
                     title: parseDomForHtml(list[j], 'a&&title'),
