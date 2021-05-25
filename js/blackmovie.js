@@ -555,6 +555,11 @@ var searchmovie = (keydata)=>{
         });
 
         if(keydata!=undefined){
+            d.push({
+                desc: '60&&float',
+                url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/tc.html',
+                col_type: 'x5_webview_single'
+            })
             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
             if(/meijuchong/.test(movielists[i].search)){
                 MY_URL = data.mjc.index;
