@@ -585,7 +585,7 @@ var searchmovie = (keydata)=>{
             }else if(/o8tv/.test(movielists[i].search)){
                 MY_URL = data.fivefive.index;
                 var list = parseDomForArray(html, '.hl-one-list&&li');
-                for (var j = 0; j < lem; j++) {
+                for (var j = 0; j < len; j++) {
                 d.push({
                     title: parseDomForHtml(list[j], 'a&&title'),
                     desc: parseDomForHtml(list[j], '.hl-item-sub&&Text'),
