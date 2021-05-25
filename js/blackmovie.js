@@ -559,7 +559,8 @@ var searchmovie = (keydata)=>{
             if(/meijuchong/.test(movielists[i].search)){
                 MY_URL = data.mjc.index;
                 var list = parseDom(html, 'body&&.search_box&&.vodlist&&Html').match(/<li[\s\S]*?<\/li/g);
-                for (var j = 0; j < 6; j++) {
+                var len = list.length>6 ? 6 : list.length;
+                for (var j = 0; j < len; j++) {
                     d.push({
                         title: parseDomForHtml(list[j], '.vodlist_thumb&&title'),
                         desc: parseDomForHtml(list[j], '.pic_text&&Text'),
@@ -572,7 +573,7 @@ var searchmovie = (keydata)=>{
                 MY_URL = data.taotao.index;
                 var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
                 var list = parseDomForArray(content, 'body&&li');
-                for(var j = 0; j < 6; j++){
+                for(var j = 0; j < len; j++){
                     d.push({
                         title:parseDomForHtml(list[j],'a&&title'),
                         desc:parseDomForHtml(list[j],'.pic-tag&&Text'),
@@ -584,7 +585,7 @@ var searchmovie = (keydata)=>{
             }else if(/o8tv/.test(movielists[i].search)){
                 MY_URL = data.fivefive.index;
                 var list = parseDomForArray(html, '.hl-one-list&&li');
-                for (var j = 0; j < 6; j++) {
+                for (var j = 0; j < lem; j++) {
                 d.push({
                     title: parseDomForHtml(list[j], 'a&&title'),
                     desc: parseDomForHtml(list[j], '.hl-item-sub&&Text'),
