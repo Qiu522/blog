@@ -635,7 +635,7 @@ var jpysindex = (d,data, lazyRule)=>{
     for(var i=3; i<7; i++){
         var j=i+1;
         d.push({
-            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
+            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index, lazyRule) => {
                    var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
@@ -652,7 +652,7 @@ var jpysindex = (d,data, lazyRule)=>{
                         })
                     }
                     setResult(d)
-                },type, i),
+                },type, i, lazyRule),
             col_type:'icon_small_4'
         });
     }
@@ -661,7 +661,7 @@ var jpysindex = (d,data, lazyRule)=>{
         var list = parseDomForArray(conts[i], '.myui-vodlist&&li');
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
-            url: i==0?'':$(router[i]).rule((type, index) => {
+            url: i==0?'':$(router[i]).rule((type, index, lazyRule) => {
                var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
@@ -679,7 +679,7 @@ var jpysindex = (d,data, lazyRule)=>{
                     })
                 }
                 setResult(d)
-            },type, i),
+            },type, i, lazyRule),
             col_type: "text_center_1"
         });
         for (var j in list) {
