@@ -1,5 +1,5 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
-const movielists = [{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -253,6 +253,124 @@ const data = {
             }
         ],
         nav:[{title:'蓝光片库', url: 'https://qiu522.github.io/blog/img/dianying_icon.gif'},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/movie1.png'},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshi_icon.gif'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/zymk.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/movie2.png'},{title:'纪录片', url: 'https://qiu522.github.io/blog/img/movie3.png'}]
+    },
+    jpys:{
+        index: 'https://www.jpysvip.net',
+        router: ['hiker://empty','https://www.jpysvip.net/vodshow/分类--排序-年代-----fypage---.html','https://www.jpysvip.net/vodshow/分类--排序-年代-----fypage---.html','https://www.jpysvip.net/vodshow/分类--排序-年代-----fypage---.html','https://www.jpysvip.net/vodshow/分类--排序-年代-----fypage---.html', 'https://www.jpysvip.net/vodshow/3-分类-排序------fypage---.html', 'https://www.jpysvip.net/vodshow/4-分类-排序------fypage---.html','https://www.jpysvip.net/vodshow/分类--排序-年代-----fypage---.html'],
+        type:[{},
+            {
+                fyclass:{
+                    conts: '全部&动作片&喜剧片&爱情片&科幻片&恐怖片&剧情片&战争片',
+                    lists: '1&6&7&8&9&10&11&12',
+                    def:1
+                },
+                fyyear:{
+                    conts:'全部&喜剧&爱情&恐怖&动作&科幻&剧情&战争&警匪&犯罪&动画&奇幻&武侠&冒险&枪战&恐怖&悬疑&惊悚&经典&青春&文艺&微电影&古装&历史&运动&农村&儿童&网络电影',
+                    lists:'&%E5%96%9C%E5%89%A7&%E7%88%B1%E6%83%85&%E6%81%90%E6%80%96&%E5%8A%A8%E4%BD%9C&%E7%A7%91%E5%B9%BB&%E5%89%A7%E6%83%85&%E6%88%98%E4%BA%89&%E8%AD%A6%E5%8C%AA&%E7%8A%AF%E7%BD%AA&%E5%8A%A8%E7%94%BB&%E5%A5%87%E5%B9%BB&%E6%AD%A6%E4%BE%A0&%E5%86%92%E9%99%A9&%E6%9E%AA%E6%88%98&%E6%81%90%E6%80%96&%E6%82%AC%E7%96%91&%E6%83%8A%E6%82%9A&%E7%BB%8F%E5%85%B8&%E9%9D%92%E6%98%A5&%E6%96%87%E8%89%BA&%E5%BE%AE%E7%94%B5%E5%BD%B1&%E5%8F%A4%E8%A3%85&%E5%8E%86%E5%8F%B2&%E8%BF%90%E5%8A%A8&%E5%86%9C%E6%9D%91&%E5%84%BF%E7%AB%A5&%E7%BD%91%E7%BB%9C%E7%94%B5%E5%BD%B1'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1---.html',
+                index:'jpys_1'
+            },
+            {
+                fyclass:{
+                    conts: '全部&动作片&喜剧片&爱情片&科幻片&恐怖片&剧情片&战争片',
+                    lists: '1&6&7&8&9&10&11&12',
+                    def:2
+                },
+                fyyear:{
+                    conts:'全部&喜剧&爱情&恐怖&动作&科幻&剧情&战争&警匪&犯罪&动画&奇幻&武侠&冒险&枪战&恐怖&悬疑&惊悚&经典&青春&文艺&微电影&古装&历史&运动&农村&儿童&网络电影',
+                    lists:'&%E5%96%9C%E5%89%A7&%E7%88%B1%E6%83%85&%E6%81%90%E6%80%96&%E5%8A%A8%E4%BD%9C&%E7%A7%91%E5%B9%BB&%E5%89%A7%E6%83%85&%E6%88%98%E4%BA%89&%E8%AD%A6%E5%8C%AA&%E7%8A%AF%E7%BD%AA&%E5%8A%A8%E7%94%BB&%E5%A5%87%E5%B9%BB&%E6%AD%A6%E4%BE%A0&%E5%86%92%E9%99%A9&%E6%9E%AA%E6%88%98&%E6%81%90%E6%80%96&%E6%82%AC%E7%96%91&%E6%83%8A%E6%82%9A&%E7%BB%8F%E5%85%B8&%E9%9D%92%E6%98%A5&%E6%96%87%E8%89%BA&%E5%BE%AE%E7%94%B5%E5%BD%B1&%E5%8F%A4%E8%A3%85&%E5%8E%86%E5%8F%B2&%E8%BF%90%E5%8A%A8&%E5%86%9C%E6%9D%91&%E5%84%BF%E7%AB%A5&%E7%BD%91%E7%BB%9C%E7%94%B5%E5%BD%B1'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1---.html',
+                index:'jpys_2'
+            },
+            {
+                fyclass:{
+                    conts: '全部&国产剧&香港剧&韩国剧&欧美剧&日本剧&台湾剧&泰国剧',
+                    lists: '2&13&14&15&16&20&21&22',
+                    def:0
+                },
+                fyyear:{
+                    conts:'全部&古装&战争&青春偶像&喜剧&家庭&犯罪&动作&奇幻&剧情&历史&经典&乡村&情景&商战&网剧&其他',
+                    lists:'&%E5%8F%A4%E8%A3%85&%E6%88%98%E4%BA%89&%E9%9D%92%E6%98%A5%E5%81%B6%E5%83%8F&%E5%96%9C%E5%89%A7&%E5%AE%B6%E5%BA%AD&%E7%8A%AF%E7%BD%AA&%E5%8A%A8%E4%BD%9C&%E5%A5%87%E5%B9%BB&%E5%89%A7%E6%83%85&%E5%8E%86%E5%8F%B2&%E7%BB%8F%E5%85%B8&%E4%B9%A1%E6%9D%91&%E6%83%85%E6%99%AF&%E5%95%86%E6%88%98&%E7%BD%91%E5%89%A7&%E5%85%B6%E4%BB%96'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1---.html',
+                index:'jpys_3'
+            },
+            {
+                fyclass:{
+                    conts: '全部&动作片&喜剧片&爱情片&科幻片&恐怖片&剧情片&战争片',
+                    lists: '1&6&7&8&9&10&11&12',
+                    def:0
+                },
+                fyyear:{
+                    conts:'全部&喜剧&爱情&恐怖&动作&科幻&剧情&战争&警匪&犯罪&动画&奇幻&武侠&冒险&枪战&恐怖&悬疑&惊悚&经典&青春&文艺&微电影&古装&历史&运动&农村&儿童&网络电影',
+                    lists:'&%E5%96%9C%E5%89%A7&%E7%88%B1%E6%83%85&%E6%81%90%E6%80%96&%E5%8A%A8%E4%BD%9C&%E7%A7%91%E5%B9%BB&%E5%89%A7%E6%83%85&%E6%88%98%E4%BA%89&%E8%AD%A6%E5%8C%AA&%E7%8A%AF%E7%BD%AA&%E5%8A%A8%E7%94%BB&%E5%A5%87%E5%B9%BB&%E6%AD%A6%E4%BE%A0&%E5%86%92%E9%99%A9&%E6%9E%AA%E6%88%98&%E6%81%90%E6%80%96&%E6%82%AC%E7%96%91&%E6%83%8A%E6%82%9A&%E7%BB%8F%E5%85%B8&%E9%9D%92%E6%98%A5&%E6%96%87%E8%89%BA&%E5%BE%AE%E7%94%B5%E5%BD%B1&%E5%8F%A4%E8%A3%85&%E5%8E%86%E5%8F%B2&%E8%BF%90%E5%8A%A8&%E5%86%9C%E6%9D%91&%E5%84%BF%E7%AB%A5&%E7%BD%91%E7%BB%9C%E7%94%B5%E5%BD%B1'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1---.html',
+                index:'jpys_4'
+            },
+            {
+                fyclass:{
+                    conts: '全部&内地&港台&日韩&欧美',
+                    lists: '&%E5%86%85%E5%9C%B0&%E6%B8%AF%E5%8F%B0&%E6%97%A5%E9%9F%A9&%E6%AC%A7%E7%BE%8E',
+                    def:0
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1---.html',
+                index:'jpys_5'
+            },
+            {
+                fyclass:{
+                    conts: '全部&国产&日本&欧美&其他',
+                    lists: '&%E5%9B%BD%E4%BA%A7&%E6%97%A5%E6%9C%AC&%E6%AC%A7%E7%BE%8E&%E5%85%B6%E4%BB%96',
+                    def:0
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1---.html',
+                index:'jpys_6'
+            },
+            {
+                fyclass:{
+                    conts: '全部&国产剧&香港剧&韩国剧&欧美剧&日本剧&台湾剧&泰国剧',
+                    lists: '2&13&14&15&16&20&21&22',
+                    def:2
+                },
+                fyyear:{
+                    conts:'全部&古装&战争&青春偶像&喜剧&家庭&犯罪&动作&奇幻&剧情&历史&经典&乡村&情景&商战&网剧&其他',
+                    lists:'&%E5%8F%A4%E8%A3%85&%E6%88%98%E4%BA%89&%E9%9D%92%E6%98%A5%E5%81%B6%E5%83%8F&%E5%96%9C%E5%89%A7&%E5%AE%B6%E5%BA%AD&%E7%8A%AF%E7%BD%AA&%E5%8A%A8%E4%BD%9C&%E5%A5%87%E5%B9%BB&%E5%89%A7%E6%83%85&%E5%8E%86%E5%8F%B2&%E7%BB%8F%E5%85%B8&%E4%B9%A1%E6%9D%91&%E6%83%85%E6%99%AF&%E5%95%86%E6%88%98&%E7%BD%91%E5%89%A7&%E5%85%B6%E4%BB%96'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1---.html',
+                index:'jpys_7'
+            }
+        ],
+        nav: [{},{},{},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshi_icon.gif'},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying_icon.gif'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/movie2.png'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/zymk.png'}]
     }
 }
 //首页解析
@@ -279,12 +397,14 @@ var hikerHomePage = ()=>{
         col_type: 'x5_webview_single'
     })
     if (getVar('searchKeyword') == "") {
-        if( /meijuchong/.test( getVar('pageUrl', data.mjc.index) ) ){
+        if( /meijuchong/.test( getVar('pageUrl', data.jpys.index) ) ){
             mjcindex(d, data);
-        }else if( /flvwec/.test( getVar('pageUrl', data.mjc.index) ) ){
+        }else if( /flvwec/.test( getVar('pageUrl', data.jpys.index) ) ){
             taotaoindex(d,data);
-        }else if(/o8tv/.test(getVar('pageUrl', data.mjc.index))){
+        }else if(/o8tv/.test(getVar('pageUrl', data.jpys.index))){
             fiveindex(d,data);
+        }else if(/jpysvip/.test(getVar('pageUrl', data.jpys.index))){
+            jpysindex(d,data);
         }
     }else{
         searchmovie(getVar('searchKeyword'));
@@ -407,7 +527,6 @@ var taotaoindex = (d, data)=>{
             var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
-                
                 var html =request(getVar('pageUrl'));
                 var list = parseDomForArray(html, '.myui-vodlist&&li');
                 for (var i in list) {
@@ -499,6 +618,75 @@ var fiveindex = (d, data)=>{
                 img: parseDom(list[j], '.hl-item-thumb&&data-original'),
                 desc: parseDomForHtml(list[j], '.hl-pic-text&&Text'),
                 url: $(parseDom(list[i], '.hl-item-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
+                col_type: "movie_3"
+            });
+        }
+    }
+}
+var jpysindex = ()=>{
+    MY_URL = data.jpys.index;
+    var router = data.jpys.router;
+    var type = data.jpys.type;
+    var nav = data.jpys.nav;
+    var html = request(getVar('pageUrl', data.jpys.index));
+    var conts = parseDomForArray(html, 'body&&.myui-panel:has(.myui-vodlist)'); //第一个不要
+
+    for(var i=3; i<7; i++){
+        var j=i+1;
+        d.push({
+            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
+                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                    setNav(type[index]);
+                    
+                    var html =request(getVar('pageUrl'));
+                    var list = parseDomForArray(html, '.myui-vodlist&&li');
+                    for (var i in list) {
+                        d.push({
+                            title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
+                            img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
+                            desc: parseDomForHtml(list[i], '.pic-text&&Text'),
+                            url: 
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys() }),
+                            col_type: "movie_3"
+                        })
+                    }
+                    setResult(d)
+                },type, i),
+            col_type:'icon_small_4'
+        });
+    }
+    
+    for (var i =0; i<conts.length-1; i++) {
+        var list = parseDomForArray(conts[i], '.myui-vodlist&&li');
+        d.push({
+            title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: i==0?'':$(router[i]).rule((type, index) => {
+               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                setNav(type[index]);
+                
+                
+                var html =request(getVar('pageUrl'));
+                var list = parseDomForArray(html, '.myui-vodlist&&li');
+                for (var i in list) {
+                    d.push({
+                        title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
+                        img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
+                        desc: parseDomForHtml(list[i], '.pic-text&&Text'),
+                        url: 
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys();}),
+                        col_type: "movie_3"
+                    })
+                }
+                setResult(d)
+            },type, i),
+            col_type: "text_center_1"
+        });
+        for (var j in list) {
+            d.push({
+                title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
+                img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
+                desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys();}),
                 col_type: "movie_3"
             });
         }
