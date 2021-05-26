@@ -736,6 +736,17 @@ var searchmovie = (keydata)=>{
                         url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
                     });
                     }
+                }else if(/jpysvip/.test(MY_URL)){
+                    var list = parseDom(html, '.myui-vodlist__media&&Html').match(/<li[\s\S]*?<\/li/g);
+                    for (var j = 0; j < list.length; j++) {
+                        d.push({
+                            title: parseDomForHtml(list[j], 'h4&&Text'),
+                            desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                            pic_url: parseDom(list[j], '.lazyload&&data-original'),
+                            content:parseDomForHtml(list[j], '.detail--h4&&Text'),
+                            url: parseDom(list[j],'h4&&a&&href')
+                        });
+                    }
                 }
                 setResult(d)
             }),
@@ -789,6 +800,19 @@ var searchmovie = (keydata)=>{
                     url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
                 });
                 }
+            }else if(/jpysvip/.test(MY_URL)){
+                MY_URL = data.fivefive.index;
+                var list = parseDomForArray(html, '.myui-vodlist__media&&li');                
+                var len = list.length>6 ? 6 : list.length;
+                for (var j = 0; j < list.length; j++) {
+                d.push({
+                    title: parseDomForHtml(list[j], 'h4&&Text'),
+                    desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                    pic_url: parseDom(list[j], '.lazyload&&data-original'),
+                    content:parseDomForHtml(list[j], '.detail--h4&&Text'),
+                    url: $(parseDom(list[j], 'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys() }),
+                });
+                } 
             }
         }
     }
