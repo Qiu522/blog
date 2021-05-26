@@ -701,9 +701,10 @@ var searchmovie = (keydata,lazyData)=>{
     for(var i in movielists){
         d.push({
             title:keydata==undefined? movielists[i].title : ('‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>"),
-            url: $(movielists[i].search.replace('关键词', key)).rule(()=>{
+            url: $(movielists[i].search.replace('关键词', key)).rule((lazyData)=>{
                 var d = []
                 var html=getResCode();
+                var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy} = lazyData;
                 if(/meijuchong/.test(MY_URL)){
                     var list = parseDom(html, 'body&&.search_box&&.vodlist&&Html').match(/<li[\s\S]*?<\/li/g);
                     for (var j = 0; j < list.length; j++) {
@@ -751,7 +752,7 @@ var searchmovie = (keydata,lazyData)=>{
                     }
                 }
                 setResult(d)
-            }),
+            },lazyData),
             col_type: "text_1"
         });
 
