@@ -399,7 +399,7 @@ var hikerHomePage = (lazyData)=>{
     })
     if (getVar('searchKeyword') == "") {
         if( /meijuchong/.test( getVar('pageUrl', data.jpys.index) ) ){
-            mjcindex(d, data);
+            mjc_lazy!=undefined? mjcindex(d, data, mjc_lazy) : mjcindex(d, data);
         }else if( /flvwec/.test( getVar('pageUrl', data.jpys.index) ) ){
             taotaoindex(d,data);
         }else if(/o8tv/.test(getVar('pageUrl', data.jpys.index))){
@@ -417,7 +417,7 @@ var hikerHomePage = (lazyData)=>{
 }
 //HOMEPAGE
 
-var mjcindex = (d, data)=>{
+var mjcindex = (d, data, lazyRule)=>{
     MY_URL = data.mjc.index;
     var router = data.mjc.router;
     var type = data.mjc.type;
@@ -428,7 +428,7 @@ var mjcindex = (d, data)=>{
     for(var i=1; i<nav.length; i++){
         var j=i+1;
         d.push({
-            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
+            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index, lazyRule) => {
                 var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
@@ -440,12 +440,12 @@ var mjcindex = (d, data)=>{
                             title: parseDomForHtml(list[i], '.vodlist_thumb&&title'),
                             img: parseDom(list[i], '.vodlist_thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic_text&&i,1&&Text'),
-                            url: $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjc() }),
+                            url: $(parseDom(list[i], '.vodlist_thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lazyRule!=undefined? jx_mjc(lazyRule): jx_mjc()}, lazyRule),
                             col_type: "movie_3"
                         })
                     }
                     setResult(d)
-                },type, i),
+                },type, i, lazyRule),
             col_type:'icon_small_4'
         });
     }
@@ -454,7 +454,7 @@ var mjcindex = (d, data)=>{
         var list = parseDomForArray(conts[i], '.vodlist_wi&&li');
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
-            url: i==0?'':$(router[i]).rule((type, index) => {
+            url: i==0?'':$(router[i]).rule((type, index, lazyRule) => {
             var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
@@ -466,12 +466,12 @@ var mjcindex = (d, data)=>{
                         title: parseDomForHtml(list[i], '.vodlist_thumb&&title'),
                         img: parseDom(list[i], '.vodlist_thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic_text&&i,1&&Text'),
-                        url: $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjc() }),
+                        url: $(parseDom(list[i], '.vodlist_thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js'));lazyRule!=undefined? jx_mjc(lazyRule): jx_mjc()}, lazyRule),
                         col_type: "movie_3"
                     })
                 }
                 setResult(d)
-            },type, i),
+            },type, i, lazyRule),
             col_type: "text_center_1"
         });
         for (var j in list) {
@@ -479,7 +479,7 @@ var mjcindex = (d, data)=>{
                 title: parseDomForHtml(list[j], '.vodlist_thumb&&title'),
                 img: parseDom(list[j], '.vodlist_thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic_text&&i,1&&Text'),
-                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjc() }),
+                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js'));  lazyRule!=undefined? jx_mjc(lazyRule): jx_mjc()}, lazyRule),
                 col_type: "movie_3"
             });
         }
@@ -712,7 +712,7 @@ var searchmovie = (keydata,lazyData)=>{
                             desc: parseDomForHtml(list[j], '.pic_text&&Text'),
                             pic_url: parseDom(list[j], '.vodlist_thumb&&data-original'),
                             content:parseDomForHtml(list[j], '.searchlist_titbox&&Text'),
-                            url:$(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjc() }),
+                            url:$(parseDom(list[j], '.vodlist_thumb&&href')).rule((mjc_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
                         });
                     }
                 }else if(/flvwec/.test(MY_URL)){
@@ -746,7 +746,7 @@ var searchmovie = (keydata,lazyData)=>{
                             desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                             pic_url: parseDom(list[j], '.lazyload&&data-original'),
                             content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                            url: $(parseDom(list[j], 'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(lazyRule) : jx_jpys();}),
+                            url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
                         });
                     }
                 }
@@ -772,7 +772,7 @@ var searchmovie = (keydata,lazyData)=>{
                         desc: parseDomForHtml(list[j], '.pic_text&&Text'),
                         pic_url: parseDom(list[j], '.vodlist_thumb&&data-original'),
                         content:parseDomForHtml(list[j], '.searchlist_titbox&&Text'),
-                        url:$(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjc() }),
+                        url:$(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
                     });
                 }
             }else if(/flvwec/.test(movielists[i].search)){   
@@ -812,7 +812,7 @@ var searchmovie = (keydata,lazyData)=>{
                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                     pic_url: parseDom(list[j], '.lazyload&&data-original'),
                     content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                    url: $(parseDom(list[j], 'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(lazyRule) : jx_jpys();}),
+                    url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
                 });
                 } 
             }
