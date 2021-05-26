@@ -420,7 +420,7 @@ var jx_jpys = ()=>{
     });
     eval(fetch(jsUrl));
 
-    var lazy =  `@lazyRule=.js:var get =fetch(input,{headers:{"User-Agent":PC_UA,"Referer":"https://www.jpysvip.net"}});var js = parseDomForHtml(get,".myui-player__box&&script&&Html");eval(js);var url=player_data.url;var fro=player_data.from;if(url.indexOf('html')>0){var play=fetch('https://www.jpysvip.net/dplayer/analysis.php?v='+url,{headers:{"User-Agent":"Mozilla/5.0","Referer":"https://www.jpysvip.net/"}}).match(/url = \"(.*?)\"/)[1];play;}else if(fro=='xinm3u8'){var play=fetch('https://jxn.dxsdkw.cn/x2.php?id='+url,{}).match(/url: \'(.*?)\'/)[1];play;}else{url}`;
+    var lazy =  `@lazyRule=.js:var get =fetch(input,{headers:{"User-Agent":PC_UA,"Referer":"https://www.jpysvip.net"}});var js = parseDomForHtml(get,".myui-player__box&&script&&Html");eval(js);var url=player_data.url;var fro=player_data.from;if(url.indexOf('html')>0){var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));aytmParse(url);}else if(fro=='xinm3u8'){var play=fetch('https://jxn.dxsdkw.cn/x2.php?id='+url,{}).match(/url: \'(.*?)\'/)[1];play;}else{url}`;
 
     //影片详情
     var details = parseDomForHtml(html, 'body&&.myui-content__detail&&Html'); //影片信息
