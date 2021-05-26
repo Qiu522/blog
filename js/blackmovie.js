@@ -408,7 +408,7 @@ var hikerHomePage = (lazyData)=>{
             jpys_lazy!=undefined? jpysindex(d,data, jpys_lazy) : jpysindex(d,data);
         }
     }else{
-        searchmovie(getVar('searchKeyword'), lazyData);
+        searchmovie( lazyData, getVar('searchKeyword'));
     }
 
     d.push({ col_type: 'line_blank' });
@@ -694,7 +694,7 @@ var jpysindex = (d,data, lazyRule)=>{
     }
 }
 
-var searchmovie = (keydata,lazyData)=>{
+var searchmovie = (lazyData, keydata)=>{
     var d = [];
     var key = keydata!=undefined? keydata : MY_URL.split('$$$')[1];
     var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy} = lazyData;
