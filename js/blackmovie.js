@@ -800,7 +800,7 @@ var searchmovie = (keydata)=>{
                     url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
                 });
                 }
-            }else if(/jpysvip/.test(MY_URL)){
+            }else if(/jpysvip/.test(movielists[i].search)){
                 MY_URL = data.jpys.index;
                 var list = parseDomForArray(html, '.myui-vodlist__media&&li');                
                 var len = list.length>6 ? 6 : list.length;
