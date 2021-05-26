@@ -647,7 +647,7 @@ var jpysindex = (d,data, lazyRule)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys() }),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys() }, lazyRule),
                             col_type: "movie_3"
                         })
                     }
@@ -674,7 +674,7 @@ var jpysindex = (d,data, lazyRule)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}, lazyRule),
                         col_type: "movie_3"
                     })
                 }
@@ -687,7 +687,7 @@ var jpysindex = (d,data, lazyRule)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}, lazyRule),
                 col_type: "movie_3"
             });
         }
