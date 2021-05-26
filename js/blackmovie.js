@@ -801,10 +801,10 @@ var searchmovie = (keydata)=>{
                 });
                 }
             }else if(/jpysvip/.test(MY_URL)){
-                MY_URL = data.fivefive.index;
+                MY_URL = data.jpys.index;
                 var list = parseDomForArray(html, '.myui-vodlist__media&&li');                
                 var len = list.length>6 ? 6 : list.length;
-                for (var j = 0; j < list.length; j++) {
+                for (var j = 0; j < len; j++) {
                 d.push({
                     title: parseDomForHtml(list[j], 'h4&&Text'),
                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
