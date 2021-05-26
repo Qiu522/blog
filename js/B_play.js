@@ -410,3 +410,58 @@ var jx_mjc = ()=>{
     setHomeResult(res);
 }
 //JXMJC
+//JXJPYS
+var jx_jpys = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/zyf/black.js'));
+    init({
+      isDn: true
+    });
+    eval(fetch(jsUrl));
+
+    var lazy =  `@lazyRule=.js:var get =fetch(input,{headers:{"User-Agent":PC_UA,"Referer":"https://www.jpysvip.net"}});var js = parseDomForHtml(get,".myui-player__box&&script&&Html");eval(js);var url=player_data.url;var fro=player_data.from;if(url.indexOf('html')>0){var play=fetch('https://www.jpysvip.net/dplayer/analysis.php?v='+url,{headers:{"User-Agent":"Mozilla/5.0","Referer":"https://www.jpysvip.net/"}}).match(/url = \"(.*?)\"/)[1];play;}else if(fro=='xinm3u8'){var play=fetch('https://jxn.dxsdkw.cn/x2.php?id='+url,{}).match(/url: \'(.*?)\'/)[1];play;}else{url}`;
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.myui-content__detail&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.myui-vodlist__thumb,0&&img&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, 'p,-2&&Text') + '\n' + parseDomForHtml(details, 'p,-3&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, 'p,-1&&Text'); //简介
+    var dataLine = details.match(/<p[\s\S]*?<\/p>/g);
+    dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img + '@Referer=',
+        dataLine: dataLine
+    });
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.myui-content__list');
+    var linelist = parseDomForArray(html, '.nav&&li');
+    var tabs = [];
+    for (var i in linelist) {
+        tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'jpys_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+        lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+        lists: lists,
+        index: getVar('jpys_line', '0'),
+        lazy:lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXJPYS
