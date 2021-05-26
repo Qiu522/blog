@@ -773,7 +773,7 @@ var searchmovie = (keydata,lazyData)=>{
                         desc: parseDomForHtml(list[j], '.pic_text&&Text'),
                         pic_url: parseDom(list[j], '.vodlist_thumb&&data-original'),
                         content:parseDomForHtml(list[j], '.searchlist_titbox&&Text'),
-                        url:$(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
+                        url:$(parseDom(list[j], '.vodlist_thumb&&href')).rule((mjc_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
                     });
                 }
             }else if(/flvwec/.test(movielists[i].search)){   
