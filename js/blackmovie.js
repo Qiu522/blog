@@ -375,8 +375,9 @@ const data = {
 }
 //首页解析
 //HOMEPAGE
-var hikerHomePage = ()=>{
+var hikerHomePage = (lazyData)=>{
     var d = [];
+    var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy} = lazyData;
 
     for(var i in movielists){
         d.push({
@@ -404,10 +405,10 @@ var hikerHomePage = ()=>{
         }else if(/o8tv/.test(getVar('pageUrl', data.jpys.index))){
             fiveindex(d,data);
         }else if(/jpysvip/.test(getVar('pageUrl', data.jpys.index))){
-            jpysindex(d,data);
+            jpysindex(d,data, jpys_lazy);
         }
     }else{
-        searchmovie(getVar('searchKeyword'));
+        searchmovie(getVar('searchKeyword'), lazyData);
     }
 
     d.push({ col_type: 'line_blank' });
@@ -623,7 +624,7 @@ var fiveindex = (d, data)=>{
         }
     }
 }
-var jpysindex = (d,data)=>{
+var jpysindex = (d,data, lazyRule)=>{
     MY_URL = data.jpys.index;
     var router = data.jpys.router;
     var type = data.jpys.type;
@@ -646,7 +647,7 @@ var jpysindex = (d,data)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys() }),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys(lazyRule) }),
                             col_type: "movie_3"
                         })
                     }
@@ -673,7 +674,7 @@ var jpysindex = (d,data)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys();}),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys(lazyRule);}),
                         col_type: "movie_3"
                     })
                 }
@@ -686,16 +687,17 @@ var jpysindex = (d,data)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys();}),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys(lazyRule);}),
                 col_type: "movie_3"
             });
         }
     }
 }
 
-var searchmovie = (keydata)=>{
+var searchmovie = (keydata,lazyData)=>{
     var d = [];
     var key = keydata!=undefined? keydata : MY_URL.split('$$$')[1];
+    var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy} = lazyData;
     for(var i in movielists){
         d.push({
             title:keydata==undefined? movielists[i].title : ('‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>"),
@@ -744,7 +746,7 @@ var searchmovie = (keydata)=>{
                             desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                             pic_url: parseDom(list[j], '.lazyload&&data-original'),
                             content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                            url: parseDom(list[j],'h4&&a&&href')
+                            url: $(parseDom(list[j], 'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys(jpys_lazy) }),
                         });
                     }
                 }
@@ -810,7 +812,7 @@ var searchmovie = (keydata)=>{
                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                     pic_url: parseDom(list[j], '.lazyload&&data-original'),
                     content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                    url: $(parseDom(list[j], 'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys() }),
+                    url: $(parseDom(list[j], 'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys(jpys_lazy) }),
                 });
                 } 
             }
