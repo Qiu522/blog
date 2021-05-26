@@ -623,7 +623,7 @@ var fiveindex = (d, data)=>{
         }
     }
 }
-var jpysindex = ()=>{
+var jpysindex = (d,data)=>{
     MY_URL = data.jpys.index;
     var router = data.jpys.router;
     var type = data.jpys.type;
