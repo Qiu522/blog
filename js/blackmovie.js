@@ -405,7 +405,7 @@ var hikerHomePage = (lazyData)=>{
         }else if(/o8tv/.test(getVar('pageUrl', data.jpys.index))){
             fiveindex(d,data);
         }else if(/jpysvip/.test(getVar('pageUrl', data.jpys.index))){
-            jpysindex(d,data, jpys_lazy);
+            jpys_lazy!=undefined? jpysindex(d,data, jpys_lazy) : jpysindex(d,data);
         }
     }else{
         searchmovie(getVar('searchKeyword'), lazyData);
@@ -812,7 +812,7 @@ var searchmovie = (keydata,lazyData)=>{
                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                     pic_url: parseDom(list[j], '.lazyload&&data-original'),
                     content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                    url: $(parseDom(list[j], 'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys(jpys_lazy) }),
+                    url: $(parseDom(list[j], 'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jpys(lazyRule) }),
                 });
                 } 
             }
