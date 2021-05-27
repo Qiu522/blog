@@ -479,7 +479,7 @@ var hikerHomePage = (lazyData)=>{
         }else if(/jpysvip/.test(getVar('pageUrl', data.jpys.index))){
             jpys_lazy!=undefined? jpysindex(d,data, jpys_lazy) : jpysindex(d,data);
         }else if(/lengyue/.test(getVar('pageUrl', data.jpys.index))){
-            lengyue_lazy!=undefined? jpysindex(d,data, lengyue_lazy) : jpysindex(d,data);
+            lengyue_lazy!=undefined? lengyueindex(d,data, lengyue_lazy) : lengyueindex(d,data);
         }
     }else{
         searchmovie( lazyData, getVar('searchKeyword'));
@@ -801,7 +801,7 @@ var lengyueindex = (d,data, lazyRule)=>{
         });
     }
     
-    for (var i =0; i<conts.length-1; i++) {
+    for (var i =0; i<conts.length; i++) {
         var list = parseDomForArray(conts[i], '.myui-vodlist&&li');
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
