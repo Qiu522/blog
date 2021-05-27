@@ -463,23 +463,12 @@ var hikerHomePage = (lazyData)=>{
             col_type:'flex_button'
         });
     }
-    if(/lengyue/.test(MY_URL)){
-        d.push({
-            desc: '60&&float',
-            url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/Slider2.html',
-            col_type: 'x5_webview_single'
-        })
-        //refreshX5WebView();
-    }else{
-        d.push({
-            desc: '60&&float',
-            url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/tc.html',
-            col_type: 'x5_webview_single'
-        })
-        //refreshX5WebView();
-    }
+    d.push({
+        desc: '60&&float',
+        url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/tc.html',
+        col_type: 'x5_webview_single'
+    })
     
-
     if (getVar('searchKeyword') == "") {
         if( /meijuchong/.test( getVar('pageUrl', data.jpys.index) ) ){
             mjc_lazy!=undefined? mjcindex(d, data, mjc_lazy) : mjcindex(d, data);
