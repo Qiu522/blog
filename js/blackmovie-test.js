@@ -460,7 +460,7 @@ var hikerHomePage = (lazyData)=>{
                 refreshPage(false);
                 return "hiker://empty"
                 }, movielists[i], data),
-            col_type:'flex_button'
+            col_type:'scroll_button'
         });
     }
     d.push({
@@ -775,7 +775,7 @@ var lengyueindex = (d,data, lazyRule)=>{
     var html = request(getVar('pageUrl', data.lengyue.index));
     var conts = parseDomForArray(html, 'body&&.myui-panel:has(.myui-vodlist)'); //第一个不要
 
-    refreshX5WebView('file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/Slider2.html');
+    //refreshX5WebView('file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/Slider2.html');
 
     for(var i=1; i<nav.length; i++){
         var j=i+1;
