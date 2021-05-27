@@ -463,12 +463,17 @@ var hikerHomePage = (lazyData)=>{
             col_type:'flex_button'
         });
     }
-
     d.push({
         desc: '60&&float',
-        url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/tc.html',
         col_type: 'x5_webview_single'
     })
+    if(/lengyue/.test(MY_URL)){
+        refreshX5WebView('file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/Slider2.html');
+    }else{
+        refreshX5WebView('file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/tc.html');
+    }
+    
+
     if (getVar('searchKeyword') == "") {
         if( /meijuchong/.test( getVar('pageUrl', data.jpys.index) ) ){
             mjc_lazy!=undefined? mjcindex(d, data, mjc_lazy) : mjcindex(d, data);
@@ -776,7 +781,7 @@ var lengyueindex = (d,data, lazyRule)=>{
     var conts = parseDomForArray(html, 'body&&.myui-panel:has(.myui-vodlist)'); //第一个不要
 
     refreshX5WebView('file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/Slider2.html');
-    
+
     for(var i=1; i<nav.length; i++){
         var j=i+1;
         d.push({
