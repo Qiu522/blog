@@ -775,12 +775,8 @@ var lengyueindex = (d,data, lazyRule)=>{
     var html = request(getVar('pageUrl', data.lengyue.index));
     var conts = parseDomForArray(html, 'body&&.myui-panel:has(.myui-vodlist)'); //第一个不要
 
-    d.push({
-        desc: '60&&float',
-        url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/Slider2.html',
-        col_type: 'x5_webview_single'
-    })
-
+    refreshX5WebView('file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/Slider2.html');
+    
     for(var i=1; i<nav.length; i++){
         var j=i+1;
         d.push({
