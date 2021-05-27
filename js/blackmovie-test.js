@@ -468,9 +468,19 @@ var hikerHomePage = (lazyData)=>{
         col_type: 'x5_webview_single'
     })
     if(/lengyue/.test(MY_URL)){
-        refreshX5WebView('file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/Slider2.html');
+        d.push({
+            desc: '60&&float',
+            url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/Slider2.html',
+            col_type: 'x5_webview_single'
+        })
+        //refreshX5WebView();
     }else{
-        refreshX5WebView('file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/tc.html');
+        d.push({
+            desc: '60&&float',
+            url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/tc.html',
+            col_type: 'x5_webview_single'
+        })
+        //refreshX5WebView();
     }
     
 
