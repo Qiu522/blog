@@ -466,7 +466,7 @@ var jx_jpys = (lazyRule)=>{
 }
 //JXJPYS
 //JXLENGYUE
-var jx_jpys = (lazyRule)=>{
+var jx_lengyue = (lazyRule)=>{
     var res ,d ,html, jsUrl, setUrl; 
 
     eval(fetch('hiker://files/rules/zyf/black.js'));
