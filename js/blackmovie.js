@@ -156,7 +156,7 @@ const data = {
             {
                 fyclass:{
                     conts: '蓝光片库&蓝光电影&蓝光连续剧&蓝光动漫&蓝光综艺&蓝光纪录片',
-                    lists: 'RSS&KSS&8SS&ESS&JSS&OSS',
+                    lists: '78&106&107&108&109&110',
                     def:0
                 },
                 fysort:{
@@ -164,16 +164,16 @@ const data = {
                     lists: 'time&hits&score'
                 },
                 fyyear:{
-                    conts:'全部&动作&喜剧&爱情&科幻&恐怖&剧情&战争&惊悚&奇幻&犯罪&悬疑&动画&文艺&传记&古装&历史&歌舞&纪录',
-                    lists:'&class/%E5%8A%A8%E4%BD%9C&class/%E5%96%9C%E5%89%A7&class/%E7%88%B1%E6%83%85&class/%E7%A7%91%E5%B9%BB&class/%E6%81%90%E6%80%96&class/%E5%89%A7%E6%83%85&class/%E6%88%98%E4%BA%89&class/%E6%83%8A%E6%82%9A&class/%E5%A5%87%E5%B9%BB&class/%E7%8A%AF%E7%BD%AA&class/%E6%82%AC%E7%96%91&class/%E5%8A%A8%E7%94%BB&class/%E6%96%87%E8%89%BA&class/%E4%BC%A0%E8%AE%B0&class/%E5%8F%A4%E8%A3%85&class/%E5%8E%86%E5%8F%B2&class/%E6%AD%8C%E8%88%9E&class/%E7%BA%AA%E5%BD%95'
+                    conts:'全部&喜剧&动作&爱情&惊悚&犯罪&冒险&科幻&悬疑&剧情&动画&武侠&战争&歌舞&奇幻&传记&警匪&历史&运动&伦理&灾难&西部&魔幻&枪战&恐怖&记录',
+                    lists:'&class/%E5%96%9C%E5%89%A7&class/%E5%8A%A8%E4%BD%9C&class/%E7%88%B1%E6%83%85&class/%E6%83%8A%E6%82%9A&class/%E7%8A%AF%E7%BD%AA&class/%E5%86%92%E9%99%A9&class/%E7%A7%91%E5%B9%BB&class/%E6%82%AC%E7%96%91&class/%E5%89%A7%E6%83%85&class/%E5%8A%A8%E7%94%BB&class/%E6%AD%A6%E4%BE%A0&class/%E6%88%98%E4%BA%89&class/%E6%AD%8C%E8%88%9E&class/%E5%A5%87%E5%B9%BB&class/%E4%BC%A0%E8%AE%B0&class/%E8%AD%A6%E5%8C%AA&class/%E5%8E%86%E5%8F%B2&class/%E8%BF%90%E5%8A%A8&class/%E4%BC%A6%E7%90%86&class/%E7%81%BE%E9%9A%BE&class/%E8%A5%BF%E9%83%A8&class/%E9%AD%94%E5%B9%BB&class/%E6%9E%AA%E6%88%98&class/%E6%81%90%E6%80%96&class/%E8%AE%B0%E5%BD%95'
                 },
                 pageType: '1.html',
                 index: 'five_1'
             },
             {
                 fyclass:{
-                    conts: '电影片库&精品推荐&喜剧片&爱情片&科幻片&犯罪片&动作片&恐怖片&战争片&剧情片&日韩电影',
-                    lists: 'SCS&ZSS&dSS&DSS&uSS&0SS&HSS&PSS&aSS&iSS&lSS',
+                    conts: '电影片库&精品推荐&喜剧片&仙侠修真&爱情片&恐龙怪兽&科幻片&犯罪片&动作片&恐怖片&战争片&剧情片',
+                    lists: '1&79&80&120&81&121&82&83&84&85&86&87',
                     def:0
                 },
                 fysort:{
@@ -190,7 +190,7 @@ const data = {
             {
                 fyclass:{
                     conts: '电视剧&热剧推荐&国产剧&港台剧&日韩剧&欧美剧',
-                    lists: 'qCS&tSS&vCS&9CS&KCS&8CS',
+                    lists: '2&88&13&15&44&45',
                     def:0
                 },
                 fysort:{
@@ -207,7 +207,7 @@ const data = {
             {
                 fyclass:{
                     conts: '动漫&热漫推荐&国产动漫&日本动漫&欧美动漫',
-                    lists: 'ICS&NSS&eSS&nSS&rSS',
+                    lists: '4&94&96&97&98',
                     def:0
                 },
                 fysort:{
@@ -224,7 +224,7 @@ const data = {
             {
                 fyclass:{
                     conts: '综艺&热综推荐&内地综艺&日韩综艺&港台综艺&欧美综艺',
-                    lists: 'xCS&MSS&9SS&oCS&CSS&zCS',
+                    lists: '3&90&77&60&62&61',
                     def:0
                 },
                 fysort:{
@@ -241,7 +241,7 @@ const data = {
             {
                 fyclass:{
                     conts: '纪录片库&纪录片&热片推荐',
-                    lists: 'TSS&USS&hSS',
+                    lists: '91&92&111',
                     def:0
                 },
                 fysort:{
