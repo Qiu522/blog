@@ -468,7 +468,7 @@ var hikerHomePage = (lazyData)=>{
         url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/tc.html',
         col_type: 'x5_webview_single'
     })
-    
+
     if (getVar('searchKeyword') == "") {
         if( /meijuchong/.test( getVar('pageUrl', data.jpys.index) ) ){
             mjc_lazy!=undefined? mjcindex(d, data, mjc_lazy) : mjcindex(d, data);
@@ -780,7 +780,7 @@ var lengyueindex = (d,data, lazyRule)=>{
     for(var i=1; i<nav.length; i++){
         var j=i+1;
         d.push({
-            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
+            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index, lazyRule) => {
                    var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
@@ -798,7 +798,7 @@ var lengyueindex = (d,data, lazyRule)=>{
                         })
                     }
                     setResult(d)
-                },type, i),
+                },type, i, lazyRule),
             col_type:'icon_small_4'
         });
     }
