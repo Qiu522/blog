@@ -463,10 +463,6 @@ var hikerHomePage = (lazyData)=>{
             col_type:'flex_button'
         });
     }
-    d.push({
-        desc: '60&&float',
-        col_type: 'x5_webview_single'
-    })
     if(/lengyue/.test(MY_URL)){
         d.push({
             desc: '60&&float',
