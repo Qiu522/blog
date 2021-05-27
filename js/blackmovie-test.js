@@ -1,5 +1,5 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -848,7 +848,7 @@ var searchmovie = (lazyData, keydata)=>{
             url: $(movielists[i].search.replace('关键词', key)).rule((lazyData)=>{
                 var d = []
                 var html=getResCode();
-                var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy} = lazyData;
+                var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy, lengyue_lazy} = lazyData;
                 if(/meijuchong/.test(MY_URL)){
                     var list = parseDom(html, 'body&&.search_box&&.vodlist&&Html').match(/<li[\s\S]*?<\/li/g);
                     for (var j = 0; j < list.length; j++) {
@@ -892,6 +892,17 @@ var searchmovie = (lazyData, keydata)=>{
                             pic_url: parseDom(list[j], '.lazyload&&data-original'),
                             content:parseDomForHtml(list[j], '.detail--h4&&Text'),
                             url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
+                        });
+                    }
+                }else if(/lengyue/.test(MY_URL)){
+                    var list = parseDom(html, '.myui-vodlist__media&&Html').match(/<li[\s\S]*?<\/li/g);
+                    for (var j = 0; j < list.length; j++) {
+                        d.push({
+                            title: parseDomForHtml(list[j], 'a&&title'),
+                            desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                            pic_url: parseDom(list[j], '.lazyload&&data-original'),
+                            content: parseDomForHtml(list[j], 'p,-2&&Text'),
+                            url: $(parseDom(list[j],'a&&href')).rule((lengyue_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lengyue_lazy!=undefined? jx_lengyue(lengyue_lazy) : jx_lengyue();},lengyue_lazy),
                         });
                     }
                 }
@@ -958,6 +969,19 @@ var searchmovie = (lazyData, keydata)=>{
                     pic_url: parseDom(list[j], '.lazyload&&data-original'),
                     content:parseDomForHtml(list[j], '.detail--h4&&Text'),
                     url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
+                });
+                } 
+            }else if(/lengyue/.test(movielists[i].search)){
+                MY_URL = data.lengyue.index;
+                var list = parseDomForArray(html, '.myui-vodlist__media&&li');                
+                var len = list.length>6 ? 6 : list.length;
+                for (var j = 0; j < len; j++) {
+                d.push({
+                    title: parseDomForHtml(list[j], 'a&&title'),
+                    desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                    pic_url: parseDom(list[j], '.lazyload&&data-original'),
+                    content: parseDomForHtml(list[j], 'p,-2&&Text'),
+                    url: $(parseDom(list[j],'a&&href')).rule((lengyue_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lengyue_lazy!=undefined? jx_lengyue(lengyue_lazy) : jx_lengyue();},lengyue_lazy),
                 });
                 } 
             }
