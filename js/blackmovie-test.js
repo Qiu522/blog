@@ -442,7 +442,7 @@ const data = {
                 index:'lengyue_5'
             }
         ],
-        nav: [{},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying.png'},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshiju.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/zongyi.png'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'},{title:'bilibili', url: 'https://qiu522.github.io/blog/img/bilibili.png'}]
+        nav: [{},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying.png'},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshiju.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/zongyi.png'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'},{title:'bilibili', url: 'https://qiu522.github.io/blog/img/bili.png'}]
     }
 }
 //首页解析
@@ -465,7 +465,7 @@ var hikerHomePage = (lazyData)=>{
     }
     d.push({
         desc: '60&&float',
-        url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/tc.html',
+        url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
         col_type: 'x5_webview_single'
     })
 
