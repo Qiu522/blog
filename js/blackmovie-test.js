@@ -147,7 +147,7 @@ const data = {
             }
             
         ],
-        nav:[{},{},{},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshiju.com'},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/zongyi.png'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'}]
+        nav:[{},{},{},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshiju.png'},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/zongyi.png'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'}]
     },
     fivefive:{
         index:'https://www.o8tv.com',
