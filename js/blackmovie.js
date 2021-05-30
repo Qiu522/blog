@@ -453,7 +453,7 @@ var hikerHomePage = (lazyData)=>{
 
     for(var i in movielists){
         d.push({
-            title: getVar('nowPage', movielists[0].reg)==movielists[i].reg?"<small><small><font color='#f9906f'>"+ movielists[i].title +"</font></small></small>" : movielists[i].title ,
+            title: getVar('nowPage', movielists[0].reg)==movielists[i].reg? ("<small><small><font color='#f9906f'>"+ movielists[i].title +"</font></small></small>") : movielists[i].title ,
             url: $("#noLoading#").lazyRule((movieitem, data)=>{
                 putVar('nowPage', movieitem.reg)
                 putVar('pageUrl', data[movieitem.reg].index);
