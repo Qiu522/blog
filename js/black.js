@@ -201,7 +201,7 @@ var init = (iniData)=>{
                                     refreshPage(false);
                                     return "hiker://empty"
                                     }, fyclass_data[a],fyclass_jsda[a],index),
-                                col_type:'flex_button'
+                                col_type:'scroll_button'
                             });
                     }
                 }else{
@@ -240,7 +240,7 @@ var init = (iniData)=>{
                                     refreshPage(false);
                                     return "hiker://empty"
                                     }, fyarea_data[a],fyarea_jsda[a],index),
-                                col_type:'flex_button'
+                                col_type:'scroll_button'
                             });
                     }
                 }else{
@@ -279,7 +279,7 @@ var init = (iniData)=>{
                                     refreshPage(false);
                                     return "hiker://empty"
                                     }, fyyear_data[a],fyyear_jsda[a],index),
-                                col_type:'flex_button'
+                                col_type:'scroll_button'
                             });
                     }
                 }else{
@@ -318,7 +318,7 @@ var init = (iniData)=>{
                                     refreshPage(false);
                                     return "hiker://empty"
                                     }, fysort_data[a],fysort_jsda[a],index),
-                                col_type:'flex_button'
+                                col_type:'scroll_button'
                             });
                     }
                 }else{
