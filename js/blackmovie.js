@@ -923,6 +923,7 @@ var searchmovie = (lazyData, keydata)=>{
             if(/meijuchong/.test(movielists[i].search)){
                 MY_URL = data.mjc.index;
                 var list = parseDom(html, 'body&&.search_box&&.vodlist&&Html').match(/<li[\s\S]*?<\/li/g);
+                if(list == null) break;
                 var len = list.length>6 ? 6 : list.length;
                 for (var j = 0; j < len; j++) {
                     d.push({
