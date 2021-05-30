@@ -450,10 +450,10 @@ const data = {
 var hikerHomePage = (lazyData)=>{
     var d = [];
     var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy, lengyue_lazy} = lazyData;
-
+    
     for(var i in movielists){
         d.push({
-            title: getVar('nowPage', movielists[0].reg)==movielists[i].reg? ('‘‘’’' + "<small><small><font color='#f9906f'>"+ movielists[i].title +"</font></small></small>") : movielists[i].title ,
+            title: getVar('nowPage', movielists[0].reg)==movielists[i].reg? ("““””<b>"+'<span style="color: #f9906f">'+ movielists[i].title +'</span></b>') : movielists[i].title ,
             url: $("#noLoading#").lazyRule((movieitem, data)=>{
                 putVar('nowPage', movieitem.reg)
                 putVar('pageUrl', data[movieitem.reg].index);
