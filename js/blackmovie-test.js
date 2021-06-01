@@ -977,7 +977,7 @@ var ge179index = (d, data)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: parseDom(list[j], '.myui-vodlist__thumb&&href'),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() }),
                 col_type: "movie_3"
             });
         }
@@ -1048,7 +1048,7 @@ var searchmovie = (lazyData, keydata)=>{
                             desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                             pic_url: parseDom(list[j], '.lazyload&&data-original'),
                             content: parseDomForHtml(list[j], 'p,-2&&Text'),
-                            url: $(parseDom(list[j],'a&&href')).rule((lengyue_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lengyue_lazy!=undefined? jx_lengyue(lengyue_lazy) : jx_lengyue();},lengyue_lazy),
+                            url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
                         });
                     }
                 }
@@ -1130,6 +1130,19 @@ var searchmovie = (lazyData, keydata)=>{
                     content: parseDomForHtml(list[j], 'p,-2&&Text'),
                     url: $(parseDom(list[j],'a&&href')).rule((lengyue_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lengyue_lazy!=undefined? jx_lengyue(lengyue_lazy) : jx_lengyue();},lengyue_lazy),
                 });
+                } 
+            }else if(/179u/.test(movielists[i].search)){
+                MY_URL = data.ge179.index;
+                var list = parseDomForArray(html, '.myui-vodlist__media&&li');                
+                var len = list.length>6 ? 6 : list.length;
+                for (var j = 0; j < len; j++) {
+                    d.push({
+                        title:parseDomForHtml(list[j],'a&&title'),//标题
+                        desc:parseDomForHtml(list[j],'.pic-text&&Text'),//描述
+                        content:parseDomForHtml(list[j],'.detail&&p,-2&&Text'),//详情
+                        pic_url:parseDom(list[j],'.lazyload&&data-original'),//图片
+                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
+                    });
                 } 
             }
         }
