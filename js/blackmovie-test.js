@@ -447,7 +447,7 @@ const data = {
     ge179:{
         index: 'http://www.179u.com',
         router: ['hiker://empty','http://www.179u.com/ms/分类--排序-年代-----fypage---.html','http://www.179u.com/ms/分类-地区-排序------fypage---.html', 'http://www.179u.com/ms/3-分类-排序------fypage---.html', 'http://www.179u.com/ms/4-地区-排序-分类-----fypage---.html'],
-        type = [{},
+        type : [{},
             {
                 fyclass:{
                     conts: '电影片库&动作片&喜剧片&爱情片&科幻片&恐怖片&剧情片&战争片&微电影',
