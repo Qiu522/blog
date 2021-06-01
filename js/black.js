@@ -226,7 +226,7 @@ var init = (iniData)=>{
                 d.push({
                     title: "““””<b>"+'<span style="color: #ffc773">'+fyarea_1[i] + flag+'</span></b>',
                     url: url,
-                    col_type:'flex_button'
+                    col_type:'scroll_button'
                 })
                 if (getVar('fyArea'+index, ' 已展开') == ' 已展开') {
                     for (var a = 0; a < fyarea_data.length; a++) {
