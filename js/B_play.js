@@ -520,10 +520,10 @@ var jx_lengyue = (lazyRule)=>{
     setHomeResult(res);
 }
 //JXLENGYUE
-//JXGE197
-var jx_ge197 = ()=>{
+//JXGE179
+var jx_ge179 = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
-    
+
     eval(fetch('hiker://files/rules/zyf/black.js'));
     init({
     isX5: true,
@@ -574,4 +574,4 @@ var jx_ge197 = ()=>{
     res.data=d;
     setHomeResult(res);
 }
-//JXGE197
+//JXGE179

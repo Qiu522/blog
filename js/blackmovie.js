@@ -1,5 +1,5 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge197', search:'http://www.179u.com/s/**----------fypage---.html'}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/**----------fypage---.html'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -444,7 +444,7 @@ const data = {
         ],
         nav: [{},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying.png'},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshiju.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/zongyi.png'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'},{title:'bilibili', url: 'https://qiu522.github.io/blog/img/bili.png'}]
     },
-    ge197:{
+    ge179:{
         index: 'http://www.179u.com',
         router: ['hiker://empty','http://www.179u.com/ms/分类--排序-年代-----fypage---.html','http://www.179u.com/ms/分类-地区-排序------fypage---.html', 'http://www.179u.com/ms/3-分类-排序------fypage---.html', 'http://www.179u.com/ms/4-地区-排序-分类-----fypage---.html'],
         type = [{},
@@ -553,7 +553,7 @@ var hikerHomePage = (lazyData)=>{
         }else if(/lengyue/.test(getVar('pageUrl', data.jpys.index))){
             lengyue_lazy!=undefined? lengyueindex(d,data, lengyue_lazy) : lengyueindex(d,data);
         }else if(/179u/.test(getVar('pageUrl', data.jpys.index))){
-            ge197index(d,data);
+            ge179index(d,data);
         }
     }else{
         searchmovie( lazyData, getVar('searchKeyword'));
@@ -914,12 +914,12 @@ var lengyueindex = (d,data, lazyRule)=>{
     }
 }
 
-var ge197index = (d, data)=>{
-    MY_URL = data.ge197.index;
-    var router = data.ge197.router;
-    var type = data.ge197.type;
-    var nav = data.ge197.nav;
-    var html = request(getVar('pageUrl', data.ge197.index));
+var ge179index = (d, data)=>{
+    MY_URL = data.ge179.index;
+    var router = data.ge179.router;
+    var type = data.ge179.type;
+    var nav = data.ge179.nav;
+    var html = request(getVar('pageUrl', data.ge179.index));
     var conts = parseDomForArray(html, 'body&&.myui-panel:has(.myui-vodlist)'); //第一个不要 
 
     for(var i=1; i<nav.length; i++){
@@ -938,7 +938,7 @@ var ge197index = (d, data)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge197() }),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() }),
                                 col_type: "movie_3"
                         })
                     }
@@ -965,7 +965,7 @@ var ge197index = (d, data)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge197() }),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() }),
                         col_type: "movie_3"
                     })
                 }
