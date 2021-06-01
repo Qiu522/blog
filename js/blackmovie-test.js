@@ -1051,6 +1051,17 @@ var searchmovie = (lazyData, keydata)=>{
                             url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
                         });
                     }
+                }else if(/179u/.test(MY_URL)){
+                    var list = parseDomForArray(html, '.myui-vodlist__media&&li');//列表
+                    for(var j in list){
+                        d.push({
+                            title:parseDomForHtml(list[j],'a&&title'),//标题
+                            desc:parseDomForHtml(list[j],'.pic-text&&Text'),//描述
+                            content:parseDomForHtml(list[j],'.detail&&p,-2&&Text'),//详情
+                            pic_url:parseDom(list[j],'.lazyload&&data-original'),//图片
+                            url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
+                        });
+                    }
                 }
                 setResult(d)
             },lazyData),
