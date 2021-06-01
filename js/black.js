@@ -182,14 +182,14 @@ var init = (iniData)=>{
         if(fyclass!=undefined){
             var title = '';
             for (var i = 0; i < fyclass_1.length; i++) {
-                var url = "hiker://empty@lazyRule=.js:putVar('fyClass"+index +"', getVar('fyClass"+index +"', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
-                var flag= getVar('fyClass'+index, ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
+                var url = "hiker://empty@lazyRule=.js:putVar('fyClass"+index +"', getVar('fyClass"+index +"', ' 已展开') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
+                var flag= getVar('fyClass'+index, ' 已展开')== ' 已展开'?'  🙉':'  🙈';
                 d.push({
                     title: "““””<b>"+'<span style="color: #f47983">'+fyclass_1[i] + flag+'</span></b>',
                     url: url,
-                    col_type:'flex_button'
+                    col_type:'scroll_button'
                 })
-                if (getVar('fyClass'+index, ' 已折叠') == ' 已展开') {
+                if (getVar('fyClass'+index, ' 已展开') == ' 已展开') {
                     for (var a = 0; a < fyclass_data.length; a++) {
                             
                         var title=fyclass_data[a]==getVar('fyClass_data'+index, fyclass_data[0])?"““””<b>"+'<span style="color: #f47983">'+fyclass_data[a]+'</span></b>':fyclass_data[a];
@@ -207,7 +207,7 @@ var init = (iniData)=>{
                 }else{
                     d.push({
                             title: "““””<b>"+'<span style="color: #f47983">'+getVar('fyClass_data'+index, fyclass_data[fyclass.def])+'</span></b>',
-                            col_type:'flex_button'
+                            col_type:'scroll_button'
                     });
                 }
             }
@@ -221,14 +221,14 @@ var init = (iniData)=>{
         if(fyarea!=undefined){
             var title = '';
             for (var i = 0; i < fyarea_1.length; i++) {
-                var url = "hiker://empty@lazyRule=.js:putVar('fyArea"+index +"', getVar('fyArea"+index +"', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
-                var flag= getVar('fyArea'+index, ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
+                var url = "hiker://empty@lazyRule=.js:putVar('fyArea"+index +"', getVar('fyArea"+index +"', ' 已展开') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
+                var flag= getVar('fyArea'+index, ' 已展开')== ' 已展开'?'  🙉':'  🙈';
                 d.push({
                     title: "““””<b>"+'<span style="color: #ffc773">'+fyarea_1[i] + flag+'</span></b>',
                     url: url,
                     col_type:'flex_button'
                 })
-                if (getVar('fyArea'+index, ' 已折叠') == ' 已展开') {
+                if (getVar('fyArea'+index, ' 已展开') == ' 已展开') {
                     for (var a = 0; a < fyarea_data.length; a++) {
                             
                         var title=fyarea_data[a]==getVar('fyArea_data'+index, fyarea_data[0])?"““””<b>"+'<span style="color: #ffc773">'+fyarea_data[a]+'</span></b>':fyarea_data[a];
@@ -246,7 +246,7 @@ var init = (iniData)=>{
                 }else{
                     d.push({
                             title: "““””<b>"+'<span style="color: #ffc773">'+getVar('fyArea_data'+index, fyarea_data[0])+'</span></b>',
-                            col_type:'flex_button'
+                            col_type:'scroll_button'
                     });
                 }
             }
@@ -260,14 +260,14 @@ var init = (iniData)=>{
         if(fyyear!=undefined){
             var title = '';
             for (var i = 0; i < fyyear_1.length; i++) {
-                var url = "hiker://empty@lazyRule=.js:putVar('fyYear"+index +"', getVar('fyYear"+index +"', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
-                var flag= getVar('fyYear'+index, ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
+                var url = "hiker://empty@lazyRule=.js:putVar('fyYear"+index +"', getVar('fyYear"+index +"', ' 已展开') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
+                var flag= getVar('fyYear'+index, ' 已展开')== ' 已展开'?'  🙉':'  🙈';
                 d.push({
                     title: "““””<b>"+'<span style="color: #48c0a3">'+fyyear_1[i] + flag+'</span></b>',
                     url: url,
-                    col_type:'flex_button'
+                    col_type:'scroll_button'
                 })
-                if (getVar('fyYear'+index, ' 已折叠') == ' 已展开') {
+                if (getVar('fyYear'+index, ' 已展开') == ' 已展开') {
                     for (var a = 0; a < fyyear_data.length; a++) {
                             
                         var title=fyyear_data[a]==getVar('fyYear_data'+index, fyyear_data[0])?"““””<b>"+'<span style="color: #48c0a3">'+fyyear_data[a]+'</span></b>':fyyear_data[a];
@@ -285,7 +285,7 @@ var init = (iniData)=>{
                 }else{
                     d.push({
                             title: "““””<b>"+'<span style="color: #48c0a3">'+getVar('fyYear_data'+index, fyyear_data[0])+'</span></b>',
-                            col_type:'flex_button'
+                            col_type:'scroll_button'
                     });
                 }
             }
@@ -299,14 +299,14 @@ var init = (iniData)=>{
         if(fysort!=undefined){
             var title = '';
             for (var i = 0; i < fysort_1.length; i++) {
-                var url = "hiker://empty@lazyRule=.js:putVar('fySort"+index +"', getVar('fySort"+index +"', ' 已折叠') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
-                var flag= getVar('fySort'+index, ' 已折叠')== ' 已展开'?'  🙉':'  🙈';
+                var url = "hiker://empty@lazyRule=.js:putVar('fySort"+index +"', getVar('fySort"+index +"', ' 已展开') == ' 已展开' ? ' 已折叠': ' 已展开');refreshPage();'toast://切换成功！'";
+                var flag= getVar('fySort'+index, ' 已展开')== ' 已展开'?'  🙉':'  🙈';
                 d.push({
                     title: "““””<b>"+'<span style="color: #177cb0">'+fysort_1[i] + flag+'</span></b>',
                     url: url,
-                    col_type:'flex_button'
+                    col_type:'scroll_button'
                 })
-                if (getVar('fySort'+index, ' 已折叠') == ' 已展开') {
+                if (getVar('fySort'+index, ' 已展开') == ' 已展开') {
                     for (var a = 0; a < fysort_data.length; a++) {
                             
                         var title=fysort_data[a]==getVar('fySort_data'+index, fysort_data[0])?"““””<b>"+'<span style="color: #177cb0">'+fysort_data[a]+'</span></b>':fysort_data[a];
@@ -324,7 +324,7 @@ var init = (iniData)=>{
                 }else{
                     d.push({
                             title: "““””<b>"+'<span style="color: #177cb0">'+getVar('fySort_data'+index, fysort_data[0])+'</span></b>',
-                            col_type:'flex_button'
+                            col_type:'scroll_button'
                     });
                 }
             }
