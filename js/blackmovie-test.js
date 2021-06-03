@@ -617,6 +617,39 @@ const data = {
             
         ],
         nav: [{},{},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying.png'},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshiju.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/zongyi.png'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'}]
+    },
+    nfx:{
+        index:'',
+        router:['https://nfxhd.com/vodshow/tvplay--排序-分类-----fypage---/','https://nfxhd.com/vodshow/movie--排序-分类-----fypage---/'],
+        type:[
+            {
+                fyclass:{
+                    conts: '全部&剧情&喜剧&动作&爱情&科幻&动画&悬疑&惊悚&恐怖&犯罪&同性&传记&历史&战争&西部&奇幻&冒险&灾难&情色',
+                    lists: '&%E5%89%A7%E6%83%85&%E5%96%9C%E5%89%A7&%E5%8A%A8%E4%BD%9C&%E7%88%B1%E6%83%85&%E7%A7%91%E5%B9%BB&%E5%8A%A8%E7%94%BB&%E6%82%AC%E7%96%91&%E6%83%8A%E6%82%9A&%E6%81%90%E6%80%96&%E7%8A%AF%E7%BD%AA&%E5%90%8C%E6%80%A7&%E4%BC%A0%E8%AE%B0&%E5%8E%86%E5%8F%B2&%E6%88%98%E4%BA%89&%E8%A5%BF%E9%83%A8&%E5%A5%87%E5%B9%BB&%E5%86%92%E9%99%A9&%E7%81%BE%E9%9A%BE&%E6%83%85%E8%89%B2',
+                    def:0
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1---/',
+                index:'nfx_1'
+            },
+            {
+                fyclass:{
+                    conts: '全部&剧情&喜剧&动作&爱情&科幻&动画&悬疑&惊悚&恐怖&犯罪&同性&音乐&歌舞&传记&历史&战争&西部&奇幻&冒险&灾难&武侠&情色',
+                    lists: '&%E5%89%A7%E6%83%85&%E5%96%9C%E5%89%A7&%E5%8A%A8%E4%BD%9C&%E7%88%B1%E6%83%85&%E7%A7%91%E5%B9%BB&%E5%8A%A8%E7%94%BB&%E6%82%AC%E7%96%91&%E6%83%8A%E6%82%9A&%E6%81%90%E6%80%96&%E7%8A%AF%E7%BD%AA&%E5%90%8C%E6%80%A7&%E9%9F%B3%E4%B9%90&%E6%AD%8C%E8%88%9E&%E4%BC%A0%E8%AE%B0&%E5%8E%86%E5%8F%B2&%E6%88%98%E4%BA%89&%E8%A5%BF%E9%83%A8&%E5%A5%87%E5%B9%BB&%E5%86%92%E9%99%A9&%E7%81%BE%E9%9A%BE&%E6%AD%A6%E4%BE%A0&%E6%83%85%E8%89%B2',
+                    def:0
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1---/',
+                index:'nfx_2'
+            },
+        ],
+        nav: [{title:'美剧', url: 'https://qiu522.github.io/blog/img/meiju.png'},{title:'电影', url: 'https://qiu522.github.io/blog/img/dianying.png'}]
     }
 }
 //首页解析
@@ -658,6 +691,8 @@ var hikerHomePage = (lazyData)=>{
             ge179index(d,data);
         }else if(/nfmovie/.test(getVar('pageUrl', data.jpys.index))){
             nfmovieindex(d,data);
+        }else if(/nfxhd/.test(getVar('pageUrl', data.jpys.index))){
+            nfxindex(d,data);
         }
     }else{
         searchmovie( lazyData, getVar('searchKeyword'));
@@ -1154,6 +1189,74 @@ var nfmovieindex = (d, data)=>{
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                 url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() }),
+                col_type: "movie_3"
+            });
+        }
+    }
+}
+
+var nfxindex = (d,data)=>{
+    MY_URL = data.nfx.index;
+    var router = data.nfx.router;
+    var type = data.nfx.type;
+    var nav = data.nfx.nav;
+    var html = request(getVar('pageUrl', data.nfx.index));
+    var conts = parseDomForArray(html, 'body&&.myui-panel:has(.myui-vodlist)'); //第一个不要
+
+    for(var i=0; i<nav.length; i++){
+        var j=i+1;
+        d.push({
+            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
+                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                    setNav(type[index]);
+                    
+                    var html =request(getVar('pageUrl'));
+                    var list = parseDomForArray(html, '.myui-vodlist&&li');
+                    for (var i in list) {
+                        d.push({
+                            title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
+                            img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
+                            desc: parseDomForHtml(list[i], '.pic-text&&Text'),
+                            url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() }),
+                                col_type: "movie_3"
+                        })
+                    }
+                    setResult(d)
+                },type, i),
+            col_type:'icon_small_4'
+        });
+    }
+    
+    for (var i =0; i<conts.length; i++) {
+        var list = parseDomForArray(conts[i], '.myui-vodlist&&li');
+        d.push({
+            title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==10?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: i==10?'':$(router[i]).rule((type, index) => {
+               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                setNav(type[index]);
+                
+                var html =request(getVar('pageUrl'));
+                var list = parseDomForArray(html, '.myui-vodlist&&li');
+                for (var i in list) {
+                    d.push({
+                        title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
+                        img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
+                        desc: parseDomForHtml(list[i], '.pic-text&&Text'),
+                        url: 
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() }),
+                        col_type: "movie_3"
+                    })
+                }
+                setResult(d)
+            },type, i),
+            col_type: "text_center_1"
+        });
+        for (var j in list) {
+            d.push({
+                title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
+                img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
+                desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() }),
                 col_type: "movie_3"
             });
         }
