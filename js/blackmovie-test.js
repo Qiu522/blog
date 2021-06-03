@@ -619,7 +619,7 @@ const data = {
         nav: [{},{},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying.png'},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshiju.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/zongyi.png'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'}]
     },
     nfx:{
-        index:'',
+        index:'https://nfxhd.com/',
         router:['https://nfxhd.com/vodshow/tvplay--排序-分类-----fypage---/','https://nfxhd.com/vodshow/movie--排序-分类-----fypage---/'],
         type:[
             {
