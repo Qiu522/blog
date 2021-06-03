@@ -581,7 +581,7 @@ var jx_nfmovie = ()=>{
 
     eval(fetch('hiker://files/rules/zyf/black.js'));
     init({
-    isX5: true,
+        isX5: true,
     });
     eval(fetch(jsUrl));
 
