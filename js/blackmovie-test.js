@@ -1,5 +1,5 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'奈非影视', reg: 'nfmovie', search:'http://www.179u.com/s/关键词----------fypage---.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'奈非影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -1238,6 +1238,17 @@ var searchmovie = (lazyData, keydata)=>{
                             url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
                         });
                     }
+                }else if(/nfmovie/.test(MY_URL)){
+                    html = fetch(MY_URL,{headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
+                    var list = parseDom(html, '#searchList&&Html').match(/<li[\s\S]*?<\/li/g);
+                    for (var j = 0; j < list.length; j++) {
+                        d.push({
+                             title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
+                             desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                             pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
+                             url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() })
+                        });
+                      }
                 }
                 setResult(d)
             },lazyData),
@@ -1331,6 +1342,19 @@ var searchmovie = (lazyData, keydata)=>{
                         url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
                     });
                 } 
+            }else if(/nfmovie/.test(movielists[i].search)){
+                MY_URL = data.nfmovie.index;
+                html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1'), {headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
+                var list = parseDom(html, '#searchList&&Html').match(/<li[\s\S]*?<\/li/g);
+                var len = list.length>6 ? 6 : list.length;
+                for (var j = 0; j < len; j++) {
+                    d.push({
+                         title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
+                         desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                         pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
+                         url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() })
+                    });
+                }
             }
         }
     }
