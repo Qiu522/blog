@@ -516,7 +516,7 @@ const data = {
         nav: [{},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying.png'},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshiju.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/zongyi.png'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'}]
     },
     nfmovie:{
-        index:'',
+        index:'https://www.nfmovies.com',
         router:['https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=0&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=分类','hiker://empty','https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=地区year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=', 'https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=', 'https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=3&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=', 'https://www.nfmovies.com/search.php?page=1&searchtype=5&order=排序&tid=4&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player='],
         type: [
             {
