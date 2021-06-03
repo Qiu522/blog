@@ -1352,6 +1352,20 @@ var searchmovie = (lazyData, keydata)=>{
                              url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() })
                         });
                       }
+                }else if(/nfxhd/.test(MY_URL)){
+                    if (getResCode().indexOf('检测中') != -1) {
+                        html=fetch(MY_URL + '?btwaf'+ html.match(/btwaf(.*?)\"/)[1], {});
+                    }
+                    var list = parseDomForArray(html, '#searchList&&li');
+                    for (var j in list) {
+                        d.push({
+                            title: parseDomForHtml(list[j], 'a&&title'),
+                            desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                            content: parseDomForHtml(list[j], 'p,1&&Text'),
+                            img: parseDom(list[j], '.lazyload&&data-original'),
+                            url: $(parseDom(list[j],'a&&href').rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() })
+                        });
+                    }
                 }
                 setResult(d)
             },lazyData),
@@ -1456,6 +1470,19 @@ var searchmovie = (lazyData, keydata)=>{
                          desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                          pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                          url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() })
+                    });
+                }
+            }else if(/nfxhd/.test(movielists[i].search)){
+                MY_URL = data.nfx.index;
+                var list = parseDomForArray(html, '#searchList&&li');
+                var len = list.length>6 ? 6 : list.length;
+                for (var j = 0; j < len; j++) {
+                    d.push({
+                        title: parseDomForHtml(list[j], 'a&&title'),
+                        desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                        content: parseDomForHtml(list[j], 'p,1&&Text'),
+                        img: parseDom(list[j], '.lazyload&&data-original'),
+                        url: $(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() })
                     });
                 }
             }
