@@ -584,7 +584,7 @@ var jx_nfmovie = ()=>{
         isX5: true,
     });
     eval(fetch(jsUrl));
-
+    html =fetch(MY_URL,{headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});
     var lazy= `@lazyRule=.js:var get =fetch(input.replace(/player_.*?={/,'player_data={'),{});var js = parseDomForHtml(get,".embed-responsive&&script&&Html");eval(js); now`;
 
     //影片详情
