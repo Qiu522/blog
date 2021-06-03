@@ -1363,7 +1363,7 @@ var searchmovie = (lazyData, keydata)=>{
                             desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                             content: parseDomForHtml(list[j], 'p,1&&Text'),
                             img: parseDom(list[j], '.lazyload&&data-original'),
-                            url: $(parseDom(list[j],'a&&href').rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() })
+                            url: $(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() })
                         });
                     }
                 }
