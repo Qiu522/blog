@@ -1,5 +1,5 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -1506,6 +1506,17 @@ var searchmovie = (lazyData, keydata)=>{
                             url: $(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() })
                         });
                     }
+                }else if(/mjhd/.test(MY_URL)){
+                    var list = parseDomForArray(html, '.myui-panel_bd&&li');//列表
+                    for(var j in list){
+                    d.push({
+                        title:parseDomForHtml(list[j],'h4&&a&&Text'),
+                        desc:parseDomForHtml(list[j],'.pic-text&&Text'),
+                        content:parseDomForHtml(list[j],'.detail--h4&&Text'),
+                        pic_url:parseDom(list[j],'.lazyload&&data-original'),
+                        url: $(parseDom(list[j],'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjhd() })
+                    });
+                    }
                 }
                 setResult(d)
             },lazyData),
@@ -1623,6 +1634,19 @@ var searchmovie = (lazyData, keydata)=>{
                         content: parseDomForHtml(list[j], 'p,1&&Text'),
                         img: parseDom(list[j], '.lazyload&&data-original'),
                         url: $(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() })
+                    });
+                }
+            }else if(/mjhd/.test(movielists[i].search)){
+                MY_URL = data.nfx.index;
+                var list = parseDomForArray(html, '.myui-panel_bd&&li');//列表
+                var len = list.length>6 ? 6 : list.length;
+                for(var j in list){
+                    d.push({
+                        title:parseDomForHtml(list[j],'h4&&a&&Text'),
+                        desc:parseDomForHtml(list[j],'.pic-text&&Text'),
+                        content:parseDomForHtml(list[j],'.detail--h4&&Text'),
+                        pic_url:parseDom(list[j],'.lazyload&&data-original'),
+                        url: $(parseDom(list[j],'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjhd() })
                     });
                 }
             }
