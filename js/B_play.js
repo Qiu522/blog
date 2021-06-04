@@ -499,7 +499,7 @@ var jx_lengyue = (lazyRule)=>{
     }
     setTabs([tabs, MY_URL, setUrl]);
 
-    var lazy =lazyRule!=undefined? lazyRule: `@lazyRule=iframe&&src.js:if(/m3u8/.test(input)){input;}else{var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));var url= input.split('url=')[1]; aytmParse(url)}`;
+    var lazy =lazyRule!=undefined? lazyRule: `@lazyRule=.embed-responsive&&script&&Html.js:eval(input.replace(/player_.*?={/,'player_aaaa={'));var url=decodeURIComponent(base64Decode(player_aaaa.url));if(url.indexOf('.m3u8')==-1){var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));aytmParse(url)}else{url}`;
 
     //选集
     var lists =[];
