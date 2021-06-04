@@ -652,7 +652,7 @@ const data = {
         nav: [{title:'美剧', url: 'https://qiu522.github.io/blog/img/meiju.png'},{title:'电影', url: 'https://qiu522.github.io/blog/img/dianying.png'}]
     },
     mjhd:{
-        index:'',
+        index:'https://mjhd.tv/',
         router:['hiker://empty','https://mjhd.tv/vodshow/分类--排序-年代-----fypage---.html','https://mjhd.tv/vodshow/分类--排序-年代-----fypage---.html', 'https://mjhd.tv/vodshow/21--排序-分类-----fypage---.html', 'https://mjhd.tv/vodshow/23--排序-分类-----fypage---.html'],
         type:[{},
             {
