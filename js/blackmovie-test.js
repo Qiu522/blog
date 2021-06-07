@@ -1533,7 +1533,7 @@ var searchmovie = (lazyData, keydata)=>{
             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
             var searchType = getVar('searchTypeword', '全部');
             if(/meijuchong/.test(movielists[i].search)){
-                if(searchType!='全部' || searchType!='美剧' || searchType!='美剧虫')
+                if(searchType!='全部' || searchType!='美剧' || searchType!='美剧虫') break;
                 MY_URL = data.mjc.index;
                 var list = parseDom(html, 'body&&.search_box&&.vodlist&&Html').match(/<li[\s\S]*?<\/li/g);
                 if(list == null) break;
