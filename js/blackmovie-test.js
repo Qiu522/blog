@@ -1590,7 +1590,7 @@ var searchmovie = (lazyData, keydata)=>{
                     case 'k_3':
                         MY_URL = data.nfmovie.index;
                         if(searchType=='全部' || searchType=='美剧' || searchType=='奈非') {
-                            html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1'), {headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
+                            var html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1'), {headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
                             var list = parseDom(html, '#searchList&&Html').match(/<li[\s\S]*?<\/li/g);
                             if(list == null) continue;
                             var len = list.length>6 ? 6 : list.length;
