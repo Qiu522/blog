@@ -738,7 +738,7 @@ var hikerHomePage = (lazyData)=>{
         });
     }
     d.push({
-        desc: '60&&float',
+        desc: '100&&float',
         url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
         col_type: 'x5_webview_single'
     })
@@ -1407,6 +1407,7 @@ var searchmovie = (lazyData, keydata)=>{
     var d = [];
     var key = keydata!=undefined? keydata : MY_URL.split('$$$')[1];
     var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy, lengyue_lazy} = lazyData;
+    //var searchType = [{name:'', key: ''}, {name:'', key: ''}]
     for(var i in movielists){
         d.push({
             title:keydata==undefined? movielists[i].title : ('‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>"),
@@ -1525,12 +1526,14 @@ var searchmovie = (lazyData, keydata)=>{
 
         if(keydata!=undefined){
             d.push({
-                desc: '60&&float',
+                desc: '100&&float',
                 url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
                 col_type: 'x5_webview_single'
             })
             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
+            var searchType = getVar('searchTypeword', '全部');
             if(/meijuchong/.test(movielists[i].search)){
+                if(searchType!='全部' || searchType!='美剧' || searchType!='美剧虫')
                 MY_URL = data.mjc.index;
                 var list = parseDom(html, 'body&&.search_box&&.vodlist&&Html').match(/<li[\s\S]*?<\/li/g);
                 if(list == null) break;
@@ -1547,7 +1550,8 @@ var searchmovie = (lazyData, keydata)=>{
             }else if(/flvwec/.test(movielists[i].search)){   
                 MY_URL = data.taotao.index;
                 var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
-                var list = parseDomForArray(content, 'body&&li');            
+                var list = parseDomForArray(content, 'body&&li');    
+                if(list == null) break;        
                 var len = list.length>6 ? 6 : list.length;
                 for(var j = 0; j < len; j++){
                     d.push({
@@ -1560,7 +1564,8 @@ var searchmovie = (lazyData, keydata)=>{
                 }
             }else if(/o8tv/.test(movielists[i].search)){
                 MY_URL = data.fivefive.index;
-                var list = parseDomForArray(html, '.hl-one-list&&li');                
+                var list = parseDomForArray(html, '.hl-one-list&&li');
+                if(list == null) break;                
                 var len = list.length>6 ? 6 : list.length;
                 for (var j = 0; j < len; j++) {
                 d.push({
@@ -1573,7 +1578,8 @@ var searchmovie = (lazyData, keydata)=>{
                 }
             }else if(/jpysvip/.test(movielists[i].search)){
                 MY_URL = data.jpys.index;
-                var list = parseDomForArray(html, '.myui-vodlist__media&&li');                
+                var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
+                if(list == null) break;            
                 var len = list.length>6 ? 6 : list.length;
                 for (var j = 0; j < len; j++) {
                 d.push({
@@ -1586,7 +1592,8 @@ var searchmovie = (lazyData, keydata)=>{
                 } 
             }else if(/lengyue/.test(movielists[i].search)){
                 MY_URL = data.lengyue.index;
-                var list = parseDomForArray(html, '.myui-vodlist__media&&li');                
+                var list = parseDomForArray(html, '.myui-vodlist__media&&li');   
+                if(list == null) break;             
                 var len = list.length>6 ? 6 : list.length;
                 for (var j = 0; j < len; j++) {
                 d.push({
@@ -1599,7 +1606,8 @@ var searchmovie = (lazyData, keydata)=>{
                 } 
             }else if(/179u/.test(movielists[i].search)){
                 MY_URL = data.ge179.index;
-                var list = parseDomForArray(html, '.myui-vodlist__media&&li');                
+                var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
+                if(list == null) break;            
                 var len = list.length>6 ? 6 : list.length;
                 for (var j = 0; j < len; j++) {
                     d.push({
@@ -1614,6 +1622,7 @@ var searchmovie = (lazyData, keydata)=>{
                 MY_URL = data.nfmovie.index;
                 html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1'), {headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
                 var list = parseDom(html, '#searchList&&Html').match(/<li[\s\S]*?<\/li/g);
+                if(list == null) break;
                 var len = list.length>6 ? 6 : list.length;
                 for (var j = 0; j < len; j++) {
                     d.push({
@@ -1626,6 +1635,7 @@ var searchmovie = (lazyData, keydata)=>{
             }else if(/nfxhd/.test(movielists[i].search)){
                 MY_URL = data.nfx.index;
                 var list = parseDomForArray(html, '#searchList&&li');
+                if(list == null) break;
                 var len = list.length>6 ? 6 : list.length;
                 for (var j = 0; j < len; j++) {
                     d.push({
@@ -1639,6 +1649,7 @@ var searchmovie = (lazyData, keydata)=>{
             }else if(/mjhd/.test(movielists[i].search)){
                 MY_URL = data.mjhd.index;
                 var list = parseDomForArray(html, '.myui-panel_bd&&li');//列表
+                if(list == null) break;
                 var len = list.length>6 ? 6 : list.length;
                 for(var j in list){
                     d.push({
