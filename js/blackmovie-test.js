@@ -1532,8 +1532,8 @@ var searchmovie = (lazyData, keydata)=>{
                 col_type: 'x5_webview_single'
             })
             
-            var key = 'k_'+i;
-            switch (key) {
+            var search_case = 'k_'+i;
+            switch (search_case) {
                 case 'k_0':
                     MY_URL = data.jpys.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='极品') {
