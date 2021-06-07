@@ -1529,18 +1529,19 @@ var searchmovie = (lazyData, keydata)=>{
             case 0:
                 MY_URL = data.jpys.index;
                 if(searchType=='全部' || searchType=='影视' || searchType=='极品') {
-                var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
-                if(list == null) continue;            
-                var len = list.length>6 ? 6 : list.length;
-                for (var j = 0; j < len; j++) {
-                d.push({
-                    title: parseDomForHtml(list[j], 'h4&&Text'),
-                    desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                    pic_url: parseDom(list[j], '.lazyload&&data-original'),
-                    content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                    url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
-                });
-                } }
+                    var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
+                    if(list == null) continue;            
+                    var len = list.length>6 ? 6 : list.length;
+                    for (var j = 0; j < len; j++) {
+                        d.push({
+                            title: parseDomForHtml(list[j], 'h4&&Text'),
+                            desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                            pic_url: parseDom(list[j], '.lazyload&&data-original'),
+                            content:parseDomForHtml(list[j], '.detail--h4&&Text'),
+                            url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
+                        });
+                    } 
+                }
                 break;
             case 1:
                 MY_URL = data.taotao.index;
