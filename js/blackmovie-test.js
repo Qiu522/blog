@@ -1531,10 +1531,11 @@ var searchmovie = (lazyData, keydata)=>{
                 url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
                 col_type: 'x5_webview_single'
             })
-            var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
+            
             var key = 'k_'+i;
             switch (key) {
                 case 'k_0':
+                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                     MY_URL = data.jpys.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='极品') {
                         var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
@@ -1552,6 +1553,7 @@ var searchmovie = (lazyData, keydata)=>{
                     }
                     break;
                 case 'k_1':
+                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                     MY_URL = data.taotao.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='淘淘') { 
                     var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
@@ -1568,7 +1570,8 @@ var searchmovie = (lazyData, keydata)=>{
                         });
                     }}
                     break;
-                case 'k_2': 
+                case 'k_2':
+                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                     MY_URL = data.fivefive.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='555') {
                         var list = parseDomForArray(html, '.hl-one-list&&li');
