@@ -1524,60 +1524,68 @@ var searchmovie = (lazyData, keydata)=>{
             },lazyData),
             col_type: "text_1"
         });
-
-        switch (i) {
-            case 0:
-                MY_URL = data.jpys.index;
-                if(searchType=='全部' || searchType=='影视' || searchType=='极品') {
-                    var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
-                    if(list == null) continue;            
+        
+        if(keydata!=undefined){
+            d.push({
+                desc: '100&&float',
+                url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
+                col_type: 'x5_webview_single'
+            })
+            var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
+            switch (i) {
+                case 0:
+                    MY_URL = data.jpys.index;
+                    if(searchType=='全部' || searchType=='影视' || searchType=='极品') {
+                        var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
+                        if(list == null) continue;            
+                        var len = list.length>6 ? 6 : list.length;
+                        for (var j = 0; j < len; j++) {
+                            d.push({
+                                title: parseDomForHtml(list[j], 'h4&&Text'),
+                                desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                                pic_url: parseDom(list[j], '.lazyload&&data-original'),
+                                content:parseDomForHtml(list[j], '.detail--h4&&Text'),
+                                url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
+                            });
+                        } 
+                    }
+                    break;
+                case 1:
+                    MY_URL = data.taotao.index;
+                    if(searchType=='全部' || searchType=='影视' || searchType=='淘淘') { 
+                    var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
+                    var list = parseDomForArray(content, 'body&&li');    
+                    if(list == null) continue;        
                     var len = list.length>6 ? 6 : list.length;
-                    for (var j = 0; j < len; j++) {
+                    for(var j = 0; j < len; j++){
                         d.push({
-                            title: parseDomForHtml(list[j], 'h4&&Text'),
-                            desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                            pic_url: parseDom(list[j], '.lazyload&&data-original'),
-                            content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                            url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
+                            title:parseDomForHtml(list[j],'a&&title'),
+                            desc:parseDomForHtml(list[j],'.pic-tag&&Text'),
+                            pic_url:parseDomForHtml(list[j],'a&&data-original'),
+                            url:$(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
+                            content:parseDomForHtml(list[j],'p.hidden-xs&&Text')
                         });
-                    } 
-                }
-                break;
-            case 1:
-                MY_URL = data.taotao.index;
-                if(searchType=='全部' || searchType=='影视' || searchType=='淘淘') { 
-                var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
-                var list = parseDomForArray(content, 'body&&li');    
-                if(list == null) continue;        
-                var len = list.length>6 ? 6 : list.length;
-                for(var j = 0; j < len; j++){
-                    d.push({
-                        title:parseDomForHtml(list[j],'a&&title'),
-                        desc:parseDomForHtml(list[j],'.pic-tag&&Text'),
-                        pic_url:parseDomForHtml(list[j],'a&&data-original'),
-                        url:$(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
-                        content:parseDomForHtml(list[j],'p.hidden-xs&&Text')
-                    });
-                }}
-                break;
-            case 2: 
-                MY_URL = data.fivefive.index;
-                if(searchType=='全部' || searchType=='影视' || searchType=='555') {
-                    var list = parseDomForArray(html, '.hl-one-list&&li');
-                    if(list == null) continue;                
-                    var len = list.length>6 ? 6 : list.length;
-                    for (var j = 0; j < len; j++) {
-                    d.push({
-                        title: parseDomForHtml(list[j], 'a&&title'),
-                        desc: parseDomForHtml(list[j], '.hl-item-sub&&Text'),
-                        content: parseDomForHtml(list[j], 'p,2&&Text'),
-                        pic_url: parseDom(list[j], 'a&&data-original'),
-                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
-                    });
-                }}
-                break;
-            default:
-                break;
+                    }}
+                    break;
+                case 2: 
+                    MY_URL = data.fivefive.index;
+                    if(searchType=='全部' || searchType=='影视' || searchType=='555') {
+                        var list = parseDomForArray(html, '.hl-one-list&&li');
+                        if(list == null) continue;                
+                        var len = list.length>6 ? 6 : list.length;
+                        for (var j = 0; j < len; j++) {
+                        d.push({
+                            title: parseDomForHtml(list[j], 'a&&title'),
+                            desc: parseDomForHtml(list[j], '.hl-item-sub&&Text'),
+                            content: parseDomForHtml(list[j], 'p,2&&Text'),
+                            pic_url: parseDom(list[j], 'a&&data-original'),
+                            url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
+                        });
+                    }}
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
