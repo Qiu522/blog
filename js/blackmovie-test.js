@@ -1408,6 +1408,7 @@ var searchmovie = (lazyData, keydata)=>{
     var key = keydata!=undefined? keydata : MY_URL.split('$$$')[1];
     var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy, lengyue_lazy} = lazyData;
     //var searchType = [{name:'', key: ''}, {name:'', key: ''}]
+    var searchType = getVar('searchTypeword', '全部');
     for(var i in movielists){
         d.push({
             title:keydata==undefined? movielists[i].title : ('‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>"),
@@ -1531,7 +1532,6 @@ var searchmovie = (lazyData, keydata)=>{
                 col_type: 'x5_webview_single'
             })
             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
-            var searchType = getVar('searchTypeword', '全部');
             if(/meijuchong/.test(movielists[i].search)){
                 if(searchType!='全部' || searchType!='美剧' || searchType!='美剧虫') break;
                 MY_URL = data.mjc.index;
