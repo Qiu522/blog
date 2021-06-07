@@ -1578,6 +1578,7 @@ var searchmovie = (lazyData, keydata)=>{
             default:
                 break;
         }
+    }
 
     setResult(d);
 }
