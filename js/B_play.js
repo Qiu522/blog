@@ -740,3 +740,56 @@ var jx_mjhd = ()=>{
     setHomeResult(res);
 }
 //JXMJHD
+//JXXSJ
+var jx_xsj = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/zyf/black.js'));
+    init({
+    isX5: true,
+    });
+    eval(fetch(jsUrl));
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.leo-detail-wrap&&ul&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.leo-lazy&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, 'li,-2&&Text') + '\n' + parseDomForHtml(details, 'li,-1&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(html, '#leo-detail-info&&p,0&&Text'); //简介
+    var dataLine = details.match(/<li[\s\S]*?<\/li>/g)
+    //dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.leo-play-num');
+    var linelist = parseDomForArray(html, 'body&&.leo-source-cho&&li');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'li&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'xsj_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('xsj_line', '0'),
+    lazy: '@lazyRule=#zanpiancms_player&&script&&src.js:eval(fetch("https:"+input,{}).split("document")[0]);zanpiancms_player.url+"#isVideo=true#"'
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXXSJ
