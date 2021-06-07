@@ -1547,7 +1547,8 @@ var searchmovie = (lazyData, keydata)=>{
                         url:$(parseDom(list[j], '.vodlist_thumb&&href')).rule((mjc_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
                     });
                 }
-            }else if(/flvwec/.test(movielists[i].search)){   
+            }else if(/flvwec/.test(movielists[i].search)){  
+                if(searchType!='全部' || searchType!='影视' || searchType!='淘淘') break; 
                 MY_URL = data.taotao.index;
                 var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
                 var list = parseDomForArray(content, 'body&&li');    
@@ -1563,6 +1564,7 @@ var searchmovie = (lazyData, keydata)=>{
                     });
                 }
             }else if(/o8tv/.test(movielists[i].search)){
+                if(searchType!='全部' || searchType!='影视' || searchType!='555') break; 
                 MY_URL = data.fivefive.index;
                 var list = parseDomForArray(html, '.hl-one-list&&li');
                 if(list == null) break;                
@@ -1577,6 +1579,7 @@ var searchmovie = (lazyData, keydata)=>{
                 });
                 }
             }else if(/jpysvip/.test(movielists[i].search)){
+                if(searchType!='全部' || searchType!='影视' || searchType!='极品') break; 
                 MY_URL = data.jpys.index;
                 var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
                 if(list == null) break;            
@@ -1591,6 +1594,7 @@ var searchmovie = (lazyData, keydata)=>{
                 });
                 } 
             }else if(/lengyue/.test(movielists[i].search)){
+                if(searchType!='全部' || searchType!='影视' || searchType!='冷月') break; 
                 MY_URL = data.lengyue.index;
                 var list = parseDomForArray(html, '.myui-vodlist__media&&li');   
                 if(list == null) break;             
@@ -1605,6 +1609,7 @@ var searchmovie = (lazyData, keydata)=>{
                 });
                 } 
             }else if(/179u/.test(movielists[i].search)){
+                if(searchType!='全部' || searchType!='影视' || searchType!='179') break; 
                 MY_URL = data.ge179.index;
                 var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
                 if(list == null) break;            
@@ -1619,6 +1624,7 @@ var searchmovie = (lazyData, keydata)=>{
                     });
                 } 
             }else if(/nfmovie/.test(movielists[i].search)){
+                if(searchType!='全部' || searchType!='美剧' || searchType!='奈非') break; 
                 MY_URL = data.nfmovie.index;
                 html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1'), {headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
                 var list = parseDom(html, '#searchList&&Html').match(/<li[\s\S]*?<\/li/g);
@@ -1633,6 +1639,7 @@ var searchmovie = (lazyData, keydata)=>{
                     });
                 }
             }else if(/nfxhd/.test(movielists[i].search)){
+                if(searchType!='全部' || searchType!='美剧' || searchType!='奈非星') break; 
                 MY_URL = data.nfx.index;
                 var list = parseDomForArray(html, '#searchList&&li');
                 if(list == null) break;
@@ -1647,6 +1654,7 @@ var searchmovie = (lazyData, keydata)=>{
                     });
                 }
             }else if(/mjhd/.test(movielists[i].search)){
+                if(searchType!='全部' || searchType!='美剧' || searchType!='美剧网') break; 
                 MY_URL = data.mjhd.index;
                 var list = parseDomForArray(html, '.myui-panel_bd&&li');//列表
                 if(list == null) break;
