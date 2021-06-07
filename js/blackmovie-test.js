@@ -1535,9 +1535,9 @@ var searchmovie = (lazyData, keydata)=>{
             var key = 'k_'+i;
             switch (key) {
                 case 'k_0':
-                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                     MY_URL = data.jpys.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='极品') {
+                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                         var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
                         if(list == null) continue;            
                         var len = list.length>6 ? 6 : list.length;
@@ -1553,9 +1553,9 @@ var searchmovie = (lazyData, keydata)=>{
                     }
                     break;
                 case 'k_1':
-                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                     MY_URL = data.taotao.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='淘淘') { 
+                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                     var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
                     var list = parseDomForArray(content, 'body&&li');    
                     if(list == null) continue;        
@@ -1571,9 +1571,9 @@ var searchmovie = (lazyData, keydata)=>{
                     }}
                     break;
                 case 'k_2':
-                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                     MY_URL = data.fivefive.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='555') {
+                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         var list = parseDomForArray(html, '.hl-one-list&&li');
                         if(list == null) continue;                
                         var len = list.length>6 ? 6 : list.length;
