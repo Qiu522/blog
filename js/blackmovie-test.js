@@ -1532,9 +1532,9 @@ var searchmovie = (lazyData, keydata)=>{
                 col_type: 'x5_webview_single'
             })
             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
-            var key = i;
+            var key = 'k_'+i;
             switch (key) {
-                case 0:
+                case 'k_0':
                     MY_URL = data.jpys.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='极品') {
                         var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
@@ -1551,7 +1551,7 @@ var searchmovie = (lazyData, keydata)=>{
                         } 
                     }
                     break;
-                case 1:
+                case 'k_1':
                     MY_URL = data.taotao.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='淘淘') { 
                     var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
@@ -1568,7 +1568,7 @@ var searchmovie = (lazyData, keydata)=>{
                         });
                     }}
                     break;
-                case 2: 
+                case 'k_2': 
                     MY_URL = data.fivefive.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='555') {
                         var list = parseDomForArray(html, '.hl-one-list&&li');
