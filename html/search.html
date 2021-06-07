@@ -274,7 +274,8 @@
    </div> 
   <script>
       function up(){
-         var k=document.getElementById("search-input").value
+         var k=document.getElementById("search-input").value;
+         var type = document.querySelector('.active').innerHTML;
 
          var work=fy_bridge_app.fetch("hiker://files/searchwork.json");
          if(work==""){
@@ -288,13 +289,18 @@
              fy_bridge_app.writeFile("hiker://files/searchwork.json",JSON.stringify(work));
          }
          fy_bridge_app.putVar("searchKeyword",k);
+         fy_bridge_app.putVar("searchTypeword",type);
          fy_bridge_app.refreshPage(true);
+         
+
      }
-     document.getElementById("search-ok").onclick=up
-     if(fy_bridge_app.getVar("searchKeyword")!=""){
+     
+     document.getElementById("search-ok").onclick=up;
+     /*if(fy_bridge_app.getVar("searchKeyword")!=""){
          document.getElementById("search-input").placeholder="点击搜索返回首页";
-     }
-     </script> 
+     }*/
+    </script> 
+    
     <script>
         var keyLists = ['全部','电影', '美剧', '动漫', '1','电影', '美剧', '动漫', '1','电影', '美剧', '动漫', '1', '1','电影', '美剧', '动漫', '1', '1','电影', '美剧', '动漫', '1', '1','电影', '美剧', '动漫'];
         (()=>{
@@ -317,7 +323,7 @@
                 lists[i].className="";
             }
             this.className="active";
-            console.log(this)
+            //console.log(lists[0].innerHTML);
         }
     </script>
      
