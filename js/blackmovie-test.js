@@ -1524,7 +1524,7 @@ var searchmovie = (lazyData, keydata)=>{
             },lazyData),
             col_type: "text_1"
         });
-        
+
         if(keydata!=undefined){
             d.push({
                 desc: '100&&float',
@@ -1532,7 +1532,8 @@ var searchmovie = (lazyData, keydata)=>{
                 col_type: 'x5_webview_single'
             })
             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
-            switch (i) {
+            var key = i;
+            switch (key) {
                 case 0:
                     MY_URL = data.jpys.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='极品') {
