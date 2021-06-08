@@ -318,7 +318,7 @@
         }
 
         let blackmovie = fy_bridge_app.fetch('hiker://files/rules/zyf/blackmovie.js');
-        let git_movie = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/blackmovie.js');
+        let git_movie = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/blackmovie-test.js');
         if (!blackmovie || blackmovie != git_movie) {
             fy_bridge_app.writeFile("hiker://files/rules/zyf/blackmovie.js", git_movie); 
         }
@@ -328,7 +328,7 @@
         if (!tc || tc != git_tc) {
             fy_bridge_app.writeFile("hiker://files/rules/zyf/tc.html", git_tc); 
         }
-        
+        fy_bridge_app.putVar("b_update", "成功");
         fy_bridge_app.refreshPage(true);
     }
      
