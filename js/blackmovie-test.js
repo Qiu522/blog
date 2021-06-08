@@ -872,6 +872,7 @@ var hikerHomePage = (lazyData)=>{
     }
 
     if(getVar('b_update', '无') == '成功'){
+        putVar("b_update", "");
         return 'toast://应该更新成功了'
     }
 
