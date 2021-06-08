@@ -305,7 +305,7 @@
 
      }
      function update(){
-        var r=confirm("Press a button!");
+        var r=confirm("点击确认进行更新!");
         if (r==true){
             let localHtml = fy_bridge_app.fetch('hiker://files/rules/zyf/black.js');
             let gitHtml = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/black.js');
@@ -330,7 +330,6 @@
             if (!tc || tc != git_tc) {
                 fy_bridge_app.writeFile("hiker://files/rules/zyf/tc.html", git_tc); 
             }
-            fy_bridge_app.putVar("b_update", "成功");
             fy_bridge_app.refreshPage(true);
         }
     }

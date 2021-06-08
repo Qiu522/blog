@@ -871,11 +871,6 @@ var hikerHomePage = (lazyData)=>{
         searchmovie( lazyData, getVar('searchKeyword'));
     }
 
-    if(getVar('b_update', '无') == '成功'){
-        putVar("b_update", "");
-        return 'toast://应该更新成功了'
-    }
-
     d.push({ col_type: 'line_blank' });
     d.push({ title: "<h4 style='text-align:center;'><font color='#b36d61'>到底了呢！</font></h4>", col_type: "rich_text" });
     setResult(d)
