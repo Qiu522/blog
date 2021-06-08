@@ -18,6 +18,7 @@
 	padding:10px 0;
 }
   form {
+    display: flex;
 	position:relative;
 	width:96%;
 	margin:0 auto;
@@ -27,7 +28,7 @@
 	outline:none;
 }
   input {
-	width:100%;
+	width:76%;
 	height:42px;
 	padding-left:13px;
 }
@@ -231,8 +232,9 @@
             overflow-x: auto;
             border: 1px solid #b6b6b6;
             border-top: 0px;
-            width: 96%;
-            margin: 0 auto;
+            width: 85%;
+            margin: 0 auto ;
+            margin-left: 38px;
             list-style: none;
             padding: 3px;
         }
@@ -242,7 +244,7 @@
             font-size: 14px;
         }
         li:hover {
-            background-color: rgb(168, 213, 252);
+            color: red;
             cursor: default;
         }
         ul li:first-child{
@@ -251,11 +253,18 @@
         #list .active {
             color: red;
         }
+        #update {
+            margin-top:4px;
+            width:30px;
+            height:30px;
+            display:inline-flex;
+        }
     </style>
  </head>
  <body style="overflow:hidden;"> 
   <div class="search bar1"> 
     <form>
+        <img src="https://z3.ax1x.com/2021/06/08/2BcNlR.png" id="update"></img>
         <input type="text" autocomplete="off" class="input" id="search-input" placeholder="搜索内容 . . ." onkeydown="if(event.keyCode==13){up()}">
         <button type="submit" id="search-ok"></button>
     </form>
@@ -295,8 +304,35 @@
          
 
      }
+     function update(){
+        let localHtml = fy_bridge_app.fetch('hiker://files/rules/zyf/black.js');
+        let gitHtml = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/black.js');
+        if (!localHtml || localHtml != gitHtml) {
+            fy_bridge_app.writeFile("hiker://files/rules/zyf/black.js", gitHtml);
+        }
+
+        let B_play = fy_bridge_app.fetch('hiker://files/rules/zyf/B_play.js');
+        let git_play = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/B_play.js');
+        if (!B_play || B_play != git_play) {
+            fy_bridge_app.writeFile("hiker://files/rules/zyf/B_play.js", git_play); 
+        }
+
+        let blackmovie = fy_bridge_app.fetch('hiker://files/rules/zyf/blackmovie.js');
+        let git_movie = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/blackmovie-test.js');
+        if (!blackmovie || blackmovie != git_movie) {
+            fy_bridge_app.writeFile("hiker://files/rules/zyf/blackmovie.js", git_movie); 
+        }
+
+        let tc = fy_bridge_app.fetch('hiker://files/rules/zyf/tc.html');
+        let git_tc = fy_bridge_app.fetch('https://qiu522.github.io/blog/html/search.html');
+        if (!tc || tc != git_tc) {
+            fy_bridge_app.writeFile("hiker://files/rules/zyf/tc.html", git_tc); }
+        }
+        fy_bridge_app.refreshPage(true);
+    }
      
      document.getElementById("search-ok").onclick=up;
+     document.querySelector('#update').onclick = update;
      /*if(fy_bridge_app.getVar("searchKeyword")!=""){
          document.getElementById("search-input").placeholder="点击搜索返回首页";
      }*/
