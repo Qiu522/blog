@@ -318,7 +318,7 @@
         }
 
         let blackmovie = fy_bridge_app.fetch('hiker://files/rules/zyf/blackmovie.js');
-        let git_movie = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/blackmovie-test.js');
+        let git_movie = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/blackmovie.js');
         if (!blackmovie || blackmovie != git_movie) {
             fy_bridge_app.writeFile("hiker://files/rules/zyf/blackmovie.js", git_movie); 
         }
