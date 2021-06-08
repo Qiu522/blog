@@ -305,31 +305,34 @@
 
      }
      function update(){
-        let localHtml = fy_bridge_app.fetch('hiker://files/rules/zyf/black.js');
-        let gitHtml = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/black.js');
-        if (!localHtml || localHtml != gitHtml) {
-            fy_bridge_app.writeFile("hiker://files/rules/zyf/black.js", gitHtml);
-        }
+        var r=confirm("Press a button!");
+        if (r==true){
+            let localHtml = fy_bridge_app.fetch('hiker://files/rules/zyf/black.js');
+            let gitHtml = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/black.js');
+            if (!localHtml || localHtml != gitHtml) {
+                fy_bridge_app.writeFile("hiker://files/rules/zyf/black.js", gitHtml);
+            }
 
-        let B_play = fy_bridge_app.fetch('hiker://files/rules/zyf/B_play.js');
-        let git_play = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/B_play.js');
-        if (!B_play || B_play != git_play) {
-            fy_bridge_app.writeFile("hiker://files/rules/zyf/B_play.js", git_play); 
-        }
+            let B_play = fy_bridge_app.fetch('hiker://files/rules/zyf/B_play.js');
+            let git_play = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/B_play.js');
+            if (!B_play || B_play != git_play) {
+                fy_bridge_app.writeFile("hiker://files/rules/zyf/B_play.js", git_play); 
+            }
 
-        let blackmovie = fy_bridge_app.fetch('hiker://files/rules/zyf/blackmovie.js');
-        let git_movie = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/blackmovie-test.js');
-        if (!blackmovie || blackmovie != git_movie) {
-            fy_bridge_app.writeFile("hiker://files/rules/zyf/blackmovie.js", git_movie); 
-        }
+            let blackmovie = fy_bridge_app.fetch('hiker://files/rules/zyf/blackmovie.js');
+            let git_movie = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/blackmovie-test.js');
+            if (!blackmovie || blackmovie != git_movie) {
+                fy_bridge_app.writeFile("hiker://files/rules/zyf/blackmovie.js", git_movie); 
+            }
 
-        let tc = fy_bridge_app.fetch('hiker://files/rules/zyf/tc.html');
-        let git_tc = fy_bridge_app.fetch('https://qiu522.github.io/blog/html/search.html');
-        if (!tc || tc != git_tc) {
-            fy_bridge_app.writeFile("hiker://files/rules/zyf/tc.html", git_tc); 
+            let tc = fy_bridge_app.fetch('hiker://files/rules/zyf/tc.html');
+            let git_tc = fy_bridge_app.fetch('https://qiu522.github.io/blog/html/search.html');
+            if (!tc || tc != git_tc) {
+                fy_bridge_app.writeFile("hiker://files/rules/zyf/tc.html", git_tc); 
+            }
+            fy_bridge_app.putVar("b_update", "成功");
+            fy_bridge_app.refreshPage(true);
         }
-        fy_bridge_app.putVar("b_update", "成功");
-        fy_bridge_app.refreshPage(true);
     }
      
      document.getElementById("search-ok").onclick=up;
