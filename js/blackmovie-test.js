@@ -1699,7 +1699,7 @@ var searchmovie = (lazyData, keydata)=>{
                              title: parseDomForHtml(list[j], 'h1&&Text'),
                              desc: parseDomForHtml(list[j], '.leo-color-a,1&&Text'),
                              pic_url: parseDom(list[j], 'img&&data-original'),
-                             url: $(parseDom(list[j],'a,-2&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjhd() })
+                             url: $(parseDom(list[j],'a,-2&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() })
                         });
                     }
                 }
@@ -1835,7 +1835,7 @@ var searchmovie = (lazyData, keydata)=>{
                                      title: parseDomForHtml(list[j], 'h1&&Text'),
                                      desc: parseDomForHtml(list[j], '.leo-color-a,1&&Text'),
                                      pic_url: parseDom(list[j], 'img&&data-original'),
-                                     url: $(parseDom(list[j],'a,-2&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjhd() })
+                                     url: $(parseDom(list[j],'a,-2&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() })
                                 });
                             }
                         }
