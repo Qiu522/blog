@@ -1,5 +1,5 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html'},{title:'新动漫', reg:'xsj', search: ''},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -717,6 +717,108 @@ const data = {
             } 
         ],
         nav:[{},{title:'科幻', url: 'https://qiu522.github.io/blog/img/kehuan.png'},{title:'都市', url: 'https://qiu522.github.io/blog/img/dushi.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/zongyi.png'},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying.png'}]
+    },
+    xsj: {
+        index: 'https://m.dm45.com/',
+        router: ['hiker://empty','','','https://m.dm45.com/list/ribendongman__地区___排序_fypage.html','https://m.dm45.com/list/dongman1_年代_地区___排序_fypage.html', 'https://m.dm45.com/list/dongmandianying_年代_地区___排序_fypage.html', 'https://m.dm45.com/list/move_分类_地区___排序_fypage.html', 'https://m.dm45.com/list/tv__地区___排序_fypage.html','https://m.dm45.com/list/bufantuijian__地区___排序_fypage.html'],
+        type: [{},{},{},
+            {
+                fyarea:{
+                    conts: '全部&大陆&香港&台湾&美国&韩国&日本&泰国&新加坡&马来西亚&印度&英国&法国&加拿大',
+                    lists: '&dalu&xianggang&taiwan&meiguo&hanguo&riben&taiguo&xinjiapo&malaixiya&yindu&yingguo&faguo&jianada'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'addtime&hits&gold'
+                },
+                pageType: '1.html',
+                index:'xsj_1'
+            },
+            {
+                /*fyclass:{
+                    conts:'全部&日本动漫&国产动漫&欧美动漫',
+                    lists: 'dongman1&ribendongman&guochandongman&oumeidongman',
+                    def:1
+                },*/
+                fyarea: {
+                    conts: '全部&大陆&香港&台湾&美国&韩国&日本&泰国&新加坡&马来西亚&印度&英国&法国&加拿大',
+                    lists: '&dalu&xianggang&taiwan&meiguo&hanguo&riben&taiguo&xinjiapo&malaixiya&yindu&yingguo&faguo&jianada'
+                },
+                fyyear: {
+                    conts: '全部&热血&无修&百合&战斗&运动&肉片&战争&冒险&搞笑&装逼&剧情&青春&后宫&校园&励志&恋爱&百合&动作&战机&科幻&萝莉&奇幻&魔法&动画&治愈&美食&萌系&偶像&泡面&漫改&轻改',
+                    lists: '&61&176&170&172&173&175&171&62&63&64&65&66&67&68&69&70&71&72&73&74&75&76&77&78&79&80&81&82&83&84&85'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'addtime&hits&gold'
+                },
+                pageType: '1.html',
+                index:'xsj_2'
+            },
+            {
+                /*fyclass:{
+                    conts: '全部&日本动漫&国产动漫&欧美动漫',
+                    lists: 'dongman1&ribendongman&guochandongman&oumeidongman',
+                    def:0
+                },*/
+                fyarea: {
+                    conts: '全部&大陆&香港&台湾&美国&韩国&日本&泰国&新加坡&马来西亚&印度&英国&法国&加拿大',
+                    lists: '&dalu&xianggang&taiwan&meiguo&hanguo&riben&taiguo&xinjiapo&malaixiya&yindu&yingguo&faguo&jianada'
+                },
+                fyyear: {
+                    conts: '全部&热血&冒险&搞笑&装逼&剧情&青春&后宫&校园&励志&恋爱&百合&动作&战机&科幻&萝莉&奇幻&魔法&动画&治愈&美食&萌系&偶像&泡面&漫改&轻改&催泪&日常&少儿&少女&社团&推理',
+                    lists: '&94&95&96&97&98&99&100&101&102&103&104&105&106&107&108&109&110&111&112&113&114&115&116&117&118&119&120&121&122&123&124'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'addtime&hits&gold'
+                },
+                pageType: '1.html',
+                index:'xsj_3'
+            },
+            {
+                fyclass:{
+                    conts: '全部&喜剧&爱情&恐怖&动作&科幻&剧情&战争&警匪&犯罪&动画&奇幻&武侠&冒险&枪战&恐怖&悬疑&惊悚&经典&青春&文艺&微电影&古装&历史&运动&农村&儿童&网络电影&神魔&恐怖',
+                    lists: '&34&35&36&37&38&39&40&41&42&43&44&45&46&47&48&49&50&51&52&53&54&55&56&57&58&59&60&163&168',
+                    def:0
+                },
+                fyarea: {
+                    conts: '全部&大陆&香港&台湾&美国&韩国&日本&泰国&新加坡&马来西亚&印度&英国&法国&加拿大',
+                    lists: '&dalu&xianggang&taiwan&meiguo&hanguo&riben&taiguo&xinjiapo&malaixiya&yindu&yingguo&faguo&jianada'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'addtime&hits&gold'
+                },
+                pageType: '1.html',
+                index:'xsj_4'
+            },
+            {
+                fyarea: {
+                    conts: '全部&大陆&香港&台湾&美国&韩国&日本&泰国&新加坡&马来西亚&印度&英国&法国&加拿大',
+                    lists: '&dalu&xianggang&taiwan&meiguo&hanguo&riben&taiguo&xinjiapo&malaixiya&yindu&yingguo&faguo&jianada'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'addtime&hits&gold'
+                },
+                pageType: '1.html',
+                index:'xsj_5'
+            },
+            {
+                fyarea: {
+                    conts: '全部&大陆&香港&台湾&美国&韩国&日本&泰国&新加坡&马来西亚&印度&英国&法国&加拿大',
+                    lists: '&dalu&xianggang&taiwan&meiguo&hanguo&riben&taiguo&xinjiapo&malaixiya&yindu&yingguo&faguo&jianada'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'addtime&hits&gold'
+                },
+                pageType: '1.html',
+                index:'xsj_6'
+            }
+        ],
+        nav: [{},{},{},{},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'},{title:'动漫电影', url: 'https://qiu522.github.io/blog/img/dianying.png'},{title:'影视', url: 'https://qiu522.github.io/blog/img/languang.png'},{title:'日韩剧', url: 'https://qiu522.github.io/blog/img/dianshiju.png'}]
     }
 }
 //首页解析
@@ -762,6 +864,8 @@ var hikerHomePage = (lazyData)=>{
             nfxindex(d,data);
         }else if(/mjhd/.test(getVar('pageUrl', data.jpys.index))){
             mjhdindex(d,data);
+        }else if(/dm45/.test(getVar('pageUrl', data.jpys.index))){//新世界动漫
+            xjsindex(d,data);
         }
     }else{
         searchmovie( lazyData, getVar('searchKeyword'));
@@ -1347,7 +1451,6 @@ var mjhdindex = (d, data)=>{
                    var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
-                    
                     var html =request(getVar('pageUrl'));
                     var list = parseDomForArray(html, '.myui-vodlist&&li');
                     for (var i in list) {
@@ -1401,6 +1504,76 @@ var mjhdindex = (d, data)=>{
             });
         }
     }
+}
+
+var xsjindex = (d, data)=>{
+    MY_URL = data.xsj.index;
+    var router = data.xsj.router;
+    var type = data.xsj.type;
+    var nav = data.xsj.nav;
+    var html = request(getVar('pageUrl', data.xsj.index));
+    var conts = parseDomForArray(html, 'body&&.leo-mod:has(ul)'); //第一个不要
+
+    for(var i=4; i<nav.length; i++){
+        var j=i+1;
+        d.push({
+            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
+                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                    setNav(type[index]);
+                    
+                    var html =request(getVar('pageUrl'));
+                    var list = parseDomForArray(html, 'ul:has(.leo-video-item)&&li');
+                    for (var i in list) {
+                        d.push({
+                            title: parseDomForHtml(list[i], '.leo-show&&title'),
+                            img: parseDom(list[i], '.leo-lazy&&data-original')+'@Referer=',
+                            desc: parseDomForHtml(list[i], '.leo-video-remark&&Text'),
+                            url: 
+        $(parseDom(list[i], '.leo-show&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() }),
+                        })
+                    }
+                    setResult(d)
+                },type, i),
+            col_type:'icon_small_4'
+        });
+    }
+    
+    for (var i =1; i<conts.length-1; i++) {
+        var list = parseDomForArray(conts[i], 'ul:has(.leo-video-item)&&li');
+        d.push({
+            title: '‘‘’’' + parseDomForHtml(conts[i], '.leo-mod-title&&Text').replace("查看更多", "") + (i==1||i==2?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: i==0?'':$(router[i]).rule((type, index) => {
+               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                setNav(type[index]);
+                
+                
+                var html =request(getVar('pageUrl'));
+                var list = parseDomForArray(html, 'ul:has(.leo-video-item)&&li');
+                for (var i in list) {
+                    d.push({
+                        title: parseDomForHtml(list[i], '.leo-show&&title'),
+                        img: parseDom(list[i], '.leo-lazy&&data-original')+'@Referer=',
+                        desc: parseDomForHtml(list[i], '.leo-video-remark&&Text'),
+                        url: 
+    $(parseDom(list[i], '.leo-show&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() }),
+                        col_type: "movie_3"
+                    })
+                }
+                setResult(d)
+            },type, i),
+            col_type: "text_center_1"
+        });
+        for (var j in list) {
+            d.push({
+                title: parseDomForHtml(list[j], '.leo-show&&title'),
+                img: parseDom(list[j], '.leo-lazy&&data-original')+'@Referer=',
+                desc: parseDomForHtml(list[j], '.leo-video-remark&&Text'),
+                url: 
+                $(parseDom(list[j], '.leo-show&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() }),
+                col_type: "movie_3"
+            });
+        }
+    }    
 }
 
 var searchmovie = (lazyData, keydata)=>{
