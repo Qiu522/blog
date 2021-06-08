@@ -865,7 +865,7 @@ var hikerHomePage = (lazyData)=>{
         }else if(/mjhd/.test(getVar('pageUrl', data.jpys.index))){
             mjhdindex(d,data);
         }else if(/dm45/.test(getVar('pageUrl', data.jpys.index))){//新世界动漫
-            xjsindex(d,data);
+            xsjindex(d,data);
         }
     }else{
         searchmovie( lazyData, getVar('searchKeyword'));
@@ -1813,7 +1813,7 @@ var searchmovie = (lazyData, keydata)=>{
                             }
                         }
                         break;
-                    case 'k_6':
+                    case 'k_7':
                         MY_URL = data.mjc.index;
                         if(searchType=='全部' || searchType=='美剧' || searchType=='美剧虫') {
                             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -1831,7 +1831,7 @@ var searchmovie = (lazyData, keydata)=>{
                             }
                         }
                         break;
-                    case 'k_7':
+                    case 'k_8':
                         MY_URL = data.lengyue.index;
                         if(searchType=='全部' || searchType=='影视' || searchType=='冷月') {
                             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -1849,7 +1849,7 @@ var searchmovie = (lazyData, keydata)=>{
                             } 
                         }
                         break;
-                    case 'k_8':
+                    case 'k_9':
                         MY_URL = data.ge179.index;
                         if(searchType=='全部' || searchType=='影视' || searchType=='179') {
                             var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
