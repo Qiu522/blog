@@ -224,6 +224,15 @@
             font-size: 16px;
             color: #F9F0DA;
         }
+        .listwrap {
+            display:flex;
+
+        }
+        .listwrap img{
+            width:10%;
+            height: 30px;
+            margin: auto;
+        }
 
         #list{
             display:flex;
@@ -234,14 +243,17 @@
             border-top: 0px;
             width: 86%;
             margin: 0 auto ;
-            margin-left: 12%;
+            margin-left:12%;
             list-style: none;
             padding: 3px;
         }
         #list li {
             display: inline-flex;
+            flex-direction:column;
+            width: 1em;
             margin: 0 5px;
-            font-size: 14px;
+            font-size: 12px;
+            word-wrap: break-word;
         }
         li:hover {
             color: red;
@@ -269,18 +281,20 @@
         <button type="submit" id="search-ok"></button>
     </form>
 
-    <ul id="list">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+    <div class="listwrap">
+        <ul id="list">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
    </div> 
   <script>
       function up(){
