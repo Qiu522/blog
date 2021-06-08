@@ -859,6 +859,7 @@ var hikerHomePage = (lazyData)=>{
         }else if(/179u/.test(getVar('pageUrl', data.jpys.index))){
             ge179index(d,data);
         }else if(/nfmovie/.test(getVar('pageUrl', data.jpys.index))){
+            hikerpre();
             nfmovieindex(d,data);
         }else if(/nfxhd/.test(getVar('pageUrl', data.jpys.index))){
             nfxindex(d,data);
@@ -868,6 +869,7 @@ var hikerHomePage = (lazyData)=>{
             xsjindex(d,data);
         }
     }else{
+        hikerpre();
         searchmovie( lazyData, getVar('searchKeyword'));
     }
 
@@ -1901,4 +1903,10 @@ var searchmovie = (lazyData, keydata)=>{
     }
 
     setResult(d);
+}
+
+function hikerpre(){
+    if(!getVar('hikernfcookie')){
+    var nfcookie = JSON.parse(fetchCookie('https://www.nfmovies.com/search.php',{headers:{'User-Agent':'Mozilla/5.0'}})).join(';');
+    putVar2('hikernfcookie',nfcookie)}
 }
