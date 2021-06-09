@@ -339,10 +339,10 @@
                 fy_bridge_app.writeFile("hiker://files/rules/zyf/blackmovie.js", git_movie); 
             }
 
-            let tc = fy_bridge_app.fetch('hiker://files/rules/zyf/tc.html');
+            let tc = fy_bridge_app.fetch('hiker://files/rules/zyf/tc-cdn.html');
             let git_tc = fy_bridge_app.fetch('https://cdn.jsdelivr.net/gh/Qiu522/blog/html/search.html');
             if (!tc || tc != git_tc) {
-                fy_bridge_app.writeFile("hiker://files/rules/zyf/tc.html", git_tc); 
+                fy_bridge_app.writeFile("hiker://files/rules/zyf/tc-cdn.html", git_tc); 
             }
             fy_bridge_app.refreshPage(true);
         }
