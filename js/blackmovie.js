@@ -59,7 +59,7 @@ const data = {
             }
             
         ],
-        nav:[{},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'}]
+        nav:[{},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'动漫', url: 'https://imgtu.com/i/2szZAP'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'}]
     },
     taotao:{
         index:'http://www.flvwec.com/',
@@ -147,7 +147,7 @@ const data = {
             }
             
         ],
-        nav:[{},{},{},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'}]
+        nav:[{},{},{},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'动漫', url: 'https://imgtu.com/i/2szZAP'}]
     },
     fivefive:{
         index:'https://www.o8tv.com',
@@ -252,7 +252,7 @@ const data = {
                 index: 'five_6'
             }
         ],
-        nav:[{title:'蓝光片库', url: 'https://qiu522.github.io/blog/img/languang.png'},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'纪录片', url: 'https://qiu522.github.io/blog/img/jilupian.png'}]
+        nav:[{title:'蓝光片库', url: 'https://imgtu.com/i/2szQXj'},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'动漫', url: 'https://imgtu.com/i/2szZAP'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'纪录片', url: 'https://imgtu.com/i/2szK1g'}]
     },
     jpys:{
         index: 'https://www.jpysvip.net',
@@ -370,7 +370,7 @@ const data = {
                 index:'jpys_7'
             }
         ],
-        nav: [{},{},{},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'}]
+        nav: [{},{},{},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'动漫', url: 'https://imgtu.com/i/2szZAP'}]
     },
     lengyue:{
         index: 'https://www.lengyue.app/',
@@ -442,7 +442,7 @@ const data = {
                 index:'lengyue_5'
             }
         ],
-        nav: [{},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'},{title:'bilibili', url: 'https://qiu522.github.io/blog/img/bili.png'}]
+        nav: [{},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'动漫', url: 'https://imgtu.com/i/2szZAP'},{title:'bilibili', url: 'https://imgtu.com/i/2szmh8'}]
     },
     ge179:{
         index: 'http://www.179u.com',
@@ -513,7 +513,7 @@ const data = {
                 index:'ge179_4'
             }
         ],
-        nav: [{},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'}]
+        nav: [{},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'动漫', url: 'https://imgtu.com/i/2szZAP'}]
     },
     nfmovie:{
         index:'https://www.nfmovies.com',
@@ -616,7 +616,7 @@ const data = {
             },
             
         ],
-        nav: [{},{},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'}]
+        nav: [{},{},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'},{title:'电视剧', url: 'https://imgtu.com/i/2szu9S'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'动漫', url: 'https://imgtu.com/i/2szZAP'}]
     },
     nfx:{
         index:'https://nfxhd.com/',
@@ -649,7 +649,7 @@ const data = {
                 index:'nfx_2'
             },
         ],
-        nav: [{title:'美剧', url: 'https://qiu522.github.io/blog/img/meiju.png'},{title:'电影', url: 'https://imgtu.com/i/2szetf'}]
+        nav: [{title:'美剧', url: 'https://imgtu.com/i/2sz3Bn'},{title:'电影', url: 'https://imgtu.com/i/2szetf'}]
     },
     mjhd:{
         index:'https://mjhd.tv/',
@@ -716,7 +716,7 @@ const data = {
                 index:'mjhd_4'
             } 
         ],
-        nav:[{},{title:'科幻', url: 'https://qiu522.github.io/blog/img/kehuan.png'},{title:'都市', url: 'https://qiu522.github.io/blog/img/dushi.png'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'}]
+        nav:[{},{title:'科幻', url: 'https://imgtu.com/i/2szMcQ'},{title:'都市', url: 'https://imgtu.com/i/2szE7t'},{title:'综艺', url: 'https://imgtu.com/i/2yS3xe'},{title:'电影片库', url: 'https://imgtu.com/i/2szetf'}]
     },
     xsj: {
         index: 'https://m.dm45.com/',
@@ -818,7 +818,7 @@ const data = {
                 index:'xsj_6'
             }
         ],
-        nav: [{},{},{},{},{title:'动漫', url: 'https://qiu522.github.io/blog/img/dongman.png'},{title:'动漫电影', url: 'https://imgtu.com/i/2szetf'},{title:'影视', url: 'https://qiu522.github.io/blog/img/languang.png'},{title:'日韩剧', url: 'https://imgtu.com/i/2szu9S'}]
+        nav: [{},{},{},{},{title:'动漫', url: 'https://imgtu.com/i/2szZAP'},{title:'动漫电影', url: 'https://imgtu.com/i/2szetf'},{title:'影视', url: 'https://imgtu.com/i/2szQXj'},{title:'日韩剧', url: 'https://imgtu.com/i/2szu9S'}]
     }
 }
 //首页解析
