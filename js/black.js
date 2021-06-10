@@ -352,7 +352,7 @@ var setTabs = ([tabs, vari, setUrl])=>{
         url:setUrl!=undefined?setUrl:'toast://阿巴阿巴😮😮😵',
         col_type: 'text_center_1'
     });
-    if(getVar(vari)>tabs.length){
+    if(getVar(vari)>tabs.length-1){
         putVar(vari, '0');
     }
     for (var i = 0; i < tabs.length; i++) {
@@ -381,7 +381,7 @@ var setLists = (dataObj)=>{
         url: hUrl,
         col_type: 'text_center_1'
     });
-    if(index> lists.length) index = 0;
+    if(index> lists.length-1) index = 0;
     var list = lists[index];
     if (getVar('shsort') == ' - 逆序') {
         for (var j = list.length - 1; j >= 0; j--) {
