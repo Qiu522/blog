@@ -1988,7 +1988,7 @@ var searchmovie = (lazyData, keydata)=>{
                         });
                     }
                 }else if(/nfmovie/.test(MY_URL)){
-                    html = fetch(MY_URL,{headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
+                    html = fetch(MY_URL,{headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});
                     var list = parseDom(html, '#searchList&&Html').match(/<li[\s\S]*?<\/li/g);
                     for (var j = 0; j < list.length; j++) {
                         d.push({
@@ -2048,6 +2048,7 @@ var searchmovie = (lazyData, keydata)=>{
                     }
                 }else if(/qimi/.test(MY_URL)){
                     try{
+                        html = fetch(MY_URL);
                         var list = parseDom(html, 'body&&.show-list&&Html').match(/<li[\s\S]*?<\/li/g);
                         for (var j = 0; j < list.length; j++) {
                             d.push({
@@ -2199,7 +2200,7 @@ var searchmovie = (lazyData, keydata)=>{
                 case 'k_7':
                     MY_URL = data.qimi.index;
                     if(searchType=='全部' || searchType=='动漫' || searchType=='奇米') {
-                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
+                    var html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                     var list = parseDom(html, 'body&&.show-list&&Html').match(/<li[\s\S]*?<\/li/g);
                     if(list == null) continue;
                     var len = list.length>6 ? 6 : list.length;
