@@ -1841,7 +1841,7 @@ var qimiindex = (d,data)=>{
     var router = data.qimi.router;
     var type = data.qimi.type;
     var nav = data.qimi.nav;
-    var html = request(getVar('pageUrl', data.qimi.index));
+    var html = fetch(getVar('pageUrl', data.qimi.index));
     var conts = conts = parseDomForArray(html, 'body&&.channel-item:has(.img-list)'); //第一个不要
 
     for(var i=0; i<nav.length; i++){
@@ -2034,7 +2034,7 @@ var searchmovie = (lazyData, keydata)=>{
                         });
                     }
                 }else if(/acmdy/.test(MY_URL)){
-                    var list = parseDomForArray(getResCode(), '.vodlist&&li');//列表
+                    var list = parseDomForArray(html, '.vodlist&&li');//列表
                     for(var j in list){
                         try{
                             d.push({
@@ -2046,6 +2046,18 @@ var searchmovie = (lazyData, keydata)=>{
                             });
                         }catch(e){''}
                     }
+                }else if(/qimi/.test(MY_URL)){
+                    try{
+                        var list = parseDom(html, 'body&&.show-list&&Html').match(/<li[\s\S]*?<\/li/g);
+                        for (var j = 0; j < list.length; j++) {
+                            d.push({
+                                title: parseDomForHtml(list[j], 'h2&&a&&Text'),
+                                desc: parseDomForHtml(list[j], '.color&&Text'),
+                                pic_url: parseDom(list[j], 'img&&src'),
+                                content:parseDomForHtml(list[j], '.juqing&&dd&&Text'),
+                                url: $(parseDom(list[j],'h2&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() })
+                            });
+                    }}catch(e){} 
                 }
                 setResult(d)
             },lazyData),
@@ -2081,7 +2093,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'k_1':
                     MY_URL = data.taotao.index;
-                    if(searchType=='全部' || searchType=='淘淘') { 
+                    if(searchType=='全部' || searchType=='影视' || searchType=='淘淘') { 
                     var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                     var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
                     var list = parseDomForArray(content, 'body&&li');    
@@ -2099,7 +2111,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'k_2':
                     MY_URL = data.fivefive.index;
-                    if(searchType=='全部' || searchType=='影视' || searchType=='555') {
+                    if(searchType=='全部' || searchType=='555') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         var list = parseDomForArray(html, '.hl-one-list&&li');
                         if(list == null) continue;                
@@ -2182,6 +2194,25 @@ var searchmovie = (lazyData, keydata)=>{
                                     url: $(parseDom(list[j],'a,-2&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() })
                             });
                         }
+                    }
+                    break;
+                case 'k_7':
+                    MY_URL = data.qimi.index;
+                    if(searchType=='全部' || searchType=='动漫' || searchType=='奇米') {
+                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
+                    var list = parseDom(html, 'body&&.show-list&&Html').match(/<li[\s\S]*?<\/li/g);
+                    if(list == null) continue;
+                    var len = list.length>6 ? 6 : list.length;
+                    try{
+                        for (var j = 0; j < len; j++) {
+                            d.push({
+                                title: parseDomForHtml(list[j], 'h2&&a&&Text'),
+                                desc: parseDomForHtml(list[j], '.color&&Text'),
+                                pic_url: parseDom(list[j], 'img&&src'),
+                                content:parseDomForHtml(list[j], '.juqing&&dd&&Text'),
+                                url: $(parseDom(list[j],'h2&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() })
+                            });
+                        }}catch(e){}
                     }
                     break;
                 case 'k_8':
