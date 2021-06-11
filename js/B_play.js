@@ -793,3 +793,61 @@ var jx_xsj = ()=>{
     setHomeResult(res);
 }
 //JXXSJ
+//JXYYJC
+var jx_yyjc = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/zyf/black.js'));
+    init({
+    isDn: true
+    });
+    eval(fetch(jsUrl));
+    //var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));aytmParse(url);
+
+    var nl_lazy= `@lazyRule=.embed-responsive&&script&&Html.js:eval(input.replace(/player_.*?={/,'player_aaaa={'));var url=decodeURIComponent(base64Decode(player_aaaa.url));if(url.indexOf('html')>-1){eval(fetch('hiker://files/rules/js/Messy-parsing.js'));player(url)}else if(url.indexOf('alizy')>-1){eval(fetch('hiker://files/rules/js/Messy-parsing.js'));player(url)}else if (url.indexOf('share')>-1){url.split('/share')[0]+fetch(url,{}).match(/main = "(.*?)"/)[1]}else{url}`;
+
+    var dn_lazy= `@lazyRule=.embed-responsive&&script&&Html.js:eval(input.replace(/player_.*?={/,'player_aaaa={'));var url=decodeURIComponent(base64Decode(player_aaaa.url));if(url.indexOf('html')>-1){var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));aytmParse(url);}else if(url.indexOf('alizy')>-1){eval(fetch('hiker://files/rules/js/Messy-parsing.js'));player(url)}else if (url.indexOf('share')>-1){url.split('/share')[0]+fetch(url,{}).match(/main = "(.*?)"/)[1]}else{url}`;
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.detail_list&&Html'); //影片信息
+    var _img = parseDom(html, '.lazyload&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, '.data,2&&Text') + '\n' + parseDomForHtml(details, '.data,3&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, '.desc&&Text'); //简介
+    var dataLine = details.match(/<li class="data">[\s\S]*?<\/li>/g)
+    //dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.playlist_notfull:has(.content_playlist)');
+    var linelist = parseDomForArray(html, 'body&&#NumTab&&a');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'yyjc_link', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('yyjc_link', '0'),
+    lazy: dn_lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXYYJC
