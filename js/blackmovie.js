@@ -2020,7 +2020,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'k_7':
                     MY_URL = data.yyjc.index;
-                    if(searchType=='全部' || searchType=='影视' || searchType=='影映剧场') {
+                    if(searchType=='全部' || searchType=='影视' || searchType=='影映') {
                     var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                     var list = parseDomForArray(html, '.vodlist&&li');//列表
                         if(list == null) continue;
@@ -2058,7 +2058,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'k_9':
                     MY_URL = data.lengyue.index;
-                    if(searchType=='全部' || searchType=='影视' || searchType=='冷月') {
+                    if(searchType=='全部' || searchType=='冷月') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                         var list = parseDomForArray(html, '.myui-vodlist__media&&li');   
                         if(list == null) continue;             
