@@ -1,5 +1,5 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -910,6 +910,98 @@ const data = {
             }
         ],
         nav: [{},{title:'电影片库', url: 'https://z3.ax1x.com/2021/06/09/2szetf.png'},{title:'电视剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'综艺', url: 'https://z3.ax1x.com/2021/06/09/2yS3xe.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'}]
+    },
+    qimi: {
+        index: 'http://www.qimiqimi.co/',
+        router: ['http://www.qimiqimi.co/show/xinfan/by/排序/分类/年代/page/fypage.html','http://www.qimiqimi.co/show/riman/by/排序/分类/年代/page/fypage.html','http://www.qimiqimi.co/show/wuxiu/by/排序/分类/年代/page/fypage.html', 'http://www.qimiqimi.co/show/guoman/by/排序/分类/年代/page/fypage.html', 'http://www.qimiqimi.co/show/jcdm/by/排序/分类/年代/page/fypage.html'],
+        type: [
+            {
+                fyclass:{
+                    conts: '全部&冒险&热血&奇幻&恋爱&校园&后宫&搞笑&治愈&神魔&魔法&百合&推理&科幻&竞技&悬疑&青春&战争&萝莉&魔幻&战斗&日常',
+                    lists: '&class/%E5%86%92%E9%99%A9&class/%E7%83%AD%E8%A1%80&class/%E5%A5%87%E5%B9%BB&class/%E6%81%8B%E7%88%B1&class/%E6%A0%A1%E5%9B%AD&class/%E5%90%8E%E5%AE%AB&class/%E6%90%9E%E7%AC%91&class/%E6%B2%BB%E6%84%88&class/%E7%A5%9E%E9%AD%94&class/%E9%AD%94%E6%B3%95&class/%E7%99%BE%E5%90%88&class/%E6%8E%A8%E7%90%86&class/%E7%A7%91%E5%B9%BB&class/%E7%AB%9E%E6%8A%80&class/%E6%82%AC%E7%96%91&class/%E9%9D%92%E6%98%A5&class/%E6%88%98%E4%BA%89&class/%E8%90%9D%E8%8E%89&class/%E9%AD%94%E5%B9%BB&class/%E6%88%98%E6%96%97&class/%E6%97%A5%E5%B8%B8',
+                    def:0
+                },
+                fyyear: {
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists: '&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'qimi_1'
+            },
+            {
+                fyclass:{
+                    conts: '全部&冒险&热血&奇幻&恋爱&校园&后宫&搞笑&治愈&神魔&魔法&百合&推理&科幻&竞技&悬疑&青春&战争&萝莉&魔幻&战斗&日常',
+                    lists: '&class/%E5%86%92%E9%99%A9&class/%E7%83%AD%E8%A1%80&class/%E5%A5%87%E5%B9%BB&class/%E6%81%8B%E7%88%B1&class/%E6%A0%A1%E5%9B%AD&class/%E5%90%8E%E5%AE%AB&class/%E6%90%9E%E7%AC%91&class/%E6%B2%BB%E6%84%88&class/%E7%A5%9E%E9%AD%94&class/%E9%AD%94%E6%B3%95&class/%E7%99%BE%E5%90%88&class/%E6%8E%A8%E7%90%86&class/%E7%A7%91%E5%B9%BB&class/%E7%AB%9E%E6%8A%80&class/%E6%82%AC%E7%96%91&class/%E9%9D%92%E6%98%A5&class/%E6%88%98%E4%BA%89&class/%E8%90%9D%E8%8E%89&class/%E9%AD%94%E5%B9%BB&class/%E6%88%98%E6%96%97&class/%E6%97%A5%E5%B8%B8',
+                    def:0
+                },
+                fyyear: {
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists: '&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'qimi_2'
+            },
+            {
+                fyclass:{
+                    conts: '全部&冒险&热血&奇幻&恋爱&校园&后宫&搞笑&治愈&神魔&魔法&百合&推理&科幻&竞技&悬疑&青春&战争&萝莉&魔幻&战斗&日常',
+                    lists: '&class/%E5%86%92%E9%99%A9&class/%E7%83%AD%E8%A1%80&class/%E5%A5%87%E5%B9%BB&class/%E6%81%8B%E7%88%B1&class/%E6%A0%A1%E5%9B%AD&class/%E5%90%8E%E5%AE%AB&class/%E6%90%9E%E7%AC%91&class/%E6%B2%BB%E6%84%88&class/%E7%A5%9E%E9%AD%94&class/%E9%AD%94%E6%B3%95&class/%E7%99%BE%E5%90%88&class/%E6%8E%A8%E7%90%86&class/%E7%A7%91%E5%B9%BB&class/%E7%AB%9E%E6%8A%80&class/%E6%82%AC%E7%96%91&class/%E9%9D%92%E6%98%A5&class/%E6%88%98%E4%BA%89&class/%E8%90%9D%E8%8E%89&class/%E9%AD%94%E5%B9%BB&class/%E6%88%98%E6%96%97&class/%E6%97%A5%E5%B8%B8',
+                    def:0
+                },
+                fyyear: {
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists: '&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'qimi_3'
+            },
+            {
+                fyclass:{
+                    conts: '全部&冒险&热血&奇幻&恋爱&校园&后宫&搞笑&治愈&神魔&魔法&百合&推理&科幻&竞技&悬疑&青春&战争&萝莉&魔幻&战斗&日常',
+                    lists: '&class/%E5%86%92%E9%99%A9&class/%E7%83%AD%E8%A1%80&class/%E5%A5%87%E5%B9%BB&class/%E6%81%8B%E7%88%B1&class/%E6%A0%A1%E5%9B%AD&class/%E5%90%8E%E5%AE%AB&class/%E6%90%9E%E7%AC%91&class/%E6%B2%BB%E6%84%88&class/%E7%A5%9E%E9%AD%94&class/%E9%AD%94%E6%B3%95&class/%E7%99%BE%E5%90%88&class/%E6%8E%A8%E7%90%86&class/%E7%A7%91%E5%B9%BB&class/%E7%AB%9E%E6%8A%80&class/%E6%82%AC%E7%96%91&class/%E9%9D%92%E6%98%A5&class/%E6%88%98%E4%BA%89&class/%E8%90%9D%E8%8E%89&class/%E9%AD%94%E5%B9%BB&class/%E6%88%98%E6%96%97&class/%E6%97%A5%E5%B8%B8',
+                    def:0
+                },
+                fyyear: {
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists: '&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'qimi_4'
+            },
+            {
+                fyclass:{
+                    conts: '全部&冒险&热血&奇幻&恋爱&校园&后宫&搞笑&治愈&神魔&魔法&百合&推理&科幻&竞技&悬疑&青春&战争&萝莉&魔幻&战斗&日常',
+                    lists: '&class/%E5%86%92%E9%99%A9&class/%E7%83%AD%E8%A1%80&class/%E5%A5%87%E5%B9%BB&class/%E6%81%8B%E7%88%B1&class/%E6%A0%A1%E5%9B%AD&class/%E5%90%8E%E5%AE%AB&class/%E6%90%9E%E7%AC%91&class/%E6%B2%BB%E6%84%88&class/%E7%A5%9E%E9%AD%94&class/%E9%AD%94%E6%B3%95&class/%E7%99%BE%E5%90%88&class/%E6%8E%A8%E7%90%86&class/%E7%A7%91%E5%B9%BB&class/%E7%AB%9E%E6%8A%80&class/%E6%82%AC%E7%96%91&class/%E9%9D%92%E6%98%A5&class/%E6%88%98%E4%BA%89&class/%E8%90%9D%E8%8E%89&class/%E9%AD%94%E5%B9%BB&class/%E6%88%98%E6%96%97&class/%E6%97%A5%E5%B8%B8',
+                    def:0
+                },
+                fyyear: {
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists: '&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'qimi_5'
+            }
+        ],
+        nav: [{title:'新番连载', url: 'https://z3.ax1x.com/2021/06/11/24AZOH.png'},{title:'完结日漫', url: 'https://z3.ax1x.com/2021/06/11/24AV6e.png'},{title:'BD番组', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'热门国漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'},{title:'剧场OVA', url: 'https://z3.ax1x.com/2021/06/11/24Ammd.png'}]
     }
 }
 //首页解析
@@ -960,6 +1052,8 @@ var hikerHomePage = (lazyData)=>{
             xsjindex(d,data);
         }else if(/acmdy/.test(getVar('pageUrl', data.jpys.index))){//影映剧场
             yyjcindex(d,data);
+        }else if(/qimiqimi/.test(getVar('pageUrl', data.jpys.index))){
+            qimiindex(d,data);
         }
     }else{
         hikerpre();
@@ -1741,6 +1835,78 @@ var yyjcindex = (d,data)=>{
         }
     }
 }
+
+var qimiindex = (d,data)=>{
+    MY_URL = data.qimi.index;
+    var router = data.qimi.router;
+    var type = data.qimi.type;
+    var nav = data.qimi.nav;
+    var html = request(getVar('pageUrl', data.qimi.index));
+    var conts = conts = parseDomForArray(html, 'body&&.channel-item:has(.img-list)'); //第一个不要
+
+    for(var i=0; i<nav.length; i++){
+        var j=i+1;
+        d.push({
+            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
+                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                    setNav(type[index]);
+                    
+                    
+                    var html =request(getVar('pageUrl'));
+                    var list = parseDomForArray(html, '.img-list&&li');
+                    for (var i in list) {
+                        d.push({
+                            title: parseDomForHtml(list[i], 'h2&&Text'),
+                            img: parseDom(list[i], 'img&&src')+'@Referer=',
+                            desc: parseDomForHtml(list[i], 'i&&Text'),
+                            url: 
+        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() }),
+                                col_type: "movie_3"
+                        })
+                    }
+                    setResult(d)
+                },type, i),
+            col_type:'icon_small_4'
+        });
+    }
+    
+    for (var i =0; i<conts.length; i++) {
+        var list = parseDomForArray(conts[i], '.img-list&&li');
+        d.push({
+            title: '‘‘’’' + parseDomForHtml(conts[i], '.ui-title&&h2&&Text').replace("", "") + (i==99?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: i==99?'':$(router[i]).rule((type, index) => {
+               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                setNav(type[index]);
+                
+                
+                var html =request(getVar('pageUrl'));
+                var list = parseDomForArray(html, '.img-list&&li');
+                for (var i in list) {
+                    d.push({
+                        title: parseDomForHtml(list[i], 'h2&&Text'),
+                        img: parseDom(list[i], 'img&&src')+'@Referer=',
+                        desc: parseDomForHtml(list[i], 'i&&Text'),
+                        url: 
+    $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() }),
+                        col_type: "movie_3"
+                    })
+                }
+                setResult(d)
+            },type, i),
+            col_type: "text_center_1"
+        });
+        for (var j in list) {
+            d.push({
+                title: parseDomForHtml(list[j], 'h2&&Text'),
+                img: parseDom(list[j], 'img&&src')+'@Referer=',
+                desc: parseDomForHtml(list[j], 'i&&Text'),
+                url: 
+    $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() }),
+                col_type: "movie_3"
+            });
+        }
+    }
+}
 var searchmovie = (lazyData, keydata)=>{
     var d = [];
     var key = keydata!=undefined? keydata : MY_URL.split('$$$')[1];
@@ -1915,7 +2081,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'k_1':
                     MY_URL = data.taotao.index;
-                    if(searchType=='全部' || searchType=='影视' || searchType=='淘淘') { 
+                    if(searchType=='全部' || searchType=='淘淘') { 
                     var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                     var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
                     var list = parseDomForArray(content, 'body&&li');    
@@ -2018,7 +2184,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }
                     }
                     break;
-                case 'k_7':
+                case 'k_8':
                     MY_URL = data.yyjc.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='影映') {
                     var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -2038,7 +2204,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }
                     }
                     break;
-                case 'k_8':
+                case 'k_9':
                     MY_URL = data.mjc.index;
                     if(searchType=='全部' || searchType=='美剧' || searchType=='美剧虫') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -2056,7 +2222,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }
                     }
                     break;
-                case 'k_9':
+                case 'k_10':
                     MY_URL = data.lengyue.index;
                     if(searchType=='全部' || searchType=='冷月') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -2074,7 +2240,7 @@ var searchmovie = (lazyData, keydata)=>{
                         } 
                     }
                     break;
-                case 'k_10':
+                case 'k_11':
                     MY_URL = data.ge179.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='179') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
