@@ -1051,6 +1051,7 @@ var hikerHomePage = (lazyData)=>{
         }else if(/dm45/.test(getVar('pageUrl', data.jpys.index))){//新世界动漫
             xsjindex(d,data);
         }else if(/acmdy/.test(getVar('pageUrl', data.jpys.index))){//影映剧场
+            testUrl(data.yyjc.index);
             yyjcindex(d,data);
         }else if(/qimiqimi/.test(getVar('pageUrl', data.jpys.index))){
             qimiindex(d,data);
@@ -2034,6 +2035,7 @@ var searchmovie = (lazyData, keydata)=>{
                         });
                     }
                 }else if(/acmdy/.test(MY_URL)){
+                    testUrl(data.yyjc.index);
                     var list = parseDomForArray(html, '.vodlist&&li');//列表
                     for(var j in list){
                         try{
@@ -2219,6 +2221,7 @@ var searchmovie = (lazyData, keydata)=>{
                 case 'k_8':
                     MY_URL = data.yyjc.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='影映') {
+                    testUrl(data.yyjc.index);
                     var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                     var list = parseDomForArray(html, '.vodlist&&li');//列表
                         if(list == null) continue;
@@ -2303,4 +2306,15 @@ function hikerpre(){
     if(!getVar('hikernfcookie')){
     var nfcookie = JSON.parse(fetchCookie('https://www.nfmovies.com/search.php',{headers:{'User-Agent':'Mozilla/5.0'}})).join(';');
     putVar2('hikernfcookie',nfcookie)}
+}
+
+var testUrl = function(url){
+    try{
+        var host = url;
+        var html = request(host);
+        var jiance = parseDomForHtml(html,"title&&Text");
+        if(jiance.indexOf('检测中')!=-1){
+            request(host + html.match(/location.href ="(.*?)"/)[1]);
+        }
+    }catch(e){ }
 }
