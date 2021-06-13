@@ -906,3 +906,55 @@ var jx_qimi = ()=>{
     setHomeResult(res);
 }
 //JXQIMI
+//JXJJYS
+var jx_jjys = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/zyf/black.js'));
+    init({
+    });
+    //eval(fetch(jsUrl));
+    var lazy =`@lazyRule=.MacPlayer&&script&&src.js:var jurl=fetch('https://www.jiujiuyingsi.com'+input);if(jurl.indexOf('new.79da')!=-1){var v=jurl.match(/url=(.*?)"/)[1];var jxurl=fetch('https://new.79da.com/api.php', {headers:{'x-requested-with':'XMLHttpRequest','Origin':'https://new.79da.com'}, body:'v='+v,method:'POST'});JSON.parse(jxurl).url}else if(jurl.indexOf('play.79da')!=-1){var v=jurl.match(/src="(.*?)"/)[1];var jxurl = fetch(v,{headers:{'Referer':'https://www.jiujiuyingsi.com'}});jxurl.match(/var vid="(.*?)"/)[1];}`;
+
+    //影片详情
+    var details = parseDomForArray(html, 'body&&.video-info&&.video-info-items'); //影片信息
+    var _img = parseDom(html, 'body&&.lazyload&&data-src'); //图片
+    //var dataLine = details.match(/<tr[\s\S]*?<\/tr>/g)
+    var _title = parseDomForHtml(details[0], 'Text') +'\n'+ parseDomForHtml(details[1], 'Text'); //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(html, 'body&&.zkjj_a&&Text'); //简介
+
+    details.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: details
+    });
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.scroll-content');
+    var linelist = parseDomForArray(html, 'body&&.module-tab-content&&.module-tab-item');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'span&&Text').replace(/《.*》 - /,'') );
+    }
+    setTabs([tabs, 'jj_line', setUrl]);
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<a[\s\S]*?<\/a>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('jj_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXJJYS
