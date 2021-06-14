@@ -2426,6 +2426,19 @@ var searchmovie = (lazyData, keydata)=>{
                                 url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() })
                            });
                     }}catch(e){} 
+                }else if(/97hanju/.test(MY_URL)){
+                    try{
+                        html = fetch(MY_URL);
+                        var list = parseDom(html, 'body&&body&&.myui-vodlist__media&&Html').match(/<li[\s\S]*?<\/li/g);
+                        for (var j = 0; j < list.length; j++) {
+                            d.push({
+                                title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
+                                desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                                pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
+                                content:parseDomForHtml(list[j], 'p,-2&&Text'),
+                                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_hjw97() })
+                            });
+                    }}catch(e){} 
                 }
                 setResult(d)
             },lazyData,testUrl),
@@ -2624,6 +2637,28 @@ var searchmovie = (lazyData, keydata)=>{
                                         content:parseDomForHtml(list[j], '.card-content&&Text'),
                                         url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nqy() })
                                    });
+                                }catch(e){''}
+                            }
+                        }catch(e){}
+                    }
+                    break;
+                case 'k_10':
+                    MY_URL = data.nqy.index;
+                    if(searchType=='全部' || searchType=='韩剧' || searchType=='韩剧网') {
+                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
+                        try{
+                            var list = parseDom(html, 'body&&body&&.myui-vodlist__media&&Html').match(/<li[\s\S]*?<\/li/g);
+                            if(list == null) continue;
+                            var len = list.length>6 ? 6 : list.length;
+                            for (var j = 0; j < len; j++) {
+                                try{
+                                    d.push({
+                                        title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
+                                        desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                                        pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
+                                        content:parseDomForHtml(list[j], 'p,-2&&Text'),
+                                        url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_hjw97() })
+                                    });
                                 }catch(e){''}
                             }
                         }catch(e){}
