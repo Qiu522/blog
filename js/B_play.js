@@ -6,12 +6,12 @@ var jx_555 = ()=>{
     eval(fetch(jsUrl));
 
     //影片详情
-    var details = parseDomForHtml(html, 'body&&.hl-vod-data&&Html'); //影片信息
-    var _img = parseDomForHtml(html, '.hl-vod-data&&.hl-item-thumb&&data-original'); //图片
+    var details = parseDomForHtml(html, 'body&&#desc&&Html'); //影片信息
+    var _img = ''; //图片
 
-    var _title = parseDomForHtml(details,     'ul&&li:contains(导演)&&Text') + '\n' + parseDomForHtml(details, 'ul&&li:contains(主演)&&Text') + '\n'; //电影信息 导演 + 主演
-    var _desc = parseDomForHtml(details,      'ul&&li:contains(简介)&&Text').replace('简介:',''); //简介
-    var dataLine = details.match(/<li[\s\S]*?<\/li>/g)
+    var _title = parseDomForHtml(details,     'p,0&&Text') + '\n' + parseDomForHtml(details, 'p,1&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details,      'p,-1&&Text').replace('简介:',''); //简介
+    var dataLine = details.match(/<p[\s\S]*?<\/p>/g)
     dataLine.pop();
     setMovieDetail({
         _title: _title,
@@ -21,13 +21,13 @@ var jx_555 = ()=>{
     });
 
     //线路
-    var conts = parseDomForArray(html,'body&&.hl-plays-list');
-    var linelist = parseDomForArray(html, 'body&&.hl-plays-from&&a');
+    var conts = parseDomForArray(html,'body&&.myui-content__list');
+    var linelist = parseDomForArray(html, 'body&&.nav&&.item&&li');
     var tabs = [];
     for (var i in linelist) {
         tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
     }
-    setTabs([tabs, 'my_line', setUrl]);
+    setTabs([tabs, 'five_line', setUrl]);
     //选集
     var lists =[];
     for (var i in conts) {
@@ -36,7 +36,7 @@ var jx_555 = ()=>{
 
     setLists({
         lists: lists,
-        index: getVar('my_line', '0'),
+        index: getVar('five_line', '0'),
         _dnPar: 'body&&#conch-content&&script&&Html'
     });
 
