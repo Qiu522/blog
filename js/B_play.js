@@ -369,13 +369,13 @@ var jx_mjc = (lazyRule)=>{
     var lazy =lazyRule!=undefined? lazyRule: `@lazyRule=.player_video&&script&&Html.js:eval(input);var url=player_data.url;var pn=player_data.from;if(pn=='alizy'){var jurl= fetch('https://foubin.com/jiexi.php?url='+url,{headers:{"User-Agent":MOBILE_UA,"Referer":"https://foubin.com"}}).match(/"url":"(.*?)"/)[1];refreshX5WebView('https://foubin.com/jiexi.php?url='+url);'toast://播放中'}else if(pn == 'xigua'){refreshX5WebView('https://vip.parwix.com:4433/player/?url='+url);'toast://播放中'}else{eval(fetch(getVar('jsUrl')));aytmParse(url);}`;
 
     //影片详情
-    var details = parseDomForHtml(html, 'body&&.player&&Html'); //影片信息
-    var _img = parseDomForHtml(html, 'body&&.play_infobox&&.play_vlist_thumb,0&&data-original'); //图片
+    var details = parseDomForHtml(html, 'body&&#desc&&Html'); //影片信息
+    var _img = 'https://z3.ax1x.com/2021/06/14/27UPr8.jpg'; //图片
 
-    var _title = parseDomForHtml(details, 'p,2&&Text') + '\n' + parseDomForHtml(details, 'p,3&&Text') + '\n'; //电影信息 导演 + 主演
-    var _desc = parseDomForHtml(details, 'p,-1&&Text'); //简介
+    var _title = parseDomForHtml(details, 'p,0&&Text') + '\n' + parseDomForHtml(details, 'p,1&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, '.data&&Text'); //简介
     var dataLine = details.match(/<p[\s\S]*?<\/p>/g);
-    dataLine.pop();
+    //dataLine.pop();
     setMovieDetail({
         _title: _title,
         _desc: _desc,
@@ -384,24 +384,24 @@ var jx_mjc = (lazyRule)=>{
     });
 
     //线路
-    var conts = parseDomForArray(html,'body&&.playlist&&.playlist_full');
-    var linelist = parseDomForArray(html, '.play_source_tab&&a');
+    var conts = parseDomForArray(html,'body&&.myui-content__list');
+    var linelist = parseDomForArray(html, 'body&&.nav&&.item&&li');
     var tabs = [];
     for (var i in linelist) {
-    tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+        tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
     }
-    setTabs([tabs, 'my_line', setUrl]);
+    setTabs([tabs, 'mjc_line', setUrl]);
 
     //选集
     var lists =[];
     for (var i in conts) {
-    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+        lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
     }
 
     setLists({
-    lists: lists,
-    index: getVar('my_line', '0'),
-    lazy:lazy
+        lists: lists,
+        index: getVar('mjc_line', '0'),
+        lazy:lazy
     });
 
     d.push({title: '<br>', col_type: 'rich_text'});
