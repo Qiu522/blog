@@ -3,8 +3,8 @@ const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpy
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
-        router: ['hiker://empty','https://www.meijuchong.com/vodshow/1-分类-排序------fypage---.html','https://www.meijuchong.com/vodshow/2-分类-排序------fypage---.html', 'https://www.meijuchong.com/vodshow/4-分类-排序------fypage---.html', 'https://www.meijuchong.com/vodshow/3-分类-排序------fypage---.html'],
-        type: [{},
+        router: ['https://www.meijuchong.com/vodshow/1-分类-排序------fypage---.html','https://www.meijuchong.com/vodshow/2-分类-排序------fypage---.html', 'https://www.meijuchong.com/vodshow/4-分类-排序------fypage---.html', 'https://www.meijuchong.com/vodshow/3-分类-排序------fypage---.html'],
+        type: [
             {
                 fyclass:{
                     conts: '电影片库&大陆电影&美国电影&香港电影&韩国电影&英国电影&台湾&日本&法国&意大利&德国&西班牙&泰国&其它',
@@ -59,7 +59,7 @@ const data = {
             }
             
         ],
-        nav:[{},{title:'电影片库', url: 'https://z3.ax1x.com/2021/06/09/2szetf.png'},{title:'电视剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'},{title:'综艺', url: 'https://z3.ax1x.com/2021/06/09/2yS3xe.png'}]
+        nav:[{title:'电影片库', url: 'https://z3.ax1x.com/2021/06/09/2szetf.png'},{title:'电视剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'},{title:'综艺', url: 'https://z3.ax1x.com/2021/06/09/2yS3xe.png'}]
     },
     taotao:{
         index:'http://www.flvwec.com/',
@@ -1226,8 +1226,8 @@ var mjcindex = (d, data, lazyRule)=>{
     for (var i =0; i<conts.length-1; i++) {
         var list = parseDomForArray(conts[i], '.myui-vodlist&&li');
         d.push({
-            title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
-            url: i==0?'':$(router[i]).rule((type, index, lazyRule) => {
+            title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==99?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: i==99?'':$(router[i]).rule((type, index, lazyRule) => {
             var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
