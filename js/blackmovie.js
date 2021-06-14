@@ -2266,7 +2266,7 @@ var searchmovie = (lazyData, keydata)=>{
                         });
                     }
                 }else if(/acmdy/.test(MY_URL)){
-                    testUrl(data.yyjc.index);
+                    testUrl('https://www.acmdy.com');
                     var list = parseDomForArray(html, '.vodlist&&li');//列表
                     for(var j in list){
                         try{
