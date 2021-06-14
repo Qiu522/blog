@@ -1,5 +1,5 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/-------------.html?wd=关键词&submit='},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'},{ title:'久久影院', reg: 'jjys', search:'http://www.179u.com/s/关键词----------fypage---.html'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -1057,6 +1057,37 @@ const data = {
             }
         ],
         nav:[{},{title:'电影片库', url: 'https://z3.ax1x.com/2021/06/09/2szetf.png'},{title:'电视剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'综艺', url: 'https://z3.ax1x.com/2021/06/09/2yS3xe.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'}]
+    },
+    jjys:{
+        index: 'https://www.jiujiuyingsi.com/',
+        router: ['hiker://empty','https://www.jiujiuyingsi.com/type/1/fypage.html','https://www.jiujiuyingsi.com/type/2/fypage.html', 'https://www.jiujiuyingsi.com/type/3/排序/fypage.html', 'https://www.jiujiuyingsi.com/type/4/fypage.html','https://www.jiujiuyingsi.com/type/5/fypage.html','https://www.jiujiuyingsi.com/type/6/fypage.html'],
+        type:[{},
+            {
+                pageType: '1.html',
+                index:'jjys_1'
+            },
+            {
+                pageType: '1.html',
+                index:'jjys_2'
+            },
+            {
+                pageType: '1.html',
+                index:'jjys_3'
+            },
+            {
+                pageType: '1.html',
+                index:'jjys_4'
+            },
+            {
+                pageType: '1.html',
+                index:'jjys_5'
+            },
+            {
+                pageType: '1.html',
+                index:'jjys_6'
+            },
+        ],
+        nav:[{},{title:'电影片库', url: 'https://z3.ax1x.com/2021/06/09/2szetf.png'},{title:'电视剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'综艺', url: 'https://z3.ax1x.com/2021/06/09/2yS3xe.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'}]
     }
 }
 //首页解析
@@ -1112,6 +1143,8 @@ var hikerHomePage = (lazyData)=>{
             qimiindex(d,data);
         }else if(/newqiyu/.test(getVar('pageUrl', data.jpys.index))){
             nqyindex(d,data);
+        }else if(/jiujiuying/.test(getVar('pageUrl', data.jpys.index))){
+            jjysindex(d,data);
         }
     }else{
         hikerpre();
@@ -2035,6 +2068,77 @@ var nqyindex = (d,data)=>{
         }
     }
 }
+
+var jjysindex = (d,data)=>{
+    MY_URL = data.jjys.index;
+    var router = data.jjys.router;
+    var type = data.jjys.type;
+    var nav = data.jjys.nav;
+    var html = fetch(getVar('pageUrl', data.jjys.index));
+    var conts = parseDomForArray(html, 'body&&.module'); //第一个不要
+
+    for(var i=1; i<nav.length; i++){
+        var j=i+1;
+        d.push({
+            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
+                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                    setNav(type[index]);
+                    
+                    
+                    var html =request(getVar('pageUrl'));
+                    var list = parseDomForArray(html, '.module-list&&.module-item');
+                    for (var i in list) {
+                        d.push({
+                            title: parseDomForHtml(list[i], 'a&&title'),
+                            img: parseDom(list[i], '.lazy&&data-src')+'@Referer=',
+                            desc: parseDomForHtml(list[i], '.module-item-text&&Text'),
+                            url: 
+        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() }),
+                                col_type: "movie_3"
+                        })
+                    }
+                    setResult(d)
+                },type, i),
+            col_type:'icon_small_4'
+        });
+    }
+    
+    for (var i =0; i<conts.length; i++) {
+        var list = parseDomForArray(conts[i], '.module-list&&.module-item');
+        d.push({
+            title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: i==0?'':$(router[i]).rule((type, index) => {
+               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                setNav(type[index]);
+                
+                
+                var html =request(getVar('pageUrl'));
+                var list = parseDomForArray(html, '.module-list&&.module-item');
+                for (var i in list) {
+                    d.push({
+                        title: parseDomForHtml(list[i], 'a&&title'),
+                        img: parseDom(list[i], '.lazy&&data-src')+'@Referer=',
+                        desc: parseDomForHtml(list[i], '.module-item-text&&Text'),
+                        url: 
+    $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() }),
+                        col_type: "movie_3"
+                    })
+                }
+                setResult(d)
+            },type, i),
+            col_type: "text_center_1"
+        });
+        for (var j in list) {
+            d.push({
+                title: parseDomForHtml(list[j], 'a&&title'),
+                img: parseDom(list[j], '.lazy&&data-src')+'@Referer=',
+                desc: parseDomForHtml(list[j], '.module-item-text&&Text'),
+                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() }),
+                col_type: "movie_3"
+            });
+        }
+    }
+}
 var searchmovie = (lazyData, keydata)=>{
     var d = [];
     var key = keydata!=undefined? keydata : MY_URL.split('$$$')[1];
@@ -2044,7 +2148,7 @@ var searchmovie = (lazyData, keydata)=>{
     for(var i in movielists){
         d.push({
             title:keydata==undefined? movielists[i].title : ('‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>"),
-            url: $(movielists[i].search.replace('关键词', key)).rule((lazyData)=>{
+            url: $(movielists[i].search.replace('关键词', key)).rule((lazyData,testUrl)=>{
                 var d = []
                 var html=getResCode();
                 var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy, lengyue_lazy} = lazyData;
@@ -2201,9 +2305,22 @@ var searchmovie = (lazyData, keydata)=>{
                                 url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nqy() })
                            });
                     }}catch(e){} 
+                }else if(/jiujiuying/.test(MY_URL)){
+                    try{
+                        html = fetch(MY_URL);
+                        var list = parseDomForArray(html, 'body&&.module-list&&.module-search-item');
+                        for (var j = 0; j < list.length; j++) {
+                            d.push({
+                                title: parseDomForHtml(list[j], '.lazyload&&alt'),
+                                desc: parseDomForHtml(list[j], '.video-serial&&Text'),
+                                pic_url: parseDom(list[j], '.lazyload&&data-src'),
+                                content:parseDomForHtml(list[j], '.video-info-item&&Text'),
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() })
+                           });
+                    }}catch(e){} 
                 }
                 setResult(d)
-            },lazyData),
+            },lazyData,testUrl),
             col_type: "text_1"
         });
 
@@ -2453,6 +2570,28 @@ var searchmovie = (lazyData, keydata)=>{
                                 url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
                             });
                         } 
+                    }
+                    break;
+                case 'k_13':
+                    MY_URL = data.jjys.index;
+                    if(searchType=='全部' || searchType=='久久') {
+                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
+                        try{
+                            var list = parseDomForArray(html, 'body&&.module-list&&.module-search-item');
+                            if(list == null) continue;
+                            var len = list.length>6 ? 6 : list.length;
+                            for (var j = 0; j < len; j++) {
+                                try{
+                                    d.push({
+                                        title: parseDomForHtml(list[j], '.lazyload&&alt'),
+                                        desc: parseDomForHtml(list[j], '.video-serial&&Text'),
+                                        pic_url: parseDom(list[j], '.lazyload&&data-src'),
+                                        content:parseDomForHtml(list[j], '.video-info-item&&Text'),
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() })
+                                   });
+                                }catch(e){''}
+                            }
+                        }catch(e){}
                     }
                     break;
                 default:
