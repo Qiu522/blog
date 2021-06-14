@@ -1005,15 +1005,10 @@ const data = {
     },
     nqy:{
         index:'https://www.newqiyu.com/',
-        router:['hiker://empty','https://www.newqiyu.com/show/分类-年代-排序------fypage---.html','https://www.newqiyu.com/show/分类-地区-排序------fypage---.html', 'https://www.newqiyu.com/show/分类-地区-排序------fypage---.html', 'https://www.newqiyu.com/show/分类-地区-排序------fypage---.html'],
+        router:['hiker://empty','https://www.newqiyu.com/show/dianying-地区-排序------fypage---.html','https://www.newqiyu.com/show/dianshiju-地区-排序------fypage---.html', 'https://www.newqiyu.com/show/zongyi-地区-排序------fypage---.html', 'https://www.newqiyu.com/show/dongman-地区-排序------fypage---.html'],
         type:[{},
             {
-                fyclass:{
-                    conts: '全部&动作片&喜剧片&爱情片&科幻片&恐怖片&剧情片&战争片&动画片&犯罪片',
-                    lists: 'dianying&dongzuopian&xijupian&aiqingpian&kehuanpian&kongbupian&juqingpian&zhanzhengpian&donghuapian&fanzuipian',
-                    def:0
-                },
-                fyyear:{
+                fyarea:{
                     conts:'全部&大陆&香港&台湾&美国&日本&韩国&英国&法国&西班牙&印度&泰国&俄罗斯&伊朗&加拿大&澳大利亚',
                     lists:'&%E5%A4%A7%E9%99%86&%E9%A6%99%E6%B8%AF&%E5%8F%B0%E6%B9%BE&%E7%BE%8E%E5%9B%BD&%E6%97%A5%E6%9C%AC&%E9%9F%A9%E5%9B%BD&%E8%8B%B1%E5%9B%BD&%E6%B3%95%E5%9B%BD&%E8%A5%BF%E7%8F%AD%E7%89%99&%E5%8D%B0%E5%BA%A6&%E6%B3%B0%E5%9B%BD&%E4%BF%84%E7%BD%97%E6%96%AF&%E4%BC%8A%E6%9C%97&%E5%8A%A0%E6%8B%BF%E5%A4%A7&%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A'
                 },
@@ -1025,11 +1020,6 @@ const data = {
                 index:'nqy_1'
             },
             {
-                fyclass:{
-                    conts: '全部&国产剧&香港剧&台湾剧&欧美剧&韩国剧&日本剧&泰国剧&海外剧',
-                    lists: 'dianshiju&guochanju&xianggangju&taiwanju&oumeiju&hanguoju&ribenju&taiguoju&haiwaiju',
-                    def:2
-                },
                 fyarea:{
                     conts:'全部&大陆&香港&台湾&美国&日本&韩国&英国&法国&西班牙&印度&泰国&俄罗斯&伊朗&加拿大&澳大利亚',
                     lists:'&%E5%A4%A7%E9%99%86&%E9%A6%99%E6%B8%AF&%E5%8F%B0%E6%B9%BE&%E7%BE%8E%E5%9B%BD&%E6%97%A5%E6%9C%AC&%E9%9F%A9%E5%9B%BD&%E8%8B%B1%E5%9B%BD&%E6%B3%95%E5%9B%BD&%E8%A5%BF%E7%8F%AD%E7%89%99&%E5%8D%B0%E5%BA%A6&%E6%B3%B0%E5%9B%BD&%E4%BF%84%E7%BD%97%E6%96%AF&%E4%BC%8A%E6%9C%97&%E5%8A%A0%E6%8B%BF%E5%A4%A7&%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A'
@@ -1042,11 +1032,6 @@ const data = {
                 index:'nqy_2'
             },
             {
-                fyclass:{
-                    conts: '全部&国产综艺&港台综艺&日韩综艺&欧美综艺',
-                    lists: 'zongyi&guochanzongyi&gangtaizongyi&rihanzongyi&oumeizongyi',
-                    def:0
-                },
                 fyarea:{
                     conts:'全部&大陆&香港&台湾&美国&日本&韩国',
                     lists:'&%E5%A4%A7%E9%99%86&%E9%A6%99%E6%B8%AF&%E5%8F%B0%E6%B9%BE&%E7%BE%8E%E5%9B%BD&%E6%97%A5%E6%9C%AC&%E9%9F%A9%E5%9B%BD'
@@ -1059,11 +1044,6 @@ const data = {
                 index:'nqy_3'
             },
             {
-                fyclass:{
-                    conts: '全部&国产动漫&日韩动漫&欧美动漫&港台动漫&海外动漫',
-                    lists: 'dongman&guochandongman&rihandongman&oumeidongman&gangtaidongman&haiwaidongman',
-                    def:0
-                },
                 fyarea:{
                     conts:'全部&大陆&香港&台湾&美国&日本&韩国',
                     lists:'&%E5%A4%A7%E9%99%86&%E9%A6%99%E6%B8%AF&%E5%8F%B0%E6%B9%BE&%E7%BE%8E%E5%9B%BD&%E6%97%A5%E6%9C%AC&%E9%9F%A9%E5%9B%BD'
