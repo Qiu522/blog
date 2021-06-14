@@ -1303,7 +1303,7 @@ var fiveindex = (d, data)=>{
     var type = data.fivefive.type;
     var nav = data.fivefive.nav;
     var html = request(getVar('pageUrl', data.fivefive.index));
-    var conts = parseDomForArray(html, 'body&&.conch-ctwrap&&.container:contains(更多)'); 
+    var conts = parseDomForArray(html, 'body&&.myui-panel:has(.myui-vodlist)'); 
 
     for(var i=0; i<nav.length; i++){
         var j=i+1;
@@ -1314,13 +1314,13 @@ var fiveindex = (d, data)=>{
                     
                     
                     var html =request(getVar('pageUrl'));
-                    var list = parseDomForArray(html, '#conch-content&&.hl-row-box,-1&&.hl-vod-list&&li');
+                    var list = parseDomForArray(html, '.myui-vodlist&&li');
                     for (var i in list) {
                         d.push({
-                            title: parseDomForHtml(list[i], '.hl-item-title&&a&&Text'),
-                            img: parseDom(list[i], '.hl-item-thumb&&data-original'),
-                            desc: parseDomForHtml(list[i], '.hl-pic-text&&Text'),
-                            url: $(parseDom(list[i], '.hl-item-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
+                            title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
+                            img: parseDom(list[i], '.myui-vodlist__thumb&&data-original'),
+                            desc: parseDomForHtml(list[i], '.pic-text&&Text'),
+                            url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
                             col_type: "movie_3"
                         })
                     }
@@ -1333,19 +1333,19 @@ var fiveindex = (d, data)=>{
     for (var i =0; i<conts.length; i++) {
         var list = parseDomForArray(conts[i], 'ul&&li');
         d.push({
-            title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("更多>", "") + " <small><small><font color='#1db69a'>更多></font></small></small>",
+            title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("更多>", "") + " <small><small><font color='#1db69a'>更多></font></small></small>",
             url: $(router[i]).rule((type, index) => {
                 var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
 
                 var html =request(getVar('pageUrl'));
-                var list = parseDomForArray(html, '#conch-content&&.hl-row-box,-1&&.hl-vod-list&&li');
+                var list = parseDomForArray(html, '.myui-vodlist&&li');
                 for (var i in list) {
                     d.push({
-                        title: parseDomForHtml(list[i], '.hl-item-title&&a&&Text'),
-                        img: parseDom(list[i], '.hl-item-thumb&&data-original'),
-                        desc: parseDomForHtml(list[i], '.hl-pic-text&&Text'),
-                        url: $(parseDom(list[i], '.hl-item-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
+                        title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
+                        img: parseDom(list[i], '.myui-vodlist__thumb&&data-original'),
+                        desc: parseDomForHtml(list[i], '.pic-text&&Text'),
+                        url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
                         col_type: 'movie_3'
                     })
                 }
@@ -1355,10 +1355,10 @@ var fiveindex = (d, data)=>{
         });
         for (var j in list) {
             d.push({
-                title: parseDomForHtml(list[j], '.hl-item-title&&a&&Text'),
-                img: parseDom(list[j], '.hl-item-thumb&&data-original'),
-                desc: parseDomForHtml(list[j], '.hl-pic-text&&Text'),
-                url: $(parseDom(list[j], '.hl-item-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
+                title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
+                img: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
+                desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
                 col_type: "movie_3"
             });
         }
