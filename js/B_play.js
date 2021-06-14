@@ -2,8 +2,8 @@
 var jx_555 = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
     eval(fetch('hiker://files/rules/zyf/black.js'));
-    init({isDn: true});
-    eval(fetch(jsUrl));
+    init({});
+    //eval(fetch(jsUrl));
     //免嗅来自墙佬，墙佬牛逼
     var lazy = `@lazyRule=.js:var url = request('https://titan.mgtv.com.o8tv.com/jiexi/?url='+JSON.parse(request(input).match(/player_.*?=(.*?)</)[1]).url).match(/url": "(.*?)"/)[1];url.indexOf('mgtv')!=-1?url+';{User-Agent@Mozilla/5.0&&Referer@https://titan.mgtv.com.o8tv.com}#isVideo=true#':url`;
 
