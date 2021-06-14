@@ -1331,10 +1331,12 @@ var fiveindex = (d, data)=>{
     }
 
     for (var i =0; i<conts.length; i++) {
+        var j=i;
+        j>3? j=j-1:j=j+1; 
         var list = parseDomForArray(conts[i], 'ul&&li');
         d.push({
-            title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("更多>", "") + " <small><small><font color='#1db69a'>更多></font></small></small>",
-            url: $(router[i]).rule((type, index) => {
+            title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("更多>", "") + (i==2||i==3?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: $(router[j]).rule((type, index) => {
                 var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
 
@@ -1350,7 +1352,7 @@ var fiveindex = (d, data)=>{
                     })
                 }
                 setResult(d)
-            },type, i),
+            },type, j),
             col_type: "text_center_1"
         });
         for (var j in list) {

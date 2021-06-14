@@ -7,7 +7,7 @@ var jx_555 = ()=>{
    
     //影片详情
     var details = parseDomForHtml(html, 'body&&#desc&&Html'); //影片信息
-    var _img = ''; //图片
+    var _img = 'https://z3.ax1x.com/2021/06/14/27UPr8.jpg'; //图片
 
     var _title = parseDomForHtml(details,     'p,0&&Text') + '\n' + parseDomForHtml(details, 'p,1&&Text') + '\n'; //电影信息 导演 + 主演
     var _desc = parseDomForHtml(details,      'p,-1&&Text').replace('简介:',''); //简介
