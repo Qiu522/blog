@@ -366,7 +366,7 @@ var jx_mjc = (lazyRule)=>{
     });
     eval(fetch(jsUrl));
 
-    var lazy =lazyRule!=undefined? lazyRule: `@lazyRule=.player_video&&script&&Html.js:eval(input);var url=player_data.url;var pn=player_data.from;if(pn=='alizy'){var jurl= fetch('https://foubin.com/jiexi.php?url='+url,{headers:{"User-Agent":MOBILE_UA,"Referer":"https://foubin.com"}}).match(/"url":"(.*?)"/)[1];refreshX5WebView('https://foubin.com/jiexi.php?url='+url);'toast://播放中'}else if(pn == 'xigua'){refreshX5WebView('https://vip.parwix.com:4433/player/?url='+url);'toast://播放中'}else{eval(fetch(getVar('jsUrl')));aytmParse(url);}`;
+    var lazy =lazyRule!=undefined? lazyRule: `@lazyRule=.embed-responsive&&script&&Html.js:eval(input);var url=player_data.url;var pn=player_data.from;if(pn=='alizy'){var jurl= fetch('https://foubin.com/jiexi.php?url='+url,{headers:{"User-Agent":MOBILE_UA,"Referer":"https://foubin.com"}}).match(/"url":"(.*?)"/)[1];refreshX5WebView('https://foubin.com/jiexi.php?url='+url);'toast://播放中'}else if(pn == 'xigua'){refreshX5WebView('https://vip.parwix.com:4433/player/?url='+url);'toast://播放中'}else{eval(fetch(getVar('jsUrl')));aytmParse(url);}`;
 
     //影片详情
     var details = parseDomForHtml(html, 'body&&#desc&&Html'); //影片信息
