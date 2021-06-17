@@ -2519,7 +2519,7 @@ var saohuoindex = (d, data)=>{
     var router = data.saohuo.router;
     var type = data.saohuo.type;
     var nav = data.saohuo.nav;
-    var html = fetch(getVar('pageUrl', data.saohuo.index));
+    var html = request(getVar('pageUrl', data.saohuo.index));
     var conts = parseDomForArray(html, 'body&&.fed-part-layout:has(.fed-list-info)'); //第一个不要
 
     for(var i=1; i<nav.length; i++){
