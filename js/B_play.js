@@ -1125,3 +1125,58 @@ var jx_bx = ()=>{
     setHomeResult(res);
 }
 //JXBX
+//JXSAOHUO
+var jx_saohuo = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/zyf/black.js'));
+    init({
+    isX5: true,
+    });
+    eval(fetch(jsUrl));
+    //免嗅部分参考自香佬
+    var lazy = `@lazyRule=.js:var get =fetch(input,{headers:{'User-Agent':MOBILE_UA}});var src = parseDomForHtml(get,"body&&iframe&&src");var cc=parseDomForHtml(fetch(src,{}),'body&&script,0&&Html').split('endebug()\;')[1].split('var act')[0];eval(cc);var cs='url='+url+'&t='+t+'&key='+key+'&act=0&play=1';var fc=fetch('https://play.hhplayer.com/hhjx/api.php',{headers:{'User-Agent':MOBILE_UA,'referer':'http://play.hhplayer.com/'},body:cs,method:'POST'});var playlink=JSON.parse(fc).url;playlink.indexOf('http')!=-1?playlink+'#isVideo=true':'http://play.hhplayer.com'+playlink`;
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.v_info_box&&Html'); //影片信息
+    var _img = parseDom(html, ".m_background&&style") //图片
+
+    var _title = parseDomForHtml(details, 'h1&&Text') + '\n' + parseDomForHtml(details, 'p&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(html, '.p_txt&&Text'); //简介
+    var dataLine = parseDomForArray(details, 'p')
+    //dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.play_list||.large_list&&li');
+    var linelist = parseDomForArray(html, 'body&&.play_from&&li');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'saohuo_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<a[\s\S]*?<\/a>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('saohuo_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXSAOHUO
