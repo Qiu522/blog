@@ -1118,7 +1118,132 @@ const data = {
                 index:'hjw_3'
             }
         ],
-        nav:[{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshi_icon.gif'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/movie2.png'},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying_icon.gif'}]
+        nav:[{title:'韩剧', url: 'https://z3.ax1x.com/2021/06/17/2vvBdS.png'},{title:'综艺', url: 'https://qiu522.github.io/blog/img/movie2.png'},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying_icon.gif'}]
+    },
+    bx: {
+        index: 'https://www.woobm.cn/',
+        router: ['hiker://empty','hiker://empty','hiker://empty','https://www.woobm.cn/vod/show/地区/分类/by/排序/id/1/年代/page/fypage.html','https://www.woobm.cn/vod/show/地区/分类/by/排序/id/2/年代/page/fypage.html', 'https://www.woobm.cn/vod/show/地区/分类/by/排序/id/4/年代/page/fypage.html', 'https://www.woobm.cn/vod/show/地区/分类/by/排序/id/3/年代/page/fypage.html','https://www.woobm.cn/vod/show/地区/分类/by/排序/id/32/年代/page/fypage.html','https://www.woobm.cn/vod/show/地区/分类/by/排序/id/34/年代/page/fypage.html'],
+        type: [{},{},{},
+            {
+                fyclass:{
+                    conts: '全部&喜剧&爱情&动作&恐怖&科幻&剧情&犯罪&奇幻&战争&悬疑&动画&文艺&伦理&纪录&传记 歌舞&古装&历史&惊悚&其他',
+                    lists: '&class/喜剧&class/爱情&class/动作&class/恐怖&class/科幻&class/剧情&class/犯罪&class/奇幻&class/战争&class/悬疑&class/动画&class/文艺&class/伦理&class/纪录&class/传记 歌舞&class/古装&class/历史&class/惊悚&class/其他',
+                    def:0
+                },
+                fyarea:{
+                    conts: '全部&大陆&美国&中国香港&韩国&日本&法国&英国&德国&中国台湾&泰国&印度&其他',
+                    lists: '&area/大陆&area/美国&area/中国香港&area/韩国&area/日本&area/法国&area/英国&area/德国&area/中国台湾&area/泰国&area/印度&area/其他' 
+                },
+                fyyear:{
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists:'&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'bx_1'
+            },
+            {
+                fyclass:{
+                    conts: '全部&言情&剧情&伦理&喜剧&悬疑&都市&偶像&古装&军事&警匪&历史&励志&神话&谍战&青春&家庭&动作&情景&武侠&科幻&其他',
+                    lists: '&class/言情&class/剧情&class/伦理&class/喜剧&class/悬疑&class/都市&class/偶像&class/古装&class/军事&class/警匪&class/历史&class/励志&class/神话&class/谍战&class/青春&class/家庭&class/动作&class/情景&class/武侠&class/科幻&class/其他',
+                    def:0
+                },
+                fyarea:{
+                    conts: '全部&大陆&中国香港&中国台湾&韩国&泰国&日本&美国&英国&新加坡',
+                    lists: '&area/大陆&area/中国香港&area/中国台湾&area/韩国&area/泰国&area/日本&area/美国&area/英国&area/新加坡' 
+                },
+                fyyear:{
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists:'&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'bx_2'
+            },
+            {
+                fyclass:{
+                    conts: '全部&热血&科幻&美少女&魔幻&经典&励志&少儿&冒险&搞笑&推理&恋爱&治愈&幻想&校园&动物&机战&亲子&儿歌&运动&悬疑&怪物&战争&益智&青春&童话&竞技&动作&社会&友情&真人版&电影版&OVA版&TV版&新番动画&完结动画',
+                    lists: '&class/热血&class/科幻&class/美少女&class/魔幻&class/经典&class/励志&class/少儿&class/冒险&class/搞笑&class/推理&class/恋爱&class/治愈&class/幻想&class/校园&class/动物&class/机战&class/亲子&class/儿歌&class/运动&class/悬疑&class/怪物&class/战争&class/益智&class/青春&class/童话&class/竞技&class/动作&class/社会&class/友情&class/真人版&class/电影版&class/OVA版&class/TV版&class/新番动画&class/完结动画',
+                    def:0
+                },
+                fyarea:{
+                    conts: '全部&大陆&&日本&美国',
+                    lists: '&area/大陆&area/日本&area/美国' 
+                },
+                fyyear:{
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists:'&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'bx_3'
+            },
+            {
+                fyclass:{
+                    conts: '全部&脱口秀&真人秀&搞笑&选秀&八卦&访谈&情感&生活&晚会&音乐&职场&美食&时尚&游戏&少儿&体育&纪实&科教&曲艺&歌舞&财经&汽车&播报&其他',
+                    lists: '&class/脱口秀&class/真人秀&class/搞笑&class/选秀&class/八卦&class/访谈&class/情感&class/生活&class/晚会&class/音乐&class/职场&class/美食&class/时尚&class/游戏&class/少儿&class/体育&class/纪实&class/科教&class/曲艺&class/歌舞&class/财经&class/汽车&class/播报&class/其他',
+                    def:0
+                },
+                fyarea:{
+                    conts: '全部&大陆&中国香港&中国台湾&韩国&日本&欧美',
+                    lists: '&area/大陆&area/中国香港&area/中国台湾&area/韩国&area/日本&area/欧美' 
+                },
+                fyyear:{
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists:'&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'bx_4'
+            },
+            {
+                fyclass:{
+                    conts: '全部&喜剧&爱情&动作&恐怖&科幻&剧情&犯罪&奇幻&战争&悬疑&动画&文艺&伦理&纪录&传记 歌舞&古装&历史&惊悚&其他',
+                    lists: '&class/喜剧&class/爱情&class/动作&class/恐怖&class/科幻&class/剧情&class/犯罪&class/奇幻&class/战争&class/悬疑&class/动画&class/文艺&class/伦理&class/纪录&class/传记 歌舞&class/古装&class/历史&class/惊悚&class/其他',
+                    def:0
+                },
+                fyyear:{
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists:'&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'bx_5'
+            },
+            {
+                fyclass:{
+                    conts: '全部&喜剧&爱情&动作&恐怖&科幻&剧情&犯罪&奇幻&战争&悬疑&动画&文艺&伦理&纪录&传记 歌舞&古装&历史&惊悚&其他',
+                    lists: '&class/喜剧&class/爱情&class/动作&class/恐怖&class/科幻&class/剧情&class/犯罪&class/奇幻&class/战争&class/悬疑&class/动画&class/文艺&class/伦理&class/纪录&class/传记 歌舞&class/古装&class/历史&class/惊悚&class/其他',
+                    def:0
+                },
+                fyyear:{
+                    conts:'全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999&1998&1997&1996',
+                    lists:'&year/2021&year/2020&year/2019&year/2018&year/2017&year/2016&year/2015&year/2014&year/2013&year/2012&year/2011&year/2010&year/2009&year/2008&year/2007&year/2006&year/2005&year/2004&year/2003&year/2002&year/2001&year/2000&year/1999&year/1998&year/1997&year/1996'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: '1.html',
+                index:'bx_6'
+            }
+        ],
+        nav: [{},{},{},{title:'电影片库', url: 'https://z3.ax1x.com/2021/06/09/2szetf.png'},{title:'电视剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'},{title:'综艺', url: 'https://z3.ax1x.com/2021/06/09/2yS3xe.png'},{title:'韩剧', url: 'https://z3.ax1x.com/2021/06/17/2vvBdS.png'},{title:'美剧', url: 'https://z3.ax1x.com/2021/06/09/2sz3Bn.png'}]
     }
 }
 //首页解析
@@ -1178,6 +1303,8 @@ var hikerHomePage = (lazyData)=>{
             jjysindex(d,data);
         }else if(/97hanju/.test(getVar('pageUrl', data.jpys.index))){
             hjwindex(d,data);
+        }else if(/woobm/.test(getVar('pageUrl', data.jpys.index))){
+            bxindex(d,data);
         }
     }else{
         hikerpre();
@@ -2212,8 +2339,8 @@ var hjwindex = (d,data)=>{
     for (var i =0; i<conts.length; i++) {
         var list = parseDomForArray(conts[i], '.myui-vodlist&&li');
         d.push({
-            title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
-            url: i==0?'':$(router[i]).rule((type, index) => {
+            title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==99?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: i==99?'':$(router[i]).rule((type, index) => {
                var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
@@ -2240,6 +2367,78 @@ var hjwindex = (d,data)=>{
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                 url: parseDom(list[j], '.myui-vodlist__thumb&&href'),
+                col_type: "movie_3"
+            });
+        }
+    }
+}
+//白熊
+var bxindex = (d,data)=>{
+    MY_URL = data.bx.index;
+    var router = data.bx.router;
+    var type = data.bx.type;
+    var nav = data.bx.nav;
+    var html = fetch(getVar('pageUrl', data.bx.index));
+    var conts = parseDomForArray(html, 'body&&.fed-part-layout:has(.fed-list-info)'); //第一个不要
+
+    for(var i=3; i<7; i++){
+        var j=i+1;
+        d.push({
+            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
+                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                    setNav(type[index]);
+                    
+                    
+                    var html =request(getVar('pageUrl'));
+                    var list = parseDomForArray(html, '.fed-list-info&&li');
+                    for (var i in list) {
+                        d.push({
+                            title: parseDomForHtml(list[i], '.fed-list-title&&Text'),
+                            img: parseDom(list[i], '.fed-list-pics&&data-original')+'@Referer=',
+                            desc: parseDomForHtml(list[i], '.fed-list-score||.fed-list-remarks&&Text'),
+                            url: 
+        $(parseDom(list[i], '.fed-list-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_bx();}),
+                            col_type: "movie_3"
+                        })
+                    }
+                    setResult(d)
+                },type, i),
+            col_type:'icon_small_4'
+        });
+    }
+    
+    for (var i =0; i<conts.length; i++) {
+        if(i==2) continue ;
+        var list = parseDomForArray(conts[i], '.fed-list-info&&li');
+        d.push({
+            title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("", "") + (i==0||i==1?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: i==0||i==1?'':$(router[i]).rule((type, index) => {
+               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                setNav(type[index]);
+                
+                
+                var html =request(getVar('pageUrl'));
+                var list = parseDomForArray(html, '.fed-list-info&&li');
+                for (var i in list) {
+                    d.push({
+                        title: parseDomForHtml(list[i], '.fed-list-title&&Text'),
+                        img: parseDom(list[i], '.fed-list-pics&&data-original')+'@Referer=',
+                        desc: parseDomForHtml(list[i], '.fed-list-score||.fed-list-remarks&&Text'),
+                        url: 
+    $(parseDom(list[i], '.fed-list-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_bx();}),
+                        col_type: "movie_3"
+                    })
+                }
+                setResult(d)
+            },type, i),
+            col_type: "text_center_1"
+        });
+        for (var j in list) {
+            d.push({
+                title: parseDomForHtml(list[j], '.fed-list-title&&Text'),
+                img: parseDom(list[j], '.fed-list-pics&&data-original')+'@Referer=',
+                desc: parseDomForHtml(list[j], '.fed-list-score||.fed-list-remarks&&Text'),
+                url: $(parseDom(list[j], '.fed-list-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_bx();}),
                 col_type: "movie_3"
             });
         }
