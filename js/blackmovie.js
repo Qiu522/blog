@@ -1246,8 +1246,8 @@ const data = {
         nav: [{},{},{},{title:'电影片库', url: 'https://z3.ax1x.com/2021/06/09/2szetf.png'},{title:'电视剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'},{title:'综艺', url: 'https://z3.ax1x.com/2021/06/09/2yS3xe.png'},{title:'韩剧', url: 'https://z3.ax1x.com/2021/06/17/2vvBdS.png'},{title:'美剧', url: 'https://z3.ax1x.com/2021/06/09/2sz3Bn.png'}]
     },
     saohuo: {
-        index: 'https://saohuotv.com/',
-        router: ['','https://v.saohuo.la/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=','https://v.saohuo.la/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=&year=年代&letter=&yuyan=&state=&money=&ver=&jq=','https://v.saohuo.la/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq='],
+        index: 'https://v.saohuo.la/',
+        router: ['hiker://empty','https://v.saohuo.la/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=','https://v.saohuo.la/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=&year=年代&letter=&yuyan=&state=&money=&ver=&jq=','https://v.saohuo.la/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq='],
         type: [{},
             {
                 fyclass:{
@@ -1285,7 +1285,7 @@ const data = {
                     lists: 'time&hits&score'
                 },
                 pageType: 'page=1',
-                index:'saohuo_3'
+                index:'saohuo_2'
             },
             {
                 fyclass:{
@@ -1310,7 +1310,7 @@ const data = {
             },
             
         ],
-        nav: [{},{title:'电影片库', url: 'https://qiu522.github.io/blog/img/dianying_icon.gif'},{title:'电视剧', url: 'https://qiu522.github.io/blog/img/dianshi_icon.gif'},{title:'动漫', url: 'https://qiu522.github.io/blog/img/zymk.png'}]
+        nav: [{},{title:'电影片库', url: 'https://z3.ax1x.com/2021/06/09/2szetf.png'},{title:'电视剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'}]
     }
 }
 //首页解析
@@ -2520,7 +2520,7 @@ var saohuoindex = (d, data)=>{
     var type = data.saohuo.type;
     var nav = data.saohuo.nav;
     var html = request(getVar('pageUrl', data.saohuo.index));
-    var conts = parseDomForArray(html, 'body&&.fed-part-layout:has(.fed-list-info)'); //第一个不要
+    var conts = parseDomForArray(html, 'body&&.grid_box:has(.v_list)'); //第一个不要
 
     for(var i=1; i<nav.length; i++){
         var j=i+1;
