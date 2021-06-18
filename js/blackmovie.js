@@ -1,5 +1,5 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/vodsearch/关键词----------fypage---.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html'},{title: '韩剧网', reg:'hjw97', search:'http://www.97hanju.co/vodsearch/关键词----------fypage---/'},{ title:'白熊', reg: 'bx', search:'https://www.woobm.cn/vod/search/page/fypage/wd/关键词.html'},{ title:'骚火', reg: 'saohuo', search:'https://v.saohuo.la/search.php?page=fypage&searchword=关键词&searchtype='},{title:'闪电影院', reg: 'k1080', search:'https://www.meijuchong.com/vodsearch/关键词----------fypage---.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/关键词----------fypage---.html'},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'},{ title:'久久影院', reg: 'jjys', search:'https://www.jiujiuyingsi.com/s/关键词/fypage.html'}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/vodsearch/关键词----------fypage---.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html'},{title: '韩剧网', reg:'hjw97', search:'http://www.97hanju.co/vodsearch/关键词----------fypage---/'},{ title:'白熊', reg: 'bx', search:'https://www.woobm.cn/vod/search/page/fypage/wd/关键词.html'},{ title:'骚火', reg: 'saohuo', search:'https://v.saohuo.la/search.php?page=fypage&searchword=关键词&searchtype='},{title:'闪电影院', reg: 'k1080', search:'https://www.ak1080.com/vodsearch/关键词----------fypage---.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/关键词----------fypage---.html'},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'},{ title:'久久影院', reg: 'jjys', search:'https://www.jiujiuyingsi.com/s/关键词/fypage.html'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -2955,6 +2955,19 @@ var searchmovie = (lazyData, keydata)=>{
                                 url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_saohuo() })
                             });
                     }}catch(e){} 
+                }else if(/ak1080/.test(MY_URL)){
+                    try{
+                        //html = request(MY_URL);
+                        var list = parseDomForArray(html, 'body&&dl:has(dd)');
+                        for (var j = 0; j < list.length; j++) {
+                            d.push({
+                                title: parseDomForHtml(list[j], 'h1&&Text'),
+                                desc: parseDomForHtml(list[j], '.mo-coxs-center&&Text'),
+                                content: parseDomForHtml(list[j], '.mo-cols-lg10--h1&&Text'),
+                                img: parseDom(list[j], 'a&&data-original'),
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_k1080() })
+                            });
+                    }}catch(e){} 
                 }
                 setResult(d)
             },lazyData,testUrl),
@@ -3225,6 +3238,28 @@ var searchmovie = (lazyData, keydata)=>{
                     }
                     break;
                 case 'k_13':
+                    MY_URL = data.k1080.index;
+                    if(searchType=='全部' || searchType=='闪电') {
+                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
+                        try{
+                            var list = parseDomForArray(html, 'body&&dl:has(dd)');
+                            if(list == null) continue;
+                            var len = list.length>6 ? 6 : list.length;
+                            for (var j = 0; j < len; j++) {
+                                try{
+                                    d.push({
+                                        title: parseDomForHtml(list[j], 'h1&&Text'),
+                                        desc: parseDomForHtml(list[j], '.mo-coxs-center&&Text'),
+                                        content: parseDomForHtml(list[j], '.mo-cols-lg10--h1&&Text'),
+                                        img: parseDom(list[j], 'a&&data-original'),
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_k1080() })
+                                    });
+                                }catch(e){''}
+                            }
+                        }catch(e){}
+                    }
+                    break;
+                case 'k_14':
                     MY_URL = data.mjc.index;
                     if(searchType=='全部' || searchType=='美剧' || searchType=='美剧虫') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -3244,7 +3279,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }catch(e){}
                     }
                     break;
-                case 'k_14':
+                case 'k_15':
                     MY_URL = data.lengyue.index;
                     if(searchType=='全部' || searchType=='冷月') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -3264,7 +3299,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }catch(e){} 
                     }
                     break;
-                case 'k_15':
+                case 'k_16':
                     MY_URL = data.ge179.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='179') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -3282,7 +3317,7 @@ var searchmovie = (lazyData, keydata)=>{
                         } 
                     }
                     break;
-                case 'k_16':
+                case 'k_17':
                     MY_URL = data.jjys.index;
                     if(searchType=='全部' || searchType=='久久') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
