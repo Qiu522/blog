@@ -2999,7 +2999,7 @@ var searchmovie = (lazyData, keydata)=>{
                 url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
                 col_type: 'x5_webview_single'
             })
-            if(searchPage!=-1 && searchPage < i) continue;
+            if(searchPage!=-1 && searchPage-1 < i) continue;
             //var search_case = 'k_'+i;
             var search_case = movielists[i].reg;
             switch (search_case) {
