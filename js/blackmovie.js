@@ -2740,7 +2740,7 @@ var searchmovie = (lazyData, keydata)=>{
     var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy, lengyue_lazy} = lazyData;
     //var searchType = [{name:'', key: ''}, {name:'', key: ''}]
     var searchType = getVar('searchTypeword', '全部');
-    var condSearch = undefined;
+    var condSearch = "";
     if(searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
         eval(fetch('hiker://files/rules/zyf/search.js'));
         switch(searchType){
