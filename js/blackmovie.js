@@ -3454,6 +3454,23 @@ var settingPage = ()=>{
       }
     }catch(e){}
 
+    d.push({
+        col_type:"line"
+    });
+    
+    d.push({
+        title: '‘‘点击获取默认配置’’',
+        desc:'tips：点击后不可恢复！',
+        url:$("#noLoading#").lazyRule(()=>{
+                var data =`var searchPageNum=3;var ysStr='极品&影映&179';`;
+                writeFile("hiker://files/rules/zyf/search.js", data);
+                
+                refreshPage(false);
+                return 'toast://恢复成功';
+                }),
+        col_type: 'text_1'
+    })
+
     res.data = d;
     setHomeResult(res);
 }
