@@ -2747,8 +2747,8 @@ var searchmovie = (lazyData, keydata)=>{
     var searchType = getVar('searchTypeword', '全部');
     var condSearch = "";
     var searchPage = -1;
+    eval(fetch('hiker://files/rules/zyf/search.js'));
     if(searchType == '全部' || searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
-        eval(fetch('hiker://files/rules/zyf/search.js'));
         switch(searchType){
             case '全部' :
                 searchPage = searchPageNum;
