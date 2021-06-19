@@ -1,6 +1,6 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
 //SEARCHALL
-const allList =  ["极品", "淘淘", "555", "奈非", "奈非星", "美剧网", "新动漫", "奇米", "影映", "韩剧网", "奇遇", "白熊", "骚火", "闪电", "美剧虫", "冷月", "179", "久久"];
+const allList =  ["极品", "淘淘", "555", "奈菲", "奈非星", "美剧网", "新动漫", "奇米", "影映", "韩剧网", "奇遇", "白熊", "骚火", "闪电", "美剧虫", "冷月", "179", "久久"];
 //SEARCHALL
 const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/vodsearch/关键词----------fypage---.html'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype='},{ title:'奈菲星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html'},{title: '韩剧网', reg:'hjw97', search:'http://www.97hanju.co/vodsearch/关键词----------fypage---/'},{ title:'白熊', reg: 'bx', search:'https://www.woobm.cn/vod/search/page/fypage/wd/关键词.html'},{ title:'骚火', reg: 'saohuo', search:'https://v.saohuo.la/search.php?page=fypage&searchword=关键词&searchtype='},{title:'闪电影院', reg: 'k1080', search:'https://www.ak1080.com/vodsearch/关键词----------fypage---.html'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/关键词----------fypage---.html'},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html'},{ title:'久久影院', reg: 'jjys', search:'https://www.jiujiuyingsi.com/s/关键词/fypage.html'}];
 const data = {
@@ -3057,7 +3057,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'nfmovie':
                     MY_URL = data.nfmovie.index;
-                    if(searchType=='全部' || searchType=='美剧' || searchType=='奈非') {
+                    if(searchType=='全部' || searchType=='奈菲' || condSearch.indexOf('奈菲')>-1) {
                         var html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1'), {headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
                         var list = parseDom(html, '#searchList&&Html').match(/<li[\s\S]*?<\/li/g);
                         if(list == null) continue;
@@ -3074,7 +3074,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'nfx':
                     MY_URL = data.nfx.index;
-                    if(searchType=='全部' || searchType=='美剧' || searchType=='奈非星') {
+                    if(searchType=='全部'  || searchType=='奈非星' || condSearch.indexOf('奈非星')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         var list = parseDomForArray(html, '#searchList&&li');
                         if(list == null) continue;
@@ -3146,7 +3146,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'yyjc':
                     MY_URL = data.yyjc.index;
-                    if(searchType=='全部' || searchType=='影视' || searchType=='影映') {
+                    if(searchType=='全部' || searchType=='影映' || condSearch.indexOf('影映')>-1) {
                     testUrl(data.yyjc.index);
                     var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                     var list = parseDomForArray(html, '.vodlist&&li');//列表
@@ -3167,7 +3167,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'nqy':
                     MY_URL = data.nqy.index;
-                    if(searchType=='全部' || searchType=='影视' || searchType=='奇遇') {
+                    if(searchType=='全部' || searchType=='奇遇' || condSearch.indexOf('奇遇')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         try{
                             var list = parseDomForArray(html, 'body&&.card')//列表
@@ -3189,7 +3189,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'hjw97':
                     MY_URL = data.hjw97.index;
-                    if(searchType=='全部' || searchType=='韩剧' || searchType=='韩剧网') {
+                    if(searchType=='全部'  || searchType=='韩剧网' || condSearch.indexOf('韩剧网')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         try{
                             var list = parseDom(html, 'body&&body&&.myui-vodlist__media&&Html').match(/<li[\s\S]*?<\/li/g);
@@ -3211,7 +3211,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'bx':
                     MY_URL = data.bx.index;
-                    if(searchType=='全部' || searchType=='白熊') {
+                    if(searchType=='全部' || searchType=='白熊' || condSearch.indexOf('白熊')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         try{
                             var list = parseDomForArray(html, 'body&&.fed-deta-info');
@@ -3233,7 +3233,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'saohuo':
                     MY_URL = data.saohuo.index;
-                    if(searchType=='全部' || searchType=='骚火') {
+                    if(searchType=='全部' || searchType=='骚火' || condSearch.indexOf('骚火')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         try{
                             var list = parseDom(html, 'body&&.v_list&&Html').match(/<li[\s\S]*?<\/li/g);
@@ -3255,7 +3255,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'k1080':
                     MY_URL = data.k1080.index;
-                    if(searchType=='全部' || searchType=='闪电') {
+                    if(searchType=='全部' || searchType=='闪电' || condSearch.indexOf('闪电')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         try{
                             var list = parseDomForArray(html, 'body&&dl:has(dd)');
@@ -3277,7 +3277,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'mjc':
                     MY_URL = data.mjc.index;
-                    if(searchType=='全部' || searchType=='美剧' || searchType=='美剧虫') {
+                    if(searchType=='全部' || searchType=='美剧虫' || condSearch.indexOf('美剧虫')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                         try{
                             var list = parseDomForArray(html, 'body&&.myui-vodlist__media&&li');
@@ -3297,7 +3297,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'lengyue':
                     MY_URL = data.lengyue.index;
-                    if(searchType=='全部' || searchType=='冷月') {
+                    if(searchType=='全部' || searchType=='冷月' || condSearch.indexOf('冷月')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                         try{
                             var list = parseDomForArray(html, '.myui-vodlist__media&&li');   
@@ -3317,7 +3317,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'ge179':
                     MY_URL = data.ge179.index;
-                    if(searchType=='全部' || searchType=='影视' || searchType=='179') {
+                    if(searchType=='全部' || searchType=='179' || condSearch.indexOf('179')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                         var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
                         if(list == null) continue;            
@@ -3335,7 +3335,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'jjys':
                     MY_URL = data.jjys.index;
-                    if(searchType=='全部' || searchType=='久久') {
+                    if(searchType=='全部' || searchType=='久久' || condSearch.indexOf('久久')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                         try{
                             var list = parseDomForArray(html, 'body&&.module-list&&.module-search-item');
