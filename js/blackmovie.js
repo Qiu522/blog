@@ -2741,9 +2741,13 @@ var searchmovie = (lazyData, keydata)=>{
     //var searchType = [{name:'', key: ''}, {name:'', key: ''}]
     var searchType = getVar('searchTypeword', '全部');
     var condSearch = "";
-    if(searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
+    var searchPage = -1;
+    if(searchType == '全部' || searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
         eval(fetch('hiker://files/rules/zyf/search.js'));
         switch(searchType){
+            case '全部' :
+                searchPage = searchPageNum;
+                break;
             case '影视' :
                 condSearch = ysStr;
                 break;
@@ -2995,7 +2999,7 @@ var searchmovie = (lazyData, keydata)=>{
                 url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
                 col_type: 'x5_webview_single'
             })
-            
+            if(searchPage!=-1 && searchPage < i) continue;
             //var search_case = 'k_'+i;
             var search_case = movielists[i].reg;
             switch (search_case) {
