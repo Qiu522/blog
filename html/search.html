@@ -315,7 +315,9 @@ div.search {
   <script>
       function up(){
          var k=document.getElementById("search-input").value;
-         var type = document.querySelector('.searchKey').innerHTML;
+         var type = document.querySelector('.searchKey').innerText;
+         //d.push({title: searchType=='极品'?'shi':'no', col_type: 'rich_text'});
+
 
          var work=fy_bridge_app.fetch("hiker://files/searchwork.json");
          if(work==""){
