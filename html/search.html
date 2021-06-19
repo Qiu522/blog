@@ -13,9 +13,9 @@
 	box-sizing:border-box;
 }
    
-}
-   div.search {
-	padding:10px 0;
+
+div.search {
+	padding:6px 0;
 }
   form {
     display: flex;
@@ -239,21 +239,17 @@
             flex-flow:row nowrap;
             overflow:hidden;
             overflow-x: auto;
-            border: 1px solid #b6b6b6;
             border-top: 0px;
-            width: 86%;
+            width: 96%;
             margin: 0 auto ;
-            margin-left:12%;
             list-style: none;
             padding: 3px;
         }
         #list li {
             display: inline-flex;
-            flex-direction:column;
-            width: 1em;
+            word-break: keep-all;
             margin: 0 5px;
-            font-size: 12px;
-            word-wrap: break-word;
+            font-size: 14px;
         }
         li:hover {
             color: red;
@@ -271,27 +267,46 @@
             height:30px;
             display:inline-flex;
         }
+        .title {
+            display: flex;
+            width: 96%;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .title h2 {
+            margin: 6px auto;
+            text-align: center;
+            color: #1db69a;
+        }
+        .search span{
+            display: inline-flex;
+            height: 42px;
+            text-align: center;
+            color: #1db69a;
+            line-height: 42px;
+        }
+        .search .searchKey {
+            height: 42px;
+            text-align: center;
+            color: #1db69a;
+            line-height: 42px;
+        }
     </style>
  </head>
- <body style="overflow:hidden;"> 
+ <body style="overflow:hidden;">
+  <div class='title'>
+    <h2><a class="setting">黑黑🌚影视</a></h2>
+  </div> 
   <div class="search bar1"> 
     <form>
-        <img src="https://z3.ax1x.com/2021/06/08/2BcNlR.png" id="update"></img>
+        <!--<img src="https://z3.ax1x.com/2021/06/08/2BcNlR.png" id="update"></img>-->
+        <span>搜<a class='searchKey'>全部</a>:</span>
         <input type="text" autocomplete="off" class="input" id="search-input" placeholder="搜索内容 . . ." onkeydown="if(event.keyCode==13){up()}">
         <button type="submit" id="search-ok"></button>
     </form>
 
     <div class="listwrap">
         <ul id="list">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
             <li></li>
         </ul>
     </div>
@@ -315,7 +330,6 @@
          fy_bridge_app.putVar("searchKeyword",k);
          fy_bridge_app.putVar("searchTypeword",type);
          fy_bridge_app.refreshPage(true);
-         
 
      }
      function update(){
@@ -347,21 +361,26 @@
             fy_bridge_app.refreshPage(true);
         }
     }
+    function setting(){
+        fy_bridge_app.putVar("setting", true);
+        fy_bridge_app.refreshPage(true);
+    }
      
      document.getElementById("search-ok").onclick=up;
      document.querySelector('#update').onclick = update;
+     document.querySelector('.setting').onclick = setting;
      /*if(fy_bridge_app.getVar("searchKeyword")!=""){
          document.getElementById("search-input").placeholder="点击搜索返回首页";
      }*/
     </script> 
     
     <script>
-        var keyLists = ['全部','影视', '美剧', '动漫', '极品', '淘淘', '555', '奈非', '奈非星', '美剧网', '新动漫', '奇米','影映', '韩剧网','奇遇','白熊','骚火','闪电','美剧虫', '冷月', '179', '久久'];
+       var keyLists = ['全部','影视', '美剧', '动漫', '极品', '淘淘', '555', '奈非', '奈非星', '美剧网', '新动漫', '奇米','影映', '韩剧网','奇遇','白熊','骚火','美剧虫', '冷月', '179', '久久'];
         (()=>{
             var list = document.getElementById('list');
             list.innerHTML = '';
             for(var i in keyLists){
-                list.innerHTML += `<li>${keyLists[i]}<li>` 
+                list.innerHTML += `<li><a>${keyLists[i]}</a></li>` 
             }
             var lists = list.querySelectorAll('li');
             lists[0].setAttribute('class', 'active');
@@ -373,10 +392,12 @@
         function handleClick() {
             var list = document.getElementById('list');
             var lists = list.querySelectorAll('li');
+            var keyBtn = document.querySelector('.searchKey');
             for(var i in lists){
                 lists[i].className="";
             }
             this.className="active";
+            keyBtn.innerHTML = this.innerHTML;
             //console.log(lists[0].innerHTML);
         }
     </script>

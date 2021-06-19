@@ -2983,13 +2983,23 @@ var searchmovie = (lazyData, keydata)=>{
                 url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
                 col_type: 'x5_webview_single'
             })
-            
+            var condSearch = '';
+            if(searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
+                eval(fetch('hiker://files/rules/zyf/search.js'));
+                switch(condSearch){
+                    case '影视' :
+                        condSearch = ysStr;
+                        break;
+                    default:
+                        break;
+                }
+            }
             //var search_case = 'k_'+i;
             var search_case = movielists.reg;
             switch (search_case) {
                 case 'jpys':
                     MY_URL = data.jpys.index;
-                    if(searchType=='全部' || searchType=='影视' || searchType=='极品') {
+                    if(searchType=='全部' || searchType=='极品' || condSearch.indexOf('极品')>-1 ) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                         var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
                         if(list == null) continue;            
@@ -3007,7 +3017,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'taotao':
                     MY_URL = data.taotao.index;
-                    if(searchType=='全部' || searchType=='影视' || searchType=='淘淘') { 
+                    if(searchType=='全部' || searchType=='淘淘' || condSearch.indexOf('淘淘')>-1) { 
                     var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                     var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
                     var list = parseDomForArray(content, 'body&&li');    
@@ -3025,7 +3035,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                 case 'fivefive':
                     MY_URL = data.fivefive.index;
-                    if(searchType=='全部' || searchType=='影视' || searchType=='555') {
+                    if(searchType=='全部' || searchType=='555' || condSearch.indexOf('555')>-1) {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         try{
                             var list = parseDomForArray(html, 'body&&.myui-vodlist__media&&li');
