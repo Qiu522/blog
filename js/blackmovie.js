@@ -2984,9 +2984,10 @@ var searchmovie = (lazyData, keydata)=>{
                 col_type: 'x5_webview_single'
             })
             
-            var search_case = 'k_'+i;
+            //var search_case = 'k_'+i;
+            var search_case = movielists.reg;
             switch (search_case) {
-                case 'k_0':
+                case 'jpys':
                     MY_URL = data.jpys.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='极品') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -3004,7 +3005,7 @@ var searchmovie = (lazyData, keydata)=>{
                         } 
                     }
                     break;
-                case 'k_1':
+                case 'taotao':
                     MY_URL = data.taotao.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='淘淘') { 
                     var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -3022,7 +3023,7 @@ var searchmovie = (lazyData, keydata)=>{
                         });
                     }}
                     break;
-                case 'k_2':
+                case 'fivefive':
                     MY_URL = data.fivefive.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='555') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -3042,7 +3043,7 @@ var searchmovie = (lazyData, keydata)=>{
                          }catch(e){}
                     }
                     break;
-                case 'k_3':
+                case 'nfmovie':
                     MY_URL = data.nfmovie.index;
                     if(searchType=='全部' || searchType=='美剧' || searchType=='奈非') {
                         var html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1'), {headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
@@ -3059,7 +3060,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }
                     }
                     break;
-                case 'k_4':
+                case 'nfx':
                     MY_URL = data.nfx.index;
                     if(searchType=='全部' || searchType=='美剧' || searchType=='奈非星') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -3077,7 +3078,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }
                     }
                     break;
-                case 'k_5':
+                case 'mjhd':
                     MY_URL = data.mjhd.index;
                     if(searchType=='全部' || searchType=='美剧' || searchType=='美剧网') {
                     var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -3095,7 +3096,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }
                     }
                     break;
-                case 'k_6':
+                case 'xsj':
                     MY_URL = data.xsj.index;
                     if(searchType=='全部' || searchType=='动漫' || searchType=='新动漫') {
                     var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -3112,7 +3113,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }
                     }
                     break;
-                case 'k_7':
+                case 'qimi':
                     MY_URL = data.qimi.index;
                     if(searchType=='全部' || searchType=='动漫' || searchType=='奇米') {
                     var html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -3131,7 +3132,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }}catch(e){}
                     }
                     break;
-                case 'k_8':
+                case 'yyjc':
                     MY_URL = data.yyjc.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='影映') {
                     testUrl(data.yyjc.index);
@@ -3152,7 +3153,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }
                     }
                     break;
-                case 'k_9':
+                case 'nqy':
                     MY_URL = data.nqy.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='奇遇') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -3174,7 +3175,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }catch(e){}
                     }
                     break;
-                case 'k_10':
+                case 'hjw97':
                     MY_URL = data.hjw97.index;
                     if(searchType=='全部' || searchType=='韩剧' || searchType=='韩剧网') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -3196,7 +3197,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }catch(e){}
                     }
                     break;
-                case 'k_11':
+                case 'bx':
                     MY_URL = data.bx.index;
                     if(searchType=='全部' || searchType=='白熊') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -3218,7 +3219,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }catch(e){}
                     }
                     break;
-                case 'k_12':
+                case 'saohuo':
                     MY_URL = data.saohuo.index;
                     if(searchType=='全部' || searchType=='骚火') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -3240,7 +3241,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }catch(e){}
                     }
                     break;
-                case 'k_13':
+                case 'k1080':
                     MY_URL = data.k1080.index;
                     if(searchType=='全部' || searchType=='闪电') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
@@ -3262,7 +3263,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }catch(e){}
                     }
                     break;
-                case 'k_14':
+                case 'mjc':
                     MY_URL = data.mjc.index;
                     if(searchType=='全部' || searchType=='美剧' || searchType=='美剧虫') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -3282,7 +3283,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }catch(e){}
                     }
                     break;
-                case 'k_15':
+                case 'lengyue':
                     MY_URL = data.lengyue.index;
                     if(searchType=='全部' || searchType=='冷月') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -3302,7 +3303,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }catch(e){} 
                     }
                     break;
-                case 'k_16':
+                case 'ge179':
                     MY_URL = data.ge179.index;
                     if(searchType=='全部' || searchType=='影视' || searchType=='179') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
@@ -3320,7 +3321,7 @@ var searchmovie = (lazyData, keydata)=>{
                         } 
                     }
                     break;
-                case 'k_17':
+                case 'jjys':
                     MY_URL = data.jjys.index;
                     if(searchType=='全部' || searchType=='久久') {
                         var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
