@@ -1411,7 +1411,7 @@ var hikerHomePage = (lazyData)=>{
     }
     eval(fetch('hiker://files/rules/zyf/search.js'));
     d.push({
-        desc: x5Height!=undefined? x5Height: 100 +'&&float',
+        desc: (x5Height!=undefined ? x5Height: 100) +'&&float',
         url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
         col_type: 'x5_webview_single'
     })
@@ -3001,7 +3001,7 @@ var searchmovie = (lazyData, keydata)=>{
         if(keydata!=undefined){
             //eval(fetch('hiker://files/rules/zyf/search.js'));
             d.push({
-                desc: x5Height!=undefined? x5Height: 100 +'&&float',
+                desc: (x5Height!=undefined? x5Height: 100) +'&&float',
                 url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
                 col_type: 'x5_webview_single'
             })
