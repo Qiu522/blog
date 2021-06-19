@@ -2986,7 +2986,7 @@ var searchmovie = (lazyData, keydata)=>{
             var condSearch = '';
             if(searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
                 eval(fetch('hiker://files/rules/zyf/search.js'));
-                switch(condSearch){
+                switch(searchType){
                     case '影视' :
                         condSearch = ysStr;
                         break;
