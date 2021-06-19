@@ -3373,7 +3373,8 @@ var searchmovie = (lazyData, keydata)=>{
 }
 
 var settingPage = ()=>{
-    var d = [];
+    let res = {};
+    let d = [];
 
     d.push({
         title: '本规则仅供学习交流',
@@ -3453,7 +3454,8 @@ var settingPage = ()=>{
       }
     }catch(e){}
 
-    setResult(d);
+    res.data = d;
+    setHomeResult(res);
 }
 
 function hikerpre(){
