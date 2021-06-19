@@ -315,7 +315,7 @@ div.search {
   <script>
       function up(){
          var k=document.getElementById("search-input").value;
-         var type = document.querySelector('.active').innerHTML;
+         var type = document.querySelector('.searchKey').innerHTML;
 
          var work=fy_bridge_app.fetch("hiker://files/searchwork.json");
          if(work==""){

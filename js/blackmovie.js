@@ -2740,6 +2740,18 @@ var searchmovie = (lazyData, keydata)=>{
     var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy, lengyue_lazy} = lazyData;
     //var searchType = [{name:'', key: ''}, {name:'', key: ''}]
     var searchType = getVar('searchTypeword', '全部');
+    var condSearch = undefined;
+    if(searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
+        eval(fetch('hiker://files/rules/zyf/search.js'));
+        switch(searchType){
+            case '影视' :
+                condSearch = ysStr;
+                break;
+            default:
+                break;
+        }
+    }
+
     for(var i in movielists){
         d.push({
             title:keydata==undefined? movielists[i].title : ('‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>"),
@@ -2983,19 +2995,9 @@ var searchmovie = (lazyData, keydata)=>{
                 url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
                 col_type: 'x5_webview_single'
             })
-            var condSearch = '';
-            if(searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
-                eval(fetch('hiker://files/rules/zyf/search.js'));
-                switch(searchType){
-                    case '影视' :
-                        condSearch = ysStr;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            
             //var search_case = 'k_'+i;
-            var search_case = movielists.reg;
+            var search_case = movielists[i].reg;
             switch (search_case) {
                 case 'jpys':
                     MY_URL = data.jpys.index;
