@@ -1460,9 +1460,9 @@ var hikerHomePage = (lazyData)=>{
         searchmovie( lazyData, getVar('searchKeyword'));
     }
     
-    if(getVar('setting', '0') == 1){
+    /*if(getVar('setting', '0') == 1){
         settingPage(allList);
-    }
+    }*/
 
     d.push({ col_type: 'line_blank' });
     d.push({ title: "<h4 style='text-align:center;'><font color='#b36d61'>到底了呢！</font></h4>", col_type: "rich_text" });
@@ -3372,7 +3372,7 @@ var searchmovie = (lazyData, keydata)=>{
     setResult(d);
 }
 
-var settingPage = (allList)=>{
+var settingPage = ()=>{
     var d = [];
 
     d.push({
