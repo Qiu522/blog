@@ -365,11 +365,12 @@ div.search {
         }
     }
     function setting(){
+        var r=confirm("点击确认进行更新!");
         let detailRule = `js:eval(fetch('hiker://files/rules/zyf/blackmovie.js'));settingPage();`
-        fy_bridge_app.toDetailPage('所有分类', "hiker://empty", '333', '', detailRule, '')
+        fy_bridge_app.toDetailPage('黑黑设置', "hiker://empty", '333', '', detailRule, '')
 
         //fy_bridge_app.putVar("setting", '1');
-        fy_bridge_app.refreshPage(true);
+        //fy_bridge_app.refreshPage(true);
     }
      
      document.getElementById("search-ok").onclick=up;
