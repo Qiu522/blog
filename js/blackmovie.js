@@ -1459,6 +1459,10 @@ var hikerHomePage = (lazyData)=>{
         hikerpre();
         searchmovie( lazyData, getVar('searchKeyword'));
     }
+    
+    if(getVar('setting', '0') == 1){
+        settingPage(allList);
+    }
 
     d.push({ col_type: 'line_blank' });
     d.push({ title: "<h4 style='text-align:center;'><font color='#b36d61'>到底了呢！</font></h4>", col_type: "rich_text" });
@@ -3364,6 +3368,90 @@ var searchmovie = (lazyData, keydata)=>{
             }
         }
     }
+
+    setResult(d);
+}
+
+var settingPage = (allList)=>{
+    var d = [];
+
+    d.push({
+        title: '本规则仅供学习交流',
+        desc:'点击获取最新版本！',
+        url:`confirm://你确认要更新吗？.js:let localHtml=fetch('hiker://files/rules/zyf/black.js');let gitHtml = fetch('https://qiu522.github.io/blog/js/black.js');if (!localHtml || localHtml != gitHtml) {writeFile("hiker://files/rules/zyf/black.js", gitHtml);}let B_play=fetch('hiker://files/rules/zyf/B_play.js');let git_play=fetch('https://qiu522.github.io/blog/js/B_play.js');if (!B_play || B_play != git_play) {writeFile("hiker://files/rules/zyf/B_play.js", git_play);}let blackmovie=fetch('hiker://files/rules/zyf/blackmovie.js');let git_movie=fetch('https://qiu522.github.io/blog/js/blackmovie.js');if (!blackmovie || blackmovie != git_movie) {writeFile("hiker://files/rules/zyf/blackmovie.js", git_movie); }let tc=fetch('hiker://files/rules/zyf/tc.html');let git_tc = fetch('https://qiu522.github.io/blog/html/search.html');if (!tc || tc != git_tc){writeFile("hiker://files/rules/zyf/tc.html", git_tc); }refreshPage(false);'toast://应该是最新了吧'`,
+        col_type: 'text_center_1'
+    })
+    d.push({
+        col_type:"line"
+    });
+    
+    eval(fetch('hiker://files/rules/zyf/search.js'));
+    
+    d.push({
+        title: '‘‘默认全部搜索线程数（按序搜索）：’’'+ searchPageNum,
+        desc:'tips：搜索线程越多搜索越久！',
+        url:"input://"+searchPageNum+"////全部搜索线程数.js:eval(fetch('hiker://files/rules/zyf/search.js'));var data=`var searchPageNum=`+input+`;var ysStr='`+ysStr+`';`;writeFile('hiker://files/rules/zyf/search.js', data);refreshPage(false);'toast://你输入的是'+input",
+        col_type: 'text_1'
+    })
+    d.push({
+        col_type:"line"
+    });
+    
+    try{
+      d.push({
+        title: '‘‘当前按 影视 搜索的频道为（点击从列表删除）：’’',
+        url: 'hiker://empty',
+        col_type: 'text_1'
+      });
+      //var allList = allStr.split('&');
+      var ysList = ysStr.split('&');
+      var other = [];
+      for (var i in ysList){
+        d.push({
+            title:ysList[i],
+            url: $("#noLoading#").lazyRule((searchPageNum, ysList,index)=>{
+                var obj =ysList.splice(index,1);
+              
+                var data =`var searchPageNum=`+searchPageNum+`;var ysStr='`+ysList.join('&')+`';`;
+                writeFile("hiker://files/rules/zyf/search.js", data);
+                
+                refreshPage(false);
+                return 'toast://取消成功';
+                },searchPageNum,ysList,i),
+            col_type:'flex_button'
+        });
+      }
+    
+      d.push({
+        title: '‘‘按 影视 搜索未添加的频道（点击添加）：’’',
+        url: 'hiker://empty',
+        col_type: 'text_1'
+      });
+      
+      for(var i in allList){
+          for(var j in ysList){
+              if(ysList[j] == allList[i]) break;
+              if(j == ysList.length - 1){
+                  other.push(allList[i])
+              }
+          }
+      }
+      for (var i in other){
+        d.push({
+            title:other[i],
+            url: $("#noLoading#").lazyRule((searchPageNum, ysList,other,allList, index)=>{
+                ysList.push(other[index]);
+                
+                var data =`var searchPageNum=`+searchPageNum+`;var ysStr='`+ysList.join('&')+`';`;
+                writeFile("hiker://files/rules/zyf/search.js", data);
+                
+                refreshPage(false);
+                return 'toast://添加成功';
+                },searchPageNum,ysList, other, allList, i),
+            col_type:'flex_button'
+        });
+      }
+    }catch(e){}
 
     setResult(d);
 }
