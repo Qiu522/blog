@@ -1409,8 +1409,9 @@ var hikerHomePage = (lazyData)=>{
             col_type:'scroll_button'
         });
     }
+    eval(fetch('hiker://files/rules/zyf/search.js'));
     d.push({
-        desc: '100&&float',
+        desc: x5Height!=undefined? x5Height: 100 +'&&float',
         url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
         col_type: 'x5_webview_single'
     })
@@ -2998,8 +2999,9 @@ var searchmovie = (lazyData, keydata)=>{
         });
 
         if(keydata!=undefined){
+            //eval(fetch('hiker://files/rules/zyf/search.js'));
             d.push({
-                desc: '100&&float',
+                desc: x5Height!=undefined? x5Height: 100 +'&&float',
                 url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
                 col_type: 'x5_webview_single'
             })
@@ -3387,6 +3389,7 @@ var settingPage = ()=>{
     });
     
     eval(fetch('hiker://files/rules/zyf/search.js'));
+    eval(fetch('hiker://files/rules/zyf/blackmovie.js').split('//SEARCHALL')[1].split('//SEARCHALL')[0]);
     
     d.push({
         title: '‘‘默认全部搜索线程数（按序搜索）：’’'+ searchPageNum,
@@ -3410,15 +3413,15 @@ var settingPage = ()=>{
       for (var i in ysList){
         d.push({
             title:ysList[i],
-            url: $("#noLoading#").lazyRule((searchPageNum, ysList,index)=>{
+            url: $("#noLoading#").lazyRule((searchPageNum, x5Height,ysList,index)=>{
                 var obj =ysList.splice(index,1);
               
-                var data =`var searchPageNum=`+searchPageNum+`;var ysStr='`+ysList.join('&')+`';`;
+                var data =`var searchPageNum=`+searchPageNum+`;var x5Height=`+x5Height+`;var ysStr='`+ysList.join('&')+`';`;
                 writeFile("hiker://files/rules/zyf/search.js", data);
                 
                 refreshPage(false);
                 return 'toast://取消成功';
-                },searchPageNum,ysList,i),
+                },searchPageNum,x5Height,ysList,i),
             col_type:'flex_button'
         });
       }
@@ -3440,20 +3443,30 @@ var settingPage = ()=>{
       for (var i in other){
         d.push({
             title:other[i],
-            url: $("#noLoading#").lazyRule((searchPageNum, ysList,other,allList, index)=>{
+            url: $("#noLoading#").lazyRule((searchPageNum,x5Height, ysList,other, index)=>{
                 ysList.push(other[index]);
                 
-                var data =`var searchPageNum=`+searchPageNum+`;var ysStr='`+ysList.join('&')+`';`;
+                var data =`var searchPageNum=`+searchPageNum+`;var x5Height=`+x5Height+`;var ysStr='`+ysList.join('&')+`';`;
                 writeFile("hiker://files/rules/zyf/search.js", data);
                 
                 refreshPage(false);
                 return 'toast://添加成功';
-                },searchPageNum,ysList, other, allList, i),
+                },searchPageNum,x5Height,ysList, other, i),
             col_type:'flex_button'
         });
       }
     }catch(e){}
-
+    
+    d.push({
+        col_type:"line"
+    });
+    d.push({
+        title: '‘‘主页搜索框高度（默认100）：’’'+ x5Height,
+        desc:'tips：慎重填写，玩坏不包赔！',
+        url:"input://"+x5Height+"////主页搜索框高度.js:eval(fetch('hiker://files/rules/zyf/search.js'));var data=`var searchPageNum=`+searchPageNum+`;var x5Height=`+input+`;var ysStr='`+ysStr+`';`;writeFile('hiker://files/rules/zyf/search.js', data);refreshPage(false);'toast://你输入的是'+input",
+        col_type: 'text_1'
+    });
+    
     d.push({
         col_type:"line"
     });
@@ -3462,7 +3475,7 @@ var settingPage = ()=>{
         title: '‘‘点击获取默认配置’’',
         desc:'tips：点击后不可恢复！',
         url:$("#noLoading#").lazyRule(()=>{
-                var data =`var searchPageNum=3;var ysStr='极品&影映&179';`;
+                var data =`var searchPageNum=3;var x5Height = 100;var ysStr='极品&影映&179';`;
                 writeFile("hiker://files/rules/zyf/search.js", data);
                 
                 refreshPage(false);
