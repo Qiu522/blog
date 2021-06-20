@@ -3405,7 +3405,7 @@ var settingPage = ()=>{
     d.push({
         title: '‘‘默认全部搜索线程数（按序搜索）：’’'+ searchPageNum,
         desc:'tips：搜索线程越多搜索越久！',
-        url:"input://"+searchPageNum+"////全部搜索线程数.js:eval(fetch('hiker://files/rules/zyf/search.js'));var data=`var searchPageNum=`+input+`;var ysStr='`+ysStr+`';`;writeFile('hiker://files/rules/zyf/search.js', data);refreshPage(false);'toast://你输入的是'+input",
+        url:"input://"+searchPageNum+"////全部搜索线程数.js:eval(fetch('hiker://files/rules/zyf/search.js'));var data=`var searchPageNum=`+input+`;var x5Height=`+x5Height+`;var ysStr='`+ysStr+`';`;writeFile('hiker://files/rules/zyf/search.js', data);refreshPage(false);'toast://你输入的是'+input",
         col_type: 'text_1'
     })
     d.push({
