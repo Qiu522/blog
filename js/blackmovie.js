@@ -1399,7 +1399,7 @@ var hikerHomePage = (lazyData)=>{
     
     for(var i in movielists){
         d.push({
-            title: getVar('nowPage', movielists[0].reg)==movielists[i].reg? ("““””<b>"+'<span style="color: #f9906f">'+ movielists[i].title +'</span></b>') : movielists[i].title ,
+            title: getVar('nowPage', movielists[0].reg)==movielists[i].reg? ("““””<b>"+'<span style="color: #1db69a">'+ movielists[i].title +'</span></b>') : movielists[i].title ,
             url: $("#noLoading#").lazyRule((movieitem, data)=>{
                 putVar('nowPage', movieitem.reg)
                 putVar('pageUrl', data[movieitem.reg].index);
@@ -3022,7 +3022,7 @@ var searchmovie = (lazyData, keydata)=>{
             //var search_case = 'k_'+i;
             //var search_case = movielists[i].reg; 
     }
-    
+
     if(keydata!=undefined){
         for(var i = 0; i<searchPage; i++){
             var batUrl = movielists[i].search.replace('关键词', key).replace('fypage','1');
