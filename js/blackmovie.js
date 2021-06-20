@@ -3034,11 +3034,11 @@ var searchmovie = (lazyData, keydata)=>{
 
             switch (searchReg[k]) {
                 case 'jpys':
-                    //MY_URL = data.jpys.index;
+                    MY_URL = data.jpys.index;
                         //var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                         var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
                         if(list == null) continue;            
-                        var len = list.length>6 ? 6 : list.length;
+                        var len = list.length>10 ? 10 : list.length;
                         for (var j = 0; j < len; j++) {
                             d.push({
                                 title: parseDomForHtml(list[j], 'h4&&Text'),
@@ -3050,12 +3050,12 @@ var searchmovie = (lazyData, keydata)=>{
                         } 
                     break;
                 case 'taotao':
-                    //MY_URL = data.taotao.index; 
+                    MY_URL = data.taotao.index; 
                     //var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                     var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
                     var list = parseDomForArray(content, 'body&&li');    
                     if(list == null) continue;        
-                    var len = list.length>6 ? 6 : list.length;
+                    var len = list.length>10 ? 10 : list.length;
                     for(var j = 0; j < len; j++){
                         d.push({
                             title:parseDomForHtml(list[j],'a&&title'),
@@ -3067,13 +3067,13 @@ var searchmovie = (lazyData, keydata)=>{
                     }
                     break;
                 case 'fivefive':
-                    //MY_URL = data.fivefive.index;
+                    MY_URL = data.fivefive.index;
                     if(searchType=='全部' || searchType=='555' || condSearch.indexOf('555')>-1) {
                         //var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         try{
                             var list = parseDomForArray(html, 'body&&.myui-vodlist__media&&li');
                             if(list == null) continue;                
-                            var len = list.length>6 ? 6 : list.length;
+                            var len = list.length>10 ? 10 : list.length;
                             for (var j = 0; j < len; j++) {
                                 d.push({
                                     title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
