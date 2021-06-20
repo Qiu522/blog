@@ -301,13 +301,13 @@ div.search {
   <div class="search bar1"> 
     <form>
         <!--<img src="https://z3.ax1x.com/2021/06/08/2BcNlR.png" id="update"></img>-->
-        <span>搜<a class='searchKey'>全部</a>:</span>
+        <span style="display: none">搜<a class='searchKey'>全部</a>:</span>
         <input type="text" autocomplete="off" class="input" id="search-input" placeholder="搜索内容 . . ." onkeydown="if(event.keyCode==13){up()}">
         <button type="submit" id="search-ok"></button>
     </form>
 
     <div class="listwrap">
-        <ul id="list">
+        <ul id="list" style="display: none">
             <li></li>
         </ul>
     </div>
