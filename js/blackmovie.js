@@ -3018,7 +3018,7 @@ var searchmovie = (lazyData, keydata)=>{
                 url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
                 col_type: 'x5_webview_single'
             })*/
-            if(searchPage!=-1 && searchPage-1 < i) continue;
+            //if(searchPage!=-1 && searchPage-1 < i) continue;
             //var search_case = 'k_'+i;
             //var search_case = movielists[i].reg;
             
@@ -3026,8 +3026,12 @@ var searchmovie = (lazyData, keydata)=>{
     }
 
     for(var i = 0; i<searchPage; i++){
-        var batUrl = movielists[i].search.replace('关键词', key);
-        batData.push({url: batUrl ,options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
+        var batUrl = movielists[i].search.replace('关键词', key).replace('fypage','1');
+        if(movielists[i].reg == 'nfmovie'){
+            Data.push({url:batUrl, options:{headers:{"User-Agent":"Mozilla/5.0","Cookie":getVar("hikernfcookie")},timeout:tout}});
+        }else{
+            batData.push({url: batUrl, options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
+        }
         searchReg.push(movielists[i].reg);
     }
 
@@ -3036,17 +3040,17 @@ var searchmovie = (lazyData, keydata)=>{
         for(var k=0;k<bHtmlList.length;k++){
             var html=bHtmlList[k];
             d.push({
-                title: k,
+                title: movielists[k].title,
                 col_type: 'text_1'
             });
         
             switch (searchReg[k]) {
                 case 'jpys':
                     MY_URL = data.jpys.index;
-                        //var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
+                    try{
                         var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
                         if(list == null) continue;            
-                        var len = list.length>10 ? 10 : list.length;
+                        var len = list.length>9 ? 9 : list.length;
                         for (var j = 0; j < len; j++) {
                             d.push({
                                 title: parseDomForHtml(list[j], 'h4&&Text'),
@@ -3055,52 +3059,51 @@ var searchmovie = (lazyData, keydata)=>{
                                 content:parseDomForHtml(list[j], '.detail--h4&&Text'),
                                 url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
                             });
-                        } 
+                        }
+                    }catch(e){} 
                     break;
                 case 'taotao':
                     MY_URL = data.taotao.index; 
-                    //var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
-                    var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
-                    var list = parseDomForArray(content, 'body&&li');    
-                    if(list == null) continue;        
-                    var len = list.length>10 ? 10 : list.length;
-                    for(var j = 0; j < len; j++){
-                        d.push({
-                            title:parseDomForHtml(list[j],'a&&title'),
-                            desc:parseDomForHtml(list[j],'.pic-tag&&Text'),
-                            pic_url:parseDomForHtml(list[j],'a&&data-original'),
-                            url:$(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
-                            content:parseDomForHtml(list[j],'p.hidden-xs&&Text')
-                        });
-                    }
+                    try{
+                        var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
+                        var list = parseDomForArray(content, 'body&&li');    
+                        if(list == null) continue;        
+                        var len = list.length>9 ? 9 : list.length;
+                        for(var j = 0; j < len; j++){
+                            d.push({
+                                title:parseDomForHtml(list[j],'a&&title'),
+                                desc:parseDomForHtml(list[j],'.pic-tag&&Text'),
+                                pic_url:parseDomForHtml(list[j],'a&&data-original'),
+                                url:$(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
+                                content:parseDomForHtml(list[j],'p.hidden-xs&&Text')
+                            });
+                        }
+                    }catch(e){}
                     break;
                 case 'fivefive':
                     MY_URL = data.fivefive.index;
-                    if(searchType=='全部' || searchType=='555' || condSearch.indexOf('555')>-1) {
-                        //var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
-                        try{
-                            var list = parseDomForArray(html, 'body&&.myui-vodlist__media&&li');
-                            if(list == null) continue;                
-                            var len = list.length>10 ? 10 : list.length;
-                            for (var j = 0; j < len; j++) {
-                                d.push({
-                                    title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
-                                    desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                                    content: parseDomForHtml(list[j], 'p,-2&&Text'),
-                                    pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
-                                    url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() })
-                               });
-                            }
-                         }catch(e){}
-                    }
+                    try{
+                        var list = parseDomForArray(html, 'body&&.myui-vodlist__media&&li');
+                        if(list == null) continue;                
+                        var len = list.length>9 ? 9 : list.length;
+                        for (var j = 0; j < len; j++) {
+                            d.push({
+                                title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
+                                desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                                content: parseDomForHtml(list[j], 'p,-2&&Text'),
+                                pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
+                                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() })
+                            });
+                        }
+                        }catch(e){}
                     break;
                 case 'nfmovie':
-                   // MY_URL = data.nfmovie.index;
-                    if(searchType=='全部' || searchType=='奈菲' || condSearch.indexOf('奈菲')>-1) {
+                    MY_URL = data.nfmovie.index;
+                    try{
                         //var html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1'), {headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
                         var list = parseDom(html, '#searchList&&Html').match(/<li[\s\S]*?<\/li/g);
                         if(list == null) continue;
-                        var len = list.length>6 ? 6 : list.length;
+                        var len = list.length>9 ? 9 : list.length;
                         for (var j = 0; j < len; j++) {
                             d.push({
                                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
@@ -3109,15 +3112,14 @@ var searchmovie = (lazyData, keydata)=>{
                                 url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() })
                             });
                         }
-                    }
+                    }catch(e){}
                     break;
                 case 'nfx':
                     MY_URL = data.nfx.index;
-                    if(searchType=='全部'  || searchType=='奈非星' || condSearch.indexOf('奈非星')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
+                    try{ 
                         var list = parseDomForArray(html, '#searchList&&li');
                         if(list == null) continue;
-                        var len = list.length>6 ? 6 : list.length;
+                        var len = list.length>9 ? 9 : list.length;
                         for (var j = 0; j < len; j++) {
                             d.push({
                                 title: parseDomForHtml(list[j], 'a&&title'),
@@ -3127,15 +3129,14 @@ var searchmovie = (lazyData, keydata)=>{
                                 url: $(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() })
                             });
                         }
-                    }
+                    }catch(e){}
                     break;
                 case 'mjhd':
                     MY_URL = data.mjhd.index;
-                    if(searchType=='全部' || searchType=='美剧' || searchType=='美剧网') {
-                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
-                    var list = parseDomForArray(html, '.myui-panel_bd&&li');//列表
+                    try{ 
+                        var list = parseDomForArray(html, '.myui-panel_bd&&li');//列表
                         if(list == null) continue;
-                        var len = list.length>6 ? 6 : list.length;
+                        var len = list.length>9 ? 9 : list.length;
                         for(var j in list){
                             d.push({
                                 title:parseDomForHtml(list[j],'h4&&a&&Text'),
@@ -3145,15 +3146,14 @@ var searchmovie = (lazyData, keydata)=>{
                                 url: $(parseDom(list[j],'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjhd() })
                             });
                         }
-                    }
+                    }catch(e){}
                     break;
                 case 'xsj':
                     MY_URL = data.xsj.index;
-                    if(searchType=='全部' || searchType=='动漫' || searchType=='新动漫') {
-                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
-                    var list = parseDomForArray(html, 'body&&.leo-detail-wrap');//列表
+                    try{
+                        var list = parseDomForArray(html, 'body&&.leo-detail-wrap');//列表
                         if(list == null) continue;
-                        var len = list.length>6 ? 6 : list.length;
+                        var len = list.length>9 ? 9 : list.length;
                         for (var j = 0; j < len; j++) {
                             d.push({
                                     title: parseDomForHtml(list[j], 'h1&&Text'),
@@ -3162,16 +3162,14 @@ var searchmovie = (lazyData, keydata)=>{
                                     url: $(parseDom(list[j],'a,-2&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() })
                             });
                         }
-                    }
+                    }catch(e){}
                     break;
                 case 'qimi':
                     MY_URL = data.qimi.index;
-                    if(searchType=='全部' || searchType=='动漫' || searchType=='奇米') {
-                    var html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
-                    var list = parseDom(html, 'body&&.show-list&&Html').match(/<li[\s\S]*?<\/li/g);
-                    if(list == null) continue;
-                    var len = list.length>6 ? 6 : list.length;
                     try{
+                        var list = parseDom(html, 'body&&.show-list&&Html').match(/<li[\s\S]*?<\/li/g);
+                        if(list == null) continue;
+                        var len = list.length>9 ? 9 : list.length;
                         for (var j = 0; j < len; j++) {
                             d.push({
                                 title: parseDomForHtml(list[j], 'h2&&a&&Text'),
@@ -3180,184 +3178,158 @@ var searchmovie = (lazyData, keydata)=>{
                                 content:parseDomForHtml(list[j], '.juqing&&dd&&Text'),
                                 url: $(parseDom(list[j],'h2&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() })
                             });
-                        }}catch(e){}
-                    }
+                        }
+                    }catch(e){}
                     break;
                 case 'yyjc':
                     MY_URL = data.yyjc.index;
-                    if(searchType=='全部' || searchType=='影映' || condSearch.indexOf('影映')>-1) {
-                    testUrl(data.yyjc.index);
-                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
-                    var list = parseDomForArray(html, '.vodlist&&li');//列表
+                    try{
+                        testUrl(data.yyjc.index);
+                        var list = parseDomForArray(html, '.vodlist&&li');//列表
+                        var len = list.length>6 ? 6 : list.length;
+                        for (var j = 0; j < len; j++) {
+                            d.push({
+                                title:parseDomForHtml(list[j],'a&&title'),//标题
+                                desc:parseDomForHtml(list[j],'.pic_text&&Text'),//描述
+                                content:parseDomForHtml(list[j],'p,-1&&Text'),//详情
+                                pic_url:parseDom(list[j],'a&&data-original'),//图片
+                                url:$(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_yyjc() })//链接
+                            });
+                        }
+                    }catch(e){}
+                    break;
+                case 'nqy':
+                    MY_URL = data.nqy.index;
+                    try{
+                        var list = parseDomForArray(html, 'body&&.card')//列表
                         if(list == null) continue;
                         var len = list.length>6 ? 6 : list.length;
                         for (var j = 0; j < len; j++) {
                             try{
                                 d.push({
-                                    title:parseDomForHtml(list[j],'a&&title'),//标题
-                                    desc:parseDomForHtml(list[j],'.pic_text&&Text'),//描述
-                                    content:parseDomForHtml(list[j],'p,-1&&Text'),//详情
-                                    pic_url:parseDom(list[j],'a&&data-original'),//图片
-                                    url:$(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_yyjc() })//链接
+                                    title: parseDomForHtml(list[j], '.lazy&&alt'),
+                                    desc: parseDomForHtml(list[j], '.label&&Text'),
+                                    pic_url: parseDom(list[j], '.lazy&&data-original'),
+                                    content:parseDomForHtml(list[j], '.card-content&&Text'),
+                                    url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nqy() })
                                 });
                             }catch(e){''}
                         }
-                    }
-                    break;
-                case 'nqy':
-                    MY_URL = data.nqy.index;
-                    if(searchType=='全部' || searchType=='奇遇' || condSearch.indexOf('奇遇')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
-                        try{
-                            var list = parseDomForArray(html, 'body&&.card')//列表
-                            if(list == null) continue;
-                            var len = list.length>6 ? 6 : list.length;
-                            for (var j = 0; j < len; j++) {
-                                try{
-                                    d.push({
-                                        title: parseDomForHtml(list[j], '.lazy&&alt'),
-                                        desc: parseDomForHtml(list[j], '.label&&Text'),
-                                        pic_url: parseDom(list[j], '.lazy&&data-original'),
-                                        content:parseDomForHtml(list[j], '.card-content&&Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nqy() })
-                                   });
-                                }catch(e){''}
-                            }
-                        }catch(e){}
-                    }
+                    }catch(e){}
                     break;
                 case 'hjw97':
                     MY_URL = data.hjw97.index;
-                    if(searchType=='全部'  || searchType=='韩剧网' || condSearch.indexOf('韩剧网')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
-                        try{
-                            var list = parseDom(html, 'body&&body&&.myui-vodlist__media&&Html').match(/<li[\s\S]*?<\/li/g);
-                            if(list == null) continue;
-                            var len = list.length>6 ? 6 : list.length;
-                            for (var j = 0; j < len; j++) {
-                                try{
-                                    d.push({
-                                        title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
-                                        desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                                        pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
-                                        content:parseDomForHtml(list[j], 'p,-2&&Text'),
-                                        url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_hjw97() })
-                                    });
-                                }catch(e){''}
-                            }
-                        }catch(e){}
-                    }
-                    break;
-                case 'bx':
-                    MY_URL = data.bx.index;
-                    if(searchType=='全部' || searchType=='白熊' || condSearch.indexOf('白熊')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
-                        try{
-                            var list = parseDomForArray(html, 'body&&.fed-deta-info');
-                            if(list == null) continue;
-                            var len = list.length>6 ? 6 : list.length;
-                            for (var j = 0; j < len; j++) {
-                                try{
-                                    d.push({
-                                        title: parseDomForHtml(list[j], 'h1&&Text'),
-                                        desc: parseDomForHtml(list[j], '.fed-list-remarks&&Text'),
-                                        pic_url: parseDom(list[j], 'a&&data-original')+'@Referer=',
-                                        content:parseDomForHtml(list[j], '.fed-part-esan&&Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_bx() })
-                                    });
-                                }catch(e){''}
-                            }
-                        }catch(e){}
-                    }
-                    break;
-                case 'saohuo':
-                    MY_URL = data.saohuo.index;
-                    if(searchType=='全部' || searchType=='骚火' || condSearch.indexOf('骚火')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
-                        try{
-                            var list = parseDom(html, 'body&&.v_list&&Html').match(/<li[\s\S]*?<\/li/g);
-                            if(list == null) continue;
-                            var len = list.length>6 ? 6 : list.length;
-                            for (var j = 0; j < len; j++) {
-                                try{
-                                    d.push({
-                                        title: parseDomForHtml(list[j], 'a&&title'),
-                                        desc: parseDomForHtml(list[j], '.v_note&&Text'),
-                                        pic_url: parseDom(list[j], 'img&&data-original'),
-                                        content:parseDomForHtml(list[j], 'Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_saohuo() })
-                                    });
-                                }catch(e){''}
-                            }
-                        }catch(e){}
-                    }
-                    break;
-                case 'k1080':
-                    MY_URL = data.k1080.index;
-                    if(searchType=='全部' || searchType=='闪电' || condSearch.indexOf('闪电')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
-                        try{
-                            var list = parseDomForArray(html, 'body&&dl:has(dd)');
-                            if(list == null) continue;
-                            var len = list.length>6 ? 6 : list.length;
-                            for (var j = 0; j < len; j++) {
-                                try{
-                                    d.push({
-                                        title: parseDomForHtml(list[j], 'h1&&Text'),
-                                        desc: parseDomForHtml(list[j], '.mo-coxs-center&&Text'),
-                                        content: parseDomForHtml(list[j], '.mo-cols-lg10--h1&&Text'),
-                                        img: parseDom(list[j], 'a&&data-original'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_k1080() })
-                                    });
-                                }catch(e){''}
-                            }
-                        }catch(e){}
-                    }
-                    break;
-                case 'mjc':
-                    MY_URL = data.mjc.index;
-                    if(searchType=='全部' || searchType=='美剧虫' || condSearch.indexOf('美剧虫')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
-                        try{
-                            var list = parseDomForArray(html, 'body&&.myui-vodlist__media&&li');
-                            if(list == null) continue;
-                            var len = list.length>6 ? 6 : list.length;
-                            for (var j = 0; j < len; j++) {
+                    try{
+                        var list = parseDom(html, 'body&&body&&.myui-vodlist__media&&Html').match(/<li[\s\S]*?<\/li/g);
+                        if(list == null) continue;
+                        var len = list.length>6 ? 6 : list.length;
+                        for (var j = 0; j < len; j++) {
+                            try{
                                 d.push({
                                     title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                     pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
-                                    content:parseDomForHtml(list[j], '.hidden-xs&&Text'),
-                                    url:$(parseDom(list[j], '.btn&&href')).rule((mjc_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
+                                    content:parseDomForHtml(list[j], 'p,-2&&Text'),
+                                    url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_hjw97() })
                                 });
-                            }
-                        }catch(e){}
-                    }
+                            }catch(e){''}
+                        }
+                    }catch(e){}
+                    break;
+                case 'bx':
+                    MY_URL = data.bx.index;
+                    try{
+                        var list = parseDomForArray(html, 'body&&.fed-deta-info');
+                        if(list == null) continue;
+                        var len = list.length>6 ? 6 : list.length;
+                        for (var j = 0; j < len; j++) {
+                            try{
+                                d.push({
+                                    title: parseDomForHtml(list[j], 'h1&&Text'),
+                                    desc: parseDomForHtml(list[j], '.fed-list-remarks&&Text'),
+                                    pic_url: parseDom(list[j], 'a&&data-original')+'@Referer=',
+                                    content:parseDomForHtml(list[j], '.fed-part-esan&&Text'),
+                                    url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_bx() })
+                                });
+                            }catch(e){''}
+                        }
+                    }catch(e){}
+                    break;
+                case 'saohuo':
+                    MY_URL = data.saohuo.index;
+                    try{
+                        var list = parseDom(html, 'body&&.v_list&&Html').match(/<li[\s\S]*?<\/li/g);
+                        if(list == null) continue;
+                        var len = list.length>6 ? 6 : list.length;
+                        for (var j = 0; j < len; j++) {
+                            try{
+                                d.push({
+                                    title: parseDomForHtml(list[j], 'a&&title'),
+                                    desc: parseDomForHtml(list[j], '.v_note&&Text'),
+                                    pic_url: parseDom(list[j], 'img&&data-original'),
+                                    content:parseDomForHtml(list[j], 'Text'),
+                                    url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_saohuo() })
+                                });
+                            }catch(e){''}
+                        }
+                    }catch(e){}
+                    break;
+                case 'k1080':
+                    MY_URL = data.k1080.index; 
+                    try{
+                        var list = parseDomForArray(html, 'body&&dl:has(dd)');
+                        if(list == null) continue;
+                        var len = list.length>6 ? 6 : list.length;
+                        for (var j = 0; j < len; j++) {
+                            try{
+                                d.push({
+                                    title: parseDomForHtml(list[j], 'h1&&Text'),
+                                    desc: parseDomForHtml(list[j], '.mo-coxs-center&&Text'),
+                                    content: parseDomForHtml(list[j], '.mo-cols-lg10--h1&&Text'),
+                                    img: parseDom(list[j], 'a&&data-original'),
+                                    url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_k1080() })
+                                });
+                            }catch(e){''}
+                        }
+                    }catch(e){}
+                    break;
+                case 'mjc':
+                    MY_URL = data.mjc.index;
+                    try{
+                        var list = parseDomForArray(html, 'body&&.myui-vodlist__media&&li');
+                        if(list == null) continue;
+                        var len = list.length>6 ? 6 : list.length;
+                        for (var j = 0; j < len; j++) {
+                            d.push({
+                                title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
+                                desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                                pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
+                                content:parseDomForHtml(list[j], '.hidden-xs&&Text'),
+                                url:$(parseDom(list[j], '.btn&&href')).rule((mjc_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
+                            });
+                        }
+                    }catch(e){}
                     break;
                 case 'lengyue':
                     MY_URL = data.lengyue.index;
-                    if(searchType=='全部' || searchType=='冷月' || condSearch.indexOf('冷月')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
-                        try{
-                            var list = parseDomForArray(html, '.myui-vodlist__media&&li');   
-                            if(list == null) continue;             
-                            var len = list.length>6 ? 6 : list.length;
-                            for (var j = 0; j < len; j++) {
-                                d.push({
-                                    title: parseDomForHtml(list[j], 'a&&title'),
-                                    desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                                    pic_url: parseDom(list[j], '.lazyload&&data-original'),
-                                    content: parseDomForHtml(list[j], 'p,-2&&Text'),
-                                    url: $(parseDom(list[j],'a&&href')).rule((lengyue_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lengyue_lazy!=undefined? jx_lengyue(lengyue_lazy) : jx_lengyue();},lengyue_lazy),
-                                });
-                            }
-                        }catch(e){} 
-                    }
+                    try{
+                        var list = parseDomForArray(html, '.myui-vodlist__media&&li');   
+                        if(list == null) continue;             
+                        var len = list.length>6 ? 6 : list.length;
+                        for (var j = 0; j < len; j++) {
+                            d.push({
+                                title: parseDomForHtml(list[j], 'a&&title'),
+                                desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                                pic_url: parseDom(list[j], '.lazyload&&data-original'),
+                                content: parseDomForHtml(list[j], 'p,-2&&Text'),
+                                url: $(parseDom(list[j],'a&&href')).rule((lengyue_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lengyue_lazy!=undefined? jx_lengyue(lengyue_lazy) : jx_lengyue();},lengyue_lazy),
+                            });
+                        }
+                    }catch(e){} 
                     break;
                 case 'ge179':
                     MY_URL = data.ge179.index;
-                    if(searchType=='全部' || searchType=='179' || condSearch.indexOf('179')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
+                    try{
                         var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
                         if(list == null) continue;            
                         var len = list.length>6 ? 6 : list.length;
@@ -3370,29 +3342,27 @@ var searchmovie = (lazyData, keydata)=>{
                                 url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
                             });
                         } 
-                    }
+                    }catch(e){}
                     break;
                 case 'jjys':
                     MY_URL = data.jjys.index;
-                    if(searchType=='全部' || searchType=='久久' || condSearch.indexOf('久久')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
-                        try{
-                            var list = parseDomForArray(html, 'body&&.module-list&&.module-search-item');
-                            if(list == null) continue;
-                            var len = list.length>6 ? 6 : list.length;
-                            for (var j = 0; j < len; j++) {
-                                try{
-                                    d.push({
-                                        title: parseDomForHtml(list[j], '.lazyload&&alt'),
-                                        desc: parseDomForHtml(list[j], '.video-serial&&Text'),
-                                        pic_url: parseDom(list[j], '.lazyload&&data-src'),
-                                        content:parseDomForHtml(list[j], '.video-info-item&&Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() })
-                                   });
-                                }catch(e){''}
-                            }
-                        }catch(e){}
-                    }
+                    try{
+                        var list = parseDomForArray(html, 'body&&.module-list&&.module-search-item');
+                        if(list == null) continue;
+                        var len = list.length>6 ? 6 : list.length;
+                        for (var j = 0; j < len; j++) {
+                            try{
+                                d.push({
+                                    title: parseDomForHtml(list[j], '.lazyload&&alt'),
+                                    desc: parseDomForHtml(list[j], '.video-serial&&Text'),
+                                    pic_url: parseDom(list[j], '.lazyload&&data-src'),
+                                    content:parseDomForHtml(list[j], '.video-info-item&&Text'),
+                                    url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() })
+                                });
+                            }catch(e){''}
+                        }
+                    }catch(e){}
+                    
                     break;
                 default:
                     break;
