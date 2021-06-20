@@ -3020,15 +3020,15 @@ var searchmovie = (lazyData, keydata)=>{
             })*/
             if(searchPage!=-1 && searchPage-1 < i) continue;
             //var search_case = 'k_'+i;
-            var search_case = movielists[i].reg;
+            //var search_case = movielists[i].reg;
             var batUrl = movielists[i].search.replace('关键词', key);
-            Data.push({url: batUrl ,options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
+            batData.push({url: batUrl ,options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
             searchReg.push(movielists[i].reg);
         }
     }
 
-    if(Data!=''){
-        var bHtmlList=batchFetch(Data);
+    if(batData!=''){
+        var bHtmlList=batchFetch(batData);
         for(var k=0;k<bhtml.length;k++){
             var html=bhtml[k];
 
