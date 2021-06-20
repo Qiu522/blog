@@ -3021,17 +3021,25 @@ var searchmovie = (lazyData, keydata)=>{
             if(searchPage!=-1 && searchPage-1 < i) continue;
             //var search_case = 'k_'+i;
             //var search_case = movielists[i].reg;
-            var batUrl = movielists[i].search.replace('关键词', key);
-            batData.push({url: batUrl ,options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
-            searchReg.push(movielists[i].reg);
+            
         }
+    }
+
+    for(var i = 0; i<searchPage; i++){
+        var batUrl = movielists[i].search.replace('关键词', key);
+        batData.push({url: batUrl ,options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
+        searchReg.push(movielists[i].reg);
     }
 
     if(batData!=''){
         var bHtmlList=batchFetch(batData);
         for(var k=0;k<bHtmlList.length;k++){
             var html=bHtmlList[k];
-
+            d.push({
+                title: k,
+                col_type: 'text_1'
+            });
+        
             switch (searchReg[k]) {
                 case 'jpys':
                     MY_URL = data.jpys.index;
