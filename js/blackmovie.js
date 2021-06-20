@@ -2770,7 +2770,7 @@ var searchmovie = (lazyData, keydata)=>{
     }
 
     for(var i in movielists){
-        if(keydata==undefined){
+        
         d.push({
             title:keydata==undefined? movielists[i].title : ('‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: $(movielists[i].search.replace('关键词', key)).rule((lazyData,testUrl)=>{
@@ -3008,7 +3008,7 @@ var searchmovie = (lazyData, keydata)=>{
             },lazyData,testUrl),
             col_type: "text_1"
         });
-        }
+        
         if(keydata!=undefined){
             //eval(fetch('hiker://files/rules/zyf/search.js'));
             /*d.push({
