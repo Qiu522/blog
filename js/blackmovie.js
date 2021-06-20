@@ -3029,8 +3029,8 @@ var searchmovie = (lazyData, keydata)=>{
 
     if(batData!=''){
         var bHtmlList=batchFetch(batData);
-        for(var k=0;k<bhtml.length;k++){
-            var html=bhtml[k];
+        for(var k=0;k<bHtmlList.length;k++){
+            var html=bHtmlList[k];
 
             switch (searchReg[k]) {
                 case 'jpys':
