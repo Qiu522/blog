@@ -2741,6 +2741,8 @@ var k1080index = (d,data)=>{
 }
 var searchmovie = (lazyData, keydata)=>{
     var d = [];
+    var batData = [];var searchReg = [];
+    var tout = '3000';
     var key = keydata!=undefined? keydata : MY_URL.split('$$$')[1];
     var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy, lengyue_lazy} = lazyData;
     //var searchType = [{name:'', key: ''}, {name:'', key: ''}]
@@ -2770,7 +2772,7 @@ var searchmovie = (lazyData, keydata)=>{
     }
 
     for(var i in movielists){
-        
+        if(keydata==undefined){
         d.push({
             title:keydata==undefined? movielists[i].title : ('‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: $(movielists[i].search.replace('关键词', key)).rule((lazyData,testUrl)=>{
@@ -3008,7 +3010,7 @@ var searchmovie = (lazyData, keydata)=>{
             },lazyData,testUrl),
             col_type: "text_1"
         });
-        
+        }
         if(keydata!=undefined){
             //eval(fetch('hiker://files/rules/zyf/search.js'));
             /*d.push({
@@ -3019,11 +3021,21 @@ var searchmovie = (lazyData, keydata)=>{
             if(searchPage!=-1 && searchPage-1 < i) continue;
             //var search_case = 'k_'+i;
             var search_case = movielists[i].reg;
-            switch (search_case) {
+            var batUrl = movielists[i].search.replace('关键词', key);
+            Data.push({url: batUrl ,options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
+            searchReg.push(movielists[i].reg);
+        }
+    }
+
+    if(Data!=''){
+        var bHtmlList=batchFetch(Data);
+        for(var k=0;k<bhtml.length;k++){
+            var html=bhtml[k];
+
+            switch (searchReg[k]) {
                 case 'jpys':
-                    MY_URL = data.jpys.index;
-                    if(searchType=='全部' || searchType=='极品' || condSearch.indexOf('极品')>-1 ) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
+                    //MY_URL = data.jpys.index;
+                        //var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                         var list = parseDomForArray(html, '.myui-vodlist__media&&li');    
                         if(list == null) continue;            
                         var len = list.length>6 ? 6 : list.length;
@@ -3036,12 +3048,10 @@ var searchmovie = (lazyData, keydata)=>{
                                 url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
                             });
                         } 
-                    }
                     break;
                 case 'taotao':
-                    MY_URL = data.taotao.index;
-                    if(searchType=='全部' || searchType=='淘淘' || condSearch.indexOf('淘淘')>-1) { 
-                    var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
+                    //MY_URL = data.taotao.index; 
+                    //var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1'));
                     var content = '<body>' + parseDom(html, 'body&&#searchList&&Html') + '</body>';
                     var list = parseDomForArray(content, 'body&&li');    
                     if(list == null) continue;        
@@ -3054,12 +3064,12 @@ var searchmovie = (lazyData, keydata)=>{
                             url:$(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
                             content:parseDomForHtml(list[j],'p.hidden-xs&&Text')
                         });
-                    }}
+                    }
                     break;
                 case 'fivefive':
-                    MY_URL = data.fivefive.index;
+                    //MY_URL = data.fivefive.index;
                     if(searchType=='全部' || searchType=='555' || condSearch.indexOf('555')>-1) {
-                        var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
+                        //var html = request(movielists[i].search.replace('关键词', key).replace('fypage','1')); 
                         try{
                             var list = parseDomForArray(html, 'body&&.myui-vodlist__media&&li');
                             if(list == null) continue;                
@@ -3077,9 +3087,9 @@ var searchmovie = (lazyData, keydata)=>{
                     }
                     break;
                 case 'nfmovie':
-                    MY_URL = data.nfmovie.index;
+                   // MY_URL = data.nfmovie.index;
                     if(searchType=='全部' || searchType=='奈菲' || condSearch.indexOf('奈菲')>-1) {
-                        var html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1'), {headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
+                        //var html = fetch(movielists[i].search.replace('关键词', key).replace('fypage','1'), {headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});;
                         var list = parseDom(html, '#searchList&&Html').match(/<li[\s\S]*?<\/li/g);
                         if(list == null) continue;
                         var len = list.length>6 ? 6 : list.length;
@@ -3379,6 +3389,7 @@ var searchmovie = (lazyData, keydata)=>{
                 default:
                     break;
             }
+
         }
     }
 
