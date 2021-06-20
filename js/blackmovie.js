@@ -3028,7 +3028,7 @@ var searchmovie = (lazyData, keydata)=>{
     for(var i = 0; i<searchPage; i++){
         var batUrl = movielists[i].search.replace('关键词', key).replace('fypage','1');
         if(movielists[i].reg == 'nfmovie'){
-            Data.push({url:batUrl, options:{headers:{"User-Agent":"Mozilla/5.0","Cookie":getVar("hikernfcookie")},timeout:tout}});
+            batData.push({url:batUrl, options:{headers:{"User-Agent":"Mozilla/5.0","Cookie":getVar("hikernfcookie")},timeout:tout}});
         }else{
             batData.push({url: batUrl, options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
         }
