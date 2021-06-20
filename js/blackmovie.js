@@ -2761,7 +2761,16 @@ var searchmovie = (lazyData, keydata)=>{
         }
     }
 
+    if(keydata!=undefined){
+        d.push({
+            desc: (x5Height!=undefined? x5Height: 100) +'&&float',
+            url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
+            col_type: 'x5_webview_single'
+        })
+    }
+
     for(var i in movielists){
+        if(keydata==undefined){
         d.push({
             title:keydata==undefined? movielists[i].title : ('‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: $(movielists[i].search.replace('关键词', key)).rule((lazyData,testUrl)=>{
@@ -2782,17 +2791,19 @@ var searchmovie = (lazyData, keydata)=>{
                         }
                     }catch(e){}
                 }else if(/flvwec/.test(MY_URL)){
-                    var content = '<body>' + parseDom(getResCode(), 'body&&#searchList&&Html') + '</body>';
-                    var list = parseDomForArray(content, 'body&&li');
-                    for(var i in list){
-                        d.push({
-                            title:parseDomForHtml(list[i],'a&&title'),
-                            desc:parseDomForHtml(list[i],'.pic-tag&&Text'),
-                            pic_url:parseDomForHtml(list[i],'a&&data-original'),
-                            url:$(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
-                            content:parseDomForHtml(list[i],'p.hidden-xs&&Text')
-                        });
-                    }
+                    try{
+                        var content = '<body>' + parseDom(getResCode(), 'body&&#searchList&&Html') + '</body>';
+                        var list = parseDomForArray(content, 'body&&li');
+                        for(var i in list){
+                            d.push({
+                                title:parseDomForHtml(list[i],'a&&title'),
+                                desc:parseDomForHtml(list[i],'.pic-tag&&Text'),
+                                pic_url:parseDomForHtml(list[i],'a&&data-original'),
+                                url:$(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
+                                content:parseDomForHtml(list[i],'p.hidden-xs&&Text')
+                            });
+                        }
+                    }catch(e){}
                 }else if(/o8tv/.test(MY_URL)){
                     try{
                         var list = parseDomForArray(html, 'body&&.myui-vodlist__media&&li');
@@ -2997,14 +3008,14 @@ var searchmovie = (lazyData, keydata)=>{
             },lazyData,testUrl),
             col_type: "text_1"
         });
-
+        }
         if(keydata!=undefined){
             //eval(fetch('hiker://files/rules/zyf/search.js'));
-            d.push({
+            /*d.push({
                 desc: (x5Height!=undefined? x5Height: 100) +'&&float',
                 url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
                 col_type: 'x5_webview_single'
-            })
+            })*/
             if(searchPage!=-1 && searchPage-1 < i) continue;
             //var search_case = 'k_'+i;
             var search_case = movielists[i].reg;
