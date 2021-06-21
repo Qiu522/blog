@@ -3045,6 +3045,7 @@ var searchmovie = (lazyData, keydata)=>{
                         }else{
                             batData.push({url: batUrl, options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
                         }
+                        searchReg.push(movielists[j].reg);
                         break;  
                     }
                 }
