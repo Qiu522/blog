@@ -2,7 +2,7 @@
 //SEARCHALL
 const allList =  ["极品", "淘淘", "555", "奈菲", "奈非星", "美剧网", "新动漫", "奇米", "影映", "韩剧网", "奇遇", "白熊", "骚火", "闪电", "美剧虫", "冷月", "179", "久久"];
 //SEARCHALL
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html',key:'极品'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html', key:'淘淘'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/vodsearch/关键词----------fypage---.html', key:'555'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype=', key:'奈菲'},{ title:'奈非星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/', key:'奈非星'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html', key:'美剧网'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html', key:'新动漫'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html', key:'奇米'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html', key:'影映'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html', key:'奇遇'},{title: '韩剧网', reg:'hjw97', search:'http://www.97hanju.co/vodsearch/关键词----------fypage---/', key:'韩剧网'},{ title:'白熊', reg: 'bx', search:'https://www.woobm.cn/vod/search/page/fypage/wd/关键词.html', key:'白熊'},{ title:'骚火', reg: 'saohuo', search:'https://v.saohuo.la/search.php?page=fypage&searchword=关键词&searchtype=', key:'骚火'},{title:'闪电影院', reg: 'k1080', search:'https://www.ak1080.com/vodsearch/关键词----------fypage---.html', key:'骚火'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/关键词----------fypage---.html', key:'美剧虫'},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html', key:'冷月'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html', key:'179'},{ title:'久久影院', reg: 'jjys', search:'https://www.jiujiuyingsi.com/s/关键词/fypage.html', key:'久久'}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html',key:'极品'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html', key:'淘淘'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/vodsearch/关键词----------fypage---.html', key:'555'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype=', key:'奈菲'},{ title:'奈非星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/', key:'奈非星'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html', key:'美剧网'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html', key:'新动漫'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html', key:'奇米'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html', key:'影映'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html', key:'奇遇'},{title: '韩剧网', reg:'hjw97', search:'http://www.97hanju.co/vodsearch/关键词----------fypage---/', key:'韩剧网'},{ title:'白熊', reg: 'bx', search:'https://www.woobm.cn/vod/search/page/fypage/wd/关键词.html', key:'白熊'},{ title:'骚火', reg: 'saohuo', search:'https://v.saohuo.la/search.php?page=fypage&searchword=关键词&searchtype=', key:'骚火'},{title:'闪电影院', reg: 'k1080', search:'https://www.ak1080.com/vodsearch/关键词----------fypage---.html', key:'闪电'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/关键词----------fypage---.html', key:'美剧虫'},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html', key:'冷月'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html', key:'179'},{ title:'久久影院', reg: 'jjys', search:'https://www.jiujiuyingsi.com/s/关键词/fypage.html', key:'久久'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -2741,7 +2741,7 @@ var k1080index = (d,data)=>{
 }
 var searchmovie = (lazyData, keydata)=>{
     var d = [];
-    var batData = [];var searchReg = [];
+    var batData = [];var searchReg = [];var searchTitle=[];
     var tout = '3000';
     var key = keydata!=undefined? keydata : MY_URL.split('$$$')[1];
     var{jpys_lazy, taotao_lazy, five_lazy, mjc_lazy, lengyue_lazy} = lazyData;
@@ -3033,6 +3033,7 @@ var searchmovie = (lazyData, keydata)=>{
                     batData.push({url: batUrl, options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
                 }
                 searchReg.push(movielists[i].reg);
+                searchTitle.push(movielists[i].title);
             }
         }else if(searchMode == 2){
             var ysList = ysStr.split('&');
@@ -3046,6 +3047,7 @@ var searchmovie = (lazyData, keydata)=>{
                             batData.push({url: batUrl, options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
                         }
                         searchReg.push(movielists[j].reg);
+                        searchTitle.push(movielists[j].title);
                         break;  
                     }
                 }
@@ -3056,8 +3058,9 @@ var searchmovie = (lazyData, keydata)=>{
             var bHtmlList=batchFetch(batData);
             for(var k=0;k<bHtmlList.length;k++){
                 var html=bHtmlList[k];
+                
                 d.push({
-                    title: movielists[k].title,
+                    title: searchTitle[k],
                     col_type: 'text_1'
                 });
             
