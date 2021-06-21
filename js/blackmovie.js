@@ -3040,7 +3040,7 @@ var searchmovie = (lazyData, keydata)=>{
                 for(var j in movielists){
                     if(movielists[j].key == ysList[i]){
                         var batUrl = movielists[j].search.replace('关键词', key).replace('fypage','1');
-                        if(movielists[i].reg == 'nfmovie'){
+                        if(movielists[j].reg == 'nfmovie'){
                             batData.push({url:batUrl, options:{headers:{"User-Agent":"Mozilla/5.0","Cookie":getVar("hikernfcookie")},timeout:tout}});
                         }else{
                             batData.push({url: batUrl, options:{headers:{"User-Agent":MOBILE_UA},timeout:tout}});
