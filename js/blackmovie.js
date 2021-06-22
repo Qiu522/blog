@@ -2971,11 +2971,11 @@ var aidi = (d, data)=>{
 }
 //蘑菇
 var mogu = (d, data)=>{
-    MY_URL = data.aidi.index;
-    var router = data.aidi.router;
-    var type = data.aidi.type;
-    var nav = data.aidi.nav;
-    var html = request(getVar('pageUrl', data.aidi.index));
+    MY_URL = data.mogu.index;
+    var router = data.mogu.router;
+    var type = data.mogu.type;
+    var nav = data.mogu.nav;
+    var html = request(getVar('pageUrl', data.mogu.index));
     var conts =  parseDomForArray(html, 'body&&.stui-pannel:has(.stui-vodlist)'); //第一个不要
 
     for(var i=0; i<nav.length; i++){
