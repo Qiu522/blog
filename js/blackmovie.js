@@ -2839,7 +2839,7 @@ var aidi = (d, data)=>{
     var type = data.aidi.type;
     var nav = data.aidi.nav;
     var html = request(getVar('pageUrl', data.aidi.index));
-    var conts = parseDomForArray(html, 'body&&.mo-cols-lays:has(.mo-cols-rows):contains(更多)'); //第一个不要
+    var conts =  parseDomForArray(html, 'body&&.pannel:has(.vodlist)'); //第一个不要
 
     for(var i=1; i<nav.length; i++){
         var j=i+1;
