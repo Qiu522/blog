@@ -1302,6 +1302,21 @@ var jx_mogu = ()=>{
 
     var lazy= `@lazyRule=.js:var jsurl=decodeURIComponent(JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]).url);var lazy=fetch('https://www.jpysvip.net/dplayer/analysis.php?v='+jsurl,{headers:{"User-Agent":"Mozilla/5.0","Referer":"https://www.jpysvip.net/"}}).match(/url = \"(.*?)\"/)[1];jsurl.indexOf('html')>-1?lazy:jsurl`; 
 
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.stui-content&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.stui-vodlist__thumb&&img&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, 'p,1&&Text') + '\n' + parseDomForHtml(details, 'p,0&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, 'p,-1&&Text'); //简介
+    var dataLine = details.match(/<p[\s\S]*?<\/p>/g)
+    dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+
     //线路
     var conts = parseDomForArray(html,'body&&.playlist&&ul');
     var linelist = parseDomForArray(html, 'body&&#playTab&&li');

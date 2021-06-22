@@ -3729,25 +3729,25 @@ var searchmovie = (lazyData, keydata)=>{
                             }
                         }catch(e){}
                         break;
-                        case 'aidi':
-                            MY_URL = data.mogu.index;
-                            try{
-                                var list = parseDom(html, 'body&&.stui-vodlist__media&&Html').match(/<li[\s\S]*?<\/li/g);
-                                if(list == null) continue;
-                                var len = list.length>9 ? 9 : list.length;
-                                for (var j = 0; j < len; j++) {
-                                    try{
-                                        d.push({
-                                            title: parseDomForHtml(list[j], '.v-thumb&&title'),
-                                            desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                                            pic_url: parseDomForHtml(list[j], '.v-thumb&&style').match(/url\('(.*?)'/)[1]+'@Referer=',
-                                            content:parseDomForHtml(list[j], '.hidden-mi&&Text'),
-                                            url: $(parseDom(list[j], '.v-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mogu() })
-                                        });
-                                    }catch(e){''}
-                                }
-                            }catch(e){}
-                            break;
+                    case 'mogu':
+                        MY_URL = data.mogu.index;
+                        try{
+                            var list = parseDom(html, 'body&&.stui-vodlist__media&&Html').match(/<li[\s\S]*?<\/li/g);
+                            if(list == null) continue;
+                            var len = list.length>9 ? 9 : list.length;
+                            for (var j = 0; j < len; j++) {
+                                try{
+                                    d.push({
+                                        title: parseDomForHtml(list[j], '.v-thumb&&title'),
+                                        desc: parseDomForHtml(list[j], '.pic-text&&Text'),
+                                        pic_url: parseDomForHtml(list[j], '.v-thumb&&style').match(/url\('(.*?)'/)[1]+'@Referer=',
+                                        content:parseDomForHtml(list[j], '.hidden-mi&&Text'),
+                                        url: $(parseDom(list[j], '.v-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mogu() })
+                                    });
+                                }catch(e){''}
+                            }
+                        }catch(e){}
+                        break;
                     default:
                         break;
                 }
