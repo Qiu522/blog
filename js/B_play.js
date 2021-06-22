@@ -1290,3 +1290,43 @@ var jx_aidi = ()=>{
     setHomeResult(res);
 }
 //JXAIDI
+//JXMOGU
+var jx_mogu = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/zyf/black.js'));
+    init({
+    isX5: true,
+    });
+    eval(fetch(jsUrl));
+
+    var lazy= `@lazyRule=.js:var jsurl=decodeURIComponent(JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]).url);var lazy=fetch('https://www.jpysvip.net/dplayer/analysis.php?v='+jsurl,{headers:{"User-Agent":"Mozilla/5.0","Referer":"https://www.jpysvip.net/"}}).match(/url = \"(.*?)\"/)[1];jsurl.indexOf('html')>-1?lazy:jsurl`; 
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.playlist&&ul');
+    var linelist = parseDomForArray(html, 'body&&#playTab&&li');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'mg_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('mg_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXMOGU
