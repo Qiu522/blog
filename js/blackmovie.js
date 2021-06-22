@@ -1548,7 +1548,7 @@ const data = {
     },
     ys757: {
         index:'https://www.757vcd.com/',
-        rouoter: ['hiker://empty','https://www.757vcd.com/vod/show/地区/by/排序/id/分类/年代/page/fypage.html','https://www.757vcd.com/vod/show/地区/by/排序/id/分类/年代/page/fypage.html','https://www.757vcd.com/vod/show/地区/by/排序/id/3/年代/page/fypage.html','https://www.757vcd.com/vod/show/地区/by/排序/id/4/年代/page/fypage.html'],
+        router: ['hiker://empty','https://www.757vcd.com/vod/show/地区/by/排序/id/分类/年代/page/fypage.html','https://www.757vcd.com/vod/show/地区/by/排序/id/分类/年代/page/fypage.html','https://www.757vcd.com/vod/show/地区/by/排序/id/3/年代/page/fypage.html','https://www.757vcd.com/vod/show/地区/by/排序/id/4/年代/page/fypage.html'],
         type: [{},
             {
                 fyclass:{
