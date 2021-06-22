@@ -3916,7 +3916,7 @@ var searchmovie = (lazyData, keydata)=>{
                             }
                         }catch(e){}
                         break;
-                    case '757':
+                    case 'ys757':
                         MY_URL = data.ys757.index;
                         try{
                             var list =  parseDomForArray(html,'body&&.macplus-vodlist__media&&li');
