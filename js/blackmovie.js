@@ -2896,7 +2896,7 @@ var aidi = (d, data)=>{
                 title: parseDomForHtml(list[j], '.vodlist_thumb&&title'),
                 img: parseDom(list[j], '.vodlist_thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic_text&&Text'),
-                url: parseDom(list[j], '.vodlist_thumb&&href'),
+                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_aidi();}),
                 col_type: "movie_3"
             });
         }
