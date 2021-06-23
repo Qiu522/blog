@@ -3518,9 +3518,10 @@ var searchmovie = (lazyData, keydata)=>{
     }
     var spage = MY_URL.split("$$$")[1];
     var length = spage*searchPage;
+    var end = length>movielists.length? movielists.length: length;
     if(keydata!=undefined&&searchMode != 0){
         if(searchMode == 1){
-            for(var i = length - searchPage; i<length; i++){
+            for(var i = length - searchPage; i<end; i++){
                 var batUrl = movielists[i].search.replace('关键词', key).replace('fypage','1');
                 if(movielists[i].reg == 'nfmovie'){
                     batData.push({url:batUrl, options:{headers:{"User-Agent":"Mozilla/5.0","Cookie":getVar("hikernfcookie")},timeout:tout}});
