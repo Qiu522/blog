@@ -3516,10 +3516,11 @@ var searchmovie = (lazyData, keydata)=>{
             //var search_case = 'k_'+i;
             //var search_case = movielists[i].reg; 
     }
-
+    var spage = MY_URL.split("$$$")[1];
+    var length = spage*searchPage;
     if(keydata!=undefined&&searchMode != 0){
         if(searchMode == 1){
-            for(var i = 0; i<searchPage; i++){
+            for(var i = length - searchPage; i<length; i++){
                 var batUrl = movielists[i].search.replace('关键词', key).replace('fypage','1');
                 if(movielists[i].reg == 'nfmovie'){
                     batData.push({url:batUrl, options:{headers:{"User-Agent":"Mozilla/5.0","Cookie":getVar("hikernfcookie")},timeout:tout}});
@@ -3531,6 +3532,7 @@ var searchmovie = (lazyData, keydata)=>{
             }
         }else if(searchMode == 2){
             var ysList = ysStr.split('&');
+            
             for(var i in ysList){
                 for(var j in movielists){
                     if(movielists[j].key == ysList[i]){
