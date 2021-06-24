@@ -2972,7 +2972,7 @@ var saohuoindex = (d, data)=>{
                 title: parseDomForHtml(list[j], 'a&&title'),
                 img: parseDom(list[j], '.lazyload&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.v_note&&Text'),
-                url: parseDom(list[j], 'a&&href'),
+                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_saohuo();}),
                 col_type: "movie_3"
             });
         }
