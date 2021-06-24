@@ -1399,3 +1399,58 @@ var jx_ys757 = ()=>{
     setHomeResult(res);
 }
 //JXYS757
+//JXSKYS
+var jx_skys = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/zyf/black.js'));
+    init({
+    isX5: true,
+    });
+    eval(fetch(jsUrl));
+
+    var lazy=`@lazyRule=.js:var html=parseDomForHtml(request(input),'body&&iframe&&src');if(html.search('xigua')!=-1){var url=parseDomForHtml(fetch(html,{headers:{'Referer':'https://api.sukhd.com'}}),'script&&Html');eval(url.replace('window.location.href','var a'));var html=JSON.parse(request(url)).data.video_list.video_1;try{base64Decode(html.main_url)}catch(e){base64Decode(html.backup_url_1)}}else if(html.search('jxjm')!=-1){let htmls=fetch(html,{headers:{'Referer':'https://www.sukhd.com'}});eval('let url'+htmls.split('var urld')[1].split('var videoUrl')[0]);url}else{''}`
+
+    //影片详情
+    var details = parseDomForArray(html, 'body&&.stui-content__detail&&.data'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.pic&&img&&data-original'); //图片
+
+    var _title = parseDomForHtml(details[2], 'Text') + '\n' + parseDomForHtml(details[3], 'Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(html, 'body&&.stui-content__detail&&.desc&&Text'); //简介
+    var dataLine = details;
+    //dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.stui-content__playlist');
+    var linelist = parseDomForArray(html, 'body&&.stui-pannel__headnr');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'h3&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'skyy_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('skyy_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXSKYS
