@@ -4614,7 +4614,10 @@ var testUrl = function(url){
 var getUpdateInfo = ()=>{
     var html = getResCode();
 
-    if(/flvwec/.test(MY_URL)){
+    if(/jpysvip/.test(MY_URL)){
+        var title = parseDomForHtml(html, '.myui-content__detail&&p,1&&Text');
+        setResult(title);
+    }else if(/flvwec/.test(MY_URL)){
         var time = parseDomForHtml(html, '.myui-content__detail&&p,1&&Text');
         setResult(time);
     }else if(/o8tv/.test(MY_URL)){
@@ -4795,7 +4798,29 @@ var getUpdateInfo = ()=>{
     }else if(/meijuchong/.test(MY_URL)){
         var title = parseDomForHtml(html, '.myui-content__detail&&p,2&&Text');
         setResult(title);
+    }else if(/lengyue/.test(MY_URL)){
+        var title = parseDomForHtml(html, '.myui-content__detail&&p,2&&Text');
+        setResult(title);
+    }else if(/179u/.test(MY_URL)){
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.myui-content__list')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts,'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, ".myui-content__detail&&p,-2&&Text").replace("更新：", "");
+        setResult("更新至: " + title + " | " + time);
+    }else if(/jiujiuying/.test(MY_URL)){
+        var title = parseDomForHtml(html, '.video-info&&.video-info-item,-2&&Text');
+        var time = parseDomForHtml(html, '.video-info&&.video-info-item,-3&&Text');
+        setResult("更新至: " + title + " | " + time);
     }
 
-
+    
 }
