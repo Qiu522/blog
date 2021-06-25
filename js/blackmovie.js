@@ -4789,6 +4789,13 @@ var getUpdateInfo = ()=>{
         // 获取更新时间，确保有更新时能正常提示
         var time = parseDomForHtml(html, ".play-ail&&p,-2&&Text").replace("时间：", "");
         setResult("更新至: " + title + " | " + time);
+    }else if(/sukhdw/.test(MY_URL)){
+        var title = parseDomForHtml(html, '.stui-content__detail&&p,1&&Text');
+        setResult(time);
+    }else if(/meijuchong/.test(MY_URL)){
+        var title = parseDomForHtml(html, '.myui-content__detail&&p,2&&Text');
+        setResult(time);
     }
+
 
 }
