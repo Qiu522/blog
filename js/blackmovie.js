@@ -4730,7 +4730,6 @@ var getUpdateInfo = ()=>{
         var time = parseDomForHtml(html, ".fed-deta-content&&li,-2&&Text").replace("更新：", "");
         setResult("更新至: " + title + " | " + time);
     }else if(/saohuo/.test(MY_URL)){
-        html = request(MY_URL)
         // 播放列表的列表的定位
         var conts = parseDomForArray(html,'body&&.play_list||.large_list&&li')[0];
         // 选集列表的定位
@@ -4760,7 +4759,36 @@ var getUpdateInfo = ()=>{
         // 获取更新时间，确保有更新时能正常提示
         var time = parseDomForHtml(html, ".mo-deta-info&&li,-2&&Text").replace("更新：", "");
         setResult("更新至: " + title + " | " + time);
+    }else if(/mogu/.test(MY_URL)){
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.playlist&&ul')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts,'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, ".stui-content__detail&&p,4&&Text").replace("时间：", "");
+        setResult("更新至: " + title + " | " + time);
+    }else if(/757vcd/.test(MY_URL)){
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.playlist&&ul')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts,'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, ".play-ail&&p,-2&&Text").replace("时间：", "");
+        setResult("更新至: " + title + " | " + time);
     }
 
-    
 }
