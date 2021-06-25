@@ -4730,10 +4730,11 @@ var getUpdateInfo = ()=>{
         var time = parseDomForHtml(html, ".fed-deta-content&&li,-2&&Text").replace("更新：", "");
         setResult("更新至: " + title + " | " + time);
     }else if(/saohuo/.test(MY_URL)){
+        html = request(MY_URL)
         // 播放列表的列表的定位
-        var conts = parseDomForArray(html,'body&&.play_list||.large_list&&li');
+        var conts = parseDomForArray(html,'body&&.play_list||.large_list&&li')[0];
         // 选集列表的定位
-        var list=conts[0].match(/<a[\s\S]*?<\/a>/g);
+        var list=conts.match(/<a[\s\S]*?<\/a>/g);
         var title="";
         // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
         for(let i = 1; i < list.length; i++) {
