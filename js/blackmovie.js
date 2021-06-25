@@ -4675,7 +4675,7 @@ var getUpdateInfo = ()=>{
         // 播放列表的列表的定位
         var conts = parseDomForArray(html,'body&&.video_list')[0];
         // 选集列表的定位
-        var list=parseDomForArray(conts, 'ul&&li');
+        var list=conts.match(/<a[\s\S]*?<\/a>/g);
         var title="";
         // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
         for(let i = 1; i < list.length; i++) {
