@@ -4791,10 +4791,10 @@ var getUpdateInfo = ()=>{
         setResult("更新至: " + title + " | " + time);
     }else if(/sukhdw/.test(MY_URL)){
         var title = parseDomForHtml(html, '.stui-content__detail&&p,1&&Text');
-        setResult(time);
+        setResult(title);
     }else if(/meijuchong/.test(MY_URL)){
         var title = parseDomForHtml(html, '.myui-content__detail&&p,2&&Text');
-        setResult(time);
+        setResult(title);
     }
 
 
