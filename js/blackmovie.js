@@ -4631,6 +4631,10 @@ var getUpdateInfo = ()=>{
         }
         setResult("更新至: " + title + " | " + time);
 
+    }else if(/aidi/.test(MY_URL)){
+        var title = parseDomForHtml(html, '.detail_list_box&&.content_detail,1&&ul&&li,1&&.data_style');
+        var time = parseDomForHtml(html, '.detail_list_box&&.content_detail,1&&ul&&li,1&&em');
+        setResult( title + " | " + time);
     }else if(/nfmovie/.test(MY_URL)){
         // 播放列表的列表的定位
         var conts = parseDomForArray(html, 'body&&.myui-content__list')[0];
@@ -4646,5 +4650,9 @@ var getUpdateInfo = ()=>{
         // 获取更新时间，确保有更新时能正常提示
         var time = parseDomForHtml(html, ".myui-content__detail&&p,4&&Text").replace("更新：", "");
         setResult("更新至: " + title + " | " + time);
+    }else if(/nfxhd/.test(MY_URL)){
+        var time = parseDomForHtml(html, '.myui-content__detail&&p.1&&Text');
+        setResult(time);
     }
+
 }
