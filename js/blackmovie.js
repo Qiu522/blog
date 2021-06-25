@@ -4614,7 +4614,10 @@ var testUrl = function(url){
 var getUpdateInfo = ()=>{
     var html = getResCode();
 
-    if(/nfmovie/.test(MY_URL)){
+    if(/flvwec/.test(MY_URL)){
+        var time = parseDomForHtml(html, '.myui-content__detail&&p,1&&Text');
+        setResult(time);
+    }else if(/nfmovie/.test(MY_URL)){
         // 播放列表的列表的定位
         var conts = parseDomForArray(html, 'body&&.myui-content__list')[0];
         // 选集列表的定位
