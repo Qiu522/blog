@@ -4617,6 +4617,20 @@ var getUpdateInfo = ()=>{
     if(/flvwec/.test(MY_URL)){
         var time = parseDomForHtml(html, '.myui-content__detail&&p,1&&Text');
         setResult(time);
+    }else if(/o8tv/.test(MY_URL)){
+        var time = parseDomForHtml(html, '.myui-player__data&&p&&Text').split('/')[0].replace("更新",'');
+
+        var conts = parseDomForArray(html,'body&&.myui-content__list')[0];
+        var list=parseDomForArray(conts, 'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        setResult("更新至: " + title + " | " + time);
+
     }else if(/nfmovie/.test(MY_URL)){
         // 播放列表的列表的定位
         var conts = parseDomForArray(html, 'body&&.myui-content__list')[0];
