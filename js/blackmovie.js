@@ -4632,8 +4632,8 @@ var getUpdateInfo = ()=>{
         setResult("更新至: " + title + " | " + time);
 
     }else if(/aidi/.test(MY_URL)){
-        var title = parseDomForHtml(html, '.detail_list_box&&.content_detail,1&&ul&&li,1&&.data_style');
-        var time = parseDomForHtml(html, '.detail_list_box&&.content_detail,1&&ul&&li,1&&em');
+        var title = parseDomForHtml(html, '.detail_list_box&&.content_detail,1&&ul&&li,1&&.data_style&&Text');
+        var time = parseDomForHtml(html, '.detail_list_box&&.content_detail,1&&ul&&li,1&&em&&Text');
         setResult( title + " | " + time);
     }else if(/nfmovie/.test(MY_URL)){
         // 播放列表的列表的定位
@@ -4651,7 +4651,7 @@ var getUpdateInfo = ()=>{
         var time = parseDomForHtml(html, ".myui-content__detail&&p,4&&Text").replace("更新：", "");
         setResult("更新至: " + title + " | " + time);
     }else if(/nfxhd/.test(MY_URL)){
-        var time = parseDomForHtml(html, '.myui-content__detail&&p.1&&Text');
+        var time = parseDomForHtml(html, '.myui-content__detail&&p,1&&Text');
         setResult(time);
     }
 
