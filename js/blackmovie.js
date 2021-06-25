@@ -2962,7 +2962,7 @@ var hjwindex = (d,data)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: parseDom(list[j], '.myui-vodlist__thumb&&href'),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_hjw97();}),
                 col_type: "movie_3"
             });
         }
