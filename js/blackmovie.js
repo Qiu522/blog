@@ -4610,3 +4610,24 @@ var testUrl = function(url){
         }
     }catch(e){ }
 }
+
+var getUpdateInfo = ()=>{
+    var html = getResCode();
+
+    if(/nfmovie/.test(MY_URL)){
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html, 'body&&.myui-content__list')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts, 'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, ".myui-content__detail&&p,4&&Text").replace("更新：", "");
+        setResult("更新至: " + title + " | " + time);
+    }
+}
