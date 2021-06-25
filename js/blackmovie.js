@@ -4707,6 +4707,14 @@ var getUpdateInfo = ()=>{
     }else if(/acmdy/.test(MY_URL)){
         var time = parseDomForHtml(html, '.content_detail,1&&li,1&&Text');
         setResult(time);
+    }else if(/newqiyu/.test(MY_URL)){
+        var time = parseDomForHtml(html, '.panel&&p,-2&&Text');
+        setResult(time);
+    }else if(/97hanju/.test(MY_URL)){
+        var title = parseDomForHtml(html, '.myui-panel-box&&p,0&&Text');
+        var time = parseDomForHtml(html, '.myui-panel-box&&p,2&&Text');
+        setResult( title + " | " + time);
     }
 
+    
 }
