@@ -4701,6 +4701,12 @@ var getUpdateInfo = ()=>{
         // 获取更新时间，确保有更新时能正常提示
         //var time = parseDomForHtml(html, ".myui-content__detail&&p,4&&Text").replace("更新：", "");
         setResult("更新至: " + title );
+    }else if(/ubo110/.test(MY_URL)){
+        var time = parseDomForHtml(html, '.myui-content__detail&&p,2&&Text');
+        setResult(time);
+    }else if(/acmdy/.test(MY_URL)){
+        var time = parseDomForHtml(html, '.content_detail,1&&li,1&&Text');
+        setResult(time);
     }
 
 }
