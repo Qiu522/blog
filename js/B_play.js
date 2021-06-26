@@ -21,6 +21,7 @@ var jx_555 = ()=>{
     });
 
     //线路
+    try{
     var conts = parseDomForArray(html,'body&&.myui-content__list');
     var linelist = parseDomForArray(html, 'body&&.nav&&.item&&li');
     var tabs = [];
@@ -42,7 +43,25 @@ var jx_555 = ()=>{
     });
 
     d.push({title: '<br>', col_type: 'rich_text'});
-    //}catch(e){ }
+    }catch(e){ }
+
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var time = parseDomForHtml(html, '.myui-player__data&&p&&Text').split('/')[0].replace("更新",'');
+        var conts = parseDomForArray(html,'body&&.myui-content__list')[0];
+        var list=parseDomForArray(conts, 'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
