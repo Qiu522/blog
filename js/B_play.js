@@ -1,7 +1,7 @@
 //555影视
 var jx_555 = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({isDn: true});
     eval(fetch(jsUrl));
    
@@ -71,7 +71,7 @@ var jx_555 = ()=>{
 //taotao
 var jx_taotao=()=>{
     var res ,d ,html, jsUrl, setUrl; 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isDn: true,
     });
@@ -136,7 +136,7 @@ var jx_taotao=()=>{
                     title: parseDomForHtml(likeList[i], '.title&&Text'),
                     img: parseDom(likeList[i], '.myui-vodlist__thumb&&style'),
                     desc: parseDomForHtml(likeList[i], '.pic-text&&Text'),
-                    url: $(parseDom(likeList[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
+                    url: $(parseDom(likeList[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                     col_type: "movie_3"
                 });
             
@@ -251,7 +251,7 @@ var jx_360 = ()=>{
         }
     }
 
-    eval(fetch('hiker://files/rules/zyf/black.js').split('//BLDETAIL')[1].split('//BLDETAIL')[0]);
+    eval(fetch('hiker://files/rules/black/black.js').split('//BLDETAIL')[1].split('//BLDETAIL')[0]);
     //影片信息
     try{
         var details = parseDomForHtml(html, 'body&&.box&&Html'); //影片信息
@@ -336,7 +336,7 @@ var jx_360 = ()=>{
 var jx_dgdy = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({isDn:true});
     eval(fetch(jsUrl));
 
@@ -387,7 +387,7 @@ var jx_dgdy = ()=>{
 var jx_mjc = (lazyRule)=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     isDn: true
@@ -451,13 +451,13 @@ var jx_mjc = (lazyRule)=>{
 var jx_jpys = (lazyRule)=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
       isDn: true
     });
     eval(fetch(jsUrl));
 
-    var lazy =lazyRule!=undefined? lazyRule: `@lazyRule=.js:var get =fetch(input,{headers:{"User-Agent":PC_UA,"Referer":"https://www.jpysvip.net"}});var js = parseDomForHtml(get,".myui-player__box&&script&&Html");eval(js);var url=player_data.url;var fro=player_data.from;if(url.indexOf('html')>0){var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));aytmParse(url);}else if(fro=='xinm3u8'){var play=fetch('https://jxn.dxsdkw.cn/x2.php?id='+url,{}).match(/url: \'(.*?)\'/)[1];play;}else{url}`;
+    var lazy =lazyRule!=undefined? lazyRule: `@lazyRule=.js:var get =fetch(input,{headers:{"User-Agent":PC_UA,"Referer":"https://www.jpysvip.net"}});var js = parseDomForHtml(get,".myui-player__box&&script&&Html");eval(js.replace(/player_.*?={/,'player_data={'));var url=player_data.url;var fro=player_data.from;if(url.indexOf('html')>0){var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));aytmParse(url);}else if(fro=='xinm3u8'){var play=fetch('https://jxn.dxsdkw.cn/x2.php?id='+url,{}).match(/url: \'(.*?)\'/)[1];play;}else{url}`;
 
     //影片详情
     var details = parseDomForHtml(html, 'body&&.myui-content__detail&&Html'); //影片信息
@@ -514,7 +514,7 @@ var jx_jpys = (lazyRule)=>{
 var jx_lengyue = (lazyRule)=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isDn: true,
     });
@@ -577,7 +577,7 @@ var jx_lengyue = (lazyRule)=>{
 var jx_ge179 = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -652,7 +652,7 @@ var jx_ge179 = ()=>{
 var jx_nfmovie = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
         isX5: true,
     });
@@ -728,7 +728,7 @@ var jx_nfmovie = ()=>{
 var jx_nfx = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -791,7 +791,7 @@ var jx_nfx = ()=>{
 var jx_mjhd = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -853,7 +853,7 @@ var jx_mjhd = ()=>{
 var jx_xsj = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -926,7 +926,7 @@ var jx_xsj = ()=>{
 var jx_yyjc = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isDn: true
     });
@@ -992,7 +992,7 @@ var jx_yyjc = ()=>{
 var jx_qimi = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -1067,7 +1067,7 @@ var jx_qimi = ()=>{
 var jx_jjys = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     });
     //eval(fetch(jsUrl));
@@ -1128,7 +1128,7 @@ var jx_jjys = ()=>{
 var jx_nqy = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -1191,7 +1191,7 @@ var jx_nqy = ()=>{
 var jx_hjw97 = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -1255,7 +1255,7 @@ var jx_hjw97 = ()=>{
 var jx_bx = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     isDn: true
@@ -1331,7 +1331,7 @@ var jx_bx = ()=>{
 var jx_saohuo = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -1406,7 +1406,7 @@ var jx_saohuo = ()=>{
 var jx_k1080 = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -1481,7 +1481,7 @@ var jx_k1080 = ()=>{
 var jx_aidi = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -1545,7 +1545,7 @@ var jx_aidi = ()=>{
 var jx_mogu = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -1620,7 +1620,7 @@ var jx_mogu = ()=>{
 var jx_ys757 = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -1694,7 +1694,7 @@ var jx_ys757 = ()=>{
 var jx_skys = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -1758,7 +1758,7 @@ var jx_skys = ()=>{
 var jx_mhdy = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });
@@ -1818,7 +1818,7 @@ var jx_mhdy = ()=>{
 var jx_nnm = ()=>{
     var res ,d ,html, jsUrl, setUrl; 
 
-    eval(fetch('hiker://files/rules/zyf/black.js'));
+    eval(fetch('hiker://files/rules/black/black.js'));
     init({
     isX5: true,
     });

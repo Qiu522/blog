@@ -338,35 +338,35 @@ div.search {
      function update(){
         var r=confirm("点击确认进行更新!");
         if (r==true){
-            let localHtml = fy_bridge_app.fetch('hiker://files/rules/zyf/black.js');
+            let localHtml = fy_bridge_app.fetch('hiker://files/rules/black/black.js');
             let gitHtml = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/black.js');
             if (!localHtml || localHtml != gitHtml) {
-                fy_bridge_app.writeFile("hiker://files/rules/zyf/black.js", gitHtml);
+                fy_bridge_app.writeFile("hiker://files/rules/black/black.js", gitHtml);
             }
 
-            let B_play = fy_bridge_app.fetch('hiker://files/rules/zyf/B_play.js');
+            let B_play = fy_bridge_app.fetch('hiker://files/rules/black/B_play.js');
             let git_play = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/B_play.js');
             if (!B_play || B_play != git_play) {
-                fy_bridge_app.writeFile("hiker://files/rules/zyf/B_play.js", git_play); 
+                fy_bridge_app.writeFile("hiker://files/rules/black/B_play.js", git_play); 
             }
 
-            let blackmovie = fy_bridge_app.fetch('hiker://files/rules/zyf/blackmovie.js');
+            let blackmovie = fy_bridge_app.fetch('hiker://files/rules/black/blackmovie.js');
             let git_movie = fy_bridge_app.fetch('https://qiu522.github.io/blog/js/blackmovie.js');
             if (!blackmovie || blackmovie != git_movie) {
-                fy_bridge_app.writeFile("hiker://files/rules/zyf/blackmovie.js", git_movie); 
+                fy_bridge_app.writeFile("hiker://files/rules/black/blackmovie.js", git_movie); 
             }
 
-            let tc = fy_bridge_app.fetch('hiker://files/rules/zyf/tc.html');
+            let tc = fy_bridge_app.fetch('hiker://files/rules/black/tc.html');
             let git_tc = fy_bridge_app.fetch('https://qiu522.github.io/blog/html/search.html');
             if (!tc || tc != git_tc) {
-                fy_bridge_app.writeFile("hiker://files/rules/zyf/tc.html", git_tc); 
+                fy_bridge_app.writeFile("hiker://files/rules/black/tc.html", git_tc); 
             }
             fy_bridge_app.refreshPage(true);
         }
     }
     function setting(){
         //var r=confirm("点击确认进行更新!");
-        let detailRule = `js:eval(fetch('hiker://files/rules/zyf/blackmovie.js'));settingPage();`
+        let detailRule = `js:eval(fetch('hiker://files/rules/black/blackmovie.js'));settingPage();`
         fy_bridge_app.toDetailPage('黑黑设置', "hiker://empty", '333', '', detailRule, '')
 
         //fy_bridge_app.putVar("setting", '1');

@@ -418,7 +418,7 @@ var setMovieDetail = (dataObj)=>{
             img: _img
         };
         putVar('temp_data', JSON.stringify(data))
-        sUrl=`@lazyRule=.js:eval(fetch('hiker://files/rules/zyf/black.js'));iniHisData();var r=addPageItem(getVar('page_key'), JSON.parse(getVar('temp_data')));refreshPage(false);r?'toast://收藏成功😮😮😮' :'toast://已存在😮😮😵'`
+        sUrl=`@lazyRule=.js:eval(fetch('hiker://files/rules/black/black.js'));iniHisData();var r=addPageItem(getVar('page_key'), JSON.parse(getVar('temp_data')));refreshPage(false);r?'toast://收藏成功😮😮😮' :'toast://已存在😮😮😵'`
         
     }
     d.push({

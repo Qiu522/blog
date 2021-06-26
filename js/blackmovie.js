@@ -1839,10 +1839,10 @@ var hikerHomePage = (lazyData)=>{
             col_type:'scroll_button'
         });
     }
-    eval(fetch('hiker://files/rules/zyf/search.js'));
+    eval(fetch('hiker://files/rules/black/search.js'));
     d.push({
         desc: (x5Height!=undefined ? x5Height: 100) +'&&float',
-        url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
+        url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/black/search.html',
         col_type: 'x5_webview_single'
     })
 
@@ -1925,7 +1925,7 @@ var mjcindex = (d, data, lazyRule)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index, lazyRule) => {
-                var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -1936,7 +1936,7 @@ var mjcindex = (d, data, lazyRule)=>{
                             title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
-                            url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js'));  lazyRule!=undefined? jx_mjc(lazyRule): jx_mjc()}, lazyRule),
+                            url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js'));  lazyRule!=undefined? jx_mjc(lazyRule): jx_mjc()}, lazyRule),
                             col_type: "movie_3"
                         })
                     }
@@ -1951,7 +1951,7 @@ var mjcindex = (d, data, lazyRule)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==99?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==99?'':$(router[i]).rule((type, index, lazyRule) => {
-            var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+            var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -1962,7 +1962,7 @@ var mjcindex = (d, data, lazyRule)=>{
                         title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
-                        url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js'));  lazyRule!=undefined? jx_mjc(lazyRule): jx_mjc()}, lazyRule),
+                        url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js'));  lazyRule!=undefined? jx_mjc(lazyRule): jx_mjc()}, lazyRule),
                         col_type: "movie_3"
                     })
                 }
@@ -1975,7 +1975,7 @@ var mjcindex = (d, data, lazyRule)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js'));  lazyRule!=undefined? jx_mjc(lazyRule): jx_mjc()}, lazyRule),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js'));  lazyRule!=undefined? jx_mjc(lazyRule): jx_mjc()}, lazyRule),
                 col_type: "movie_3"
             });
         }
@@ -1994,7 +1994,7 @@ var taotaoindex = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2006,7 +2006,7 @@ var taotaoindex = (d, data)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original'),
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                             col_type: "movie_3"
                         })
                     }
@@ -2021,7 +2021,7 @@ var taotaoindex = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("更多", "") + " <small><small><font color='#f9906f'>更多></font></small></small>",
             url: $(router[i]).rule((type, index) => {
-            var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+            var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 var html =request(getVar('pageUrl'));
@@ -2032,7 +2032,7 @@ var taotaoindex = (d, data)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original'),
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2046,7 +2046,7 @@ var taotaoindex = (d, data)=>{
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                 url: 
-$(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
+$(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                 col_type: "movie_3"
             });
         }
@@ -2065,7 +2065,7 @@ var fiveindex = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2076,7 +2076,7 @@ var fiveindex = (d, data)=>{
                             title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original'),
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
-                            url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
+                            url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_555() }),
                             col_type: "movie_3"
                         })
                     }
@@ -2093,7 +2093,7 @@ var fiveindex = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("更多>", "") + (i==2||i==3?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: $(router[j]).rule((type, index) => {
-                var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
 
                 var html =request(getVar('pageUrl'));
@@ -2103,7 +2103,7 @@ var fiveindex = (d, data)=>{
                         title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original'),
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
-                        url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
+                        url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_555() }),
                         col_type: 'movie_3'
                     })
                 }
@@ -2116,7 +2116,7 @@ var fiveindex = (d, data)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() }),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_555() }),
                 col_type: "movie_3"
             });
         }
@@ -2134,7 +2134,7 @@ var jpysindex = (d,data, lazyRule)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index, lazyRule) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     var html =request(getVar('pageUrl'));
@@ -2145,7 +2145,7 @@ var jpysindex = (d,data, lazyRule)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys() }, lazyRule),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys() }, lazyRule),
                             col_type: "movie_3"
                         })
                     }
@@ -2160,7 +2160,7 @@ var jpysindex = (d,data, lazyRule)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index, lazyRule) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2172,7 +2172,7 @@ var jpysindex = (d,data, lazyRule)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}, lazyRule),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}, lazyRule),
                         col_type: "movie_3"
                     })
                 }
@@ -2185,7 +2185,7 @@ var jpysindex = (d,data, lazyRule)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}, lazyRule),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}, lazyRule),
                 col_type: "movie_3"
             });
         }
@@ -2199,13 +2199,13 @@ var lengyueindex = (d,data, lazyRule)=>{
     var html = request(getVar('pageUrl', data.lengyue.index));
     var conts = parseDomForArray(html, 'body&&.myui-panel:has(.myui-vodlist)'); //第一个不要
 
-    //refreshX5WebView('file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/Slider2.html');
+    //refreshX5WebView('file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/black/Slider2.html');
 
     for(var i=1; i<nav.length; i++){
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index, lazyRule) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2217,7 +2217,7 @@ var lengyueindex = (d,data, lazyRule)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js'));lazyRule!=undefined? jx_lengyue(lazyRule): jx_lengyue() }, lazyRule),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js'));lazyRule!=undefined? jx_lengyue(lazyRule): jx_lengyue() }, lazyRule),
                             col_type: "movie_3"
                         })
                     }
@@ -2232,7 +2232,7 @@ var lengyueindex = (d,data, lazyRule)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index, lazyRule) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2244,7 +2244,7 @@ var lengyueindex = (d,data, lazyRule)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                          url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js'));lazyRule!=undefined? jx_lengyue(lazyRule): jx_lengyue() }, lazyRule),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js'));lazyRule!=undefined? jx_lengyue(lazyRule): jx_lengyue() }, lazyRule),
                         col_type: "movie_3"
                     })
                 }
@@ -2257,7 +2257,7 @@ var lengyueindex = (d,data, lazyRule)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/zyf/B_play.js'));lazyRule!=undefined? jx_lengyue(lazyRule): jx_lengyue() }, lazyRule),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js'));lazyRule!=undefined? jx_lengyue(lazyRule): jx_lengyue() }, lazyRule),
                 col_type: "movie_3"
             });
         }
@@ -2276,7 +2276,7 @@ var ge179index = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2288,7 +2288,7 @@ var ge179index = (d, data)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() }),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ge179() }),
                                 col_type: "movie_3"
                         })
                     }
@@ -2303,7 +2303,7 @@ var ge179index = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2315,7 +2315,7 @@ var ge179index = (d, data)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() }),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ge179() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2328,7 +2328,7 @@ var ge179index = (d, data)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() }),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ge179() }),
                 col_type: "movie_3"
             });
         }
@@ -2347,7 +2347,7 @@ var nfmovieindex = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2359,7 +2359,7 @@ var nfmovieindex = (d, data)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() }),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nfmovie() }),
                                 col_type: "movie_3"
                         })
                     }
@@ -2374,7 +2374,7 @@ var nfmovieindex = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==1?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==1?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2386,7 +2386,7 @@ var nfmovieindex = (d, data)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() }),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nfmovie() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2399,7 +2399,7 @@ var nfmovieindex = (d, data)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() }),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nfmovie() }),
                 col_type: "movie_3"
             });
         }
@@ -2418,7 +2418,7 @@ var nfxindex = (d,data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     var html =request(getVar('pageUrl'));
@@ -2428,7 +2428,7 @@ var nfxindex = (d,data)=>{
                             title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
-                            url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() }),
+                            url: $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nfx() }),
                                 col_type: "movie_3"
                         })
                     }
@@ -2443,7 +2443,7 @@ var nfxindex = (d,data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==10?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==10?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 var html =request(getVar('pageUrl'));
@@ -2454,7 +2454,7 @@ var nfxindex = (d,data)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() }),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nfx() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2467,7 +2467,7 @@ var nfxindex = (d,data)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() }),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nfx() }),
                 col_type: "movie_3"
             });
         }
@@ -2486,7 +2486,7 @@ var mjhdindex = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     var html =request(getVar('pageUrl'));
@@ -2497,7 +2497,7 @@ var mjhdindex = (d, data)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjhd() }),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_mjhd() }),
                                 col_type: "movie_3"
                         })
                     }
@@ -2512,7 +2512,7 @@ var mjhdindex = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2524,7 +2524,7 @@ var mjhdindex = (d, data)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjhd() }),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_mjhd() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2537,7 +2537,7 @@ var mjhdindex = (d, data)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjhd() }),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_mjhd() }),
                 col_type: "movie_3"
             });
         }
@@ -2556,7 +2556,7 @@ var xsjindex = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     var html =request(getVar('pageUrl'));
@@ -2567,7 +2567,7 @@ var xsjindex = (d, data)=>{
                             img: parseDom(list[i], '.leo-lazy&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.leo-video-remark&&Text'),
                             url: 
-        $(parseDom(list[i], '.leo-show&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() }),
+        $(parseDom(list[i], '.leo-show&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_xsj() }),
                         })
                     }
                     setResult(d)
@@ -2581,7 +2581,7 @@ var xsjindex = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], '.leo-mod-title&&Text').replace("查看更多", "") + (i==1||i==2?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2593,7 +2593,7 @@ var xsjindex = (d, data)=>{
                         img: parseDom(list[i], '.leo-lazy&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.leo-video-remark&&Text'),
                         url: 
-    $(parseDom(list[i], '.leo-show&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() }),
+    $(parseDom(list[i], '.leo-show&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_xsj() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2607,7 +2607,7 @@ var xsjindex = (d, data)=>{
                 img: parseDom(list[j], '.leo-lazy&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.leo-video-remark&&Text'),
                 url: 
-                $(parseDom(list[j], '.leo-show&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() }),
+                $(parseDom(list[j], '.leo-show&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_xsj() }),
                 col_type: "movie_3"
             });
         }
@@ -2626,7 +2626,7 @@ var yyjcindex = (d,data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2638,7 +2638,7 @@ var yyjcindex = (d,data)=>{
                             img: parseDom(list[i], '.vodlist_thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic_text&&Text'),
                             url: 
-        $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_yyjc() }),
+        $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_yyjc() }),
                                 col_type: "movie_3"
                         })
                     }
@@ -2653,7 +2653,7 @@ var yyjcindex = (d,data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2665,7 +2665,7 @@ var yyjcindex = (d,data)=>{
                         img: parseDom(list[i], '.vodlist_thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic_text&&Text'),
                         url: 
-    $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_yyjc() }),
+    $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_yyjc() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2678,7 +2678,7 @@ var yyjcindex = (d,data)=>{
                 title: parseDomForHtml(list[j], '.vodlist_thumb&&title'),
                 img: parseDom(list[j], '.vodlist_thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic_text&&Text'),
-                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_yyjc() }),
+                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_yyjc() }),
                 col_type: "movie_3"
             });
         }
@@ -2697,7 +2697,7 @@ var qimiindex = (d,data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2709,7 +2709,7 @@ var qimiindex = (d,data)=>{
                             img: parseDom(list[i], 'img&&src')+'@Referer=',
                             desc: parseDomForHtml(list[i], 'i&&Text'),
                             url: 
-        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() }),
+        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_qimi() }),
                                 col_type: "movie_3"
                         })
                     }
@@ -2724,7 +2724,7 @@ var qimiindex = (d,data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], '.ui-title&&h2&&Text').replace("", "") + (i==99?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==99?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2736,7 +2736,7 @@ var qimiindex = (d,data)=>{
                         img: parseDom(list[i], 'img&&src')+'@Referer=',
                         desc: parseDomForHtml(list[i], 'i&&Text'),
                         url: 
-    $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() }),
+    $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_qimi() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2750,7 +2750,7 @@ var qimiindex = (d,data)=>{
                 img: parseDom(list[j], 'img&&src')+'@Referer=',
                 desc: parseDomForHtml(list[j], 'i&&Text'),
                 url: 
-    $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() }),
+    $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_qimi() }),
                 col_type: "movie_3"
             });
         }
@@ -2768,7 +2768,7 @@ var nqyindex = (d,data)=>{
     for(var i=1; i<nav.length; i++){
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2780,7 +2780,7 @@ var nqyindex = (d,data)=>{
                             img: parseDom(list[i], '.lazy&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.label&&Text'),
                             url: 
-        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nqy() }),
+        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nqy() }),
                             col_type: "movie_3"
                         })
                     }
@@ -2795,7 +2795,7 @@ var nqyindex = (d,data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], '.name&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2807,7 +2807,7 @@ var nqyindex = (d,data)=>{
                         img: parseDom(list[i], '.lazy&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.label&&Text'),
                         url: 
-    $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nqy() }),
+    $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nqy() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2820,7 +2820,7 @@ var nqyindex = (d,data)=>{
                 title: parseDomForHtml(list[j], '.lazy&&alt'),
                 img: parseDom(list[j], '.lazy&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.label&&Text'),
-                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nqy() }),
+                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nqy() }),
                 col_type: "movie_3"
             });
         }
@@ -2839,7 +2839,7 @@ var jjysindex = (d,data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2851,7 +2851,7 @@ var jjysindex = (d,data)=>{
                             img: parseDom(list[i], '.lazy&&data-src')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.module-item-text&&Text'),
                             url: 
-        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() }),
+        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_jjys() }),
                                 col_type: "movie_3"
                         })
                     }
@@ -2866,7 +2866,7 @@ var jjysindex = (d,data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2878,7 +2878,7 @@ var jjysindex = (d,data)=>{
                         img: parseDom(list[i], '.lazy&&data-src')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.module-item-text&&Text'),
                         url: 
-    $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() }),
+    $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_jjys() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2891,7 +2891,7 @@ var jjysindex = (d,data)=>{
                 title: parseDomForHtml(list[j], 'a&&title'),
                 img: parseDom(list[j], '.lazy&&data-src')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.module-item-text&&Text'),
-                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() }),
+                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_jjys() }),
                 col_type: "movie_3"
             });
         }
@@ -2910,7 +2910,7 @@ var hjwindex = (d,data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2922,7 +2922,7 @@ var hjwindex = (d,data)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-                            $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_hjw97();}),
+                            $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_hjw97();}),
                             col_type: "movie_3"
                         })
                     }
@@ -2937,7 +2937,7 @@ var hjwindex = (d,data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==99?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==99?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -2949,7 +2949,7 @@ var hjwindex = (d,data)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_hjw97();}),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_hjw97();}),
                         col_type: "movie_3"
                     })
                 }
@@ -2962,7 +2962,7 @@ var hjwindex = (d,data)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_hjw97();}),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_hjw97();}),
                 col_type: "movie_3"
             });
         }
@@ -2981,7 +2981,7 @@ var bxindex = (d,data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -2993,7 +2993,7 @@ var bxindex = (d,data)=>{
                             img: parseDom(list[i], '.fed-list-pics&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.fed-list-score||.fed-list-remarks&&Text'),
                             url: 
-        $(parseDom(list[i], '.fed-list-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_bx();}),
+        $(parseDom(list[i], '.fed-list-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_bx();}),
                             col_type: "movie_3"
                         })
                     }
@@ -3009,7 +3009,7 @@ var bxindex = (d,data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("", "") + (i==0||i==1?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0||i==1?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -3021,7 +3021,7 @@ var bxindex = (d,data)=>{
                         img: parseDom(list[i], '.fed-list-pics&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.fed-list-score||.fed-list-remarks&&Text'),
                         url: 
-    $(parseDom(list[i], '.fed-list-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_bx();}),
+    $(parseDom(list[i], '.fed-list-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_bx();}),
                         col_type: "movie_3"
                     })
                 }
@@ -3034,7 +3034,7 @@ var bxindex = (d,data)=>{
                 title: parseDomForHtml(list[j], '.fed-list-title&&Text'),
                 img: parseDom(list[j], '.fed-list-pics&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.fed-list-score||.fed-list-remarks&&Text'),
-                url: $(parseDom(list[j], '.fed-list-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_bx();}),
+                url: $(parseDom(list[j], '.fed-list-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_bx();}),
                 col_type: "movie_3"
             });
         }
@@ -3053,7 +3053,7 @@ var saohuoindex = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -3065,7 +3065,7 @@ var saohuoindex = (d, data)=>{
                             img: parseDom(list[i], '.lazyload&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.v_note&&Text'),
                             url: 
-        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_saohuo();}),
+        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_saohuo();}),
                         })
                     }
                     setResult(d)
@@ -3079,7 +3079,7 @@ var saohuoindex = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -3091,7 +3091,7 @@ var saohuoindex = (d, data)=>{
                         img: parseDom(list[i], '.lazyload&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.v_note&&Text'),
                         url: 
-    $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_saohuo();}),
+    $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_saohuo();}),
                         col_type: "movie_3"
                     })
                 }
@@ -3104,7 +3104,7 @@ var saohuoindex = (d, data)=>{
                 title: parseDomForHtml(list[j], 'a&&title'),
                 img: parseDom(list[j], '.lazyload&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.v_note&&Text'),
-                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_saohuo();}),
+                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_saohuo();}),
                 col_type: "movie_3"
             });
         }
@@ -3123,7 +3123,7 @@ var k1080index = (d,data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -3135,7 +3135,7 @@ var k1080index = (d,data)=>{
                             img: parseDom(list[i], '.mo-situ-pics&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.mo-situ-rema&&Text'),
                             url: 
-        $(parseDom(list[i], '.mo-situ-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_k1080();}),
+        $(parseDom(list[i], '.mo-situ-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_k1080();}),
                             col_type: "movie_3"
                         })
                     }
@@ -3150,7 +3150,7 @@ var k1080index = (d,data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -3162,7 +3162,7 @@ var k1080index = (d,data)=>{
                         img: parseDom(list[i], '.mo-situ-pics&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.mo-situ-rema&&Text'),
                         url: 
-    $(parseDom(list[i], '.mo-situ-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_k1080();}),
+    $(parseDom(list[i], '.mo-situ-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_k1080();}),
                         col_type: "movie_3"
                     })
                 }
@@ -3175,7 +3175,7 @@ var k1080index = (d,data)=>{
                 title: parseDomForHtml(list[j], '.mo-situ-name&&Text'),
                 img: parseDom(list[j], '.mo-situ-pics&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.mo-situ-rema&&Text'),
-                url: $(parseDom(list[j], '.mo-situ-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_k1080();}),
+                url: $(parseDom(list[j], '.mo-situ-pics&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_k1080();}),
                 col_type: "movie_3"
             });
         }
@@ -3194,7 +3194,7 @@ var aidi = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     var html =request(getVar('pageUrl'));
@@ -3205,7 +3205,7 @@ var aidi = (d, data)=>{
                             img: parseDom(list[i], '.vodlist_thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic_text&&Text'),
                             url: 
-        $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_aidi();}),
+        $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi();}),
                             col_type: "movie_3"
                         })
                     }
@@ -3220,7 +3220,7 @@ var aidi = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h2&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -3232,7 +3232,7 @@ var aidi = (d, data)=>{
                         img: parseDom(list[i], '.vodlist_thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic_text&&Text'),
                         url: 
-    $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_aidi();}),
+    $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi();}),
                         col_type: "movie_3"
                     })
                 }
@@ -3245,7 +3245,7 @@ var aidi = (d, data)=>{
                 title: parseDomForHtml(list[j], '.vodlist_thumb&&title'),
                 img: parseDom(list[j], '.vodlist_thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic_text&&Text'),
-                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_aidi();}),
+                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi();}),
                 col_type: "movie_3"
             });
         }
@@ -3264,7 +3264,7 @@ var mogu = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     var html =request(getVar('pageUrl'));
@@ -3275,7 +3275,7 @@ var mogu = (d, data)=>{
                             img: parseDom(list[i], '.stui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_mogu();}),
+        $(parseDom(list[i], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_mogu();}),
                             col_type: "movie_3"
                         })
                     }
@@ -3290,7 +3290,7 @@ var mogu = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==99?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==99?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -3302,7 +3302,7 @@ var mogu = (d, data)=>{
                         img: parseDom(list[i], '.stui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_mogu();}),
+    $(parseDom(list[i], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_mogu();}),
                         col_type: "movie_3"
                     })
                 }
@@ -3315,7 +3315,7 @@ var mogu = (d, data)=>{
                 title: parseDomForHtml(list[j], '.stui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.stui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_mogu();}),
+                url: $(parseDom(list[j], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_mogu();}),
                 col_type: "movie_3"
             });
         }
@@ -3334,7 +3334,7 @@ var ys757 = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -3346,7 +3346,7 @@ var ys757 = (d, data)=>{
                             img: parseDom(list[i], '.macplus-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.macplus-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ys757();}),
+        $(parseDom(list[i], '.macplus-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ys757();}),
                             col_type: "movie_3"
                         })
                     }
@@ -3361,7 +3361,7 @@ var ys757 = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -3373,7 +3373,7 @@ var ys757 = (d, data)=>{
                         img: parseDom(list[i], '.macplus-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.macplus-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ys757();}),
+    $(parseDom(list[i], '.macplus-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ys757();}),
                         col_type: "movie_3"
                     })
                 }
@@ -3386,7 +3386,7 @@ var ys757 = (d, data)=>{
                 title: parseDomForHtml(list[j], '.macplus-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.macplus-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.macplus-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ys757();}),
+                url: $(parseDom(list[j], '.macplus-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ys757();}),
                 col_type: "movie_3"
             });
         }
@@ -3405,7 +3405,7 @@ var skysindex = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -3417,7 +3417,7 @@ var skysindex = (d, data)=>{
                             img: parseDom(list[i], '.stui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_skys();}),
+        $(parseDom(list[i], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_skys();}),
                             col_type: "movie_3"
                         })
                     }
@@ -3432,7 +3432,7 @@ var skysindex = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -3444,7 +3444,7 @@ var skysindex = (d, data)=>{
                         img: parseDom(list[i], '.stui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_skys();}),
+    $(parseDom(list[i], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_skys();}),
                         col_type: "movie_3"
                     })
                 }
@@ -3457,7 +3457,7 @@ var skysindex = (d, data)=>{
                 title: parseDomForHtml(list[j], '.stui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.stui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_skys();}),
+                url: $(parseDom(list[j], '.stui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_skys();}),
                 col_type: "movie_3"
             });
         }
@@ -3476,7 +3476,7 @@ var mhdyindex = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     
@@ -3488,7 +3488,7 @@ var mhdyindex = (d, data)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_mhdy();}),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_mhdy();}),
                             col_type: "movie_3"
                         })
                     }
@@ -3503,7 +3503,7 @@ var mhdyindex = (d, data)=>{
         d.push({
             title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0||i==1?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==0||i==1?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -3515,7 +3515,7 @@ var mhdyindex = (d, data)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_mhdy();}),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_mhdy();}),
                         col_type: "movie_3"
                     })
                 }
@@ -3528,7 +3528,7 @@ var mhdyindex = (d, data)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js'));jx_mhdy();}),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));jx_mhdy();}),
                 col_type: "movie_3"
             });
         }
@@ -3547,7 +3547,7 @@ var nnmindex = (d, data)=>{
         var j=i+1;
         d.push({
             title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
-                   var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                     setNav(type[index]);
                     
                     var html =request(getVar('pageUrl'));
@@ -3557,7 +3557,7 @@ var nnmindex = (d, data)=>{
                             title: parseDomForHtml(list[i], 'img&&alt'),
                             img: parseDom(list[i], 'img&&src')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.newname&&Text'),
-                            url:  $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nnm();}),
+                            url:  $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nnm();}),
                             col_type: "movie_3"
                         })
                     }
@@ -3572,7 +3572,7 @@ var nnmindex = (d, data)=>{
         d.push({
             title: '‘‘’’' + '最新动漫' + (i==99?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: i==99?'':$(router[i]).rule((type, index) => {
-               var d = []; eval(fetch('hiker://files/rules/zyf/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
                 
@@ -3583,7 +3583,7 @@ var nnmindex = (d, data)=>{
                         title: parseDomForHtml(list[i], 'img&&alt'),
                         img: parseDom(list[i], 'img&&src')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.newname&&Text'),
-                        url:  $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nnm();}),
+                        url:  $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nnm();}),
                         col_type: "movie_3"
                     })
                 }
@@ -3596,7 +3596,7 @@ var nnmindex = (d, data)=>{
                 title: parseDomForHtml(list[j], 'img&&alt'),
                 img: parseDom(list[j], 'img&&src')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.anime_icon1_name1&&Text'),
-                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nnm();}),
+                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nnm();}),
                 col_type: "movie_3"
             });
         }
@@ -3612,7 +3612,7 @@ var searchmovie = (lazyData, keydata)=>{
     var searchType = getVar('searchTypeword', '全部');
     var condSearch = "";
     var searchPage = -1;
-    eval(fetch('hiker://files/rules/zyf/search.js'));
+    eval(fetch('hiker://files/rules/black/search.js'));
     if(searchType == '全部' || searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
         switch(searchType){
             case '全部' :
@@ -3629,7 +3629,7 @@ var searchmovie = (lazyData, keydata)=>{
     if(keydata!=undefined){
         d.push({
             desc: (x5Height!=undefined? x5Height: 100) +'&&float',
-            url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
+            url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/black/search.html',
             col_type: 'x5_webview_single'
         })
     }
@@ -3651,7 +3651,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                 pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
                                 content:parseDomForHtml(list[j], '.hidden-xs&&Text'),
-                                url:$(parseDom(list[j], '.btn&&href')).rule((mjc_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
+                                url:$(parseDom(list[j], '.btn&&href')).rule((mjc_lazy) => { eval(fetch('hiker://files/rules/black/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
                             });
                         }
                     }catch(e){}
@@ -3664,7 +3664,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 title:parseDomForHtml(list[i],'a&&title'),
                                 desc:parseDomForHtml(list[i],'.pic-tag&&Text'),
                                 pic_url:parseDomForHtml(list[i],'a&&data-original'),
-                                url:$(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
+                                url:$(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                                 content:parseDomForHtml(list[i],'p.hidden-xs&&Text')
                             });
                         }
@@ -3678,7 +3678,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                 content: parseDomForHtml(list[j], 'p,-2&&Text'),
                                 pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
-                                url: $(parseDom(list[j], '.btn-warm&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() })
+                                url: $(parseDom(list[j], '.btn-warm&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_555() })
                            });
                         }
                     }catch(e){}
@@ -3690,7 +3690,7 @@ var searchmovie = (lazyData, keydata)=>{
                             desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                             pic_url: parseDom(list[j], '.lazyload&&data-original'),
                             content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                            url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
+                            url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/black/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
                         });
                     }
                 }else if(/lengyue/.test(MY_URL)){
@@ -3702,7 +3702,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                 pic_url: parseDom(list[j], '.lazyload&&data-original'),
                                 content: parseDomForHtml(list[j], 'p,-2&&Text'),
-                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ge179() })
                             });
                         }
                     }catch(e){}
@@ -3714,7 +3714,7 @@ var searchmovie = (lazyData, keydata)=>{
                             desc:parseDomForHtml(list[j],'.pic-text&&Text'),//描述
                             content:parseDomForHtml(list[j],'.detail&&p,-2&&Text'),//详情
                             pic_url:parseDom(list[j],'.lazyload&&data-original'),//图片
-                            url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
+                            url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ge179() })
                         });
                     }
                 }else if(/nfmovie/.test(MY_URL)){
@@ -3725,7 +3725,7 @@ var searchmovie = (lazyData, keydata)=>{
                              title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                              desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                              pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
-                             url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() })
+                             url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nfmovie() })
                         });
                       }
                 }else if(/nfxhd/.test(MY_URL)){
@@ -3739,7 +3739,7 @@ var searchmovie = (lazyData, keydata)=>{
                             desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                             content: parseDomForHtml(list[j], 'p,1&&Text'),
                             img: parseDom(list[j], '.lazyload&&data-original'),
-                            url: $(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() })
+                            url: $(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nfx() })
                         });
                     }
                 }else if(/mjhd/.test(MY_URL)){
@@ -3750,7 +3750,7 @@ var searchmovie = (lazyData, keydata)=>{
                         desc:parseDomForHtml(list[j],'.pic-text&&Text'),
                         content:parseDomForHtml(list[j],'.detail--h4&&Text'),
                         pic_url:parseDom(list[j],'.lazyload&&data-original'),
-                        url: $(parseDom(list[j],'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjhd() })
+                        url: $(parseDom(list[j],'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_mjhd() })
                     });
                     }
                 }else if(/dm45/.test(MY_URL)){
@@ -3760,7 +3760,7 @@ var searchmovie = (lazyData, keydata)=>{
                              title: parseDomForHtml(list[j], 'h1&&Text'),
                              desc: parseDomForHtml(list[j], '.leo-color-a,1&&Text'),
                              pic_url: parseDom(list[j], 'img&&data-original'),
-                             url: $(parseDom(list[j],'a,-2&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() })
+                             url: $(parseDom(list[j],'a,-2&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_xsj() })
                         });
                     }
                 }else if(/acmdy/.test(MY_URL)){
@@ -3773,7 +3773,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc:parseDomForHtml(list[j],'.pic_text&&Text'),//描述
                                 content:parseDomForHtml(list[j],'p,-1&&Text'),//详情
                                 pic_url:parseDom(list[j],'a&&data-original'),//图片
-                                url:$(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_yyjc() })//链接
+                                url:$(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_yyjc() })//链接
                             });
                         }catch(e){''}
                     }
@@ -3787,7 +3787,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.color&&Text'),
                                 pic_url: parseDom(list[j], 'img&&src'),
                                 content:parseDomForHtml(list[j], '.juqing&&dd&&Text'),
-                                url: $(parseDom(list[j],'h2&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() })
+                                url: $(parseDom(list[j],'h2&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_qimi() })
                             });
                     }}catch(e){} 
                 }else if(/newqiyu/.test(MY_URL)){
@@ -3800,7 +3800,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.label&&Text'),
                                 pic_url: parseDom(list[j], '.lazy&&data-original'),
                                 content:parseDomForHtml(list[j], '.card-content&&Text'),
-                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nqy() })
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nqy() })
                            });
                     }}catch(e){} 
                 }else if(/jiujiuying/.test(MY_URL)){
@@ -3813,7 +3813,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.video-serial&&Text'),
                                 pic_url: parseDom(list[j], '.lazyload&&data-src'),
                                 content:parseDomForHtml(list[j], '.video-info-item&&Text'),
-                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() })
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_jjys() })
                            });
                     }}catch(e){} 
                 }else if(/97hanju/.test(MY_URL)){
@@ -3826,7 +3826,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                 pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
                                 content:parseDomForHtml(list[j], 'p,-2&&Text'),
-                                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_hjw97() })
+                                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_hjw97() })
                             });
                     }}catch(e){} 
                 }else if(/woobm/.test(MY_URL)){
@@ -3839,7 +3839,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.fed-list-remarks&&Text'),
                                 pic_url: parseDom(list[j], 'a&&data-original')+'@Referer=',
                                 content:parseDomForHtml(list[j], '.fed-part-esan&&Text'),
-                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_bx() })
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_bx() })
                             });
                     }}catch(e){} 
                 }else if(/saohuo/.test(MY_URL)){
@@ -3852,7 +3852,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.v_note&&Text'),
                                 pic_url: parseDom(list[j], 'img&&data-original'),
                                 content:parseDomForHtml(list[j], 'Text'),
-                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_saohuo() })
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_saohuo() })
                             });
                     }}catch(e){} 
                 }else if(/ak1080/.test(MY_URL)){
@@ -3865,7 +3865,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.mo-coxs-center&&Text'),
                                 content: parseDomForHtml(list[j], '.mo-cols-lg10--h1&&Text'),
                                 img: parseDom(list[j], 'a&&data-original'),
-                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_k1080() })
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_k1080() })
                             });
                     }}catch(e){} 
                 }else if(/aidi/.test(MY_URL)){
@@ -3878,7 +3878,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic_text&&Text'),
                                 pic_url: parseDom(list[j], '.vodlist_thumb&&data-original'),
                                 content:parseDomForHtml(list[j], '.vodlist_sub,-1&&Text'),
-                                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_aidi() })
+                                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi() })
                             });
                     }}catch(e){} 
                 }else if(/mogu/.test(MY_URL)){
@@ -3891,7 +3891,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                 pic_url: parseDomForHtml(list[j], '.v-thumb&&style').match(/url\('(.*?)'/)[1]+'@Referer=',
                                 content:parseDomForHtml(list[j], '.hidden-mi&&Text'),
-                                url: $(parseDom(list[j], '.v-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mogu() })
+                                url: $(parseDom(list[j], '.v-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_mogu() })
                             });
                     }}catch(e){} 
                 }else if(/757vcd/.test(MY_URL)){
@@ -3904,7 +3904,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                 pic_url: parseDom(list[j], '.lazyload&&data-original')+'@Referer=',
                                 content:parseDomForHtml(list[j], '.detail&&Text'),
-                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ys757() })
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ys757() })
                             });
                     }}catch(e){} 
                 }else if(/sukhdw/.test(MY_URL)){
@@ -3916,7 +3916,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 title:parseDomForHtml(list[j],'h4&&Text'),
                                 desc:parseDomForHtml(list[j],'.pic-text&&Text'),
                                 pic_url:parseDom(list[j],'.lazyload&&data-original'),
-                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_skys() })
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_skys() })
                             });
                     }}catch(e){} 
                 }else if(/ubo110/.test(MY_URL)){
@@ -3929,7 +3929,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                 pic_url: parseDom(list[j], 'a&&data-original'),
                                 content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mhdy() })
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_mhdy() })
                             });
                     }}catch(e){} 
                 }else if(/ninimeng/.test(MY_URL)){
@@ -3942,7 +3942,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], 'span&&Text'),
                                 pic_url: parseDom(list[j], 'img&&src'),
                                 content:parseDomForHtml(list[j], '.cell_imform_desc&&Text'),
-                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nnm() })
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nnm() })
                             });
                     }}catch(e){} 
                 }
@@ -3952,10 +3952,10 @@ var searchmovie = (lazyData, keydata)=>{
         });
         }
         
-            //eval(fetch('hiker://files/rules/zyf/search.js'));
+            //eval(fetch('hiker://files/rules/black/search.js'));
             /*d.push({
                 desc: (x5Height!=undefined? x5Height: 100) +'&&float',
-                url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/zyf/tc.html',
+                url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/black/tc.html',
                 col_type: 'x5_webview_single'
             })*/
             //if(searchPage!=-1 && searchPage-1 < i) continue;
@@ -4020,7 +4020,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                     pic_url: parseDom(list[j], '.lazyload&&data-original'),
                                     content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                                    url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
+                                    url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/black/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
                                 });
                             }
                         }catch(e){} 
@@ -4037,7 +4037,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     title:parseDomForHtml(list[j],'a&&title'),
                                     desc:parseDomForHtml(list[j],'.pic-tag&&Text'),
                                     pic_url:parseDomForHtml(list[j],'a&&data-original'),
-                                    url:$(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_taotao() }),
+                                    url:$(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                                     content:parseDomForHtml(list[j],'p.hidden-xs&&Text')
                                 });
                             }
@@ -4055,7 +4055,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                     content: parseDomForHtml(list[j], 'p,-2&&Text'),
                                     pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
-                                    url: $(parseDom(list[j], '.btn-warm&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() })
+                                    url: $(parseDom(list[j], '.btn-warm&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_555() })
                                 });
                             }
                             }catch(e){}
@@ -4072,7 +4072,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                     pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
-                                    url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfmovie() })
+                                    url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nfmovie() })
                                 });
                             }
                         }catch(e){}
@@ -4089,7 +4089,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                     content: parseDomForHtml(list[j], 'p,1&&Text'),
                                     img: parseDom(list[j], '.lazyload&&data-original'),
-                                    url: $(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nfx() })
+                                    url: $(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nfx() })
                                 });
                             }
                         }catch(e){}
@@ -4106,7 +4106,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     desc:parseDomForHtml(list[j],'.pic-text&&Text'),
                                     content:parseDomForHtml(list[j],'.detail--h4&&Text'),
                                     pic_url:parseDom(list[j],'.lazyload&&data-original'),
-                                    url: $(parseDom(list[j],'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mjhd() })
+                                    url: $(parseDom(list[j],'h4&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_mjhd() })
                                 });
                             }
                         }catch(e){}
@@ -4122,7 +4122,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         title: parseDomForHtml(list[j], 'h1&&Text'),
                                         desc: parseDomForHtml(list[j], '.leo-color-a,1&&Text'),
                                         pic_url: parseDom(list[j], 'img&&data-original'),
-                                        url: $(parseDom(list[j],'a,-2&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_xsj() })
+                                        url: $(parseDom(list[j],'a,-2&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_xsj() })
                                 });
                             }
                         }catch(e){}
@@ -4139,7 +4139,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     desc: parseDomForHtml(list[j], '.color&&Text'),
                                     pic_url: parseDom(list[j], 'img&&src'),
                                     content:parseDomForHtml(list[j], '.juqing&&dd&&Text'),
-                                    url: $(parseDom(list[j],'h2&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_qimi() })
+                                    url: $(parseDom(list[j],'h2&&a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_qimi() })
                                 });
                             }
                         }catch(e){}
@@ -4156,7 +4156,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     desc:parseDomForHtml(list[j],'.pic_text&&Text'),//描述
                                     content:parseDomForHtml(list[j],'p,-1&&Text'),//详情
                                     pic_url:parseDom(list[j],'a&&data-original'),//图片
-                                    url:$(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_yyjc() })//链接
+                                    url:$(parseDom(list[j],'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_yyjc() })//链接
                                 });
                             }
                         }catch(e){}
@@ -4174,7 +4174,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.label&&Text'),
                                         pic_url: parseDom(list[j], '.lazy&&data-original'),
                                         content:parseDomForHtml(list[j], '.card-content&&Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nqy() })
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nqy() })
                                     });
                                 }catch(e){''}
                             }
@@ -4193,7 +4193,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                         pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
                                         content:parseDomForHtml(list[j], 'p,-2&&Text'),
-                                        url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_hjw97() })
+                                        url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_hjw97() })
                                     });
                                 }catch(e){''}
                             }
@@ -4212,7 +4212,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.fed-list-remarks&&Text'),
                                         pic_url: parseDom(list[j], 'a&&data-original')+'@Referer=',
                                         content:parseDomForHtml(list[j], '.fed-part-esan&&Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_bx() })
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_bx() })
                                     });
                                 }catch(e){''}
                             }
@@ -4231,7 +4231,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.v_note&&Text'),
                                         pic_url: parseDom(list[j], 'img&&data-original'),
                                         content:parseDomForHtml(list[j], 'Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_saohuo() })
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_saohuo() })
                                     });
                                 }catch(e){''}
                             }
@@ -4250,7 +4250,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.mo-coxs-center&&Text'),
                                         content: parseDomForHtml(list[j], '.mo-cols-lg10--h1&&Text'),
                                         img: parseDom(list[j], 'a&&data-original'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_k1080() })
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_k1080() })
                                     });
                                 }catch(e){''}
                             }
@@ -4268,7 +4268,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                     pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
                                     content:parseDomForHtml(list[j], '.hidden-xs&&Text'),
-                                    url:$(parseDom(list[j], '.btn&&href')).rule((mjc_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
+                                    url:$(parseDom(list[j], '.btn&&href')).rule((mjc_lazy) => { eval(fetch('hiker://files/rules/black/B_play.js')); mjc_lazy!=undefined? jx_mjc(mjc_lazy) : jx_mjc() }, mjc_lazy),
                                 });
                             }
                         }catch(e){}
@@ -4285,7 +4285,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                     pic_url: parseDom(list[j], '.lazyload&&data-original'),
                                     content: parseDomForHtml(list[j], 'p,-2&&Text'),
-                                    url: $(parseDom(list[j],'a&&href')).rule((lengyue_lazy) => { eval(fetch('hiker://files/rules/zyf/B_play.js')); lengyue_lazy!=undefined? jx_lengyue(lengyue_lazy) : jx_lengyue();},lengyue_lazy),
+                                    url: $(parseDom(list[j],'a&&href')).rule((lengyue_lazy) => { eval(fetch('hiker://files/rules/black/B_play.js')); lengyue_lazy!=undefined? jx_lengyue(lengyue_lazy) : jx_lengyue();},lengyue_lazy),
                                 });
                             }
                         }catch(e){} 
@@ -4302,7 +4302,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     desc:parseDomForHtml(list[j],'.pic-text&&Text'),//描述
                                     content:parseDomForHtml(list[j],'.detail&&p,-2&&Text'),//详情
                                     pic_url:parseDom(list[j],'.lazyload&&data-original'),//图片
-                                    url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ge179() })
+                                    url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ge179() })
                                 });
                             } 
                         }catch(e){}
@@ -4320,7 +4320,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.video-serial&&Text'),
                                         pic_url: parseDom(list[j], '.lazyload&&data-src'),
                                         content:parseDomForHtml(list[j], '.video-info-item&&Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_jjys() })
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_jjys() })
                                     });
                                 }catch(e){''}
                             }
@@ -4340,7 +4340,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.pic_text&&Text'),
                                         pic_url: parseDom(list[j], '.vodlist_thumb&&data-original'),
                                         content:parseDomForHtml(list[j], '.vodlist_sub,-1&&Text'),
-                                        url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_aidi() })
+                                        url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi() })
                                     });
                                 }catch(e){''}
                             }
@@ -4359,7 +4359,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                         pic_url: parseDomForHtml(list[j], '.v-thumb&&style').match(/url\('(.*?)'/)[1]+'@Referer=',
                                         content:parseDomForHtml(list[j], '.hidden-mi&&Text'),
-                                        url: $(parseDom(list[j], '.v-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mogu() })
+                                        url: $(parseDom(list[j], '.v-thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_mogu() })
                                     });
                                 }catch(e){''}
                             }
@@ -4378,7 +4378,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                         pic_url: parseDom(list[j], '.lazyload&&data-original')+'@Referer=',
                                         content:parseDomForHtml(list[j], '.detail&&Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_ys757() })
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_ys757() })
                                     });
                                 }catch(e){''}
                             }
@@ -4396,7 +4396,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         title:parseDomForHtml(list[j],'h4&&Text'),
                                         desc:parseDomForHtml(list[j],'.pic-text&&Text'),
                                         pic_url:parseDom(list[j],'.lazyload&&data-original'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_skys() })
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_skys() })
                                     });
                                 }catch(e){''}
                             }
@@ -4415,7 +4415,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                         pic_url: parseDom(list[j], 'a&&data-original'),
                                         content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_mhdy() })
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_mhdy() })
                                     });
                                 }catch(e){''}
                             }
@@ -4434,7 +4434,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], 'span&&Text'),
                                         pic_url: parseDom(list[j], 'img&&src'),
                                         content:parseDomForHtml(list[j], '.cell_imform_desc&&Text'),
-                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_nnm() })
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nnm() })
                                     });
                                 }catch(e){''}
                             }
@@ -4458,15 +4458,15 @@ var settingPage = ()=>{
     d.push({
         title: '本规则仅供学习交流',
         desc:'点击获取最新版本！',
-        url:`confirm://你确认要更新吗？.js:let localHtml=fetch('hiker://files/rules/zyf/black.js');let gitHtml = fetch('https://qiu522.github.io/blog/js/black.js');if (!localHtml || localHtml != gitHtml) {writeFile("hiker://files/rules/zyf/black.js", gitHtml);}let B_play=fetch('hiker://files/rules/zyf/B_play.js');let git_play=fetch('https://qiu522.github.io/blog/js/B_play.js');if (!B_play || B_play != git_play) {writeFile("hiker://files/rules/zyf/B_play.js", git_play);}let blackmovie=fetch('hiker://files/rules/zyf/blackmovie.js');let git_movie=fetch('https://qiu522.github.io/blog/js/blackmovie.js');if (!blackmovie || blackmovie != git_movie) {writeFile("hiker://files/rules/zyf/blackmovie.js", git_movie); }let tc=fetch('hiker://files/rules/zyf/tc.html');let git_tc = fetch('https://qiu522.github.io/blog/html/search.html');if (!tc || tc != git_tc){writeFile("hiker://files/rules/zyf/tc.html", git_tc); }refreshPage(false);'toast://应该是最新了吧'`,
+        url:`confirm://你确认要更新吗？.js:let localHtml=fetch('hiker://files/rules/black/black.js');let gitHtml = fetch('http://82.156.222.77/black/black.js');if (!localHtml || localHtml != gitHtml) {writeFile("hiker://files/rules/black/black.js", gitHtml);}let B_play=fetch('hiker://files/rules/black/B_play.js');let git_play=fetch('http://82.156.222.77/black/B_play.js');if (!B_play || B_play != git_play) {writeFile("hiker://files/rules/black/B_play.js", git_play);}let blackmovie=fetch('hiker://files/rules/black/blackmovie.js');let git_movie=fetch('http://82.156.222.77/black/blackmovie.js');if (!blackmovie || blackmovie != git_movie) {writeFile("hiker://files/rules/black/blackmovie.js", git_movie); }let tc=fetch('hiker://files/rules/black/search.html');let git_tc = fetch('http://82.156.222.77/black/search.html');if (!tc || tc != git_tc){writeFile("hiker://files/rules/black/search.html", git_tc); }refreshPage(false);'toast://应该是最新了吧'`,
         col_type: 'text_center_1'
     })
     d.push({
         col_type:"line"
     });
     
-    eval(fetch('hiker://files/rules/zyf/search.js'));
-    eval(fetch('hiker://files/rules/zyf/blackmovie.js').split('//SEARCHALL')[1].split('//SEARCHALL')[0]);
+    eval(fetch('hiker://files/rules/black/search.js'));
+    eval(fetch('hiker://files/rules/black/blackmovie.js').split('//SEARCHALL')[1].split('//SEARCHALL')[0]);
     
     var stitle = ['列表搜索', '聚合搜索', '自定义搜索'];
     //var allList = allStr.split('&');
@@ -4485,7 +4485,7 @@ var settingPage = ()=>{
             url: $("#noLoading#").lazyRule((searchPageNum, x5Height,ysList,index)=>{
             
                 var data =`var searchMode=`+index+`;var searchPageNum=`+searchPageNum+`;var x5Height=`+x5Height+`;var ysStr='`+ysList.join('&')+`';`;
-                writeFile("hiker://files/rules/zyf/search.js", data);
+                writeFile("hiker://files/rules/black/search.js", data);
                 
                 refreshPage(false);
                 return 'toast://切换成功';
@@ -4502,7 +4502,7 @@ var settingPage = ()=>{
         d.push({
             title: '‘‘默认聚合搜索线程数（按序搜索）：’’'+ searchPageNum,
             desc:'tips：搜索线程越多搜索越久！',
-            url:"input://"+searchPageNum+"////全部搜索线程数.js:eval(fetch('hiker://files/rules/zyf/search.js'));var data=`var searchMode=`+searchMode+`;var searchPageNum=`+input+`;var x5Height=`+x5Height+`;var ysStr='`+ysStr+`';`;writeFile('hiker://files/rules/zyf/search.js', data);refreshPage(false);'toast://你输入的是'+input",
+            url:"input://"+searchPageNum+"////全部搜索线程数.js:eval(fetch('hiker://files/rules/black/search.js'));var data=`var searchMode=`+searchMode+`;var searchPageNum=`+input+`;var x5Height=`+x5Height+`;var ysStr='`+ysStr+`';`;writeFile('hiker://files/rules/black/search.js', data);refreshPage(false);'toast://你输入的是'+input",
             col_type: 'text_1'
         });
         d.push({
@@ -4523,7 +4523,7 @@ var settingPage = ()=>{
                     var obj =ysList.splice(index,1);
                 
                     var data =`var searchMode=`+searchMode+`;var searchPageNum=`+searchPageNum+`;var x5Height=`+x5Height+`;var ysStr='`+ysList.join('&')+`';`;
-                    writeFile("hiker://files/rules/zyf/search.js", data);
+                    writeFile("hiker://files/rules/black/search.js", data);
                     
                     refreshPage(false);
                     return 'toast://取消成功';
@@ -4553,7 +4553,7 @@ var settingPage = ()=>{
                     ysList.push(other[index]);
                     
                     var data =`var searchMode=`+searchMode+`;var searchPageNum=`+searchPageNum+`;var x5Height=`+x5Height+`;var ysStr='`+ysList.join('&')+`';`;
-                    writeFile("hiker://files/rules/zyf/search.js", data);
+                    writeFile("hiker://files/rules/black/search.js", data);
                     
                     refreshPage(false);
                     return 'toast://添加成功';
@@ -4569,7 +4569,7 @@ var settingPage = ()=>{
     d.push({
         title: '‘‘主页搜索框高度（默认100）：’’'+ x5Height,
         desc:'tips：慎重填写，玩坏不包赔！',
-        url:"input://"+x5Height+"////主页搜索框高度.js:eval(fetch('hiker://files/rules/zyf/search.js'));var data=`var searchMode=`+searchMode+`;var searchPageNum=`+searchPageNum+`;var x5Height=`+input+`;var ysStr='`+ysStr+`';`;writeFile('hiker://files/rules/zyf/search.js', data);refreshPage(false);'toast://你输入的是'+input",
+        url:"input://"+x5Height+"////主页搜索框高度.js:eval(fetch('hiker://files/rules/black/search.js'));var data=`var searchMode=`+searchMode+`;var searchPageNum=`+searchPageNum+`;var x5Height=`+input+`;var ysStr='`+ysStr+`';`;writeFile('hiker://files/rules/black/search.js', data);refreshPage(false);'toast://你输入的是'+input",
         col_type: 'text_1'
     });
     
@@ -4582,7 +4582,7 @@ var settingPage = ()=>{
         desc:'tips：点击后不可恢复！',
         url:$("#noLoading#").lazyRule(()=>{
                 var data =`var searchMode=0; var searchPageNum=3;var x5Height = 100;var ysStr='极品&影映&179';`;
-                writeFile("hiker://files/rules/zyf/search.js", data);
+                writeFile("hiker://files/rules/black/search.js", data);
                 
                 refreshPage(false);
                 return 'toast://恢复成功';
