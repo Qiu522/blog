@@ -143,6 +143,15 @@ var jx_taotao=()=>{
         }
     //}catch(e){ }
 
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var time = parseDomForHtml(html, '.myui-content__detail&&p,1&&Text');
+        setResult(time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
+
     d.push({title: '<br>', col_type: 'rich_text'});
     res.data=d;
     setHomeResult(res);
@@ -425,6 +434,14 @@ var jx_mjc = (lazyRule)=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var title = parseDomForHtml(html, '.myui-content__detail&&p,2&&Text');
+        setResult(title);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -480,6 +497,14 @@ var jx_jpys = (lazyRule)=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var title = parseDomForHtml(html, '.myui-content__detail&&p,1&&Text');
+        setResult(title);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -535,6 +560,14 @@ var jx_lengyue = (lazyRule)=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var title = parseDomForHtml(html, '.myui-content__detail&&p,2&&Text');
+        setResult(title);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -590,6 +623,26 @@ var jx_ge179 = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.myui-content__list')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts,'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, ".myui-content__detail&&p,-2&&Text").replace("更新：", "");
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -646,6 +699,26 @@ var jx_nfmovie = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html, 'body&&.myui-content__list')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts, 'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, ".myui-content__detail&&p,4&&Text").replace("更新：", "");
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -701,6 +774,14 @@ var jx_nfx = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var time = parseDomForHtml(html, '.myui-content__detail&&p,1&&Text');
+        setResult(time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -755,6 +836,14 @@ var jx_mjhd = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var time = parseDomForHtml(html, '.myui-content__detail&&p,2&&Text');
+        setResult(time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -808,6 +897,26 @@ var jx_xsj = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.leo-play-num')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts, 'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        //var time = parseDomForHtml(html, ".myui-content__detail&&p,4&&Text").replace("更新：", "");
+        setResult("更新至: " + title );
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -866,6 +975,14 @@ var jx_yyjc = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var time = parseDomForHtml(html, '.content_detail,1&&li,1&&Text');
+        setResult(time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -921,6 +1038,26 @@ var jx_qimi = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.video_list')[0];
+        // 选集列表的定位
+        var list=conts.match(/<a[\s\S]*?<\/a>/g);
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, "#addtime&&Text").replace("更新：", "");
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -973,6 +1110,15 @@ var jx_jjys = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var title = parseDomForHtml(html, '.video-info&&.video-info-item,-2&&Text');
+        var time = parseDomForHtml(html, '.video-info&&.video-info-item,-3&&Text');
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -1028,6 +1174,14 @@ var jx_nqy = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var time = parseDomForHtml(html, '.panel&&p,-2&&Text');
+        setResult(time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -1083,6 +1237,15 @@ var jx_hjw97 = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var title = parseDomForHtml(html, '.myui-panel-box&&p,0&&Text').replace("备注：", '');
+        var time = parseDomForHtml(html, '.myui-panel-box&&p,2&&Text');
+        setResult( title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -1139,6 +1302,26 @@ var jx_bx = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.fed-play-item')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts,'ul,-1&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, ".fed-deta-content&&li,-2&&Text").replace("更新：", "");
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -1194,6 +1377,26 @@ var jx_saohuo = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.play_list||.large_list&&li')[0];
+        // 选集列表的定位
+        var list=conts.match(/<a[\s\S]*?<\/a>/g);
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        //var time = parseDomForHtml(html, ".myui-content__detail&&p,4&&Text").replace("更新：", "");
+        setResult("更新至: " + title );
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -1249,6 +1452,26 @@ var jx_k1080 = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.mo-movs-item')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts,'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, ".mo-deta-info&&li,-2&&Text").replace("更新：", "");
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -1304,6 +1527,15 @@ var jx_aidi = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var title = parseDomForHtml(html, '.detail_list_box&&.content_detail,1&&ul&&li,1&&.data_style&&Text');
+        var time = parseDomForHtml(html, '.detail_list_box&&.content_detail,1&&ul&&li,1&&em&&Text');
+        setResult( title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -1359,6 +1591,26 @@ var jx_mogu = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.playlist&&ul')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts,'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, ".stui-content__detail&&p,4&&Text").replace("时间：", "");
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -1413,6 +1665,26 @@ var jx_ys757 = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.playlist&&ul')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts,'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, ".play-ail&&p,-2&&Text").replace("时间：", "");
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -1468,6 +1740,15 @@ var jx_skys = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var title = parseDomForHtml(html, '.stui-content__detail&&p,1&&Text');
+        setResult(title);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
+
 
     res.data=d;
     setHomeResult(res);
@@ -1520,6 +1801,14 @@ var jx_mhdy = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var time = parseDomForHtml(html, '.myui-content__detail&&p,2&&Text');
+        setResult(time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -1572,6 +1861,26 @@ var jx_nnm = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+       // 播放列表的列表的定位
+       var conts = parseDomForArray(html,'body&&.movurl')[0];
+       // 选集列表的定位
+       var list=parseDomForArray(conts, 'ul&&li');
+       var title="";
+       // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+       for(let i = 1; i < list.length; i++) {
+           let index = list.length-i;
+           title = parseDomForHtml(list[index],'a&&Text');
+           if(title.search(/番外|特别/) == -1) break;
+       }
+       // 获取更新时间，确保有更新时能正常提示
+       //var time = parseDomForHtml(html, ".myui-content__detail&&p,4&&Text").replace("更新：", "");
+       setResult("更新至: " + title );
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
