@@ -3678,7 +3678,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                 content: parseDomForHtml(list[j], 'p,-2&&Text'),
                                 pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
-                                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() })
+                                url: $(parseDom(list[j], '.btn-warm&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() })
                            });
                         }
                     }catch(e){}
@@ -4055,7 +4055,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                     content: parseDomForHtml(list[j], 'p,-2&&Text'),
                                     pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
-                                    url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() })
+                                    url: $(parseDom(list[j], '.btn-warm&&href')).rule(() => { eval(fetch('hiker://files/rules/zyf/B_play.js')); jx_555() })
                                 });
                             }
                             }catch(e){}
