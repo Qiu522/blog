@@ -1960,3 +1960,78 @@ var jx_gpzj = ()=>{
     setHomeResult(res);
 }
 //JXGPZJ
+//JXSUSOU
+var jx_susou = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/black/black.js'));
+    init({
+    isX5: true,
+    });
+    eval(fetch(jsUrl));
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.detail-a&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.detail-a&&.lazy&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, 'li,-1&&Text') + '\n' + parseDomForHtml(details, 'li,-2&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(html, 'body&&.ecshow&&Text'); //简介
+    var dataLine = details.match(/<li[\s\S]*?<\/li>/g)
+    //dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+
+    var lazy=`@lazyRule=#bofang_box&&script&&Html.js:eval(input);var jsurl=player_aaaa.url;if('zizhi|qq|alizy|qiyi|youku|bilibili|letv|sohu|wasu|migu|pptv|m1095|xigua'.split('|').indexOf(player_aaaa.from)>-1){var jxUrl=request('https://vip.susou.tv/player/?url='+jsurl).match(/"url": "(.*?)"/)[1];jxUrl}else if(/mgtv/.test(player_aaaa.from)){var jxUrl=request('https://titan.mgtv.com.susou.tv/player/?url='+jsurl).match(/"url": "(.*?)"/)[1];jxUrl;}else{jsurl}`;
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.play_source&&.content_playlist');
+    var linelist = parseDomForArray(html, 'body&&.play_source&&#tag&&a');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'susou_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('susou_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+       // 播放列表的列表的定位
+       var conts = parseDomForArray(html,'body&&.play_source&&.content_playlist');[0];
+       // 选集列表的定位
+       var list=parseDomForArray(conts, 'ul&&li');
+       var title="";
+       // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+       for(let i = 1; i < list.length; i++) {
+           let index = list.length-i;
+           title = parseDomForHtml(list[index],'a&&Text');
+           if(title.search(/番外|特别/) == -1) break;
+       }
+       // 获取更新时间，确保有更新时能正常提示
+       //var time = parseDomForHtml(html, ".myui-content__detail&&p,4&&Text").replace("更新：", "");
+       setResult("更新至: " + title );
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXSUSOU
