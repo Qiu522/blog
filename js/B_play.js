@@ -2014,7 +2014,7 @@ var jx_susou = ()=>{
         var html = getResCode();
 
        // 播放列表的列表的定位
-       var conts = parseDomForArray(html,'body&&.play_source&&.content_playlist');[0];
+       var conts = parseDomForArray(html,'body&&.play_source&&.content_playlist')[0];
        // 选集列表的定位
        var list=parseDomForArray(conts, 'ul&&li');
        var title="";
