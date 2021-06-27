@@ -1,8 +1,8 @@
 //本规则仅限规则爱好者交流使用，请下载后于24h内删除
 //SEARCHALL
-const allList =  ["极品", "淘淘", "555", "奈菲", "奈非星", "美剧网", "新动漫", "奇米", "影映", "韩剧网", "奇遇", "白熊", "骚火", "闪电", "美剧虫", "冷月", "179", "久久", "爱迪","蘑菇","757",'速看','麻花','妮妮萌'];
+const allList =  ["极品", "淘淘", "555", "奈菲", "奈非星", "美剧网", "新动漫", "奇米", "影映", "韩剧网", "奇遇", "白熊", "骚火", "闪电", "美剧虫", "冷月", "179", "久久", "爱迪","蘑菇","757",'速看','麻花','妮妮萌','鬼片之家'];
 //SEARCHALL
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html',key:'极品'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html', key:'淘淘'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/vodsearch/关键词----------fypage---.html', key:'555'},{ title:'爱迪影视', reg: 'aidi', search:'https://aidi.tv/vsearch/关键词----------fypage---.html', key:'爱迪'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype=', key:'奈菲'},{ title:'奈非星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/', key:'奈非星'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html', key:'美剧网'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html', key:'新动漫'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html', key:'奇米'},{title:'妮妮萌', reg: 'nnm', search: 'https://www.ninimeng.com/vodsearch/关键词----------fypage---.html', key:'妮妮萌'},{title: '麻花电影', reg: 'mhdy', search: 'https://www.ubo110.com/search/关键词----------fypage---.html', key:'麻花'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html', key:'影映'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html', key:'奇遇'},{title: '韩剧网', reg:'hjw97', search:'http://www.97hanju.co/vodsearch/关键词----------fypage---/', key:'韩剧网'},{ title:'白熊', reg: 'bx', search:'https://www.woobm.cn/vod/search/page/fypage/wd/关键词.html', key:'白熊'},{ title:'骚火', reg: 'saohuo', search:'https://v.saohuo.la/search.php?page=fypage&searchword=关键词&searchtype=', key:'骚火'},{title:'闪电影院', reg: 'k1080', search:'https://www.ak1080.com/vodsearch/关键词----------fypage---.html', key:'闪电'},{ title:'蘑菇', reg: 'mogu', search:'http://www.mogu11.com/sosuo/page/fypage/wd/关键词/', key:'蘑菇'},{ title:'757', reg: 'ys757', search:'https://www.757vcd.com/vod/search/page/fypage/wd/关键词.html', key:'757'},{ title:'速看影视', reg: 'skys', search:'https://www.sukhdw.com/search/wd/关键词/page/fypage.html', key:'速看'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/关键词----------fypage---.html', key:'美剧虫'},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html', key:'冷月'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html', key:'179'},{ title:'久久影院', reg: 'jjys', search:'https://www.jiujiuyingsi.com/s/关键词/fypage.html', key:'久久'}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html',key:'极品'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html', key:'淘淘'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/vodsearch/关键词----------fypage---.html', key:'555'},{ title:'爱迪影视', reg: 'aidi', search:'https://aidi.tv/vsearch/关键词----------fypage---.html', key:'爱迪'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype=', key:'奈菲'},{ title:'奈非星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/', key:'奈非星'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html', key:'美剧网'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html', key:'新动漫'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html', key:'奇米'},{title:'妮妮萌', reg: 'nnm', search: 'https://www.ninimeng.com/vodsearch/关键词----------fypage---.html', key:'妮妮萌'},{title: '鬼片之家', reg: 'gpzj', search: 'https://www.ubo110.com/search/关键词----------fypage---.html', key:'鬼片之家'},{title: '麻花电影', reg: 'mhdy', search: 'https://www.ubo110.com/search/关键词----------fypage---.html', key:'麻花'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html', key:'影映'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html', key:'奇遇'},{title: '韩剧网', reg:'hjw97', search:'http://www.97hanju.co/vodsearch/关键词----------fypage---/', key:'韩剧网'},{ title:'白熊', reg: 'bx', search:'https://www.woobm.cn/vod/search/page/fypage/wd/关键词.html', key:'白熊'},{ title:'骚火', reg: 'saohuo', search:'https://v.saohuo.la/search.php?page=fypage&searchword=关键词&searchtype=', key:'骚火'},{title:'闪电影院', reg: 'k1080', search:'https://www.ak1080.com/vodsearch/关键词----------fypage---.html', key:'闪电'},{ title:'蘑菇', reg: 'mogu', search:'http://www.mogu11.com/sosuo/page/fypage/wd/关键词/', key:'蘑菇'},{ title:'757', reg: 'ys757', search:'https://www.757vcd.com/vod/search/page/fypage/wd/关键词.html', key:'757'},{ title:'速看影视', reg: 'skys', search:'https://www.sukhdw.com/search/wd/关键词/page/fypage.html', key:'速看'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/关键词----------fypage---.html', key:'美剧虫'},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html', key:'冷月'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html', key:'179'},{ title:'久久影院', reg: 'jjys', search:'https://www.jiujiuyingsi.com/s/关键词/fypage.html', key:'久久'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -1819,6 +1819,92 @@ const data = {
             }
         ],
         nav: [{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'}]
+    },
+    gpzj: {
+        index: 'https://www.guipian456.com/',
+        router: ['https://www.guipian456.com/search.php?page=fypage&searchtype=5&order=排序&tid=1&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=分类&tid=1','https://www.guipian456.com/search.php?page=fypage&searchtype=5&order=排序&tid=1&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=分类&tid=11','https://www.guipian456.com/search.php?page=fypage&searchtype=5&order=排序&tid=1&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&tid=42','https://www.guipian456.com/search.php?page=fypage&searchtype=5&order=排序&tid=1&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=分类&tid=2'],
+        type: [
+            {
+                fyclass:{
+                    conts: '全部&怪兽&僵尸&鬼&杀人&尸体&搞笑&恐怖&杀手&惊悚&鬼魂&复仇&恐惧&自杀&谋杀&医院&悬疑&古装&残忍&噩梦&吸血鬼&诅咒&妖&怪物&丧尸&病毒&精神病&诡异事件&鬼屋',
+                    lists: '&怪兽&僵尸&鬼&杀人&尸体&搞笑&恐怖&杀手&惊悚&鬼魂&复仇&恐惧&自杀&谋杀&医院&悬疑&古装&残忍&噩梦&吸血鬼&诅咒&妖&怪物&丧尸&病毒&精神病&诡异事件&鬼屋',
+                    def:0
+                },
+                fyarea: {
+                    conts: '全部&大陆&香港&台湾&日本&韩国&欧美&泰国&其他',
+                    lists: '&大陆&香港&台湾&日本&韩国&欧美&泰国&其他'
+                },
+                fyyear: {
+                    conts: '全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999',
+                    lists: '&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: 'page=1',
+                index:'gpzj_1'
+            },
+            {
+                fyclass:{
+                    conts: '全部&怪兽&僵尸&鬼&杀人&尸体&搞笑&恐怖&杀手&惊悚&鬼魂&复仇&恐惧&自杀&谋杀&医院&悬疑&古装&残忍&噩梦&吸血鬼&诅咒&妖&怪物&丧尸&病毒&精神病&诡异事件&鬼屋',
+                    lists: '&怪兽&僵尸&鬼&杀人&尸体&搞笑&恐怖&杀手&惊悚&鬼魂&复仇&恐惧&自杀&谋杀&医院&悬疑&古装&残忍&噩梦&吸血鬼&诅咒&妖&怪物&丧尸&病毒&精神病&诡异事件&鬼屋',
+                    def:0
+                },
+                fyarea: {
+                    conts: '全部&大陆&香港&台湾&日本&韩国&欧美&泰国&其他',
+                    lists: '&大陆&香港&台湾&日本&韩国&欧美&泰国&其他'
+                },
+                fyyear: {
+                    conts: '全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999',
+                    lists: '&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: 'page=1',
+                index:'gpzj_2'
+            },
+            {
+                fyarea: {
+                    conts: '全部&大陆&香港&台湾&日本&韩国&欧美&泰国&其他',
+                    lists: '&大陆&香港&台湾&日本&韩国&欧美&泰国&其他'
+                },
+                fyyear: {
+                    conts: '全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999',
+                    lists: '&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: 'page=1',
+                index:'gpzj_3'
+            },
+            {
+                fyclass:{
+                    conts: '全部&怪兽&僵尸&鬼&杀人&尸体&搞笑&恐怖&杀手&惊悚&鬼魂&复仇&恐惧&自杀&谋杀&医院&悬疑&古装&残忍&噩梦&吸血鬼&诅咒&妖&怪物&丧尸&病毒&精神病&诡异事件&鬼屋',
+                    lists: '&怪兽&僵尸&鬼&杀人&尸体&搞笑&恐怖&杀手&惊悚&鬼魂&复仇&恐惧&自杀&谋杀&医院&悬疑&古装&残忍&噩梦&吸血鬼&诅咒&妖&怪物&丧尸&病毒&精神病&诡异事件&鬼屋',
+                    def:0
+                },
+                fyarea: {
+                    conts: '全部&大陆&香港&台湾&日本&韩国&欧美&泰国&其他',
+                    lists: '&大陆&香港&台湾&日本&韩国&欧美&泰国&其他'
+                },
+                fyyear: {
+                    conts: '全部&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999',
+                    lists: '&2021&2020&2019&2018&2017&2016&2015&2014&2013&2012&2011&2010&2009&2008&2007&2006&2005&2004&2003&2002&2001&2000&1999'
+                },
+                fysort:{
+                    conts: '最新&人气&推荐',
+                    lists: 'time&hits&score'
+                },
+                pageType: 'page=1',
+                index:'gpzj_4'
+            }
+        ],
+        nav : [{title:'鬼片', url: 'https://z3.ax1x.com/2021/06/27/RJLME4.png'},{title:'电视', url: 'https://z3.ax1x.com/2021/06/27/RJvDw8.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/27/RJxY7T.png'},{title:'英叔', url: 'https://z3.ax1x.com/2021/06/27/RJx7Hf.png'}]
     }
 }
 //首页解析
@@ -1897,6 +1983,8 @@ var hikerHomePage = (lazyData)=>{
             mhdyindex(d, data);
         }else if(/ninimeng/.test(getVar('pageUrl', data.jpys.index))){
             nnmindex(d, data);
+        }else if(/guipian456/.test(getVar('pageUrl', data.jpys.index))){
+            gpzjindex(d, data);
         }
     }else{
         hikerpre();
@@ -3602,6 +3690,84 @@ var nnmindex = (d, data)=>{
         }
     }
 }
+//鬼片之家
+var gpzjindex = (d, data)=>{
+    MY_URL = data.gpzj.index;
+    var router = data.gpzj.router;
+    var type = data.gpzj.type;
+    var nav = data.gpzj.nav;
+    var html = request(getVar('pageUrl', data.gpzj.index));
+    var conts =  parseDomForArray(html, 'body&&.layout:has(.carousel)'); //第一个不要
+
+    for(var i=0; i<nav.length; i++){
+        var j=i+1;
+        d.push({
+            title:nav[i].title , pic_url: nav[i].url, url:$(router[i]).rule((type, index) => {
+                   var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                    setNav(type[index]);
+                    
+                    
+                    var html =request(getVar('pageUrl'));
+                    var list = parseDomForArray(html, '.video-list1&&.item');
+                    for (var i in list) {
+                        var imgsrc=parseDomForHtml(list[i], 'span&&style').match(/url\((.*?)\)/);
+                        d.push({
+                            title: parseDomForHtml(list[i], 'a&&title'),
+                            img: 'https://www.guipian456.com'+(imgsrc!=null?imgsrc[1]:'')+'@Referer=',
+                            desc: parseDomForHtml(list[i], '.score&&Text'),
+                            url: 
+        $(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_gpzj() }),
+                            col_type: "movie_3"
+                        })
+                    }
+                    setResult(d)
+                },type, i),
+            col_type:'icon_small_4'
+        });
+    }
+    
+    for (var i =0; i<conts.length; i++) {
+        var list = parseDomForArray(conts[i], '.carousel&&.video-list');
+        d.push({
+            title: '‘‘’’' + parseDomForHtml(conts[i], 'h4&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: i==0?'':$(router[i]).rule((type, index) => {
+               var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
+                setNav(type[index]);
+                
+                
+                var html =request(getVar('pageUrl'));
+                var list = parseDomForArray(html, '.myui-vodlist&&li');
+                for (var i in list) {
+                    d.push({
+                        title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
+                        img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
+                        desc: parseDomForHtml(list[i], '.pic-text&&Text'),
+                        url: 
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js'));
+    jx_jpys();}),
+                        col_type: "movie_3"
+                    })
+                }
+                setResult(d)
+            },type, i),
+            col_type: "text_center_1"
+        });
+        for (var j in list) {
+             var imgsrc=parseDomForHtml(list[j], 'a&&style').match(/url\((.*?)\)/);
+            d.push({
+                title: parseDomForHtml(list[j], 'a&&title'),
+                img: 'https://www.guipian456.com'+(imgsrc!=null?imgsrc[1]:'')+'@Referer=',
+                desc: parseDomForHtml(list[j], '.bottomtext&&Text'),
+                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_gpzj() }),
+                col_type: "movie_3"
+            });
+        }
+    }
+    
+    d.push({ col_type: 'line_blank' });
+    d.push({ title: "<h4 style='text-align:center;'><font color='#b36d61'>到底了呢！</font></h4>", col_type: "rich_text" });
+    setResult(d)
+}
 var searchmovie = (lazyData, keydata)=>{
     var d = [];
     var batData = [];var searchReg = [];var searchTitle=[];
@@ -3943,6 +4109,19 @@ var searchmovie = (lazyData, keydata)=>{
                                 pic_url: parseDom(list[j], 'img&&src'),
                                 content:parseDomForHtml(list[j], '.cell_imform_desc&&Text'),
                                 url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nnm() })
+                            });
+                    }}catch(e){} 
+                }else if(/guipian456/.test(MY_URL)){
+                    try{
+                        //html = request(MY_URL);
+                        var list =  parseDomForArray(html, 'body&&.col-md-12');
+                        for (var j = 0; j < list.length; j++) {
+                            d.push({
+                                title: parseDomForHtml(list[j], 'a&&title'),
+                                desc: parseDomForHtml(list[j], '.text-overflow&&span&&Text'),
+                                pic_url: 'https://www.guipian456.com'+parseDom(list[j], 'span&&style').match(/url\((.*?)\)/)[1],
+                                content:parseDomForHtml(list[j], '.subtitle&&Text'),
+                                url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_gpzj() })
                             });
                     }}catch(e){} 
                 }
@@ -4435,6 +4614,25 @@ var searchmovie = (lazyData, keydata)=>{
                                         pic_url: parseDom(list[j], 'img&&src'),
                                         content:parseDomForHtml(list[j], '.cell_imform_desc&&Text'),
                                         url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_nnm() })
+                                    });
+                                }catch(e){''}
+                            }
+                        }catch(e){}
+                        break;
+                    case 'gpzj':
+                        MY_URL = data.gpzj.index;
+                        try{
+                            var list =  parseDomForArray(html, 'body&&.col-md-12');
+                            if(list == null) continue;
+                            var len = list.length>9 ? 9 : list.length;
+                            for (var j = 0; j < len; j++) {
+                                try{
+                                    d.push({
+                                        title: parseDomForHtml(list[j], 'a&&title'),
+                                        desc: parseDomForHtml(list[j], '.text-overflow&&span&&Text'),
+                                        pic_url: 'https://www.guipian456.com'+parseDom(list[j], 'span&&style').match(/url\((.*?)\)/)[1],
+                                        content:parseDomForHtml(list[j], '.subtitle&&Text'),
+                                        url: $(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_gpzj() })
                                     });
                                 }catch(e){''}
                             }

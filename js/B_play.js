@@ -1886,3 +1886,77 @@ var jx_nnm = ()=>{
     setHomeResult(res);
 }
 //JXNNM
+//JXGPZJ
+var jx_gpzj = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/black/black.js'));
+    init({
+    isX5: true,
+    });
+    eval(fetch(jsUrl));
+    var lazy =  `@lazyRule=.play&&script&&Html.js:eval(input);var url=now;var from = pn;var jxUrl;if(url.indexOf('.m3u8')==-1){if(from=='kbzy'){var res = request(now).match(/main = "(.*?)"/);if(res!=null){jxUrl=res[1];}else{var res = request(now).match(/url:'(.*?)'/);jxUrl=res[1];}'https://vod.bunediy.com'+jxUrl;}else if(from=='bjyun'){var res = request(now).match(/url: '(.*?)'/);if(res!=null){jxUrl=res[1];}url.split('/share')[0]+jxUrl}else if(from=='dbyun'){var res = request(now).match(/main = "(.*?)"/);if(res!=null){jxUrl=res[1];}url.split('/share')[0]+jxUrl}}else{url}`;
+
+    //影片详情
+    var details = parseDomForHtml(html, '.content&&Html'); //影片信息
+    var _img = parseDomForHtml(details, '.cover&&style').match(/url\((.*?)\)/); //图片
+
+    var _title = parseDomForHtml(details, 'p,0&&Text') + '\n' + parseDomForHtml(details, 'p,1&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(html, '.content-des&&Text'); //简介
+    var dataLine = details.match(/<p[\s\S]*?<\/p>/g)
+    //dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: 'https://www.guipian456.com'+(_img!=null?_img[1]:'')+'@Referer=',
+        dataLine: dataLine
+    });
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.layout:has(.playlist)');
+    var linelist = parseDomForArray(html, 'body&&.layout:has(.playlist)');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'h4&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'gpzj_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('gpzj_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+       // 播放列表的列表的定位
+       var conts = parseDomForArray(html,'body&&.layout:has(.playlist)')[0];
+       // 选集列表的定位
+       var list=parseDomForArray(conts, 'ul&&li');
+       var title="";
+       // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+       for(let i = 1; i < list.length; i++) {
+           let index = list.length-i;
+           title = parseDomForHtml(list[index],'a&&Text');
+           if(title.search(/番外|特别/) == -1) break;
+       }
+       // 获取更新时间，确保有更新时能正常提示
+       //var time = parseDomForHtml(html, ".myui-content__detail&&p,4&&Text").replace("更新：", "");
+       setResult("更新至: " + title );
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXGPZJ
