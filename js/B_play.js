@@ -2035,3 +2035,57 @@ var jx_susou = ()=>{
     setHomeResult(res);
 }
 //JXSUSOU
+//JXKBY
+var jx_kby = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/black/black.js'));
+    init({
+    isX5: true,
+    });
+    eval(fetch(jsUrl));
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.video-info&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.lazyload&&data-src'); //图片
+
+    var _title = parseDomForHtml(details, '.video-info-items,0&&Text') + '\n' + parseDomForHtml(details, '.video-info-items,1&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, '.video-info-items,-1&&Text'); //简介
+    var dataLine = parseDomForArray(html, 'body&&.video-info&&.video-info-items')
+    //dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.module-tab-content:has(.sort-item)');
+    var linelist = parseDomForArray(html, 'body&&.module-tab-content:has(.tab-item)&&.tab-item');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], '.tab-item&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, '4ky_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<a[\s\S]*?<\/a>/g));
+    }
+    //免嗅直接套的墙佬的偷懒了
+    var lazy =`@lazyRule=.js:try{var url = unescape(JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]).url);url.search(/m3u8|mp4/) >= 0 ? url:JSON.parse(fetch(url,{headers:{'User-Agent':'Mozilla/5.0'},redirect:false, withHeaders:true})).headers.location[0]+'#isVideo=true#'}catch(e){input}`;
+    setLists({
+    lists: lists,
+    index: getVar('4ky_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXKBY
