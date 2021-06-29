@@ -19,6 +19,8 @@ var jx_555 = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
 
     //线路
     try{
@@ -93,7 +95,8 @@ var jx_taotao=()=>{
         _img: _img,
         dataLine: details
     });
-
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
@@ -410,6 +413,8 @@ var jx_mjc = (lazyRule)=>{
         _img: _img + '@Referer=',
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.myui-vodlist__thumb&&title')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
@@ -473,6 +478,8 @@ var jx_jpys = (lazyRule)=>{
         _img: _img + '@Referer=',
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
@@ -534,6 +541,9 @@ var jx_lengyue = (lazyRule)=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
+
 
     //线路
     var conts = parseDomForArray(html,'body&&.tab-content:has(.myui-content__list)&&ul');
@@ -599,6 +609,8 @@ var jx_ge179 = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, 'h1&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
@@ -675,6 +687,8 @@ var jx_nfmovie = ()=>{
         _img: _img+'@Referer=',
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.myui-vodlist__thumb&&title')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
@@ -750,6 +764,8 @@ var jx_nfx = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.myui-vodlist__thumb&&title')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
@@ -813,6 +829,8 @@ var jx_mjhd = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.myui-vodlist__thumb&&title')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
@@ -873,6 +891,8 @@ var jx_xsj = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.leo-detail-cover&&alt')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.leo-play-num');
@@ -951,6 +971,8 @@ var jx_yyjc = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.playlist_notfull:has(.content_playlist)');
@@ -1014,6 +1036,8 @@ var jx_qimi = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.detail-title&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.video_list');
@@ -1087,6 +1111,8 @@ var jx_jjys = ()=>{
         _img: _img,
         dataLine: details
     });
+    var moviename = parseDomForHtml(html, 'h1&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.scroll-content');
@@ -1148,6 +1174,8 @@ var jx_nqy = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, 'h2&&Text')
+    searchMovie(moviename);
 
     var lazy =  `@lazyRule=.play-window&&script&&Html.js:eval(input.replace(/player_.*?={/,'player_aaaa={'));var url=decodeURIComponent(base64Decode(player_aaaa.url));if(url.indexOf('.m3u8')!=-1){url}`;
 
@@ -1213,6 +1241,8 @@ var jx_hjw97 = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, 'h1&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.tab-pane&&ul');
@@ -1278,6 +1308,8 @@ var jx_bx = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, 'h1&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.fed-play-item');
@@ -1353,6 +1385,8 @@ var jx_saohuo = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, 'h1&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.play_list||.large_list&&li');
@@ -1428,6 +1462,8 @@ var jx_k1080 = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, 'h1&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.mo-movs-item');
@@ -1503,6 +1539,8 @@ var jx_aidi = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.playlist_full:has(.content_playlist)');
@@ -1567,6 +1605,8 @@ var jx_mogu = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, 'h1&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.playlist&&ul');
@@ -1641,6 +1681,8 @@ var jx_ys757 = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, 'h1&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.playlist&&ul');
@@ -1716,6 +1758,8 @@ var jx_skys = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, 'h3&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.stui-content__playlist');
@@ -1778,6 +1822,8 @@ var jx_mhdy = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
     var linelist = parseDomForArray(html, 'body&&.nav-tabs&&.item&&li');
@@ -1838,6 +1884,8 @@ var jx_nnm = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.detail_imform_name&&Text')
+    searchMovie(moviename);
     //线路
     var conts = parseDomForArray(html,'body&&.movurl');
     var linelist = parseDomForArray(html, 'body&&#menu0&&li');
@@ -1911,6 +1959,8 @@ var jx_gpzj = ()=>{
         _img: 'https://www.guipian456.com'+(_img!=null?_img[1]:'')+'@Referer=',
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.media-heading&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.layout:has(.playlist)');
@@ -1984,6 +2034,8 @@ var jx_susou = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.fyy&&Text')
+    searchMovie(moviename);
 
     var lazy=`@lazyRule=#bofang_box&&script&&Html.js:eval(input);var jsurl=player_aaaa.url;if('zizhi|qq|alizy|qiyi|youku|bilibili|letv|sohu|wasu|migu|pptv|m1095|xigua'.split('|').indexOf(player_aaaa.from)>-1){var jxUrl=request('https://vip.susou.tv/player/?url='+jsurl).match(/"url": "(.*?)"/)[1];jxUrl}else if(/mgtv/.test(player_aaaa.from)){var jxUrl=request('https://titan.mgtv.com.susou.tv/player/?url='+jsurl).match(/"url": "(.*?)"/)[1];jxUrl;}else{jsurl}`;
 
@@ -2059,6 +2111,8 @@ var jx_kby = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, 'h1&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.module-tab-content:has(.sort-item)');

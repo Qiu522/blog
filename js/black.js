@@ -452,6 +452,31 @@ var setMovieDetail = (dataObj)=>{
     });
 }
 //BLDETAIL
+var searchMovie = (videoname)=>{
+    var searchData=JSON.parse( fetch('hiker://files/rules/black/data.js') );
+    d.push({
+        title: '‘‘⇒\r点此搜索本片\r⇐’’',
+        pic_url: 'https://z3.ax1x.com/2021/06/04/28DhqK.png',
+        url: 'hiker://search?s=' + videoname,
+        col_type: 'text_center_1'
+    })
+    for(var i in searchData.search){
+      if(searchData.search[i]!=''){
+        try{
+          d.push({
+            title:searchData.search[i].split('@@')[0],
+            url:'hiker://search?s='+videoname+'&rule='+searchData.search[i].split('@@')[1],
+            pic_url:searchData.search[i].split('@@')[2],
+            col_type:searchData.searchtype,
+          });
+        }catch(e){}
+      }
+   }
+    d.push({
+        col_type: 'line_blank'
+    });
+
+}
 /**
  * 获取Url参数
 */

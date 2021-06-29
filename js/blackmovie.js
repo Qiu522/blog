@@ -2086,9 +2086,9 @@ var hikerHomePage = (lazyData)=>{
             col_type:'scroll_button'
         });
     }
-    eval(fetch('hiker://files/rules/black/search.js'));
+    var searchData=JSON.parse( fetch('hiker://files/rules/black/data.js') );
     d.push({
-        desc: (x5Height!=undefined ? x5Height: 100) +'&&float',
+        desc: (searchData.x5Height!=undefined ? searchData.x5Height: 100) +'&&float',
         url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/black/search.html',
         col_type: 'x5_webview_single'
     })
@@ -4085,30 +4085,31 @@ var searchmovie = (lazyData, keydata)=>{
     var searchType = getVar('searchTypeword', '全部');
     var condSearch = "";
     var searchPage = -1;
-    eval(fetch('hiker://files/rules/black/search.js'));
-    if(searchType == '全部' || searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
+    //eval(fetch('hiker://files/rules/black/search.js'));
+    var searchData=JSON.parse( fetch('hiker://files/rules/black/data.js') );
+    /*if(searchType == '全部' || searchType == '影视'||searchType == '美剧'||searchType == '动漫'){
         switch(searchType){
             case '全部' :
-                searchPage = searchPageNum;
+                searchPage = searchData.searchPageNum;
                 break;
             case '影视' :
-                condSearch = ysStr;
+                condSearch = searchData.ysStr;
                 break;
             default:
                 break;
         }
-    }
+    }*/
 
     if(keydata!=undefined){
         d.push({
-            desc: (x5Height!=undefined? x5Height: 100) +'&&float',
+            desc: (searchData.x5Height!=undefined? searchData.x5Height: 100) +'&&float',
             url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/black/search.html',
             col_type: 'x5_webview_single'
         })
     }
 
     for(var i in movielists){
-        if(keydata==undefined || searchMode == 0){
+        if(searchData.searchMode == 0){
         d.push({
             title:keydata==undefined? movielists[i].title : ('‘‘’’' +  movielists[i].title + " <small><small><font color='#f9906f'>更多></font></small></small>"),
             url: $(movielists[i].search.replace('关键词', key)).rule((lazyData,testUrl)=>{
@@ -4473,12 +4474,12 @@ var searchmovie = (lazyData, keydata)=>{
             //var search_case = 'k_'+i;
             //var search_case = movielists[i].reg; 
     }
-    var spage = MY_URL.split("$$$")[1];
-    var length = spage*searchPage;
+    var spage = keydata!=undefined? MY_URL.split('$$$')[1] : MY_URL.split("$$$")[2];
+    var length = spage*searchData.searchPageNum;
     var end = length>movielists.length? movielists.length: length;
-    if(keydata!=undefined&&searchMode != 0){
-        if(searchMode == 1){
-            for(var i = length - searchPage; i<end; i++){
+    if(searchData.searchMode != 0){
+        if(searchData.searchMode == 1){
+            for(var i = length - searchData.searchPageNum; i<end; i++){
                 var batUrl = movielists[i].search.replace('关键词', key).replace('fypage','1');
                 if(movielists[i].reg == 'nfmovie'){
                     batData.push({url:batUrl, options:{headers:{"User-Agent":"Mozilla/5.0","Cookie":getVar("hikernfcookie")},timeout:tout}});
@@ -4488,8 +4489,8 @@ var searchmovie = (lazyData, keydata)=>{
                 searchReg.push(movielists[i].reg);
                 searchTitle.push(movielists[i].title);
             }
-        }else if(searchMode == 2){
-            var ysList = ysStr.split('&');
+        }else if(searchData.searchMode == 2){
+            var ysList = searchData.ysStr.split('&');
             
             for(var i in ysList){
                 for(var j in movielists){
@@ -5021,27 +5022,41 @@ var searchmovie = (lazyData, keydata)=>{
 var settingPage = ()=>{
     let res = {};
     let d = [];
-
+    const def = {
+        searchMode: 0,
+        searchPageNum: 3,
+        x5Height: 80,
+        ysStr: '极品&影映&179',
+        search: [],
+        searchtype: 'icon_small_4'
+    };
     d.push({
         title: '本规则仅供学习交流',
         desc:'点击获取最新版本！',
         url:`confirm://你确认要更新吗？.js:let localHtml=fetch('hiker://files/rules/black/black.js');let gitHtml = fetch('http://82.156.222.77/black/black.js');if (!localHtml || localHtml != gitHtml) {writeFile("hiker://files/rules/black/black.js", gitHtml);}let B_play=fetch('hiker://files/rules/black/B_play.js');let git_play=fetch('http://82.156.222.77/black/B_play.js');if (!B_play || B_play != git_play) {writeFile("hiker://files/rules/black/B_play.js", git_play);}let blackmovie=fetch('hiker://files/rules/black/blackmovie.js');let git_movie=fetch('http://82.156.222.77/black/blackmovie.js');if (!blackmovie || blackmovie != git_movie) {writeFile("hiker://files/rules/black/blackmovie.js", git_movie); }let tc=fetch('hiker://files/rules/black/search.html');let git_tc = fetch('http://82.156.222.77/black/search.html');if (!tc || tc != git_tc){writeFile("hiker://files/rules/black/search.html", git_tc); }refreshPage(false);'toast://应该是最新了吧'`,
         col_type: 'text_center_1'
-    })
+    });
     d.push({
         col_type:"line"
     });
     
-    eval(fetch('hiker://files/rules/black/search.js'));
+    var get = fetch('hiker://files/rules/black/data.js');
+    var data;
+    if(get != ''){
+        data = JSON.parse(get);
+    }else{
+        data = def;
+        writeFile("hiker://files/rules/black/data.js", JSON.stringify(data));
+    }
     eval(fetch('hiker://files/rules/black/blackmovie.js').split('//SEARCHALL')[1].split('//SEARCHALL')[0]);
     
     var stitle = ['列表搜索', '聚合搜索', '自定义搜索'];
     //var allList = allStr.split('&');
-        var ysList = ysStr.split('&');
-        var other = [];
+    var ysList = data.ysStr.split('&');
+    var other = [];
 
     d.push({
-        title: '‘‘当前的搜索模式为：’’' + stitle[ searchMode ],
+        title: '‘‘当前的搜索模式为：’’' + stitle[ data.searchMode ],
         desc: '点击切换',
         url: 'hiker://empty',
         col_type: 'text_1'
@@ -5049,14 +5064,14 @@ var settingPage = ()=>{
     for(var i = 0; i < 3; i++){
         d.push({
             title:stitle[ i ],
-            url: $("#noLoading#").lazyRule((searchPageNum, x5Height,ysList,index)=>{
+            url: $("#noLoading#").lazyRule((data,index)=>{
             
-                var data =`var searchMode=`+index+`;var searchPageNum=`+searchPageNum+`;var x5Height=`+x5Height+`;var ysStr='`+ysList.join('&')+`';`;
-                writeFile("hiker://files/rules/black/search.js", data);
+                data.searchMode = index;
+                writeFile("hiker://files/rules/black/data.js", JSON.stringify(data));
                 
                 refreshPage(false);
                 return 'toast://切换成功';
-                },searchPageNum,x5Height,ysList,i),
+                },data,i),
             col_type:'text_4'
         });
     }
@@ -5065,17 +5080,17 @@ var settingPage = ()=>{
         col_type:"line"
     });
 
-    if(searchMode == 1){//聚合搜索
+    if(data.searchMode == 1){//聚合搜索
         d.push({
-            title: '‘‘默认聚合搜索线程数（按序搜索）：’’'+ searchPageNum,
+            title: '‘‘默认聚合搜索线程数（按序搜索）：’’'+ data.searchPageNum,
             desc:'tips：搜索线程越多搜索越久！',
-            url:"input://"+searchPageNum+"////全部搜索线程数.js:eval(fetch('hiker://files/rules/black/search.js'));var data=`var searchMode=`+searchMode+`;var searchPageNum=`+input+`;var x5Height=`+x5Height+`;var ysStr='`+ysStr+`';`;writeFile('hiker://files/rules/black/search.js', data);refreshPage(false);'toast://你输入的是'+input",
+            url:"input://"+data.searchPageNum+"////全部搜索线程数.js:var data=JSON.parse( fetch('hiker://files/rules/black/data.js') );data.searchPageNum=parseInt(input);writeFile('hiker://files/rules/black/data.js', JSON.stringify(data));refreshPage(false);'toast://你输入的是'+input",
             col_type: 'text_1'
         });
         d.push({
             col_type:"line"
         });
-    }else if(searchMode==2){//自定义搜索
+    }else if(data.searchMode==2){//自定义搜索
         try{
         d.push({
             title: '‘‘当前按 影视 搜索的频道为（点击从列表删除）：’’',
@@ -5086,15 +5101,14 @@ var settingPage = ()=>{
         for (var i in ysList){
             d.push({
                 title:ysList[i],
-                url: $("#noLoading#").lazyRule((searchMode,searchPageNum, x5Height,ysList,index)=>{
+                url: $("#noLoading#").lazyRule((data,ysList,index)=>{
                     var obj =ysList.splice(index,1);
                 
-                    var data =`var searchMode=`+searchMode+`;var searchPageNum=`+searchPageNum+`;var x5Height=`+x5Height+`;var ysStr='`+ysList.join('&')+`';`;
-                    writeFile("hiker://files/rules/black/search.js", data);
-                    
+                    data.ysStr = ysList.join('&');
+                    writeFile("hiker://files/rules/black/data.js", JSON.stringify(data));
                     refreshPage(false);
                     return 'toast://取消成功';
-                    },searchMode,searchPageNum,x5Height,ysList,i),
+                    },data,ysList,i),
                 col_type:'flex_button'
             });
         }
@@ -5116,15 +5130,15 @@ var settingPage = ()=>{
         for (var i in other){
             d.push({
                 title:other[i],
-                url: $("#noLoading#").lazyRule((searchMode,searchPageNum,x5Height, ysList,other, index)=>{
+                url: $("#noLoading#").lazyRule((data, ysList,other, index)=>{
                     ysList.push(other[index]);
                     
-                    var data =`var searchMode=`+searchMode+`;var searchPageNum=`+searchPageNum+`;var x5Height=`+x5Height+`;var ysStr='`+ysList.join('&')+`';`;
-                    writeFile("hiker://files/rules/black/search.js", data);
+                    data.ysStr = ysList.join('&');
+                    writeFile("hiker://files/rules/black/data.js", JSON.stringify(data));
                     
                     refreshPage(false);
                     return 'toast://添加成功';
-                    },searchMode,searchPageNum,x5Height,ysList, other, i),
+                    },data,ysList, other, i),
                 col_type:'flex_button'
             });
         }
@@ -5134,26 +5148,75 @@ var settingPage = ()=>{
         col_type:"line"
     });
     d.push({
-        title: '‘‘主页搜索框高度（默认100）：’’'+ x5Height,
+        title: '‘‘主页搜索框高度（默认100）：’’'+ data.x5Height,
         desc:'tips：慎重填写，玩坏不包赔！',
-        url:"input://"+x5Height+"////主页搜索框高度.js:eval(fetch('hiker://files/rules/black/search.js'));var data=`var searchMode=`+searchMode+`;var searchPageNum=`+searchPageNum+`;var x5Height=`+input+`;var ysStr='`+ysStr+`';`;writeFile('hiker://files/rules/black/search.js', data);refreshPage(false);'toast://你输入的是'+input",
+        url:"input://"+data.x5Height+"////主页搜索框高度.js:var data=JSON.parse( fetch('hiker://files/rules/black/data.js') );data.x5Height=parseInt(input);writeFile('hiker://files/rules/black/data.js', JSON.stringify(data));refreshPage(false);'toast://你输入的是'+input",
         col_type: 'text_1'
     });
     
     d.push({
         col_type:"line"
     });
-    
+    d.push({
+        title: '‘‘添加快捷搜索小程序’’',
+        desc:'点此输入(请严格按照格式来)',
+        url: "input://显示名@@小程序名@@图片链接////快捷搜索设置.js:var data=JSON.parse( fetch('hiker://files/rules/black/data.js') );data.search.push(input);writeFile('hiker://files/rules/black/data.js', JSON.stringify(data));refreshPage();'toast://已添加'+input.split('@@')[1]+'为快捷搜索'",
+        col_type: 'text_1'
+    })
+    d.push({
+        title: '‘‘修改快捷搜索小程序’’',
+        desc:'请点击下方按钮进行修改',
+        url: 'hiker://empty',
+        col_type: 'text_1'
+    })
+    for(var i in data.search){
+      if(data.search[i]!=''){
+        try{
+          d.push({
+            title:data.search[i].split('@@')[0],
+            url: "input://"+data.search[i]+"////修改内容.js:var data=JSON.parse( fetch('hiker://files/rules/black/data.js') );data.search["+i+"]=input;writeFile('hiker://files/rules/black/data.js', JSON.stringify(data));refreshPage();'toast://修改成功！'",col_type:'flex_button'
+          });
+        }catch(e){}
+      }
+    }
+    d.push({
+        title: '‘‘删除快捷搜索小程序’’',
+        desc:'仅在本程序中删除快捷搜索，不影响原有小程序',
+        url: 'hiker://empty',
+        col_type: 'text_1'
+    })
+    for(var i in data.search){
+       if(data.search[i]!=''){
+         try{
+           d.push({
+             title:data.search[i].split('@@')[0],
+             url:`confirm://是否确认删除.js:var data=JSON.parse( fetch('hiker://files/rules/black/data.js') );data.search.splice(`+i+`,1);writeFile('hiker://files/rules/black/data.js', JSON.stringify(data));refreshPage();'toast://已删除！'`,
+             col_type:'flex_button'
+           });
+         }catch(e){}
+       }
+    }
+    d.push({
+        title: '‘‘设置快捷搜索显示样式’’',
+        desc:'当前:'+data.searchtype,
+        url: "input://"+data.searchtype+"////快捷搜索显示样式设置.js:var data=JSON.parse( fetch('hiker://files/rules/black/data.js') );data.searchtype=input;writeFile('hiker://files/rules/black/data.js', JSON.stringify(data));refreshPage();'toast://已设置为'+input",
+        col_type: 'text_1'
+    })
+
+
+    d.push({
+        col_type:"line"
+    });
     d.push({
         title: '‘‘点击获取默认配置’’',
         desc:'tips：点击后不可恢复！',
-        url:$("#noLoading#").lazyRule(()=>{
-                var data =`var searchMode=0; var searchPageNum=3;var x5Height = 100;var ysStr='极品&影映&179';`;
-                writeFile("hiker://files/rules/black/search.js", data);
+        url:$("#noLoading#").lazyRule((def)=>{
+                var data =def;
+                writeFile("hiker://files/rules/black/data.js", JSON.stringify(data));;
                 
                 refreshPage(false);
                 return 'toast://恢复成功';
-                }),
+                },def),
         col_type: 'text_1'
     })
 
