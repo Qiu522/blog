@@ -7,7 +7,7 @@ var jx_555 = ()=>{
    
     //影片详情
     var details = parseDomForHtml(html, 'body&&#desc&&Html'); //影片信息
-    var _img = 'https://z3.ax1x.com/2021/06/14/27UPr8.jpg'; //图片
+    var _img = 'https://z3.ax1x.com/2021/06/30/RwhnMV.jpg'; //图片
 
     var _title = parseDomForHtml(details,     'p,0&&Text') + '\n' + parseDomForHtml(details, 'p,1&&Text') + '\n'; //电影信息 导演 + 主演
     var _desc = parseDomForHtml(details,      'p,-1&&Text').replace('简介:',''); //简介
@@ -357,6 +357,8 @@ var jx_dgdy = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
 
     //线路
     var conts = parseDomForArray(html,'body&&.playlist');
@@ -381,6 +383,26 @@ var jx_dgdy = ()=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.playlist')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts,'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, "body&&.stui-content__detail&&p,-2&&Text").replace("更新：", "");
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
 
     res.data=d;
     setHomeResult(res);
@@ -401,7 +423,7 @@ var jx_mjc = (lazyRule)=>{
 
     //影片详情
     var details = parseDomForHtml(html, 'body&&#desc&&Html'); //影片信息
-    var _img = 'https://z3.ax1x.com/2021/06/14/27UPr8.jpg'; //图片
+    var _img = 'https://z3.ax1x.com/2021/06/30/RwhnMV.jpg'; //图片
 
     var _title = parseDomForHtml(details, 'p,0&&Text') + '\n' + parseDomForHtml(details, 'p,1&&Text') + '\n'; //电影信息 导演 + 主演
     var _desc = parseDomForHtml(details, '.data&&Text'); //简介
