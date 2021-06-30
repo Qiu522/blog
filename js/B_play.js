@@ -2165,3 +2165,67 @@ var jx_kby = ()=>{
     setHomeResult(res);
 }
 //JXKBY
+//JXDIDI
+var jx_didi = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/black/black.js'));
+    init({
+    isDn: true,
+    });
+    eval(fetch(jsUrl));
+
+    var lazy =  `@lazyRule=.myui-player__video&&script&&Html.js:eval(input.replace(/player_.*?={/,'player_aaaa={'));var url=player_aaaa.url;var fr=player_aaaa.from; if(fr=='alizy'){var html = fetch('https://api.xkvideo.design/m3u8.php?url='+url);var urll=html.match(/"url":"(.*?)"/)[1];var bt_token = html.match(/bt_token = "(.*?)"/)[1];eval(base64Decode('ZXZhbChnZXRDcnlwdG9KUygpKTsKIAkJCQogIAkJCXZhciB0b2tlbl9rZXk9Q3J5cHRvSlMuZW5jLlV0ZjgucGFyc2UoImR2eVlSUWxuUFJDTWRRU2UiKTsKICAJCQl2YXIgdG9rZW5faXYgPSBDcnlwdG9KUy5lbmMuVXRmOC5wYXJzZShidF90b2tlbik7CgogZnVuY3Rpb24gRGVjcnlwdCh3b3JkKSB7CiAgICB2YXIgdyA9IHdvcmQ7CiAgICB2YXIgZGVjcnlwdGVkID0gQ3J5cHRvSlMuQUVTLmRlY3J5cHQodywgdG9rZW5fa2V5LAogICAgICAgIHsKICAgICAgICAgJ2l2Jzp0b2tlbl9pdiwKICAgICAgICAnbW9kZSc6Q3J5cHRvSlMubW9kZS5DQkMKICAgICAgICB9KTsKICAgICByZXR1cm4gZGVjcnlwdGVkLnRvU3RyaW5nKENyeXB0b0pTLmVuYy5VdGY4KTsKfQ=='));Decrypt(urll)}else if(url.match(/youku|mgtv|ixigua|qq.com|qiyi|migu|bili|sohu|pptv|letv|le/)){var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));aytmParse(url)}else{url}`;
+    //影片详情
+    var details = parseDomForHtml(html, '.myui-content__detail&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.myui-vodlist__thumb&&img&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, 'p,-2&&Text') + '\n' + parseDomForHtml(details, 'p,-3&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, 'p,-1&&Text'); //简介
+    var dataLine = details.match(/<p[\s\S]*?<\/p>/g)
+    dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+    var moviename = parseDomForHtml(html, 'h1&&Text');
+    searchMovie(moviename);
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.myui-content__list');
+    var linelist = parseDomForArray(html, 'body&&.nav&&li');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'ddyy_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('ddyy_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        var time = parseDomForHtml(html, '.myui-content__detail&&p,-4&&Text');
+        setResult(time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXDIDI
