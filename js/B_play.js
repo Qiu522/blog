@@ -1611,7 +1611,7 @@ var jx_mogu = ()=>{
     });
     eval(fetch(jsUrl));
 
-    var lazy= `@lazyRule=.js:var jsurl=decodeURIComponent(JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]).url);var lazy=fetch('https://www.jpysvip.net/dplayer/analysis.php?v='+jsurl,{headers:{"User-Agent":"Mozilla/5.0","Referer":"https://www.jpysvip.net/"}}).match(/url = \"(.*?)\"/)[1];jsurl.indexOf('html')>-1?lazy:jsurl`; 
+    var lazy =  `@lazyRule=.macplus-player__video&&script&&Html.js:eval(input.replace(/player_.*?={/,'player_aaaa={'));var url=player_aaaa.url;var fr=player_aaaa.from;if(url.indexOf('http')==-1){if(fr=='y1y'){'https://v5.sd7755.xyz/'+url}else if(fr=='y2y'){'https://v1.887yz.xyz/'+url}}else{url}`;
 
     //影片详情
     var details = parseDomForHtml(html, 'body&&.stui-content&&Html'); //影片信息
@@ -2229,3 +2229,84 @@ var jx_didi = ()=>{
     setHomeResult(res);
 }
 //JXDIDI
+//JXYMYS
+var jx_ymys = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/black/black.js'));
+    init({
+    isX5: true,
+    isDn: true
+    });
+    eval(fetch(jsUrl));
+
+    var lazy = `@lazyRule=.mo-play-load&&data-play.js:url = base64Decode(input.slice(3));if(url.match(/youku|mgtv|ixigua|qq.com|qiyi|migu|bili|sohu|pptv|letv|le/)){var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));aytmParse(url)}else if(url.match(/.html/)){var input=url;`+lazy+`}else{url}`;//ayt断念插件
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.mo-main-info&&dd&&ul&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.mo-main-info&&.mo-situ-pics&&img&&src'); //图片
+
+    var _title = parseDomForHtml(details, 'li,0&&Text') + '\n' + parseDomForHtml(details, 'li,1&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, 'li,-1&&Text'); //简介
+    var dataLine = details.match(/<li[\s\S]*?<\/li>/g)
+    dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+    //body&&.mo-main-info&&dd&&h1
+    var moviename = parseDomForHtml(html, 'body&&.mo-main-info&&dd&&h1&&Text');
+    searchMovie(moviename);
+
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.mo-cols-lays:has(.mo-movs-item)&&.mo-movs-item');
+    var linelist = parseDomForArray(html, 'body&&.mo-cols-lays:has(.mo-movs-item)&&h2&&a');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'ymys_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('ymys_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+    //body&&.mo-main-info&&dd&&ul&&li,-2
+    var rule = $("").rule(() => {
+        var html = getResCode();
+
+        // 播放列表的列表的定位
+        var conts = parseDomForArray(html,'body&&.mo-cols-lays:has(.mo-movs-item)&&.mo-movs-item')[0];
+        // 选集列表的定位
+        var list=parseDomForArray(conts,'ul&&li');
+        var title="";
+        // 过滤掉含番外和特别等字眼为最后一集的选集，避免有更新的选集无法被感知
+        for(let i = 1; i < list.length; i++) {
+            let index = list.length-i;
+            title = parseDomForHtml(list[index],'a&&Text');
+            if(title.search(/番外|特别/) == -1) break;
+        }
+        // 获取更新时间，确保有更新时能正常提示
+        var time = parseDomForHtml(html, "body&&.mo-main-info&&dd&&ul&&li,-2&&Text").replace("时间：", "");
+        setResult("更新至: " + title + " | " + time);
+    }).replace("@rule=", "");
+    // setError(rule)
+    setLastChapterRule(rule);
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXYMYS
