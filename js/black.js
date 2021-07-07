@@ -212,7 +212,7 @@ var init = (iniData)=>{
                 }
             }
             d.push({
-                col_type:"line"
+                col_type:"blank_block"
             });
         }
     }
@@ -251,7 +251,7 @@ var init = (iniData)=>{
                 }
             }
             d.push({
-                col_type:"line"
+                col_type:"blank_block"
             });
         }
     }
@@ -290,7 +290,7 @@ var init = (iniData)=>{
                 }
             }
             d.push({
-                col_type:"line"
+                col_type:"blank_block"
             });
         }
     }
@@ -329,7 +329,7 @@ var init = (iniData)=>{
                 }
             }
             d.push({
-                col_type:"line"
+                col_type:"blank_block"
             });
         }
     }

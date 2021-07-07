@@ -419,11 +419,11 @@ var jx_mjc = (lazyRule)=>{
     });
     eval(fetch(jsUrl));
 
-    var lazy =lazyRule!=undefined? lazyRule: `@lazyRule=.embed-responsive&&script&&Html.js:eval(input);var url=player_data.url;var pn=player_data.from;if(pn=='alizy'){var jurl= fetch('https://foubin.com/jiexi.php?url='+url,{headers:{"User-Agent":MOBILE_UA,"Referer":"https://foubin.com"}}).match(/"url":"(.*?)"/)[1];refreshX5WebView('https://foubin.com/jiexi.php?url='+url);'toast://播放中'}else if(pn == 'xigua'){refreshX5WebView('https://vip.parwix.com:4433/player/?url='+url);'toast://播放中'}else{eval(fetch(getVar('jsUrl')));aytmParse(url);}`;
+    var lazy =lazyRule!=undefined? lazyRule: `@lazyRule=.embed-responsive&&script&&Html.js:eval(input);var url=player_data.url;var pn=player_data.from;if(pn=='alizy'|pn=='xin'){var html = fetch('https://api.xkvideo.design/m3u8.php?url='+url);var urll=html.match(/"url":"(.*?)"/)[1];var bt_token = html.match(/bt_token = "(.*?)"/)[1];eval(base64Decode('ZXZhbChnZXRDcnlwdG9KUygpKTsKIAkJCQogIAkJCXZhciB0b2tlbl9rZXk9Q3J5cHRvSlMuZW5jLlV0ZjgucGFyc2UoImR2eVlSUWxuUFJDTWRRU2UiKTsKICAJCQl2YXIgdG9rZW5faXYgPSBDcnlwdG9KUy5lbmMuVXRmOC5wYXJzZShidF90b2tlbik7CgogZnVuY3Rpb24gRGVjcnlwdCh3b3JkKSB7CiAgICB2YXIgdyA9IHdvcmQ7CiAgICB2YXIgZGVjcnlwdGVkID0gQ3J5cHRvSlMuQUVTLmRlY3J5cHQodywgdG9rZW5fa2V5LAogICAgICAgIHsKICAgICAgICAgJ2l2Jzp0b2tlbl9pdiwKICAgICAgICAnbW9kZSc6Q3J5cHRvSlMubW9kZS5DQkMKICAgICAgICB9KTsKICAgICByZXR1cm4gZGVjcnlwdGVkLnRvU3RyaW5nKENyeXB0b0pTLmVuYy5VdGY4KTsKfQ=='));Decrypt(urll)}else if(pn == 'xigua'){refreshX5WebView('https://vip.parwix.com:4433/player/?url='+url);'toast://播放中'}else{url+'#isVideo=true#';}`;
 
     //影片详情
     var details = parseDomForHtml(html, 'body&&#desc&&Html'); //影片信息
-    var _img = 'https://github.com/Qiu522/blog/blob/master/img/yy.jpg?raw=true'; //图片
+    var _img = parseDomForHtml(html, 'body&&.myui-vodlist__thumb&&img&&data-original'); //图片
 
     var _title = parseDomForHtml(details, 'p,0&&Text') + '\n' + parseDomForHtml(details, 'p,1&&Text') + '\n'; //电影信息 导演 + 主演
     var _desc = parseDomForHtml(details, '.data&&Text'); //简介
@@ -440,7 +440,7 @@ var jx_mjc = (lazyRule)=>{
 
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
-    var linelist = parseDomForArray(html, 'body&&.nav&&.item&&li');
+    var linelist = parseDomForArray(html, 'body&&.myui-panel-box,2&&.nav&&li');
     var tabs = [];
     for (var i in linelist) {
         tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
@@ -2056,7 +2056,7 @@ var jx_susou = ()=>{
         _img: _img,
         dataLine: dataLine
     });
-    var moviename = parseDomForHtml(html, '.fyy&&Text')
+    var moviename = parseDomForHtml(html, '.dt-info-box&&h2&&Text')
     searchMovie(moviename);
 
     var lazy=`@lazyRule=#bofang_box&&script&&Html.js:eval(input);var jsurl=player_aaaa.url;if('zizhi|qq|alizy|qiyi|youku|bilibili|letv|sohu|wasu|migu|pptv|m1095|xigua'.split('|').indexOf(player_aaaa.from)>-1){var jxUrl=request('https://vip.susou.tv/player/?url='+jsurl).match(/"url": "(.*?)"/)[1];jxUrl}else if(/mgtv/.test(player_aaaa.from)){var jxUrl=request('https://titan.mgtv.com.susou.tv/player/?url='+jsurl).match(/"url": "(.*?)"/)[1];jxUrl;}else{jsurl}`;

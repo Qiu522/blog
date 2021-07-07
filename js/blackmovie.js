@@ -6,12 +6,12 @@ const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpy
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
-        router: ['https://www.meijuchong.com/vodshow/1-分类-排序------fypage---.html','https://www.meijuchong.com/vodshow/2-分类-排序------fypage---.html', 'https://www.meijuchong.com/vodshow/4-分类-排序------fypage---.html', 'https://www.meijuchong.com/vodshow/3-分类-排序------fypage---.html'],
-        type: [
+        router: ['','https://www.meijuchong.com/vodshow/1--排序-分类-----fypage---.html','https://www.meijuchong.com/vodshow/2-地区-排序-分类-----fypage---.html', 'https://www.meijuchong.com/vodshow/3-地区-排序------fypage---.html'],
+        type: [{},
             {
                 fyclass:{
-                    conts: '电影片库&大陆电影&美国电影&香港电影&韩国电影&英国电影&台湾&日本&法国&意大利&德国&西班牙&泰国&其它',
-                    lists: '&%E5%A4%A7%E9%99%86&%E7%BE%8E%E5%9B%BD&%E9%A6%99%E6%B8%AF&%E9%9F%A9%E5%9B%BD&%E8%8B%B1%E5%9B%BD&%E5%8F%B0%E6%B9%BE&%E6%97%A5%E6%9C%AC&%E6%B3%95%E5%9B%BD&%E6%84%8F%E5%A4%A7%E5%88%A9&%E5%BE%B7%E5%9B%BD&%E8%A5%BF%E7%8F%AD%E7%89%99&%E6%B3%B0%E5%9B%BD&%E5%85%B6%E5%AE%83',
+                    conts: '全部&科幻&剧情&喜剧&悬疑&历史&谍战&青春&家庭&动作',
+                    lists: '&科幻&剧情&喜剧&悬疑&历史&谍战&青春&家庭&动作',
                     def:0
                 },
                 fysort:{
@@ -23,9 +23,13 @@ const data = {
             },
             {
                 fyclass:{
-                    conts: '全部&大陆&美国&韩国&英国&香港&台湾&日本&泰国&新加坡&其他&香港地区',
-                    lists: '&%E5%A4%A7%E9%99%86&%E7%BE%8E%E5%9B%BD&%E9%9F%A9%E5%9B%BD&%E8%8B%B1%E5%9B%BD&%E9%A6%99%E6%B8%AF&%E5%8F%B0%E6%B9%BE&%E6%97%A5%E6%9C%AC&%E6%B3%B0%E5%9B%BD&%E6%96%B0%E5%8A%A0%E5%9D%A1&%E5%85%B6%E4%BB%96&%E9%A6%99%E6%B8%AF%E5%9C%B0%E5%8C%BA',
+                    conts: '全部&科幻&剧情&悬疑&家庭&动作&喜剧&青春',
+                    lists: '&科幻&剧情&悬疑&家庭&动作&喜剧&青春',
                     def: 3
+                },
+                fyarea:{
+                    conts: '全部&英国&意大利&西班牙&泰国&新加坡',
+                    lists: '&英国&意大利&西班牙&泰国&新加坡'
                 },
                 fysort:{
                     conts: '最新&人气&推荐',
@@ -35,9 +39,9 @@ const data = {
                 index:'mjc_2'
             },
             {
-                fyclass:{
-                    conts: '全部&大陆&日本&欧美&其他',
-                    lists:'&%E5%A4%A7%E9%99%86&%E6%97%A5%E6%9C%AC&%E6%AC%A7%E7%BE%8E&%E5%85%B6%E4%BB%96',
+                fyarea:{
+                    conts: '全部&日本&韩国',
+                    lists:'&日本&韩国',
                     def: 0
                 },
                 fysort:{
@@ -46,23 +50,9 @@ const data = {
                 },
                 pageType: '1---.html',
                 index:'mjc_3'
-            },
-            {
-                fyclass: {
-                    conts: '全部&大陆&韩国&香港&台湾&美国&其它',
-                    lists: '&%E5%A4%A7%E9%99%86&%E9%9F%A9%E5%9B%BD&%E9%A6%99%E6%B8%AF&%E5%8F%B0%E6%B9%BE&%E7%BE%8E%E5%9B%BD&%E5%85%B6%E5%AE%83',
-                    def: 0
-                },
-                fysort:{
-                    conts: '最新&人气&推荐',
-                    lists: 'time&hits&score'
-                },
-                pageType: '1---.html',
-                index:'mjc_4'
             }
-            
         ],
-        nav:[{title:'电影片库', url: 'https://z3.ax1x.com/2021/06/09/2szetf.png'},{title:'电视剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'},{title:'综艺', url: 'https://z3.ax1x.com/2021/06/09/2yS3xe.png'}]
+        nav:[{},{title:'欧美剧', url: 'https://z3.ax1x.com/2021/06/09/2sz3Bn.png'},{title:'海外剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'日韩剧', url: 'https://z3.ax1x.com/2021/06/17/2vvBdS.png'}]
     },
     taotao:{
         index:'http://www.flvwec.com/',
@@ -520,7 +510,7 @@ const data = {
     },
     nfmovie:{
         index:'https://www.nfmovies.com',
-        router:['https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=0&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=分类','hiker://empty','https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=地区year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=', 'https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=', 'https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=3&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=', 'https://www.nfmovies.com/search.php?page=1&searchtype=5&order=排序&tid=4&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player='],
+        router:['https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=0&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=分类','hiker://empty','https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=', 'https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=分类&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=', 'https://www.nfmovies.com/search.php?page=fypage&searchtype=5&order=排序&tid=3&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player=', 'https://www.nfmovies.com/search.php?page=1&searchtype=5&order=排序&tid=4&area=地区&year=年代&letter=&yuyan=&state=&money=&ver=&jq=&player='],
         type: [
             {
                 fyclass:{
@@ -2493,8 +2483,8 @@ var mjcindex = (d, data, lazyRule)=>{
     for (var i =0; i<conts.length-1; i++) {
         var list = parseDomForArray(conts[i], '.myui-vodlist&&li');
         d.push({
-            title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==99?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
-            url: i==99?'':$(router[i]).rule((type, index, lazyRule) => {
+            title: '‘‘’’' + parseDomForHtml(conts[i], 'h3&&Text').replace("", "") + (i==0?'' : " <small><small><font color='#f9906f'>更多></font></small></small>"),
+            url: i==0?'':$(router[i]).rule((type, index, lazyRule) => {
             var d = []; eval(fetch('hiker://files/rules/black/black.js').split('//MYNAV')[1].split('//MYNAV')[0]);
                 setNav(type[index]);
                 
@@ -2923,7 +2913,7 @@ var nfmovieindex = (d, data)=>{
                 
                 
                 var html =fetch(getVar('pageUrl'),{headers:{'User-Agent':'Mozilla/5.0','Cookie':getVar('hikernfcookie')}});
-                var list = parseDomForArray(html, '.myui-vodlist&&li');
+                var list = parseDomForArray(html, '.myui-vodlist&&li'); 
                 for (var i in list) {
                     d.push({
                         title: parseDomForHtml(list[i], '.myui-vodlist__thumb&&title'),
