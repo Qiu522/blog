@@ -2426,6 +2426,7 @@ var hikerHomePage = (lazyData)=>{
         }else if(/susou/.test(getVar('pageUrl', data.jpys.index))){
             susouindex(d, data);
         }else if(/yanetflix/.test(getVar('pageUrl', data.jpys.index))){
+            testUrl(data.kby.index);
             kbyindex(d, data);
         }else if(/dgyytv/.test(getVar('pageUrl', data.jpys.index))){
             dgdyindex(d, data);
@@ -4929,6 +4930,7 @@ var searchmovie = (lazyData, keydata)=>{
                             });
                     }}catch(e){} 
                 }else if(/yanetflix/.test(MY_URL)){
+                    testUrl('https://yanetflix.com/');
                     try{
                         //html = request(MY_URL);
                         var list =  parseDomForArray(html, 'body&&.module-items&&.module-search-item');
@@ -5512,6 +5514,7 @@ var searchmovie = (lazyData, keydata)=>{
                     break;
                     case 'kby':
                         MY_URL = data.kby.index;
+                        testUrl('https://yanetflix.com/');
                         try{
                             var list = parseDomForArray(html, 'body&&.module-items&&.module-search-item');
                             if(list == null) continue;
