@@ -2310,3 +2310,112 @@ var jx_ymys = ()=>{
     setHomeResult(res);
 }
 //JXYMYS
+//JXCOKE
+var jx_coke = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/black/black.js'));
+    init({
+    isX5: true,
+    });
+    eval(fetch(jsUrl));
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.myui-content__detail&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.myui-vodlist__thumb&&img&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, 'p,2&&Text') + '\n' + parseDomForHtml(details, 'p,3&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, 'p,-3&&Text'); //简介
+    var dataLine = details.match(/<p[\s\S]*?<\/p>/g)
+    dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+
+    var lazy =
+    `@lazyRule=.embed-responsive&&script&&Html.js:eval(input);var url=player_aaaa.url; if(url.indexOf('html')==-1){url}`
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.myui-content__list');
+    var linelist = parseDomForArray(html, 'body&&.nav&&li');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'coke_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('coke_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXCOKE
+//JXUNSS
+var jx_unss = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/black/black.js'));
+    init({});
+    //eval(fetch(jsUrl));
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.myui-content__detail&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.myui-vodlist__thumb&&img&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, 'p,-3&&Text') + '\n' + parseDomForHtml(details, 'p,-2&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, 'p,-1&&Text'); //简介
+    var dataLine = details.match(/<p[\s\S]*?<\/p>/g)
+    dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+
+    var lazy = `@lazyRule=.js:var url=unescape(JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]).url);if(/.html|bilibili/.test(url)){var input=url;` + lazy + `}else{url+'#isVideo=true#'}`;
+
+    //线路
+    var conts = parseDomForArray(html,'body&&.myui-content__list');
+    var linelist = parseDomForArray(html, 'body&&.nav&&li');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'unss_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('unss_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    //}catch(e){ }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXUNSS
