@@ -526,14 +526,14 @@ var jx_jpys = (lazyRule)=>{
 
     d.push({title: '<br>', col_type: 'rich_text'});
     //}catch(e){ }
-    var rule = $("").rule(() => {
+    /*var rule = $("").rule(() => {
         var html = getResCode();
 
         var title = parseDomForHtml(html, '.myui-content__detail&&p,1&&Text');
         setResult(title);
     }).replace("@rule=", "");
     // setError(rule)
-    setLastChapterRule(rule);
+    setLastChapterRule(rule);*/
 
     res.data=d;
     setHomeResult(res);

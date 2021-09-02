@@ -2,7 +2,7 @@
 //SEARCHALL
 const allList =  ["极品", "淘淘", "555", "奈菲", "奈非星", "美剧网", "新动漫", "奇米", "影映", "韩剧网", "奇遇", "白熊", "骚火", "闪电", "美剧虫", "冷月", "179", "久久", "爱迪","蘑菇","757",'速看','麻花','妮妮萌','鬼片之家','速搜','恐怖鸭','冬瓜','迪迪','忆漫'];
 //SEARCHALL
-const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/vodsearch/关键词----------fypage---.html',key:'极品'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html', key:'淘淘'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/vodsearch/关键词----------fypage---.html', key:'555'},{ title:'爱迪影视', reg: 'aidi', search:'https://aidi.tv/vsearch/关键词----------fypage---.html', key:'爱迪'},{ title:'恐怖鸭', reg: 'kby', search:'https://yanetflix.com/index.php/vod/search/page/fypage/wd/关键词.html', key:'恐怖鸭'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype=', key:'奈菲'},{ title:'奈非星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/', key:'奈非星'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html', key:'美剧网'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html', key:'新动漫'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html', key:'奇米'},{title:'妮妮萌', reg: 'nnm', search: 'https://www.ninimeng.com/vodsearch/关键词----------fypage---.html', key:'妮妮萌'},{title: '鬼片之家', reg: 'gpzj', search: 'https://www.guipian456.com/search.php?page=fypage&searchword=关键词&searchtype=', key:'鬼片之家'},{title: '麻花电影', reg: 'mhdy', search: 'https://www.ubo110.com/search/关键词----------fypage---.html', key:'麻花'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html', key:'影映'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html', key:'奇遇'},{title: '韩剧网', reg:'hjw97', search:'http://www.97hanju.co/vodsearch/关键词----------fypage---/', key:'韩剧网'},{ title:'白熊', reg: 'bx', search:'https://www.woobm.cn/vod/search/page/fypage/wd/关键词.html', key:'白熊'},{ title:'骚火', reg: 'saohuo', search:'https://v.saohuo.la/search.php?page=fypage&searchword=关键词&searchtype=', key:'骚火'},{title:'闪电影院', reg: 'k1080', search:'https://www.ak1080.com/vodsearch/关键词----------fypage---.html', key:'闪电'},{ title:'蘑菇', reg: 'mogu', search:'http://www.mogu11.com/sosuo/page/fypage/wd/关键词/', key:'蘑菇'},{ title:'冬瓜电影', reg: 'dgdy', search:'https://www.dgyytv.com/vodsearch/wd/关键词-fypage.html', key:'冬瓜'},{ title:'757', reg: 'ys757', search:'https://www.757vcd.com/vod/search/page/fypage/wd/关键词.html', key:'757'},{ title:'速看影视', reg: 'skys', search:'https://www.sukhdw.com/search/wd/关键词/page/fypage.html', key:'速看'},{title: '速搜', reg: 'susou', search: 'https://www.susou.tv/index.php/vod/search/page/fypage/wd/关键词.html', key:'速搜'},{ title:'迪迪影院', reg: 'didi', search:'https://www.4ytv.com/index.php/vod/search/page/fypage/wd/关键词.html', key:'迪迪'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/关键词----------fypage---.html', key:'美剧虫'},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html', key:'冷月'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html', key:'179'},{ title:'久久影院', reg: 'jjys', search:'https://www.jiujiuyingsi.com/s/关键词/fypage.html', key:'久久'},{ title:'忆漫影视', reg: 'ymys', search:'https://kan.yimmh.com/vodsearchy/关键词----------fypage---.html', key:'忆漫'}];
+const movielists = [{title:'极品影视', reg: 'jpys', search: 'https://www.jpysvip.net/index.php/ajax/suggest?mid=1&wd=关键词&limit=9',key:'极品'},{title:'电影淘淘', reg: 'taotao', search:'http://www.flvwec.com/index.php/vod/search/page/fypage/wd/关键词.html', key:'淘淘'},{title:'555', reg: 'fivefive', search:'https://www.o8tv.com/vodsearch/关键词----------fypage---.html', key:'555'},{ title:'爱迪影视', reg: 'aidi', search:'https://aidi.tv/vsearch/关键词----------fypage---.html', key:'爱迪'},{ title:'恐怖鸭', reg: 'kby', search:'https://yanetflix.com/index.php/vod/search/page/fypage/wd/关键词.html', key:'恐怖鸭'},{ title:'奈菲影视', reg: 'nfmovie', search:'https://www.nfmovies.com/search.php?page=fypage&searchword=关键词&searchtype=', key:'奈菲'},{ title:'奈非星', reg: 'nfx', search:'https://nfxhd.com/vodsearch/关键词----------fypage---/', key:'奈非星'},{ title:'美剧网', reg: 'mjhd', search:'https://mjhd.tv/vodsearch/关键词----------fypage---.html', key:'美剧网'},{title:'新动漫', reg:'xsj', search: 'https://m.dm45.com/search/关键词-fypage.html', key:'新动漫'},{title:'奇米动漫', reg: 'qimi', search: 'http://www.qimiqimi.co/vod/search/wd/关键词/page/fypage.html', key:'奇米'},{title:'妮妮萌', reg: 'nnm', search: 'https://www.ninimeng.com/vodsearch/关键词----------fypage---.html', key:'妮妮萌'},{title: '鬼片之家', reg: 'gpzj', search: 'https://www.guipian456.com/search.php?page=fypage&searchword=关键词&searchtype=', key:'鬼片之家'},{title: '麻花电影', reg: 'mhdy', search: 'https://www.ubo110.com/search/关键词----------fypage---.html', key:'麻花'},{title: '影映剧场', reg: 'yyjc', search: 'https://www.acmdy.com/vodsearch/page/fypage/wd/关键词.html', key:'影映'},{ title:'新奇遇', reg: 'nqy', search:'https://www.newqiyu.com/search/关键词----------fypage---.html', key:'奇遇'},{title: '韩剧网', reg:'hjw97', search:'http://www.97hanju.co/vodsearch/关键词----------fypage---/', key:'韩剧网'},{ title:'白熊', reg: 'bx', search:'https://www.woobm.cn/vod/search/page/fypage/wd/关键词.html', key:'白熊'},{ title:'骚火', reg: 'saohuo', search:'https://v.saohuo.la/search.php?page=fypage&searchword=关键词&searchtype=', key:'骚火'},{title:'闪电影院', reg: 'k1080', search:'https://www.ak1080.me/vodsearch/关键词----------fypage---.html', key:'闪电'},{ title:'蘑菇', reg: 'mogu', search:'http://www.mogu11.com/sosuo/page/fypage/wd/关键词/', key:'蘑菇'},{ title:'冬瓜电影', reg: 'dgdy', search:'https://www.dgyytv.com/vodsearch/wd/关键词-fypage.html', key:'冬瓜'},{ title:'757', reg: 'ys757', search:'https://www.757vcd.com/vod/search/page/fypage/wd/关键词.html', key:'757'},{ title:'速看影视', reg: 'skys', search:'https://www.sukhdw.com/search/wd/关键词/page/fypage.html', key:'速看'},{title: '速搜', reg: 'susou', search: 'https://www.susou.tv/index.php/vod/search/page/fypage/wd/关键词.html', key:'速搜'},{ title:'迪迪影院', reg: 'didi', search:'https://www.4ytv.com/index.php/vod/search/page/fypage/wd/关键词.html', key:'迪迪'},{ title:'美剧虫', reg: 'mjc', search:'https://www.meijuchong.com/vodsearch/关键词----------fypage---.html', key:'美剧虫'},{ title:'冷月', reg: 'lengyue', search:'https://www.lengyue.app/index.php/vod/search/page/fypage/wd/关键词.html', key:'冷月'},{ title:'179', reg: 'ge179', search:'http://www.179u.com/s/关键词----------fypage---.html', key:'179'},{ title:'久久影院', reg: 'jjys', search:'https://www.jiujiuyingsi.com/s/关键词/fypage.html', key:'久久'},{ title:'忆漫影视', reg: 'ymys', search:'https://kan.yimmh.com/vodsearchy/关键词----------fypage---.html', key:'忆漫'}];
 const data = {
     mjc: {
         index:'https://www.meijuchong.com',
@@ -1306,8 +1306,8 @@ const data = {
         nav: [{},{title:'电影片库', url: 'https://z3.ax1x.com/2021/06/09/2szetf.png'},{title:'电视剧', url: 'https://z3.ax1x.com/2021/06/09/2szu9S.png'},{title:'动漫', url: 'https://z3.ax1x.com/2021/06/09/2szZAP.png'}]
     },
     k1080: {
-        index: 'https://www.ak1080.com/',
-        router: ['hiker://empty','https://www.ak1080.com/vodshow/1-地区-排序-分类-----fypage---.html','https://www.ak1080.com/vodshow/2-地区-排序-分类-----fypage---.html','https://www.ak1080.com/vodshow/3-地区-排序-分类-----fypage---.html','https://www.ak1080.com/vodshow/4-地区-排序-分类-----fypage---.html'],
+        index: 'https://www.ak1080.me/',
+        router: ['hiker://empty','https://www.ak1080.me/vodshow/1-地区-排序-分类-----fypage---.html','https://www.ak1080.me/vodshow/2-地区-排序-分类-----fypage---.html','https://www.ak1080.me/vodshow/3-地区-排序-分类-----fypage---.html','https://www.ak1080.me/vodshow/4-地区-排序-分类-----fypage---.html'],
         type: [{},
             {
                 fyclass:{
@@ -2372,6 +2372,7 @@ var hikerHomePage = (lazyData)=>{
         if( /meijuchong/.test( getVar('pageUrl', data.jpys.index) ) ){
             mjc_lazy!=undefined? mjcindex(d, data, mjc_lazy) : mjcindex(d, data);
         }else if( /flvwec/.test( getVar('pageUrl', data.jpys.index) ) ){
+            testUrl(data.taotao.index);
             taotaoindex(d,data);
         }else if(/o8tv/.test(getVar('pageUrl', data.jpys.index))){
             fiveindex(d,data);
@@ -2385,6 +2386,7 @@ var hikerHomePage = (lazyData)=>{
             hikerpre();
             nfmovieindex(d,data);
         }else if(/nfxhd/.test(getVar('pageUrl', data.jpys.index))){
+            testUrl(data.nfx.index);
             nfxindex(d,data);
         }else if(/mjhd/.test(getVar('pageUrl', data.jpys.index))){
             mjhdindex(d,data);
@@ -2536,11 +2538,11 @@ var taotaoindex = (d, data)=>{
                     var list = parseDomForArray(html, '.myui-vodlist&&li');
                     for (var i in list) {
                         d.push({
-                            title: parseDomForHtml(list[i], '.title&&Text'),
-                            img: parseDom(list[i], '.myui-vodlist__thumb&&data-original'),
+                            title: parseDomForHtml(list[i], 'a&&title'),
+                            img: parseDom(list[i], 'a&&data-original'),
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
+        $(parseDom(list[i], 'a&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                             col_type: "movie_3"
                         })
                     }
@@ -2562,11 +2564,11 @@ var taotaoindex = (d, data)=>{
                 var list = parseDomForArray(html, '.myui-vodlist&&li');
                 for (var i in list) {
                     d.push({
-                        title: parseDomForHtml(list[i], '.title&&Text'),
-                        img: parseDom(list[i], '.myui-vodlist__thumb&&data-original'),
+                        title: parseDomForHtml(list[i], 'a&&title'),
+                        img: parseDom(list[i], 'a&&data-original'),
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
+    $(parseDom(list[i], 'a&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                         col_type: "movie_3"
                     })
                 }
@@ -2576,11 +2578,11 @@ var taotaoindex = (d, data)=>{
         });
         for (var j in list) {
             d.push({
-                title: parseDomForHtml(list[j], '.title&&Text'),
-                img: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
+                title: parseDomForHtml(list[j], 'a&&title'),
+                img: parseDom(list[j], 'a&&data-original'),
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                 url: 
-$(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
+$(parseDom(list[j], 'a&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                 col_type: "movie_3"
             });
         }
@@ -2679,7 +2681,7 @@ var jpysindex = (d,data, lazyRule)=>{
                             img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                             url: 
-        $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys() }, lazyRule),
+        $(parseDom(list[i], '.myui-vodlist__thumb&&href')+ '#immersiveTheme#').rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys() }, lazyRule),
                             col_type: "movie_3"
                         })
                     }
@@ -2706,7 +2708,7 @@ var jpysindex = (d,data, lazyRule)=>{
                         img: parseDom(list[i], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic-text&&Text'),
                         url: 
-    $(parseDom(list[i], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}, lazyRule),
+    $(parseDom(list[i], '.myui-vodlist__thumb&&href')+ '#immersiveTheme#').rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}, lazyRule),
                         col_type: "movie_3"
                     })
                 }
@@ -2719,7 +2721,7 @@ var jpysindex = (d,data, lazyRule)=>{
                 title: parseDomForHtml(list[j], '.myui-vodlist__thumb&&title'),
                 img: parseDom(list[j], '.myui-vodlist__thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')).rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}, lazyRule),
+                url: $(parseDom(list[j], '.myui-vodlist__thumb&&href')+ '#immersiveTheme#').rule((lazyRule) => { eval(fetch('hiker://files/rules/black/B_play.js')); lazyRule!=undefined? jx_jpys(lazyRule): jx_jpys();}, lazyRule),
                 col_type: "movie_3"
             });
         }
@@ -3739,7 +3741,7 @@ var aidi = (d, data)=>{
                             img: parseDom(list[i], '.vodlist_thumb&&data-original')+'@Referer=',
                             desc: parseDomForHtml(list[i], '.pic_text&&Text'),
                             url: 
-        $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi();}),
+        $(parseDom(list[i], '.vodlist_thumb&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi();}),
                             col_type: "movie_3"
                         })
                     }
@@ -3766,7 +3768,7 @@ var aidi = (d, data)=>{
                         img: parseDom(list[i], '.vodlist_thumb&&data-original')+'@Referer=',
                         desc: parseDomForHtml(list[i], '.pic_text&&Text'),
                         url: 
-    $(parseDom(list[i], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi();}),
+    $(parseDom(list[i], '.vodlist_thumb&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi();}),
                         col_type: "movie_3"
                     })
                 }
@@ -3779,7 +3781,7 @@ var aidi = (d, data)=>{
                 title: parseDomForHtml(list[j], '.vodlist_thumb&&title'),
                 img: parseDom(list[j], '.vodlist_thumb&&data-original')+'@Referer=',
                 desc: parseDomForHtml(list[j], '.pic_text&&Text'),
-                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi();}),
+                url: $(parseDom(list[j], '.vodlist_thumb&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi();}),
                 col_type: "movie_3"
             });
         }
@@ -4621,7 +4623,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 title:parseDomForHtml(list[i],'a&&title'),
                                 desc:parseDomForHtml(list[i],'.pic-tag&&Text'),
                                 pic_url:parseDomForHtml(list[i],'a&&data-original'),
-                                url:$(parseDom(list[i], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
+                                url:$(parseDom(list[i], 'a&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                                 content:parseDomForHtml(list[i],'p.hidden-xs&&Text')
                             });
                         }
@@ -4635,19 +4637,18 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic-text&&Text'),
                                 content: parseDomForHtml(list[j], 'p,-2&&Text'),
                                 pic_url: parseDom(list[j], '.myui-vodlist__thumb&&data-original'),
-                                url: $(parseDom(list[j], '.btn-warm&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_555() })
+                                url: $(parseDom(list[j], '.btn-warm&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_555() })
                            });
                         }
                     }catch(e){}
                 }else if(/jpysvip/.test(MY_URL)){
-                    var list = parseDom(html, '.myui-vodlist__media&&Html').match(/<li[\s\S]*?<\/li/g);
+                    var list = JSON.parse(html).list;
                     for (var j = 0; j < list.length; j++) {
+                        var jsurl = 'https://www.jpysvip.net/voddetail/'+list[j].id+'.html';
                         d.push({
-                            title: parseDomForHtml(list[j], 'h4&&Text'),
-                            desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                            pic_url: parseDom(list[j], '.lazyload&&data-original'),
-                            content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                            url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/black/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
+                            title: list[j].name,
+                            pic_url: list[j].pic,
+                            url: $(jsurl+ '#immersiveTheme#').rule((jpys_lazy) => { eval(fetch('hiker://files/rules/black/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
                         });
                     }
                 }else if(/lengyue/.test(MY_URL)){
@@ -4835,7 +4836,7 @@ var searchmovie = (lazyData, keydata)=>{
                                 desc: parseDomForHtml(list[j], '.pic_text&&Text'),
                                 pic_url: parseDom(list[j], '.vodlist_thumb&&data-original'),
                                 content:parseDomForHtml(list[j], '.vodlist_sub,-1&&Text'),
-                                url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi() })
+                                url: $(parseDom(list[j], '.vodlist_thumb&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi() })
                             });
                     }}catch(e){} 
                 }else if(/mogu/.test(MY_URL)){
@@ -5044,16 +5045,15 @@ var searchmovie = (lazyData, keydata)=>{
                     case 'jpys':
                         MY_URL = data.jpys.index;
                         try{
-                            var list = parseDomForArray(html, '.myui-vodlist__media&&li');
+                            var list = JSON.parse(html).list;
                             if(list == null) continue;            
                             var len = list.length>9 ? 9 : list.length;
                             for (var j = 0; j < len; j++) {
+                                var jsurl = 'https://www.jpysvip.net/voddetail/'+list[j].id+'.html';
                                 d.push({
-                                    title: parseDomForHtml(list[j], 'h4&&Text'),
-                                    desc: parseDomForHtml(list[j], '.pic-text&&Text'),
-                                    pic_url: parseDom(list[j], '.lazyload&&data-original'),
-                                    content:parseDomForHtml(list[j], '.detail--h4&&Text'),
-                                    url: $(parseDom(list[j], 'h4&&a&&href')).rule((jpys_lazy) => { eval(fetch('hiker://files/rules/black/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
+                                    title: list[j].name,
+                                    pic_url: list[j].pic,
+                                    url: $(jsurl+ '#immersiveTheme#').rule((jpys_lazy) => { eval(fetch('hiker://files/rules/black/B_play.js')); jpys_lazy!=undefined? jx_jpys(jpys_lazy) : jx_jpys();},jpys_lazy),
                                 });
                             }
                         }catch(e){} 
@@ -5070,7 +5070,7 @@ var searchmovie = (lazyData, keydata)=>{
                                     title:parseDomForHtml(list[j],'a&&title'),
                                     desc:parseDomForHtml(list[j],'.pic-tag&&Text'),
                                     pic_url:parseDomForHtml(list[j],'a&&data-original'),
-                                    url:$(parseDom(list[j], 'a&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
+                                    url:$(parseDom(list[j], 'a&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_taotao() }),
                                     content:parseDomForHtml(list[j],'p.hidden-xs&&Text')
                                 });
                             }
@@ -5373,7 +5373,7 @@ var searchmovie = (lazyData, keydata)=>{
                                         desc: parseDomForHtml(list[j], '.pic_text&&Text'),
                                         pic_url: parseDom(list[j], '.vodlist_thumb&&data-original'),
                                         content:parseDomForHtml(list[j], '.vodlist_sub,-1&&Text'),
-                                        url: $(parseDom(list[j], '.vodlist_thumb&&href')).rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi() })
+                                        url: $(parseDom(list[j], '.vodlist_thumb&&href')+ '#immersiveTheme#').rule(() => { eval(fetch('hiker://files/rules/black/B_play.js')); jx_aidi() })
                                     });
                                 }catch(e){''}
                             }

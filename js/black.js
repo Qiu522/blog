@@ -426,7 +426,7 @@ var setMovieDetail = (dataObj)=>{
         desc: _desc.substr(0,20),
         img: _img,
         url: hasStore!=undefined? sUrl : _img + '#.jpg',
-        col_type: 'movie_1_vertical_pic'
+        col_type: 'movie_1_vertical_pic_blur'
     });
 
     d.push({

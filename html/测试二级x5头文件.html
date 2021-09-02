@@ -1,0 +1,149 @@
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="Cache-Control" content="no-siteapp"> 
+   <meta http-equiv="Cache-Control" content="no-transform"> 
+   <meta name="applicable-device" content="pc,mobile"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1"> 
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+   <title>二级头文件by糖果超甜</title>
+    <style type="text/css">
+       body{
+           display: flex;
+       }
+	   
+        .kapian{
+            z-index: 9;/* 层级最高 */
+		    position: relative;
+			top: 15px;
+			left: 2%;
+			width: 150px;
+            height: 200px;
+		/* 	margin:0 auto; */
+            border-radius: 10px;
+            background-color: #fff;
+			box-shadow: 0 20px 22px -25px black;
+            /* box-shadow: 2px 3px 3px rgb(139, 138, 138); */
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .kapian:hover{/* 点击后效果 */
+            box-shadow: 2px 3px 10px rgb(36, 35, 35);
+			border-radius: 20px;
+        }
+        .tu{
+           position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 300px; 
+            overflow: hidden;
+			
+             
+        }
+        .tu img{
+            width: 100%;
+            height: auto;
+            transition: all 0.5s;
+        }
+        .kapian:hover .tu img{/* 点击后效果 */
+            transform: scale(1.6);
+            filter: blur(3px); 
+        }
+        .wenben{
+            position: absolute;
+            bottom: -100px;
+            width: 100%;
+            height: 200px;
+            border-radius: 0px;
+            background-color: rgb(247, 242, 242);
+			opacity:0.6;/* 白色遮罩透明度 */
+            transition: 0.1s;
+        }
+        .kapian:hover .wenben{
+			
+            bottom: 0px; /* 点击后效果 */
+        }
+        .wenben h2{
+            color: rgb(21, 74, 172);
+            line-height: 60px;
+            text-align: center;
+ 
+        }
+        .wenben p{
+			color: rgb(0, 0, 0);
+            padding: 0 30px;
+            font-family: 'fangsong';
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 20px;
+            text-align: center;
+			top:30px;
+        }
+	
+		.bg{
+			overflow: hidden;
+			position: absolute;
+			background-size: cover; 
+			width: 200%;
+			height: 220px;
+			left: 0;
+
+			filter: blur(10px);
+			z-index: 1;
+		   }
+        .linear{
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			right: 0;
+			/* bottom: -1000; */
+			left: 0;
+
+            background-image: linear-gradient(to top,rgba(255, 255, 255, 1.0),rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.8));
+            height: 240px;    
+			width: 100%;
+			filter: blur(0px);
+			z-index: 2;/* 层级最高 */
+	</style>
+	
+	
+</head>
+
+
+
+<body>
+    <div class="box">
+        
+    </div>
+
+    <script>
+        var box = document.querySelector('.box');
+        /*var data = {
+            img: 'https://oss.wwdianying.net/dy/fe412ec4fd745b56b06f6e0b22ca2fdc',
+            title: '浪客剑心'
+        }*/
+        var data = JSON.parse( fy_bridge_app.getVar("movieDetail"));
+
+        box.innerHTML = `<div class="linear"></div>
+        <div class="bg">
+            <img src=${data.img}>
+        </div>
+        <div class="kapian">
+            <div class="tu">
+                <img src=${data.img}>
+            </div>
+            <div class="wenben">
+                    <h2>${data.title}</h2>
+                    <p style="padding-bottom: 20px;">影片简介</p>
+                    <p>
+                    "打雷了 我担心你害怕打雷声 就一早跑到你家楼下 可能是心灵的呼唤使你打开了窗户 那一刻我感觉我是世界少最幸福的人 你打开窗户对我喊：惊雷 这通天修为天塌地陷紫晶锤 虽然我不知道是什么意思 我就当作你向我表白吧"
+                    </p>
+            </div>
+            
+        </div>`;
+    
+    </script>
+</body>
+</html>
