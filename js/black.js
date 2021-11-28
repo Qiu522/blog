@@ -192,7 +192,7 @@ var init = (iniData)=>{
                 if (getVar('fyClass'+index, ' 已展开') == ' 已展开') {
                     for (var a = 0; a < fyclass_data.length; a++) {
                             
-                        var title=fyclass_data[a]==getVar('fyClass_data'+index, fyclass_data[0])?"““””<b>"+'<span style="color: #f47983">'+fyclass_data[a]+'</span></b>':fyclass_data[a];
+                        var title=fyclass_data[a]==getVar('fyClass_data'+index, fyclass_data[fyclass.def])?"““””<b>"+'<span style="color: #f47983">'+fyclass_data[a]+'</span></b>':fyclass_data[a];
                             d.push({
                                 title:title,
                                 url: $("#noLoading#").lazyRule((fyclass_data,fyclass_jsda,index)=>{

@@ -2135,7 +2135,7 @@ var jx_kby = ()=>{
     });
     var moviename = parseDomForHtml(html, 'h1&&Text')
     searchMovie(moviename);
-
+    try{
     //线路
     var conts = parseDomForArray(html,'body&&.module-tab-content:has(.sort-item)');
     var linelist = parseDomForArray(html, 'body&&.module-tab-content:has(.tab-item)&&.tab-item');
@@ -2159,7 +2159,9 @@ var jx_kby = ()=>{
     });
 
     d.push({title: '<br>', col_type: 'rich_text'});
-    //}catch(e){ }
+    }catch(e){ 
+    d.push({title: '暂时没有资源', col_type: 'text_center_1'});
+    }
 
     res.data=d;
     setHomeResult(res);
@@ -2177,6 +2179,7 @@ var jx_didi = ()=>{
 
     var lazy =  `@lazyRule=.myui-player__video&&script&&Html.js:eval(input.replace(/player_.*?={/,'player_aaaa={'));var url=player_aaaa.url;var fr=player_aaaa.from; if(fr=='alizy'){var html = fetch('https://api.xkvideo.design/m3u8.php?url='+url);var urll=html.match(/"url":"(.*?)"/)[1];var bt_token = html.match(/bt_token = "(.*?)"/)[1];eval(base64Decode('ZXZhbChnZXRDcnlwdG9KUygpKTsKIAkJCQogIAkJCXZhciB0b2tlbl9rZXk9Q3J5cHRvSlMuZW5jLlV0ZjgucGFyc2UoImR2eVlSUWxuUFJDTWRRU2UiKTsKICAJCQl2YXIgdG9rZW5faXYgPSBDcnlwdG9KUy5lbmMuVXRmOC5wYXJzZShidF90b2tlbik7CgogZnVuY3Rpb24gRGVjcnlwdCh3b3JkKSB7CiAgICB2YXIgdyA9IHdvcmQ7CiAgICB2YXIgZGVjcnlwdGVkID0gQ3J5cHRvSlMuQUVTLmRlY3J5cHQodywgdG9rZW5fa2V5LAogICAgICAgIHsKICAgICAgICAgJ2l2Jzp0b2tlbl9pdiwKICAgICAgICAnbW9kZSc6Q3J5cHRvSlMubW9kZS5DQkMKICAgICAgICB9KTsKICAgICByZXR1cm4gZGVjcnlwdGVkLnRvU3RyaW5nKENyeXB0b0pTLmVuYy5VdGY4KTsKfQ=='));Decrypt(urll)}else if(url.match(/youku|mgtv|ixigua|qq.com|qiyi|migu|bili|sohu|pptv|letv|le/)){var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));aytmParse(url)}else{url}`;
     //影片详情
+   
     var details = parseDomForHtml(html, '.myui-content__detail&&Html'); //影片信息
     var _img = parseDomForHtml(html, 'body&&.myui-vodlist__thumb&&img&&data-original'); //图片
 
@@ -2194,6 +2197,7 @@ var jx_didi = ()=>{
     searchMovie(moviename);
 
     //线路
+    try{
     var conts = parseDomForArray(html,'body&&.myui-content__list');
     var linelist = parseDomForArray(html, 'body&&.nav&&li');
     var tabs = [];
@@ -2215,7 +2219,9 @@ var jx_didi = ()=>{
     });
 
     d.push({title: '<br>', col_type: 'rich_text'});
-    //}catch(e){ }
+    }catch(e){ 
+    d.push({title: '暂时没有资源', col_type: 'text_center_1'});
+    }
     var rule = $("").rule(() => {
         var html = getResCode();
 
@@ -2260,7 +2266,7 @@ var jx_ymys = ()=>{
     var moviename = parseDomForHtml(html, 'body&&.mo-main-info&&dd&&h1&&Text');
     searchMovie(moviename);
 
-
+    try{
     //线路
     var conts = parseDomForArray(html,'body&&.mo-cols-lays:has(.mo-movs-item)&&.mo-movs-item');
     var linelist = parseDomForArray(html, 'body&&.mo-cols-lays:has(.mo-movs-item)&&h2&&a');
@@ -2283,7 +2289,9 @@ var jx_ymys = ()=>{
     });
 
     d.push({title: '<br>', col_type: 'rich_text'});
-    //}catch(e){ }
+    }catch(e){ 
+    d.push({title: '暂时没有资源', col_type: 'text_center_1'});
+    }
     //body&&.mo-main-info&&dd&&ul&&li,-2
     var rule = $("").rule(() => {
         var html = getResCode();
@@ -2334,10 +2342,13 @@ var jx_coke = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
 
     var lazy =
     `@lazyRule=.embed-responsive&&script&&Html.js:eval(input);var url=player_aaaa.url; if(url.indexOf('html')==-1){url}`
 
+    try{
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
     var linelist = parseDomForArray(html, 'body&&.nav&&li');
@@ -2360,7 +2371,9 @@ var jx_coke = ()=>{
     });
 
     d.push({title: '<br>', col_type: 'rich_text'});
-    //}catch(e){ }
+    }catch(e){ 
+    d.push({title: '暂时没有资源', col_type: 'text_center_1'});
+    }
 
     res.data=d;
     setHomeResult(res);
@@ -2388,9 +2401,11 @@ var jx_unss = ()=>{
         _img: _img,
         dataLine: dataLine
     });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
 
     var lazy = `@lazyRule=.js:var url=unescape(JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]).url);if(/.html|bilibili/.test(url)){var input=url;` + lazy + `}else{url+'#isVideo=true#'}`;
-
+    try{
     //线路
     var conts = parseDomForArray(html,'body&&.myui-content__list');
     var linelist = parseDomForArray(html, 'body&&.nav&&li');
@@ -2413,9 +2428,196 @@ var jx_unss = ()=>{
     });
 
     d.push({title: '<br>', col_type: 'rich_text'});
-    //}catch(e){ }
+    
+    }catch(e){ 
+    d.push({title: '暂时没有资源', col_type: 'text_center_1'});
+    }
 
     res.data=d;
     setHomeResult(res);
 }
 //JXUNSS
+//JXHFYS
+var jx_hfys = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/black/black.js'));
+    init({
+    isDn: true,
+    });
+    eval(fetch(jsUrl));
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.myui-content__detail&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.myui-content__thumb&&img&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, 'p,-2&&Text') + '\n' + parseDomForHtml(details, 'p,-3&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, 'p,-1&&Text'); //简介
+    var dataLine = details.match(/<p[\s\S]*?<\/p>/g)
+    //dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img+'@Referer=',
+        dataLine: dataLine
+    });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
+
+    var lazy = `@lazyRule=.embed-responsive&&script&&Html.js:eval(input.replace(/player_.*?={/,'player_aaaa={'));var url=player_aaaa.url;if(url.match(/youku|mgtv|ixigua|qq.com|qiyi|migu|bili|sohu|pptv|letv/)){var jsUrl=getVar('jsUrl');eval(fetch(jsUrl));aytmParse(url)}else{url+'#isVideo=true#'}`;
+
+    try{
+    //线路
+    var conts = parseDomForArray(html,'body&&.myui-content__list');
+    var linelist = parseDomForArray(html, 'body&&.nav:has(.item)&&.item&&li');
+
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'hfys_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('hfys_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    }catch(e){ 
+    d.push({title: '暂时没有资源', col_type: 'text_center_1'});
+    }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXHFYS
+//JXLTYS
+var jx_ltys = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+
+    eval(fetch('hiker://files/rules/black/black.js'));
+    init({
+    isX5: true,
+    });
+    eval(fetch(jsUrl));
+
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.myui-content__detail&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.myui-content__thumb&&img&&data-original'); //图片
+
+    var _title = parseDomForHtml(details, 'p,-2&&Text') + '\n' + parseDomForHtml(details, 'p,-3&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, 'p,-1&&Text'); //简介
+    var dataLine = details.match(/<p[\s\S]*?<\/p>/g)
+    dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+    var moviename = parseDomForHtml(html, '.title&&Text')
+    searchMovie(moviename);
+
+    //免嗅来自Sm大佬
+    var lazy =  `@lazyRule=.embed-responsive&&script&&Html.js:eval(input.replace(/player_.*?={/,'player_data={'));var url  = player_data.url;url.indexOf('fangao')!=-1?fetch('https://www.rrzyw.cc/rrm3u8/index.php?url='+url,{}).match(/url: '(.*?)'/)[1]:url`;
+
+    try{
+    //线路
+    var conts = parseDomForArray(html,'body&&.myui-content__list');
+    var linelist = parseDomForArray(html, 'body&&.nav&&li');
+    var tabs = [];
+    for (var i in linelist) {
+    tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'ltys_line', setUrl]);
+
+    //选集
+    var lists =[];
+    for (var i in conts) {
+    lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+
+    setLists({
+    lists: lists,
+    index: getVar('ltys_line', '0'),
+    lazy: lazy
+    });
+
+    d.push({title: '<br>', col_type: 'rich_text'});
+    
+    }catch(e){ 
+    d.push({title: '暂时没有资源', col_type: 'text_center_1'});
+    }
+
+    res.data=d;
+    setHomeResult(res);
+}
+//JXLTYS
+//JXRRYS
+var jx_rrys = ()=>{
+    var res ,d ,html, jsUrl, setUrl; 
+    
+    eval(fetch('hiker://files/rules/black/black.js'));
+    init({
+      isX5: true,
+    });
+    eval(fetch(jsUrl));
+    
+    //影片详情
+    var details = parseDomForHtml(html, 'body&&.mo-main-info&&ul&&Html'); //影片信息
+    var _img = parseDomForHtml(html, 'body&&.mo-situ-pics&&data-original'); //图片
+    
+    var _title = parseDomForHtml(details, 'li,0&&Text') + '\n' + parseDomForHtml(details, 'li,1&&Text') + '\n'; //电影信息 导演 + 主演
+    var _desc = parseDomForHtml(details, 'li,-1&&Text'); //简介
+    var dataLine = details.match(/<li[\s\S]*?<\/li>/g)
+    dataLine.pop();
+    setMovieDetail({
+        _title: _title,
+        _desc: _desc,
+        _img: _img,
+        dataLine: dataLine
+    });
+    
+    var lazy = `@lazyRule=.mo-play-load&&data-play.js:url = base64Decode(input.slice(3))`;
+    
+    try{
+    var moviename = parseDomForHtml(html, 'body&&h1&&Text');
+    searchMovie(moviename);
+    
+    //线路
+    var conts = parseDomForArray(html,'body&&.mo-movs-item');
+    var linelist = parseDomForArray(html, 'body&&h2&&a');
+    var tabs = [];
+    for (var i in linelist) {
+      tabs.push(parseDomForHtml(linelist[i], 'a&&Text').replace(/.*独家专用线路/,'') );
+    }
+    setTabs([tabs, 'rrys_line', setUrl]);
+    
+    //选集
+    var lists =[];
+    for (var i in conts) {
+      lists.push(conts[i].match(/<li[\s\S]*?<\/li>/g));
+    }
+    
+    setLists({
+      lists: lists,
+      index: getVar('rrys_line', '0'),
+      lazy: lazy
+    });
+    
+    d.push({title: '<br>', col_type: 'rich_text'});
+    }catch(e){ 
+    d.push({title: '暂时没有资源', col_type: 'text_center_1'});
+    }
+    
+    res.data=d;
+    setHomeResult(res);
+}
+//JXRRYS
